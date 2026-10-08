@@ -4,7 +4,7 @@ This project trains a small vision and language policy to control a simulated Pa
 
 The project also has a small world model trained only on simulated arm episodes. It predicts future observations and compares nearby grasp commands. See the [world model guide](docs/WORLD_MODEL.md), [work plan](docs/WORLD_MODEL_PLAN.md), and [world model results](artifacts/world-v1/RESULTS.md).
 
-The next experiment tests a consistent grasp offset. Read the [experiment plan](docs/WORLD_MODEL_V2.md). Run `python -m tinyvla.world_iteration run` to reproduce its frozen comparison with the saved model weights.
+The [second world-model experiment](artifacts/world-v2/RESULTS.md) tests a consistent grasp offset. In 720 fresh simulation trials, feedback completed 150 of 200 tasks. Both JEPA variants completed 145 of 200. Each controller stopped before motion in 39 of 40 missing-object trials. Feedback remains the default. Read the [experiment plan](docs/WORLD_MODEL_V2.md) and [prediction audit](artifacts/world-v2/PREDICTION_AUDIT.md). Run `python -m tinyvla.world_iteration run` to reproduce the comparison with the saved model weights.
 
 ## Results
 

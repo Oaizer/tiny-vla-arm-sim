@@ -1,0 +1,106 @@
+{
+  "config": {
+    "data": {
+      "train_episodes": 800,
+      "validation_episodes": 100,
+      "test_episodes": 100,
+      "train_seed": 100000,
+      "validation_seed": 110000,
+      "test_seed": 120000,
+      "image_size": 64,
+      "history": 3
+    },
+    "training": {
+      "seed": 73,
+      "threads": 4,
+      "batch_size": 128,
+      "fixed_steps": 1200,
+      "jepa_steps": 2400,
+      "learning_rate": 0.0007,
+      "horizon": 3,
+      "latent_size": 96,
+      "hidden_size": 256,
+      "ema": 0.995
+    },
+    "planner": {
+      "candidates": 25,
+      "horizon": 3,
+      "uncertainty_weight": 0.2,
+      "change_penalty": 0.003,
+      "minimum_gain": 0.001,
+      "max_disagreement": 0.35,
+      "recovery_only": true
+    },
+    "evaluation": {
+      "development_seed": 130000,
+      "final_seed": 170000,
+      "episodes": 40,
+      "suites": [
+        "nominal",
+        "tipped",
+        "slip",
+        "object_moved",
+        "dynamics",
+        "missing"
+      ],
+      "inference_threads": 1
+    },
+    "development_name": "development-active",
+    "development_suites": [
+      "nominal",
+      "tipped",
+      "slip"
+    ],
+    "final_models": [
+      "jepa",
+      "coherent"
+    ],
+    "model_stages": {
+      "coherent": "jepa"
+    },
+    "model_root": "artifacts/world-v1/model",
+    "planner_variants": {
+      "coherent": {
+        "coherent_grasp": true
+      }
+    }
+  },
+  "hashes": {
+    "artifacts/model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "artifacts/world-v1/model/jepa.pt": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57",
+    "configs/project.json": "cdd559da88a9c39f0e6c2cb50ad57442fbd09a675e0b75e48b4ad8ba08cb4bcf",
+    "uv.lock": "dcbd89ed18b9c8c38a141e00a46d4873bcb0d525935596c8dd05dcd7ba818859",
+    "src/tinyvla/__init__.py": "a03d8463ac9c1d91f59027600dd507a762b38c4f7aa6d8a15b0d10f6ec2ddc8b",
+    "src/tinyvla/cli.py": "9caadd06b951d437cdeca4b32dddb4ea1ae2d30423f3185148a8186f2afb3e8d",
+    "src/tinyvla/controller.py": "06c8e167447128d38f7bbbc27a3921284fd82f9eac5d11a17bed5e3b8b4252bc",
+    "src/tinyvla/data.py": "8c24432611749f058556b963f705967759cb69cc9f2b5f542b5bbbc9b1af6566",
+    "src/tinyvla/evaluate.py": "181c5ecde0d33426d07ec1429dbdab7ad140db38af4e2efec2c07422f792ee99",
+    "src/tinyvla/language.py": "6fb0f8acbb994d5296458e562d5f479eb1c78ce1e840e502d9449225a061fb91",
+    "src/tinyvla/model.py": "2d4ca429e53a99bbb9a29486c436ba806e58321e0621bd488f7288ffc49424ff",
+    "src/tinyvla/replay.py": "c4092e052c8fe3ab0af0aabd8ff5546e30debe4ae9ee50eec738812c3508da5d",
+    "src/tinyvla/report.py": "859d739e9f7c6e6bb3f8707848f94843cd972707ad51c31d2c68f240677fb1b2",
+    "src/tinyvla/sim.py": "429cdd76e5eb69dfb2059b47fe5716548535f8e08aff650f840a44322a523a8f",
+    "src/tinyvla/train.py": "36c81e9adfa67efaad889ff1013229939b6b82eca056ecfda0124fd8b0000405",
+    "src/tinyvla/world_audit.py": "b0a303cf15ec1227a5c531b7cf9fc3bb71f9a3d49e6126b96f352af096bfc206",
+    "src/tinyvla/world_cli.py": "5b62c8123f009eaa43184c06cfd38a783e0c3f5621a837919c1c6d443c73f7e3",
+    "src/tinyvla/world_data.py": "ad2faa44f3627b870132fc5565542e08fa5f9160f9f5d46cbc22265f873caeca",
+    "src/tinyvla/world_evaluate.py": "97d381cd5de0e26927c8310d0ed4ccdcb60e927e2b6616d3d78d7f78050f5ef8",
+    "src/tinyvla/world_iteration.py": "410a0cb9e1e3c11ae39291276cc843da11553c6fada983c8191f856e49f69fb4",
+    "src/tinyvla/world_model.py": "772c1df736b0305e7a4a48b7b656cb044c3bd2e9fcbe41c48f1a958b960dc75c",
+    "src/tinyvla/world_planner.py": "7764ec62a293b127578604c42e28682127cc86a2c454ed6225dce36ce72f767e",
+    "src/tinyvla/world_replay.py": "d21f7b04f1e99f1f72f313f186f922f304257c437ee6f79ff76c62f0de674435",
+    "src/tinyvla/world_report.py": "e4f600cb5a104bd6fd583288631a91c37da9a826c5f72e534fc8f77edc0f99bc",
+    "src/tinyvla/world_train.py": "45180a186512f7229e827f0ccc22d9b8360168494623f6124224189ba934049c",
+    "tests/check_teacher.py": "7a88a3034d5e87b8eeff60edf2ce1e06e06f94b0a52a5a383a5544fdf692ed4e",
+    "tests/test_coherent_grasp.py": "bc0a10a3089217ee81d31e031f54679ec0a932dff8e2d43b876e00ef98e9bfa0",
+    "tests/test_controller.py": "657590fd9e5b5c063adc4272259f7a62107d5a2a37d9df5e0452be81c8e508a1",
+    "tests/test_project.py": "dc684bb1cdf023199f4be3c411eb19df970410710da79fd760cb9cfd6b0075e9",
+    "tests/test_world_interfaces.py": "1b997d60fe86d4a851db2739e6a46f51f5da978341184146f35ff047e1eb0bd7"
+  },
+  "source_commit": "4da4b1b3d4ce169f1e769f1ab657509442495843",
+  "python": "3.11.16",
+  "torch": "2.14.1+cpu",
+  "training_manifest_sha256": "47595da15f6fa0186e2d16dcff27fe88eff69817ae76a453da0ddc24ce7e42d1",
+  "hypothesis": "A consistent descent and closure offset reduces harmful planner interventions.",
+  "rule": "One frozen comparison. No tuning on these seeds. Keep feedback as default."
+}

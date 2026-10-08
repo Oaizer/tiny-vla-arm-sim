@@ -1,0 +1,707 @@
+{
+  "development": false,
+  "seconds": 742.4064211845398,
+  "suites": [
+    {
+      "suite": "nominal",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 37,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.8013546984090248,
+        0.9741644432281419
+      ],
+      "retries": 3,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 20.597401799997783,
+      "mean_control_seconds": 1.0267592496499995,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 6
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "nominal",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 37,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.8013546984090248,
+        0.9741644432281419
+      ],
+      "retries": 3,
+      "planner_calls": 3,
+      "changed_commands": 2,
+      "planner_p95_ms": 1.6401551000029713,
+      "feature_p95_ms": 24.006490899996177,
+      "mean_control_seconds": 1.1056453161750004,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 6
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "nominal",
+      "mode": "coherent",
+      "episodes": 40,
+      "successes": 37,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.8013546984090248,
+        0.9741644432281419
+      ],
+      "retries": 3,
+      "planner_calls": 1,
+      "changed_commands": 1,
+      "planner_p95_ms": 1.2059109999995599,
+      "feature_p95_ms": 20.46507960000667,
+      "mean_control_seconds": 1.0821568211750006,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 6
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 12,
+      "safe_stops": 5,
+      "wilson_95": [
+        0.18074670915695296,
+        0.454303106543204
+      ],
+      "retries": 25,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 21.468490899991366,
+      "mean_control_seconds": 0.6239532928249993,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 12,
+      "safe_stops": 5,
+      "wilson_95": [
+        0.18074670915695296,
+        0.454303106543204
+      ],
+      "retries": 26,
+      "planner_calls": 26,
+      "changed_commands": 26,
+      "planner_p95_ms": 2.095610749996979,
+      "feature_p95_ms": 21.596080950004644,
+      "mean_control_seconds": 0.6691670800999994,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "coherent",
+      "episodes": 40,
+      "successes": 12,
+      "safe_stops": 5,
+      "wilson_95": [
+        0.18074670915695296,
+        0.454303106543204
+      ],
+      "retries": 26,
+      "planner_calls": 7,
+      "changed_commands": 7,
+      "planner_p95_ms": 1.1854390000110016,
+      "feature_p95_ms": 20.821102899991214,
+      "mean_control_seconds": 0.6627444646999961,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 27,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.52017458088898,
+        0.7991568303733828
+      ],
+      "retries": 42,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 21.038029999999708,
+      "mean_control_seconds": 1.3713361399499973,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 5
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 3
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 22,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.39828829888440775,
+        0.6929492471905531
+      ],
+      "retries": 46,
+      "planner_calls": 111,
+      "changed_commands": 104,
+      "planner_p95_ms": 1.5918665000071996,
+      "feature_p95_ms": 21.13820250001197,
+      "mean_control_seconds": 1.4192563261500055,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 2
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "coherent",
+      "episodes": 40,
+      "successes": 22,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.39828829888440775,
+        0.6929492471905531
+      ],
+      "retries": 46,
+      "planner_calls": 31,
+      "changed_commands": 28,
+      "planner_p95_ms": 1.8458044999931644,
+      "feature_p95_ms": 21.29669119999562,
+      "mean_control_seconds": 1.4192762551000029,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 2
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 35,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.7388757932976187,
+        0.9454058022645873
+      ],
+      "retries": 5,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 21.33542205002641,
+      "mean_control_seconds": 1.0937970762249976,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 10
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 35,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.7388757932976187,
+        0.9454058022645873
+      ],
+      "retries": 5,
+      "planner_calls": 6,
+      "changed_commands": 5,
+      "planner_p95_ms": 1.3411152499998025,
+      "feature_p95_ms": 21.329156200010857,
+      "mean_control_seconds": 1.1465260567500066,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 10
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "coherent",
+      "episodes": 40,
+      "successes": 35,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.7388757932976187,
+        0.9454058022645873
+      ],
+      "retries": 5,
+      "planner_calls": 2,
+      "changed_commands": 1,
+      "planner_p95_ms": 3.5877823999214797,
+      "feature_p95_ms": 21.68565290002107,
+      "mean_control_seconds": 1.1519087065499918,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 10
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 39,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.8711834051199223,
+        0.9955732825922052
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 21.278119400017204,
+      "mean_control_seconds": 1.0421292562000048,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 39,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.8711834051199223,
+        0.9955732825922052
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 21.147697649979587,
+      "mean_control_seconds": 1.0866690673249935,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "coherent",
+      "episodes": 40,
+      "successes": 39,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.8711834051199223,
+        0.9955732825922052
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 21.214169649999803,
+      "mean_control_seconds": 1.0891942241500003,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 39,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 20.90901325001937,
+      "mean_control_seconds": 0.05003293967500895,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 39,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 20.587410300021244,
+      "mean_control_seconds": 0.06856462767500773,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "coherent",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 39,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 20.655826299974933,
+      "mean_control_seconds": 0.0677760352249976,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    }
+  ],
+  "policy_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "model_hashes": {
+    "jepa": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57",
+    "coherent": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57"
+  },
+  "config": {
+    "data": {
+      "train_episodes": 800,
+      "validation_episodes": 100,
+      "test_episodes": 100,
+      "train_seed": 100000,
+      "validation_seed": 110000,
+      "test_seed": 120000,
+      "image_size": 64,
+      "history": 3
+    },
+    "training": {
+      "seed": 73,
+      "threads": 4,
+      "batch_size": 128,
+      "fixed_steps": 1200,
+      "jepa_steps": 2400,
+      "learning_rate": 0.0007,
+      "horizon": 3,
+      "latent_size": 96,
+      "hidden_size": 256,
+      "ema": 0.995
+    },
+    "planner": {
+      "candidates": 25,
+      "horizon": 3,
+      "uncertainty_weight": 0.2,
+      "change_penalty": 0.003,
+      "minimum_gain": 0.001,
+      "max_disagreement": 0.35,
+      "recovery_only": true
+    },
+    "evaluation": {
+      "development_seed": 130000,
+      "final_seed": 170000,
+      "episodes": 40,
+      "suites": [
+        "nominal",
+        "tipped",
+        "slip",
+        "object_moved",
+        "dynamics",
+        "missing"
+      ],
+      "inference_threads": 1
+    },
+    "development_name": "development-active",
+    "development_suites": [
+      "nominal",
+      "tipped",
+      "slip"
+    ],
+    "final_models": [
+      "jepa",
+      "coherent"
+    ],
+    "model_stages": {
+      "coherent": "jepa"
+    },
+    "model_root": "artifacts/world-v1/model",
+    "planner_variants": {
+      "coherent": {
+        "coherent_grasp": true
+      }
+    }
+  }
+}

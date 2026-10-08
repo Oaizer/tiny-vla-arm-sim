@@ -25,3 +25,7 @@ Report task success across the five task conditions. Report stopping before moti
 Keep feedback as the default. One run with one trained model is insufficient to establish a reliable general gain. The new command reuses the version 1 weights and records their hashes, the training manifest hash, source hashes, runtime versions, and settings. It refuses to overwrite a protocol. Use `--root` for a new output folder; a rerun of the same seeds is a reproduction, not a new confirmation.
 
 Read `artifacts/world-v2/RESULTS.md`, `paired_results.json`, `prediction_audit.json`, and `FINAL_PROTOCOL.json` after completion. The interface test checks closure, lift, and interruption behavior. The arm comparison tests the effect on task outcomes.
+
+After both runs, use `python scripts/report_world_audit.py` to write the audit report and explain the shared metric fields. Then run `python scripts/verify_world_v2.py` to check the frozen input hashes, matched trial records, summary counts, and repeated simulator branches. It writes hashes for all version 2 output files.
+
+The log field `changed_commands` counts accepted planner choices. For the consistent-grasp variant, closure also receives the retained offset, but that application does not count as a new planner choice. Use planning-call counts to compare the number of model decisions.

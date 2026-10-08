@@ -1,0 +1,35 @@
+{
+  "suite": "slip",
+  "mode": "jepa",
+  "episodes": 40,
+  "successes": 22,
+  "safe_stops": 1,
+  "wilson_95": [
+    0.39828829888440775,
+    0.6929492471905531
+  ],
+  "retries": 46,
+  "planner_calls": 111,
+  "changed_commands": 104,
+  "planner_p95_ms": 1.5918665000071996,
+  "feature_p95_ms": 21.13820250001197,
+  "mean_control_seconds": 1.4192563261500055,
+  "by_object": {
+    "blue cube": {
+      "episodes": 8,
+      "successes": 8
+    },
+    "green cylinder": {
+      "episodes": 8,
+      "successes": 2
+    },
+    "red cube": {
+      "episodes": 12,
+      "successes": 11
+    },
+    "red cylinder": {
+      "episodes": 12,
+      "successes": 1
+    }
+  }
+}

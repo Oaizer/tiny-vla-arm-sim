@@ -44,3 +44,15 @@ The complete dataset has 56,321 executed commands: 45,429 in training, 5,155 in 
 - `train_data.json`, `validation_data.json`, `test_data.json`: the episode inventory.
 
 The report must distinguish a working world-model pipeline from a proven gain in robot success. Failed trials stay in the evidence.
+
+## Second experiment: keep the grasp offset consistent
+
+We inspected the version 1 paired outcomes. JEPA won two trials and lost five against feedback. All seven involved cylinders in tipped or slip scenes. We then replayed 25 candidate sequences from the first planning state in each of those seven trials. The selected sequence had a worse measured short-horizon score in all five old losses. Position error was 76.9 mm across the 137 candidate endpoints that stayed in the supported workspace. The repeated baseline branches reproduced their endpoints within one micrometre. These selected cases show a prediction and ranking problem; they do not estimate its frequency across all scenes.
+
+We tested one execution change. The planner selects an offset during open descent and keeps it through closure. The normal controller then handles lift. We held the weights, candidate set, score, and recovery trigger fixed. Nine interface and project tests passed. Commit `4da4b1b` and `artifacts/world-v2/FINAL_PROTOCOL.json` froze the evaluated source and inputs before the new test.
+
+The fresh comparison used 720 trials: three controllers, six conditions, and 40 trials per condition. Feedback completed 150 of 200 tasks. Original JEPA and the consistent-grasp variant each completed 145. Each planner had zero paired wins and five losses against feedback; the two-sided exact paired test gave p=0.0625. Each controller stopped before motion in 39 of 40 missing-object trials. Those missing-object trials are excluded from the task-success denominator.
+
+The consistent-grasp variant reduced planning calls from 146 to 41. Mean task control time was 1.032 seconds for feedback, 1.085 for original JEPA, and 1.081 for the new variant. Fewer planning calls did not produce better task outcomes or a material measured speed gain in this run. The logged `changed_commands` field counts accepted planner choices and excludes the new variant's repeated offset at closure.
+
+Feedback remains the default. The execution change is available only as an experimental variant. The next useful target is contact prediction and candidate ranking, using separate development scenes. Keep these final seeds for reproduction, not for choosing new settings. Read the version 2 report, prediction audit, paired trial records, and output manifest for the full evidence.

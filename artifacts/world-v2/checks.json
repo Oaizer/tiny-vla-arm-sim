@@ -1,0 +1,14 @@
+{
+  "source_commit": "4da4b1b",
+  "command": "python -m unittest discover -s tests -v",
+  "tests": 9,
+  "failures": 0,
+  "seconds": 1.215,
+  "result": "passed",
+  "coverage": [
+    "grasp closure keeps selected offset",
+    "lift receives original command",
+    "interruption clears selected offset",
+    "existing sensor and recovery contracts"
+  ]
+}
