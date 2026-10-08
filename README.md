@@ -6,6 +6,8 @@ The project also has a small world model trained only on simulated arm episodes.
 
 The [second world-model experiment](artifacts/world-v2/RESULTS.md) tests a consistent grasp offset. In 720 fresh simulation trials, feedback completed 150 of 200 tasks. Both JEPA variants completed 145 of 200. Each controller stopped before motion in 39 of 40 missing-object trials. Feedback remains the default. Read the [experiment plan](docs/WORLD_MODEL_V2.md) and [prediction audit](artifacts/world-v2/PREDICTION_AUDIT.md). Run `python -m tinyvla.world_iteration run` to reproduce the comparison with the saved model weights.
 
+Nine matched clips from three version 2 trials are in the [video bundle](https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v2/tiny-vla-impact-videos.zip). The bundle includes a playback gallery and SHA-256 checksums. The clips show a successful forced-slip recovery, a matched slip trial where both planners fail, and a trial after the object is moved. They are selected examples; the full trial results are in the report.
+
 ## Results
 
 The trained model has **17,896 parameters**. Its checkpoint is **78,815 bytes**. We tested two controllers in 800 trials across ten test sets. The feedback controller succeeded in 39 of 40 standard trials, 32 of 40 trials where an object moved, and 24 of 40 trials with a forced drop. It stopped before moving in 39 of 40 trials where the requested object was missing. Feedback did worse than one-shot control in some changed scenes.

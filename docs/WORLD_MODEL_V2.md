@@ -28,4 +28,8 @@ Read `artifacts/world-v2/RESULTS.md`, `paired_results.json`, `prediction_audit.j
 
 After both runs, use `python scripts/report_world_audit.py` to write the audit report and explain the shared metric fields. Then run `python scripts/verify_world_v2.py` to check the frozen input hashes, matched trial records, summary counts, and repeated simulator branches. It writes hashes for all version 2 output files.
 
+## Trial videos
+
+The [video bundle](https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v2/tiny-vla-impact-videos.zip) contains nine clips from three matched scenes. Open `index.html` after unzipping it. The first scene shows three controllers recovering from the same forced slip with a red cube. The second uses the same scene setup with a green cylinder: feedback places it, while both world-model planners stop without completing the task. The third scene moves a red cube after approach; all three controllers complete the task. These clips demonstrate individual outcomes. The full trial counts in `artifacts/world-v2/RESULTS.md` show the overall result.
+
 The log field `changed_commands` counts accepted planner choices. For the consistent-grasp variant, closure also receives the retained offset, but that application does not count as a new planner choice. Use planning-call counts to compare the number of model decisions.
