@@ -1,0 +1,698 @@
+{
+  "development": false,
+  "seconds": 1067.6443016529083,
+  "suites": [
+    {
+      "suite": "nominal",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 38,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.834958291820748,
+        0.9861796228538989
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 31.535889000002722,
+      "mean_control_seconds": 1.4103919482250005,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "nominal",
+      "mode": "fixed",
+      "episodes": 40,
+      "successes": 38,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.834958291820748,
+        0.9861796228538989
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 27.97555070000328,
+      "mean_control_seconds": 1.3579190106000003,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "nominal",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 38,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.834958291820748,
+        0.9861796228538989
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 32.195883400012804,
+      "mean_control_seconds": 1.6342261453000013,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 22,
+      "safe_stops": 5,
+      "wilson_95": [
+        0.39828829888440775,
+        0.6929492471905531
+      ],
+      "retries": 16,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 29.452946500001076,
+      "mean_control_seconds": 1.2247492573000003,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 3
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 7
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "fixed",
+      "episodes": 40,
+      "successes": 19,
+      "safe_stops": 5,
+      "wilson_95": [
+        0.32935229550181694,
+        0.6250289314607027
+      ],
+      "retries": 17,
+      "planner_calls": 21,
+      "changed_commands": 18,
+      "planner_p95_ms": 2.3868190000371214,
+      "feature_p95_ms": 27.115681250009516,
+      "mean_control_seconds": 1.2166202325499982,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 2
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 7
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 2
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 20,
+      "safe_stops": 5,
+      "wilson_95": [
+        0.35199278797099753,
+        0.6480072120290025
+      ],
+      "retries": 16,
+      "planner_calls": 19,
+      "changed_commands": 18,
+      "planner_p95_ms": 3.8077702000293745,
+      "feature_p95_ms": 30.464077199985685,
+      "mean_control_seconds": 1.2380218209750011,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 3
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 7
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 2
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 20,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.35199278797099753,
+        0.6480072120290025
+      ],
+      "retries": 46,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 32.50148909998529,
+      "mean_control_seconds": 1.8118098629749995,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 3
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 9
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "fixed",
+      "episodes": 40,
+      "successes": 19,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.32935229550181694,
+        0.6250289314607027
+      ],
+      "retries": 45,
+      "planner_calls": 98,
+      "changed_commands": 71,
+      "planner_p95_ms": 4.097465900019868,
+      "feature_p95_ms": 32.69263980001256,
+      "mean_control_seconds": 2.0284277519250167,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 2
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 9
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 19,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.32935229550181694,
+        0.6250289314607027
+      ],
+      "retries": 45,
+      "planner_calls": 110,
+      "changed_commands": 101,
+      "planner_p95_ms": 2.798705450010175,
+      "feature_p95_ms": 30.212541999986797,
+      "mean_control_seconds": 1.8178954177750115,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 2
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 9
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 37,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.8013546984090248,
+        0.9741644432281419
+      ],
+      "retries": 3,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 30.22420175003049,
+      "mean_control_seconds": 1.3795369819749965,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "fixed",
+      "episodes": 40,
+      "successes": 37,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.8013546984090248,
+        0.9741644432281419
+      ],
+      "retries": 3,
+      "planner_calls": 3,
+      "changed_commands": 2,
+      "planner_p95_ms": 1.3055640000743551,
+      "feature_p95_ms": 28.011691950013066,
+      "mean_control_seconds": 1.338768445549988,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 37,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.8013546984090248,
+        0.9741644432281419
+      ],
+      "retries": 3,
+      "planner_calls": 4,
+      "changed_commands": 3,
+      "planner_p95_ms": 2.802176799963263,
+      "feature_p95_ms": 31.809146050017034,
+      "mean_control_seconds": 1.6061332462250164,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 38,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.834958291820748,
+        0.9861796228538989
+      ],
+      "retries": 2,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 31.00603529996419,
+      "mean_control_seconds": 1.3864939866750063,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 11
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "fixed",
+      "episodes": 40,
+      "successes": 38,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.834958291820748,
+        0.9861796228538989
+      ],
+      "retries": 2,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 30.41590179996092,
+      "mean_control_seconds": 1.4744429012250009,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 11
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 38,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.834958291820748,
+        0.9861796228538989
+      ],
+      "retries": 2,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 30.912856000145435,
+      "mean_control_seconds": 1.529764470625011,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 11
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 39,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 32.79031254999154,
+      "mean_control_seconds": 0.04565870747500753,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "fixed",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 39,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 33.17093569989993,
+      "mean_control_seconds": 0.07226842032498552,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "jepa",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 39,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 33.60016809999706,
+      "mean_control_seconds": 0.07295198730001289,
+      "by_object": {
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        }
+      }
+    }
+  ],
+  "policy_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "model_hashes": {
+    "fixed": "17d1369a3665f43e5f6b983c4583ba24afe23f20b488596270e1f03f39baa949",
+    "jepa": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57"
+  },
+  "config": {
+    "data": {
+      "train_episodes": 800,
+      "validation_episodes": 100,
+      "test_episodes": 100,
+      "train_seed": 100000,
+      "validation_seed": 110000,
+      "test_seed": 120000,
+      "image_size": 64,
+      "history": 3
+    },
+    "training": {
+      "seed": 73,
+      "threads": 4,
+      "batch_size": 128,
+      "fixed_steps": 1200,
+      "jepa_steps": 2400,
+      "learning_rate": 0.0007,
+      "horizon": 3,
+      "latent_size": 96,
+      "hidden_size": 256,
+      "ema": 0.995
+    },
+    "planner": {
+      "candidates": 25,
+      "horizon": 3,
+      "uncertainty_weight": 0.2,
+      "change_penalty": 0.003,
+      "minimum_gain": 0.001,
+      "max_disagreement": 0.35,
+      "recovery_only": true
+    },
+    "evaluation": {
+      "development_seed": 130000,
+      "final_seed": 150000,
+      "episodes": 40,
+      "suites": [
+        "nominal",
+        "tipped",
+        "slip",
+        "object_moved",
+        "dynamics",
+        "missing"
+      ],
+      "inference_threads": 1
+    },
+    "development_name": "development-active",
+    "development_suites": [
+      "nominal",
+      "tipped",
+      "slip"
+    ],
+    "final_models": [
+      "fixed",
+      "jepa"
+    ]
+  }
+}

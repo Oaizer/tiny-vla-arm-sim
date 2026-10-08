@@ -24,13 +24,14 @@ Use the same Python environment as the VLA project. No new package is needed.
 uv run --locked python -m tinyvla.world_cli run --root artifacts/world-new
 ```
 
-The run has five parts. You can run each part separately:
+You can run each part separately:
 
 ```bash
 uv run --locked python -m tinyvla.world_cli collect
 uv run --locked python -m tinyvla.world_cli train
 uv run --locked python -m tinyvla.world_cli predict
 uv run --locked python -m tinyvla.world_cli evaluate
+uv run --locked python -m tinyvla.world_cli replay
 uv run --locked python -m tinyvla.world_cli report
 ```
 

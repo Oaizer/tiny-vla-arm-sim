@@ -55,4 +55,4 @@ uv sync --locked
 uv run --locked python -m unittest discover -s tests -v
 ```
 
-The GitHub Actions workflow runs the project checks. The Git repository includes the experiment data and model. The PyBullet arm and other packages keep their own licenses.
+The GitHub Actions workflow runs the project checks. The Git repository includes the VLA data, model weights, and experiment reports. The larger world-model trajectories stay in the local output package; the repository includes their hashes and collection code. The PyBullet arm and other packages keep their own licenses.

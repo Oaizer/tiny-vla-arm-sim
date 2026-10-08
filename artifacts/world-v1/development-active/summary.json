@@ -1,0 +1,378 @@
+{
+  "development": true,
+  "seconds": 233.46268320083618,
+  "suites": [
+    {
+      "suite": "nominal",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 25.431029999981543,
+      "mean_control_seconds": 1.2429878267499959,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "nominal",
+      "mode": "fixed",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 25.86524179998833,
+      "mean_control_seconds": 1.3141218856875057,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "nominal",
+      "mode": "jepa",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 25.488887199992405,
+      "mean_control_seconds": 1.301974085687494,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 6,
+      "safe_stops": 3,
+      "wilson_95": [
+        0.18480982554752806,
+        0.613593529020652
+      ],
+      "retries": 9,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 25.428502250025524,
+      "mean_control_seconds": 0.6641508613749991,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 2
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "fixed",
+      "episodes": 16,
+      "successes": 6,
+      "safe_stops": 3,
+      "wilson_95": [
+        0.18480982554752806,
+        0.613593529020652
+      ],
+      "retries": 9,
+      "planner_calls": 11,
+      "changed_commands": 7,
+      "planner_p95_ms": 2.270111499996119,
+      "feature_p95_ms": 25.689384499969492,
+      "mean_control_seconds": 0.7607996242499944,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 2
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "jepa",
+      "episodes": 16,
+      "successes": 5,
+      "safe_stops": 3,
+      "wilson_95": [
+        0.14164435051961052,
+        0.5559606813326594
+      ],
+      "retries": 9,
+      "planner_calls": 12,
+      "changed_commands": 12,
+      "planner_p95_ms": 1.6832323499954778,
+      "feature_p95_ms": 24.72140940000145,
+      "mean_control_seconds": 0.7376776161250049,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 12,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.5050123107060135,
+        0.8981809801576265
+      ],
+      "retries": 20,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 25.459654099984164,
+      "mean_control_seconds": 2.2395209083124996,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "fixed",
+      "episodes": 16,
+      "successes": 11,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.4440393186673406,
+        0.8583556494803894
+      ],
+      "retries": 19,
+      "planner_calls": 51,
+      "changed_commands": 39,
+      "planner_p95_ms": 2.191665499992723,
+      "feature_p95_ms": 24.732771900045233,
+      "mean_control_seconds": 2.301075532000013,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 2
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "jepa",
+      "episodes": 16,
+      "successes": 10,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.3864064709793481,
+        0.815190174452472
+      ],
+      "retries": 20,
+      "planner_calls": 59,
+      "changed_commands": 55,
+      "planner_p95_ms": 1.7061624999655578,
+      "feature_p95_ms": 24.709877399999414,
+      "mean_control_seconds": 2.3209451624999886,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    }
+  ],
+  "policy_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "model_hashes": {
+    "fixed": "17d1369a3665f43e5f6b983c4583ba24afe23f20b488596270e1f03f39baa949",
+    "jepa": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57"
+  },
+  "config": {
+    "data": {
+      "train_episodes": 800,
+      "validation_episodes": 100,
+      "test_episodes": 100,
+      "train_seed": 100000,
+      "validation_seed": 110000,
+      "test_seed": 120000,
+      "image_size": 64,
+      "history": 3
+    },
+    "training": {
+      "seed": 73,
+      "threads": 4,
+      "batch_size": 128,
+      "fixed_steps": 1200,
+      "jepa_steps": 2400,
+      "learning_rate": 0.0007,
+      "horizon": 3,
+      "latent_size": 96,
+      "hidden_size": 256,
+      "ema": 0.995
+    },
+    "planner": {
+      "candidates": 25,
+      "horizon": 3,
+      "uncertainty_weight": 0.2,
+      "change_penalty": 0.003,
+      "minimum_gain": 0.001,
+      "max_disagreement": 0.35,
+      "recovery_only": true
+    },
+    "evaluation": {
+      "development_seed": 130000,
+      "final_seed": 150000,
+      "episodes": 40,
+      "suites": [
+        "nominal",
+        "tipped",
+        "slip",
+        "object_moved",
+        "dynamics",
+        "missing"
+      ]
+    },
+    "development_name": "development-active",
+    "development_suites": [
+      "nominal",
+      "tipped",
+      "slip"
+    ]
+  }
+}

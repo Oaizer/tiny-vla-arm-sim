@@ -1,0 +1,17 @@
+{
+  "code_commit": "fafb0c23a23ec1da98a23a79ef649d01b7d2b9dd",
+  "final_trials": 720,
+  "episodes_per_condition_per_controller": 40,
+  "controllers": [
+    "feedback",
+    "fixed",
+    "jepa"
+  ],
+  "final_seed_start": 150000,
+  "inference_threads": 1,
+  "selection": "Settings frozen after development-active; final outcomes are not used for tuning.",
+  "model_sha256": {
+    "fixed": "17d1369a3665f43e5f6b983c4583ba24afe23f20b488596270e1f03f39baa949",
+    "jepa": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57"
+  }
+}

@@ -1,0 +1,909 @@
+{
+  "split": "test",
+  "episodes": 100,
+  "transitions": 5737,
+  "seed_start": 120000,
+  "seed_end": 120099,
+  "rows": [
+    {
+      "seed": 120000,
+      "instruction": "put the red cube on the yellow pad",
+      "split": "test",
+      "transitions": 39,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120001,
+      "instruction": "put the red cube on the purple pad",
+      "split": "test",
+      "transitions": 93,
+      "tipped": false,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120002,
+      "instruction": "put the red cube on the cyan pad",
+      "split": "test",
+      "transitions": 76,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120003,
+      "instruction": "lift the red cube",
+      "split": "test",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120004,
+      "instruction": "put the red cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 152,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120005,
+      "instruction": "put the red cylinder on the purple pad",
+      "split": "test",
+      "transitions": 32,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120006,
+      "instruction": "put the red cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 37,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120007,
+      "instruction": "lift the red cylinder",
+      "split": "test",
+      "transitions": 33,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120008,
+      "instruction": "put the blue cube on the yellow pad",
+      "split": "test",
+      "transitions": 81,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120009,
+      "instruction": "put the blue cube on the purple pad",
+      "split": "test",
+      "transitions": 43,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120010,
+      "instruction": "put the blue cube on the cyan pad",
+      "split": "test",
+      "transitions": 65,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120011,
+      "instruction": "lift the blue cube",
+      "split": "test",
+      "transitions": 34,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120012,
+      "instruction": "put the green cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 39,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120013,
+      "instruction": "put the green cylinder on the purple pad",
+      "split": "test",
+      "transitions": 134,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120014,
+      "instruction": "put the green cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 44,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120015,
+      "instruction": "lift the green cylinder",
+      "split": "test",
+      "transitions": 15,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120016,
+      "instruction": "put the red cube on the yellow pad",
+      "split": "test",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120017,
+      "instruction": "put the red cube on the purple pad",
+      "split": "test",
+      "transitions": 36,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120018,
+      "instruction": "put the red cube on the cyan pad",
+      "split": "test",
+      "transitions": 39,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120019,
+      "instruction": "lift the red cube",
+      "split": "test",
+      "transitions": 16,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120020,
+      "instruction": "put the red cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 85,
+      "tipped": true,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120021,
+      "instruction": "put the red cylinder on the purple pad",
+      "split": "test",
+      "transitions": 121,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120022,
+      "instruction": "put the red cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 39,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120023,
+      "instruction": "lift the red cylinder",
+      "split": "test",
+      "transitions": 16,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120024,
+      "instruction": "put the blue cube on the yellow pad",
+      "split": "test",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120025,
+      "instruction": "put the blue cube on the purple pad",
+      "split": "test",
+      "transitions": 80,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120026,
+      "instruction": "put the blue cube on the cyan pad",
+      "split": "test",
+      "transitions": 44,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120027,
+      "instruction": "lift the blue cube",
+      "split": "test",
+      "transitions": 16,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120028,
+      "instruction": "put the green cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 41,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120029,
+      "instruction": "put the green cylinder on the purple pad",
+      "split": "test",
+      "transitions": 37,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120030,
+      "instruction": "put the green cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 61,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120031,
+      "instruction": "lift the green cylinder",
+      "split": "test",
+      "transitions": 35,
+      "tipped": true,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120032,
+      "instruction": "put the red cube on the yellow pad",
+      "split": "test",
+      "transitions": 79,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120033,
+      "instruction": "put the red cube on the purple pad",
+      "split": "test",
+      "transitions": 38,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120034,
+      "instruction": "put the red cube on the cyan pad",
+      "split": "test",
+      "transitions": 86,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120035,
+      "instruction": "lift the red cube",
+      "split": "test",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120036,
+      "instruction": "put the red cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 90,
+      "tipped": true,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120037,
+      "instruction": "put the red cylinder on the purple pad",
+      "split": "test",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120038,
+      "instruction": "put the red cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 35,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120039,
+      "instruction": "lift the red cylinder",
+      "split": "test",
+      "transitions": 161,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120040,
+      "instruction": "put the blue cube on the yellow pad",
+      "split": "test",
+      "transitions": 39,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120041,
+      "instruction": "put the blue cube on the purple pad",
+      "split": "test",
+      "transitions": 86,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120042,
+      "instruction": "put the blue cube on the cyan pad",
+      "split": "test",
+      "transitions": 36,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120043,
+      "instruction": "lift the blue cube",
+      "split": "test",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120044,
+      "instruction": "put the green cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 77,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120045,
+      "instruction": "put the green cylinder on the purple pad",
+      "split": "test",
+      "transitions": 153,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120046,
+      "instruction": "put the green cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 34,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120047,
+      "instruction": "lift the green cylinder",
+      "split": "test",
+      "transitions": 36,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120048,
+      "instruction": "put the red cube on the yellow pad",
+      "split": "test",
+      "transitions": 87,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120049,
+      "instruction": "put the red cube on the purple pad",
+      "split": "test",
+      "transitions": 70,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120050,
+      "instruction": "put the red cube on the cyan pad",
+      "split": "test",
+      "transitions": 43,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120051,
+      "instruction": "lift the red cube",
+      "split": "test",
+      "transitions": 16,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120052,
+      "instruction": "put the red cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 88,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120053,
+      "instruction": "put the red cylinder on the purple pad",
+      "split": "test",
+      "transitions": 91,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120054,
+      "instruction": "put the red cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 38,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120055,
+      "instruction": "lift the red cylinder",
+      "split": "test",
+      "transitions": 15,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120056,
+      "instruction": "put the blue cube on the yellow pad",
+      "split": "test",
+      "transitions": 74,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120057,
+      "instruction": "put the blue cube on the purple pad",
+      "split": "test",
+      "transitions": 79,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120058,
+      "instruction": "put the blue cube on the cyan pad",
+      "split": "test",
+      "transitions": 75,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120059,
+      "instruction": "lift the blue cube",
+      "split": "test",
+      "transitions": 16,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120060,
+      "instruction": "put the green cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 79,
+      "tipped": true,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120061,
+      "instruction": "put the green cylinder on the purple pad",
+      "split": "test",
+      "transitions": 80,
+      "tipped": true,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120062,
+      "instruction": "put the green cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 42,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120063,
+      "instruction": "lift the green cylinder",
+      "split": "test",
+      "transitions": 16,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120064,
+      "instruction": "put the red cube on the yellow pad",
+      "split": "test",
+      "transitions": 41,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120065,
+      "instruction": "put the red cube on the purple pad",
+      "split": "test",
+      "transitions": 76,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120066,
+      "instruction": "put the red cube on the cyan pad",
+      "split": "test",
+      "transitions": 59,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120067,
+      "instruction": "lift the red cube",
+      "split": "test",
+      "transitions": 76,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120068,
+      "instruction": "put the red cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 89,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120069,
+      "instruction": "put the red cylinder on the purple pad",
+      "split": "test",
+      "transitions": 41,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120070,
+      "instruction": "put the red cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 179,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120071,
+      "instruction": "lift the red cylinder",
+      "split": "test",
+      "transitions": 16,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120072,
+      "instruction": "put the blue cube on the yellow pad",
+      "split": "test",
+      "transitions": 39,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120073,
+      "instruction": "put the blue cube on the purple pad",
+      "split": "test",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120074,
+      "instruction": "put the blue cube on the cyan pad",
+      "split": "test",
+      "transitions": 68,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120075,
+      "instruction": "lift the blue cube",
+      "split": "test",
+      "transitions": 16,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120076,
+      "instruction": "put the green cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 38,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120077,
+      "instruction": "put the green cylinder on the purple pad",
+      "split": "test",
+      "transitions": 70,
+      "tipped": true,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120078,
+      "instruction": "put the green cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 61,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120079,
+      "instruction": "lift the green cylinder",
+      "split": "test",
+      "transitions": 16,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120080,
+      "instruction": "put the red cube on the yellow pad",
+      "split": "test",
+      "transitions": 70,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true
+    },
+    {
+      "seed": 120081,
+      "instruction": "put the red cube on the purple pad",
+      "split": "test",
+      "transitions": 35,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120082,
+      "instruction": "put the red cube on the cyan pad",
+      "split": "test",
+      "transitions": 74,
+      "tipped": false,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120083,
+      "instruction": "lift the red cube",
+      "split": "test",
+      "transitions": 15,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120084,
+      "instruction": "put the red cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 88,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120085,
+      "instruction": "put the red cylinder on the purple pad",
+      "split": "test",
+      "transitions": 37,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120086,
+      "instruction": "put the red cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 64,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120087,
+      "instruction": "lift the red cylinder",
+      "split": "test",
+      "transitions": 15,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120088,
+      "instruction": "put the blue cube on the yellow pad",
+      "split": "test",
+      "transitions": 39,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120089,
+      "instruction": "put the blue cube on the purple pad",
+      "split": "test",
+      "transitions": 70,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120090,
+      "instruction": "put the blue cube on the cyan pad",
+      "split": "test",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120091,
+      "instruction": "lift the blue cube",
+      "split": "test",
+      "transitions": 16,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120092,
+      "instruction": "put the green cylinder on the yellow pad",
+      "split": "test",
+      "transitions": 126,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120093,
+      "instruction": "put the green cylinder on the purple pad",
+      "split": "test",
+      "transitions": 78,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120094,
+      "instruction": "put the green cylinder on the cyan pad",
+      "split": "test",
+      "transitions": 92,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false
+    },
+    {
+      "seed": 120095,
+      "instruction": "lift the green cylinder",
+      "split": "test",
+      "transitions": 120,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120096,
+      "instruction": "put the red cube on the yellow pad",
+      "split": "test",
+      "transitions": 44,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120097,
+      "instruction": "put the red cube on the purple pad",
+      "split": "test",
+      "transitions": 87,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false
+    },
+    {
+      "seed": 120098,
+      "instruction": "put the red cube on the cyan pad",
+      "split": "test",
+      "transitions": 42,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true
+    },
+    {
+      "seed": 120099,
+      "instruction": "lift the red cube",
+      "split": "test",
+      "transitions": 34,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false
+    }
+  ]
+}

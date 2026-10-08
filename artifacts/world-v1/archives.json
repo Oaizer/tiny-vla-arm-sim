@@ -1,0 +1,14 @@
+{
+  "project": {
+    "file": "tiny-vla-project.zip",
+    "bytes": 75958677,
+    "files": 365,
+    "sha256": "43f9d162be82b457572dac2722246aeefa87c4a7102e148a0893f5e00411502e"
+  },
+  "trajectories": {
+    "file": "tiny-vla-world-data.zip",
+    "bytes": 410164092,
+    "files": 2000,
+    "sha256": "1c71365948aff354d899c9b1e70c6aee367221e97e4da665e63b0900968bde56"
+  }
+}

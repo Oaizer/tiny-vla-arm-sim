@@ -1,0 +1,57 @@
+{
+  "data": {
+    "train_episodes": 800,
+    "validation_episodes": 100,
+    "test_episodes": 100,
+    "train_seed": 100000,
+    "validation_seed": 110000,
+    "test_seed": 120000,
+    "image_size": 64,
+    "history": 3
+  },
+  "training": {
+    "seed": 73,
+    "threads": 4,
+    "batch_size": 128,
+    "fixed_steps": 1200,
+    "jepa_steps": 2400,
+    "learning_rate": 0.0007,
+    "horizon": 3,
+    "latent_size": 96,
+    "hidden_size": 256,
+    "ema": 0.995
+  },
+  "planner": {
+    "candidates": 25,
+    "horizon": 3,
+    "uncertainty_weight": 0.2,
+    "change_penalty": 0.003,
+    "minimum_gain": 0.001,
+    "max_disagreement": 0.35,
+    "recovery_only": true
+  },
+  "evaluation": {
+    "development_seed": 130000,
+    "final_seed": 150000,
+    "episodes": 40,
+    "suites": [
+      "nominal",
+      "tipped",
+      "slip",
+      "object_moved",
+      "dynamics",
+      "missing"
+    ],
+    "inference_threads": 1
+  },
+  "development_name": "development-active",
+  "development_suites": [
+    "nominal",
+    "tipped",
+    "slip"
+  ],
+  "final_models": [
+    "fixed",
+    "jepa"
+  ]
+}

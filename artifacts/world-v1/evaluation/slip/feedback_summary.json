@@ -1,0 +1,35 @@
+{
+  "suite": "slip",
+  "mode": "feedback",
+  "episodes": 40,
+  "successes": 20,
+  "safe_stops": 1,
+  "wilson_95": [
+    0.35199278797099753,
+    0.6480072120290025
+  ],
+  "retries": 46,
+  "planner_calls": 0,
+  "changed_commands": 0,
+  "planner_p95_ms": null,
+  "feature_p95_ms": 32.50148909998529,
+  "mean_control_seconds": 1.8118098629749995,
+  "by_object": {
+    "blue cube": {
+      "episodes": 8,
+      "successes": 8
+    },
+    "green cylinder": {
+      "episodes": 8,
+      "successes": 3
+    },
+    "red cube": {
+      "episodes": 12,
+      "successes": 9
+    },
+    "red cylinder": {
+      "episodes": 12,
+      "successes": 0
+    }
+  }
+}

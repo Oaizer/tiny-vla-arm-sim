@@ -1,0 +1,686 @@
+{
+  "development": true,
+  "seconds": 412.94941115379333,
+  "suites": [
+    {
+      "suite": "nominal",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 25.333134400011645,
+      "mean_control_seconds": 1.2649391486250003,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "nominal",
+      "mode": "fixed",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "retries": 1,
+      "planner_calls": 48,
+      "changed_commands": 0,
+      "planner_p95_ms": 5.3628325499857965,
+      "feature_p95_ms": 27.696465200011744,
+      "mean_control_seconds": 1.3720158979374961,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "nominal",
+      "mode": "jepa",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "retries": 1,
+      "planner_calls": 48,
+      "changed_commands": 0,
+      "planner_p95_ms": 5.698050900016938,
+      "feature_p95_ms": 29.175387799995182,
+      "mean_control_seconds": 1.4213546967500008,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 5,
+      "safe_stops": 3,
+      "wilson_95": [
+        0.14164435051961052,
+        0.5559606813326594
+      ],
+      "retries": 9,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 32.00748634999396,
+      "mean_control_seconds": 0.728081728062504,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "fixed",
+      "episodes": 16,
+      "successes": 5,
+      "safe_stops": 3,
+      "wilson_95": [
+        0.14164435051961052,
+        0.5559606813326594
+      ],
+      "retries": 9,
+      "planner_calls": 45,
+      "changed_commands": 0,
+      "planner_p95_ms": 2.5023454000006486,
+      "feature_p95_ms": 28.47462115000353,
+      "mean_control_seconds": 0.7599990870000042,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "jepa",
+      "episodes": 16,
+      "successes": 5,
+      "safe_stops": 3,
+      "wilson_95": [
+        0.14164435051961052,
+        0.5559606813326594
+      ],
+      "retries": 9,
+      "planner_calls": 45,
+      "changed_commands": 0,
+      "planner_p95_ms": 5.232938600022403,
+      "feature_p95_ms": 25.42569289999363,
+      "mean_control_seconds": 0.7554794803750013,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 10,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.3864064709793481,
+        0.815190174452472
+      ],
+      "retries": 19,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 27.199858599993835,
+      "mean_control_seconds": 2.0246586678750003,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "fixed",
+      "episodes": 16,
+      "successes": 10,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.3864064709793481,
+        0.815190174452472
+      ],
+      "retries": 19,
+      "planner_calls": 90,
+      "changed_commands": 0,
+      "planner_p95_ms": 5.276403450014296,
+      "feature_p95_ms": 29.906365300021765,
+      "mean_control_seconds": 2.22750292924999,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "jepa",
+      "episodes": 16,
+      "successes": 10,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.3864064709793481,
+        0.815190174452472
+      ],
+      "retries": 19,
+      "planner_calls": 90,
+      "changed_commands": 0,
+      "planner_p95_ms": 2.5127520999660633,
+      "feature_p95_ms": 26.814574400000875,
+      "mean_control_seconds": 2.108701893562497,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 1
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 14,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.6397666856325173,
+        0.9650232506629428
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 30.198221400021907,
+      "mean_control_seconds": 1.5508653903750051,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 2
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "fixed",
+      "episodes": 16,
+      "successes": 14,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.6397666856325173,
+        0.9650232506629428
+      ],
+      "retries": 1,
+      "planner_calls": 45,
+      "changed_commands": 0,
+      "planner_p95_ms": 9.29963460004046,
+      "feature_p95_ms": 31.89263430001859,
+      "mean_control_seconds": 1.6070038155000042,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 2
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "jepa",
+      "episodes": 16,
+      "successes": 14,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.6397666856325173,
+        0.9650232506629428
+      ],
+      "retries": 1,
+      "planner_calls": 45,
+      "changed_commands": 0,
+      "planner_p95_ms": 6.0291498000196935,
+      "feature_p95_ms": 30.531728200034543,
+      "mean_control_seconds": 1.6031027199999919,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 2
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 33.73781174998669,
+      "mean_control_seconds": 1.5040020651249968,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "fixed",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "retries": 0,
+      "planner_calls": 45,
+      "changed_commands": 0,
+      "planner_p95_ms": 10.762843400004837,
+      "feature_p95_ms": 31.658172000004477,
+      "mean_control_seconds": 1.55568130037501,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "jepa",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "retries": 0,
+      "planner_calls": 45,
+      "changed_commands": 0,
+      "planner_p95_ms": 8.438885999964894,
+      "feature_p95_ms": 27.48819679998179,
+      "mean_control_seconds": 1.5392644694375015,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 0,
+      "safe_stops": 16,
+      "wilson_95": [
+        0.0,
+        0.19361341827271994
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 32.35611949995132,
+      "mean_control_seconds": 0.026738010875000384,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "fixed",
+      "episodes": 16,
+      "successes": 0,
+      "safe_stops": 16,
+      "wilson_95": [
+        0.0,
+        0.19361341827271994
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 49.60797964998845,
+      "mean_control_seconds": 0.05266312968748821,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "jepa",
+      "episodes": 16,
+      "successes": 0,
+      "safe_stops": 16,
+      "wilson_95": [
+        0.0,
+        0.19361341827271994
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 35.11206269997729,
+      "mean_control_seconds": 0.049463620062482505,
+      "by_object": {
+        "blue cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 0
+        }
+      }
+    }
+  ],
+  "policy_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "model_hashes": {
+    "fixed": "17d1369a3665f43e5f6b983c4583ba24afe23f20b488596270e1f03f39baa949",
+    "jepa": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57"
+  },
+  "config": {
+    "data": {
+      "train_episodes": 800,
+      "validation_episodes": 100,
+      "test_episodes": 100,
+      "train_seed": 100000,
+      "validation_seed": 110000,
+      "test_seed": 120000,
+      "image_size": 64,
+      "history": 3
+    },
+    "training": {
+      "seed": 73,
+      "threads": 4,
+      "batch_size": 128,
+      "fixed_steps": 1200,
+      "jepa_steps": 2400,
+      "learning_rate": 0.0007,
+      "horizon": 3,
+      "latent_size": 96,
+      "hidden_size": 256,
+      "ema": 0.995
+    },
+    "planner": {
+      "candidates": 25,
+      "horizon": 3,
+      "uncertainty_weight": 0.2,
+      "change_penalty": 0.15,
+      "minimum_gain": 0.03,
+      "max_disagreement": 0.35
+    },
+    "evaluation": {
+      "development_seed": 130000,
+      "final_seed": 150000,
+      "episodes": 40,
+      "suites": [
+        "nominal",
+        "tipped",
+        "slip",
+        "object_moved",
+        "dynamics",
+        "missing"
+      ]
+    }
+  }
+}

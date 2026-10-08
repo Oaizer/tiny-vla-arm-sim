@@ -96,6 +96,8 @@ def report(config, root):
     trajectories = {str(path.relative_to(root)): digest(path) for path in sorted((root / 'trajectories').rglob('*.npz'))}
     manifest = {'git_commit': commit, 'config': config, 'python_platform': platform.platform(),
                 'torch': torch.__version__, 'sources_sha256': sources, 'trajectories_sha256': trajectories,
-                'models_sha256': evaluation['model_hashes'], 'policy_sha256': evaluation['policy_sha256']}
+                'models_sha256': evaluation['model_hashes'], 'policy_sha256': evaluation['policy_sha256'],
+                'base_controller_config': json.loads((project / 'configs/project.json').read_text()),
+                'assets_sha256': {name: digest(project / name) for name in ['uv.lock', 'src/tinyvla/floor.png']}}
     (root / 'manifest.json').write_text(json.dumps(manifest, indent=2))
     print(json.dumps({'report': str(root / 'RESULTS.md'), 'trajectory_files': len(trajectories)}), flush=True)

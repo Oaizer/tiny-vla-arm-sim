@@ -1,0 +1,18 @@
+{
+  "command": "python -m unittest discover -s tests -v",
+  "tests": 8,
+  "passed": 8,
+  "failed": 0,
+  "seconds": 1.331,
+  "code_commit": "fafb0c23a23ec1da98a23a79ef649d01b7d2b9dd",
+  "coverage": [
+    "language",
+    "repeatable resets",
+    "camera calibration",
+    "bounded retries",
+    "missing-object stop",
+    "slip retry",
+    "recorded action timing",
+    "sensor-only wrapper and unchanged servo motion"
+  ]
+}

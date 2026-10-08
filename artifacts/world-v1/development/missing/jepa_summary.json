@@ -1,0 +1,35 @@
+{
+  "suite": "missing",
+  "mode": "jepa",
+  "episodes": 16,
+  "successes": 0,
+  "safe_stops": 16,
+  "wilson_95": [
+    0.0,
+    0.19361341827271994
+  ],
+  "retries": 0,
+  "planner_calls": 0,
+  "changed_commands": 0,
+  "planner_p95_ms": null,
+  "feature_p95_ms": 35.11206269997729,
+  "mean_control_seconds": 0.049463620062482505,
+  "by_object": {
+    "blue cube": {
+      "episodes": 4,
+      "successes": 0
+    },
+    "green cylinder": {
+      "episodes": 4,
+      "successes": 0
+    },
+    "red cube": {
+      "episodes": 4,
+      "successes": 0
+    },
+    "red cylinder": {
+      "episodes": 4,
+      "successes": 0
+    }
+  }
+}

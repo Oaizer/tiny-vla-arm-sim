@@ -8,7 +8,7 @@ import torch
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['collect', 'train', 'predict', 'evaluate', 'report', 'run'])
+    parser.add_argument('command', choices=['collect', 'train', 'predict', 'evaluate', 'replay', 'report', 'run'])
     parser.add_argument('--config', default='configs/world_model.json')
     parser.add_argument('--root', default='artifacts/world-v1')
     parser.add_argument('--policy', default='artifacts/model/best.pt')
@@ -38,6 +38,10 @@ def main():
         from .world_evaluate import benchmark
         torch.set_num_threads(config['evaluation'].get('inference_threads', 1))
         benchmark(config, root, args.policy, args.development, args.limit)
+    if args.command in ('replay', 'run'):
+        from .world_replay import replay
+        torch.set_num_threads(config['evaluation'].get('inference_threads', 1))
+        replay(config, root, args.policy)
     if args.command in ('report', 'run'):
         from .world_report import report
         report(config, root)

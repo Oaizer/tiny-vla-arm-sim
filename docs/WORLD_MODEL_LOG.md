@@ -24,11 +24,15 @@ The first change penalty was too strong. The planner kept the baseline command t
 
 The next setting reduces the change penalty and allows planning only after a failed grasp. This focuses the experiment on recovery. The new development run is in `development-active/`. It compares both model stages on normal, tipped-object, and slip scenes. Final evaluation uses a separate set of seeds.
 
+On those 48 development trials, the existing controller succeeded 33 times, the fixed-encoder planner 32 times, and the JEPA planner 30 times. Both planners changed commands. Neither earned a change to the default controller. We froze these settings and included both stages in a final 720-trial comparison. `FINAL_PROTOCOL.json` records the model hashes and source commit before that comparison.
+
 The early development run used four inference threads. The later run uses one. Small numerical changes can affect simulated contact outcomes. Each comparison uses the same thread count for its baseline and candidate. Timings from concurrent development runs are not used as the final speed result.
 
 ## Interface checks
 
 All eight project checks passed before the controller comparison. The three new checks confirm recorded command timing, unchanged servo motion through the sensor wrapper, and a planner interface that works without object-state methods. Full arm outcomes and prediction errors provide the main evidence for model behavior.
+
+The complete dataset has 56,321 executed commands: 45,429 in training, 5,155 in validation, and 5,737 in prediction tests. The raw trajectory files occupy about 410 MB. A separate local data ZIP contains those files. They are not added to Git.
 
 ## Evidence to read
 
