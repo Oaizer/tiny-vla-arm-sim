@@ -1,4 +1,4 @@
-"""Seeded Panda physics. Privileged state is restricted to teachers and scoring."""
+"""Repeatable Panda arm simulation with separate training and scoring data."""
 from pathlib import Path
 import numpy as np
 import pybullet as p
@@ -108,7 +108,7 @@ class ArmSim:
         return {'rgb':self.image(),'state':self.state(),'calibration':self.calibration()}
 
     def labels(self):
-        """Training-only supervision for all visible objects and pads."""
+        """Return training labels for each visible object and pad."""
         points=[];pixels=[];present=[]
         for name in (*OBJECTS,*PADS):
             bodies=self.objects if name in OBJECTS else self.pads
@@ -139,7 +139,7 @@ class ArmSim:
     def move(self,xyz,grip,steps=120,frames=None):
         self.command_count=getattr(self,'command_count',0)+1
         xyz=np.clip(np.array(xyz,float),[.28,-.33,.015],[.78,.37,.38]);grip=float(np.clip(grip,0,.04))
-        if not np.isfinite(xyz).all() or not np.isfinite(grip):raise ValueError('Non-finite robot command')
+        if not np.isfinite(xyz).all() or not np.isfinite(grip):raise ValueError('The arm command contains an invalid number.')
         q=p.calculateInverseKinematics(self.arm,11,xyz,self.quat,maxNumIterations=150,residualThreshold=1e-5)
         p.setJointMotorControlArray(self.arm,list(range(7)),p.POSITION_CONTROL,targetPositions=q[:7],forces=[87]*7,positionGains=[.12]*7)
         p.setJointMotorControlArray(self.arm,[9,10],p.POSITION_CONTROL,targetPositions=[grip]*2,forces=[30]*2,positionGains=[.3]*2)
@@ -149,7 +149,7 @@ class ArmSim:
         for i,w in enumerate(action):self.move(w[:3],w[3],160 if i in [2,6] else 150,frames)
 
     def move_smooth(self,xyz,grip,steps=150,frames=None):
-        """Bounded Cartesian carrying segments, using the same IK/servo interface."""
+        """Move along short Cartesian steps with the normal arm controls."""
         start=self.state()[:3];goal=np.array(xyz,float)
         pieces=max(1,int(np.ceil(np.linalg.norm(goal-start)/.025)))
         substeps=max(24,int(np.ceil(steps/pieces)))
@@ -157,7 +157,7 @@ class ArmSim:
             self.move(start+(goal-start)*fraction,grip,substeps,frames)
 
     def perturb(self,event,task):
-        """Evaluation harness only. These events do not expose labels to controllers."""
+        """Change a test scene without telling the controller what changed."""
         if event=='object_moved' and task.object in self.objects:
             b=self.objects[task.object];xyz,orn=p.getBasePositionAndOrientation(b)
             shifted=np.array(xyz);shifted[:2]+=np.array([.07,-.07]);shifted[:2]=np.clip(shifted[:2],[.33,-.28],[.75,.14]);shifted[2]=.022

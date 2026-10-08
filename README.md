@@ -1,24 +1,24 @@
-# TinyVLA arm project
+# TinyVLA for a simulated robot arm
 
-A reproducible CPU project for learning vision-and-language-conditioned actions on a simulated Panda arm. Version 2 expands the original prototype to shape discrimination, three destinations, placing/lifting tasks, randomized scenes, and bounded visual feedback/recovery.
+This project trains a small vision and language policy to control a simulated Panda arm. It runs on a CPU in Linux or Ubuntu under WSL. The second version adds shape recognition, three target pads, placing and lifting tasks, varied scenes, and a feedback controller.
 
-## Completed experiment
+## Results
 
-The trained model has **17,896 parameters** and a **78,815-byte checkpoint**. The frozen-model benchmark contains 800 trials across ten suites and two controllers. Feedback succeeded in 39/40 nominal trials, 32/40 moved-object trials, and 24/40 induced-slip trials. Missing-source stopping succeeded in 39/40 trials. Feedback reduces success on some unperturbed distribution shifts; it is not uniformly better.
+The trained model has **17,896 parameters**. Its checkpoint is **78,815 bytes**. We tested two controllers in 800 trials across ten test sets. The feedback controller succeeded in 39 of 40 standard trials, 32 of 40 trials where an object moved, and 24 of 40 trials with a forced drop. It stopped before moving in 39 of 40 trials where the requested object was missing. Feedback did worse than one-shot control in some changed scenes.
 
-See [the full results](artifacts/RESULTS.md), [moved-object recovery video](artifacts/demo.mp4), [slip recovery video](artifacts/slip-demo.mp4), and the failed rollout videos under `artifacts/evaluation/`. The recovery rules are scripted; the vision, instruction selection, and waypoint model are learned.
+Read the [full results](artifacts/RESULTS.md). Watch the [moved-object demo](artifacts/demo.mp4) or the [slip recovery demo](artifacts/slip-demo.mp4). The feedback rules are hand-written. The model learns to read images and instructions and to predict arm waypoints.
 
-## Run
+## Run the project
 
-Linux or Ubuntu under WSL, Python **3.11.16**, and [uv](https://docs.astral.sh/uv/). Dependencies and their hashes are pinned in `uv.lock`; the PyTorch CPU index is explicit.
+You need Linux or Ubuntu under WSL, Python **3.11.16**, and [uv](https://docs.astral.sh/uv/). The lock file pins each package version and hash. It uses the CPU build of PyTorch.
 
 ```bash
 bash run.sh
 ```
 
-This one command checks simulator/language contracts, creates a fresh experiment directory, generates training/validation data, trains, refits the action heads using training data only, runs paired benchmark suites, records a demo and representative failed rollouts, and writes results plus an integrity manifest. It does not overwrite a previous experiment. No GPU or paid service is needed.
+This command checks the project, creates a new run folder, generates training and validation data, trains the model, and tests it. It also saves a demo, videos of failed trials, the results, and a file of hashes. It keeps earlier runs. You do not need a GPU or a paid service.
 
-For an existing experiment:
+To test an existing model or make a demo:
 
 ```bash
 uv run --locked tinyvla evaluate --run-dir artifacts --suites nominal object_moved slip
@@ -26,33 +26,31 @@ uv run --locked tinyvla demo --run-dir artifacts \
   --instruction 'put the red cylinder on the cyan pad' --event object_moved
 ```
 
-The completed local experiment is stored under `artifacts/` in the delivered folder/archive. A fresh `run.sh` run uses `artifacts/runs/<timestamp>/`. On the current machine, the already-installed runtime also runs commands with `/var/tmp/tiny-vla-env/bin/python -m tinyvla.cli` instead of `uv run --locked tinyvla`.
+The included experiment and its files are in `artifacts/`. New runs go to `artifacts/runs/<timestamp>/`.
 
-## Project layout
+## Project files
 
-- `src/tinyvla/`: language contract, simulator, learned model, data, training, feedback controller, evaluation, and CLI.
-- `configs/project.json`: model budgets, sample counts, seed splits, training parameters, and benchmark/controller settings.
-- `tests/`: contracts for language, deterministic resets, calibrated coordinates, and bounded recovery behavior.
-- `docs/MODEL_GOAL.md`: architecture decision and supported language.
-- `docs/BENCHMARK.md`: variation ranges, perturbations, scoring, and comparison protocol.
-- `baseline-v1/`: original source and summary for reference.
-- `artifacts/`: generated data, checkpoints, logs, videos, reports, and manifests; excluded from Git.
+- `src/tinyvla/` contains the language rules, simulator, model, training code, controller, tests, and command line tool.
+- `configs/project.json` sets the model size, data, training, and test limits.
+- `tests/` checks the supported language, repeatable simulator resets, and safe recovery rules.
+- `docs/MODEL_GOAL.md` describes the model and its limits.
+- `docs/BENCHMARK.md` describes the scene changes and how we score each trial.
+- `baseline-v1/` contains the first version and its report.
+- `artifacts/` contains the trained model, data, logs, videos, and results.
 
-## What learns and what is scripted
+## What the model can do
 
-The neural model learns image locations/presence, instruction selection, and Cartesian/gripper waypoint heads. A known camera calibration maps learned image positions into the tabletop frame. Conventional inverse kinematics executes the commands. A scripted supervisor replans from RGB at phase boundaries and uses finger encoders to detect failed grips and retry. It never accesses object labels or the scorer.
+It can identify a red cube, red cylinder, blue cube, or green cylinder. It can place or lift one of these objects. Place commands can name a yellow, purple, or cyan pad. The camera calibration is supplied to the model.
 
-Supported objects are red cube, red cylinder, blue cube, and green cylinder. Pad colors are yellow, purple, and cyan. Commands use a declared vocabulary with placing and lifting verbs. This compact system does not provide unrestricted language, unfamiliar object recognition, continuous visual tracking through occlusion, or physical-arm validation.
+The model only understands the words and sentence forms listed in [the model guide](docs/MODEL_GOAL.md). It does not understand arbitrary language or unfamiliar objects. The camera view is blocked during a grasp, so the controller looks again between steps. It does not track objects through the blockage. We have only tested this model in simulation.
 
-All failed trials and stop reasons are retained. Reported metrics distinguish the expanded v2 task distribution from the original easier v1 baseline. The recovery benchmark compares two controllers using the same v2 model and matching scenes.
+The model predicts image locations, object presence, which object and task the words describe, and arm waypoints. Standard inverse kinematics and joint controls move the arm. The hand-written feedback controller looks at a new camera image between steps. It checks the finger sensors after a grasp, retries a limited number of times, and stops when its attempt limit is reached. It cannot read object labels or the simulator's scoring data.
 
-## Development
+## Change or test the code
 
 ```bash
 uv sync --locked
 uv run --locked python -m unittest discover -s tests -v
 ```
 
-Git history is local. The included GitHub Actions workflow can run the contract checks when this repository is later hosted; no repository has been published by this work.
-
-Robot assets and the physics engine come from [PyBullet](https://github.com/bulletphysics/bullet3). Their upstream asset licenses apply. PyTorch, NumPy, Pillow, and ImageIO retain their respective licenses.
+The GitHub Actions workflow runs the project checks. The Git repository includes the experiment data and model. The PyBullet arm and other packages keep their own licenses.

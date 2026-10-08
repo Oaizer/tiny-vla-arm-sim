@@ -1,37 +1,37 @@
-# Model goal and architecture decision
+# Model goal and design
 
-Build a CPU-deployable learned policy for a declared tabletop vocabulary. Budget: fewer than 100,000 trainable parameters, checkpoint below 1 MB, and target p95 inference below 15 ms on this machine. The physical-arm deployment step is outside this version.
+Train a small policy that runs on a CPU and follows a fixed set of tabletop commands. The limits are fewer than 100,000 learned values, a checkpoint below 1 MB, and p95 model inference under 15 ms on this machine. This version is for simulation. It has not been set up for a physical arm.
 
-The available machine has an Intel Arc GPU and no NVIDIA CUDA GPU. Training runs on CPU under Ubuntu WSL. A small structured policy lets this project generate, train, and compare models locally without paid services or remote credentials.
+This computer has an Intel Arc GPU, but no NVIDIA CUDA GPU. Training therefore runs on the CPU in Ubuntu under WSL. This small model can be trained here without cloud services or paid compute.
 
-## Supported language and tasks
+## Commands the model supports
 
-Objects: **red cube**, **red cylinder**, **blue cube**, **green cylinder**. Both red shapes coexist, so color alone does not specify the object.
+The objects are a **red cube**, **red cylinder**, **blue cube**, and **green cylinder**. The two red objects appear together, so the model must tell them apart by shape as well as color.
 
-Destinations: **yellow**, **purple**, and **cyan** pads. Task families: **place** an object on a pad, or **lift** and hold it. There are 16 semantic task combinations.
+The target pads are **yellow**, **purple**, and **cyan**. The model can place an object on a pad or lift an object and hold it. There are 16 object, pad, and task combinations.
 
-Accepted grammar:
+Accepted command forms:
 
 - `[put|place|move] [the] COLOR SHAPE [on|onto|to] [the] DESTINATION [pad|target]`
 - `[lift|raise|pick up] [the] COLOR SHAPE`
 
-The object/color pairing must be one of the four listed above. Training uses 48 phrasings. The language benchmark uses new combinations of known words, including omitted articles and changed verb/preposition pairings. Unknown words and unsupported objects are rejected explicitly. This is a fixed vocabulary, not unrestricted natural-language understanding.
+Training uses 48 different wordings. The language test uses new combinations of the same known words, such as leaving out “the” or changing the verb. The parser rejects words and objects outside this list. This is a small fixed vocabulary, not general language understanding.
 
-## Learned components
+## What the model learns
 
-1. A small convolutional network predicts spatial maps and presence for all four objects and three pads from RGB.
-2. Word embeddings and a GRU encode the raw instruction. Learned selection logits identify the source, destination, and task family; the grammar parser does not supply those identities to the policy.
-3. Spatial attention gives image locations. Known camera calibration projects those locations into world coordinates at the declared object/pad heights.
-4. Two learned linear heads predict eight waypoint/finger commands for placing and lifting. After gradient training, the absolute-waypoint heads are refitted on training examples by ridge regression. Pose coefficients are constrained to zero because these teacher targets are absolute target positions, independent of the initial robot pose.
+1. A small image network finds each object and pad and estimates whether it is present.
+2. Word embeddings and a GRU read the instruction. The model learns which object, pad, and task the words name. The parser checks that a command is allowed; it does not tell the model which object or pad to select.
+3. The model finds image locations. A supplied camera calibration maps these locations to positions on the table.
+4. Two learned heads predict eight arm and gripper waypoints for a place or lift action. After neural training, we refit these heads using training data only. The target waypoints are absolute, so the fit does not use the starting arm pose.
 
-The controller receives proprioception separately for actual pose and finger-opening feedback. Simulator object coordinates are used only for training labels, deliberate benchmark perturbations, and outcome scoring.
+The controller also reads the arm pose and finger opening. The simulator's object positions are used to create training labels, make test changes, and score the result. The policy and feedback controller do not read those positions.
 
-## Scripted components
+## What the controller does
 
-Inverse kinematics and joint position control execute Cartesian commands. A phase supervisor requests new observations, checks learned presence, detects an empty gripper using encoders, retries, and stops at an attempt/inference budget. Recovery rules are designed rather than learned from failure trajectories. Recording failures now provides data for a later learned recovery model.
+Standard inverse kinematics and joint controls move the arm. A hand-written controller asks for new images between action phases, checks whether the object is visible, checks the finger sensors after a grasp, retries, and stops after a fixed number of attempts or model calls. The recovery rules are not learned from failure examples.
 
-The overhead view is occluded during a grasp, so the supervisor parks the empty arm to reobserve before grasping. Destination replanning uses the image at the lift pose, where pads remain visible. It replans at phase boundaries rather than continuously tracking arbitrary objects through occlusion. A wrist camera or temporal observation model would be needed for that extension.
+The overhead camera cannot see the object clearly while the arm is grasping it. The controller moves the empty arm to a clear view before a grasp, then checks the target pad from the lifted position. It does not track objects through the blocked view. A wrist camera or a model that uses a sequence of images could support that later.
 
-## Future alternative
+## If the project needs broader language
 
-If the project goal changes to open-vocabulary commands or unfamiliar object categories, adopt a pretrained VLA such as SmolVLA, provision suitable training compute, and gather demonstrations for the new embodiment. Compare it against this compact policy using the same physical task metrics. That would be a new training experiment, not a feature claimed by this version.
+For commands with unfamiliar words or new object types, try a pretrained VLA such as SmolVLA. That would need more training compute and examples from the intended robot. Test it against this model on the same tasks. This project has not done that training.

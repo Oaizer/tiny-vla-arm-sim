@@ -1,4 +1,4 @@
-name: Project contracts
+name: Project checks
 on: [push, pull_request]
 jobs:
   contracts:

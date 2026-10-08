@@ -1,4 +1,4 @@
-"""Deterministic data generation with scene-level train/validation split."""
+"""Create repeatable training and validation data from separate scenes."""
 import json,time
 from pathlib import Path
 import numpy as np

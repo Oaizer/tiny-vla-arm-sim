@@ -1,4 +1,4 @@
-"""Exercise sensor-only retry and missing-source behavior without object APIs."""
+"""Check failed-grip retries and stopping when an object is missing."""
 import unittest
 import numpy as np
 import torch

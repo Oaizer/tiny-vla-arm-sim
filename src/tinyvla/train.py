@@ -1,4 +1,4 @@
-"""CPU training, validation-only selection, and training-only linear head refit."""
+"""Train on the CPU, select with validation data, then refit on training data."""
 import json,time,random
 from pathlib import Path
 import numpy as np
@@ -45,9 +45,9 @@ def train(config,artifact_root):
     cfg=config['training'];seed=cfg['seed'];random.seed(seed);np.random.seed(seed);torch.manual_seed(seed)
     torch.set_num_threads(cfg['threads']);torch.use_deterministic_algorithms(True)
     tr=load(root/'data/train.npz');va=load(root/'data/validation.npz')
-    if set(tr['seeds'])&set(va['seeds']):raise ValueError('Train/validation seed overlap')
+    if set(tr['seeds'])&set(va['seeds']):raise ValueError('Training and validation use some of the same scenes.')
     model=Policy();params=sum(p.numel() for p in model.parameters())
-    if params>config['model_goal']['max_parameters']:raise ValueError('Model exceeds parameter budget')
+    if params>config['model_goal']['max_parameters']:raise ValueError('The model has more parameters than the project limit allows.')
     optimizer=torch.optim.AdamW(model.parameters(),lr=cfg['learning_rate'],weight_decay=1e-5)
     schedule=torch.optim.lr_scheduler.CosineAnnealingLR(optimizer,cfg['steps'],eta_min=.0001)
     best=float('inf');start=time.time();checkpoint=run/'best.pt'

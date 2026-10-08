@@ -1,4 +1,4 @@
-"""Compact learned perception/language/action policy with calibrated RGB camera."""
+"""Small model that reads camera images and commands and predicts arm actions."""
 import torch
 from torch import nn
 from .language import OBJECTS,PADS,VOCAB

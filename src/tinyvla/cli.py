@@ -1,4 +1,4 @@
-"""One entrypoint for generation, training, paired evaluation, and demonstration."""
+"""Command line tools for training, testing, and showing the model."""
 import argparse,json,subprocess,sys
 from datetime import datetime,timezone
 from pathlib import Path
@@ -11,14 +11,14 @@ from .replay import replay_failures
 def main():
     parser=argparse.ArgumentParser(prog='tinyvla');parser.add_argument('--config',default='configs/project.json')
     sub=parser.add_subparsers(dest='command',required=True)
-    run=sub.add_parser('run',help='Generate, train, evaluate, and archive a fresh experiment')
+    run=sub.add_parser('run',help='Create a run, train the model, and save test results')
     run.add_argument('--run-dir');run.add_argument('--skip-contract-checks',action='store_true')
-    ev=sub.add_parser('evaluate');ev.add_argument('--run-dir',default='artifacts');ev.add_argument('--suites',nargs='+')
+    ev=sub.add_parser('evaluate',help='Test a saved model in the simulator');ev.add_argument('--run-dir',default='artifacts');ev.add_argument('--suites',nargs='+')
     ev.add_argument('--episodes',type=int);ev.add_argument('--videos',type=int);ev.add_argument('--seed-start',type=int);ev.add_argument('--output-name',default='evaluation')
-    dm=sub.add_parser('demo');dm.add_argument('--run-dir',default='artifacts');dm.add_argument('--instruction',required=True)
+    dm=sub.add_parser('demo',help='Run one command and save a video');dm.add_argument('--run-dir',default='artifacts');dm.add_argument('--instruction',required=True)
     dm.add_argument('--seed',type=int,default=80000);dm.add_argument('--event',choices=['object_moved','slip']);dm.add_argument('--output')
-    rep=sub.add_parser('report');rep.add_argument('--run-dir',default='artifacts')
-    fail=sub.add_parser('replay-failures');fail.add_argument('--run-dir',default='artifacts')
+    rep=sub.add_parser('report',help='Write a results report for a saved run');rep.add_argument('--run-dir',default='artifacts')
+    fail=sub.add_parser('replay-failures',help='Save videos of selected failed trials');fail.add_argument('--run-dir',default='artifacts')
     for command_parser in (run,ev,dm,rep,fail):command_parser.add_argument('--config',default=argparse.SUPPRESS)
     args=parser.parse_args();config=json.loads(Path(args.config).read_text())
     if args.command=='run':

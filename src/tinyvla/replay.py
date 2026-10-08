@@ -1,4 +1,4 @@
-"""Record representative failed trials without changing benchmark statistics."""
+"""Save videos that show how selected failed trials played out."""
 import json
 from pathlib import Path
 import torch

@@ -1,4 +1,4 @@
-"""Bounded visual replanning with proprioceptive grasp/slip detection.
+"""Replan between steps and check grasps with the arm's finger sensors.
 
 This supervisor is scripted. Perception, instruction selection and Cartesian
 waypoints are learned. It never calls simulator object labels or scoring APIs.
@@ -14,7 +14,7 @@ class Agent:
         self.settings=settings;self.calls=0;self.latencies=[];self.trace=[]
 
     def observe(self,sim,phase):
-        if self.calls>=self.settings['max_inference_calls']:raise RuntimeError('Inference budget exceeded')
+        if self.calls>=self.settings['max_inference_calls']:raise RuntimeError('The model reached its call limit.')
         obs=sim.observation();start=time.perf_counter()
         with torch.inference_mode():
             action,info=self.model(torch.from_numpy(obs['rgb']).permute(2,0,1)[None].float()/255,
@@ -24,7 +24,7 @@ class Agent:
         result['task']=int(info['task_logits'][0].argmax());result['state']=obs['state']
         self.trace.append({'phase':phase,'call':self.calls,'source_confidence':result['source_confidence'],
             'pad_confidence':result['pad_confidence'],'gripper_m':float(obs['state'][3]),'task':result['task']})
-        if not np.isfinite(action).all():raise RuntimeError('Non-finite model prediction')
+        if not np.isfinite(action).all():raise RuntimeError('The model returned invalid action values.')
         return action,result
 
     def valid(self,action,info,source=True):

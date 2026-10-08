@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tinyvla-arm"
 version = "0.2.0"
-description = "Reproducible CPU vision-language arm learning in physics simulation"
+description = "Train and test a small vision and language policy on a simulated arm"
 requires-python = ">=3.11,<3.12"
 dependencies = ["torch==2.14.1+cpu", "numpy==2.4.6", "pybullet==3.2.7", "pillow==12.3.0", "imageio==2.38.0", "imageio-ffmpeg==0.6.0"]
 

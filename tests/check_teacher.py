@@ -1,4 +1,4 @@
-"""Optional physical calibration check for the teacher, recorded as a result."""
+"""Run a few teacher examples and save their simulation results."""
 import json
 from tinyvla.sim import ArmSim
 from tinyvla.evaluate import instruction_for

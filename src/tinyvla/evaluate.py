@@ -1,4 +1,4 @@
-"""Paired benchmark suites. Perturbation harness is separate from policy inputs."""
+"""Test both controllers on matching scenes and save every trial result."""
 import hashlib,json,time
 from pathlib import Path
 import numpy as np
@@ -12,7 +12,7 @@ from .language import OBJECTS,PADS,parse
 
 def load_policy(checkpoint):
     ckpt=torch.load(checkpoint,map_location='cpu',weights_only=False)
-    if ckpt.get('architecture')!='TinyVLA-v2':raise ValueError('Checkpoint architecture mismatch')
+    if ckpt.get('architecture')!='TinyVLA-v2':raise ValueError('This checkpoint does not match the project model.')
     model=Policy();model.load_state_dict(ckpt['state_dict']);model.eval();return model,ckpt
 
 def instruction_for(index,heldout=False):
@@ -45,7 +45,7 @@ def benchmark(config,run_root,suites=None,episodes=None,videos=None,seed_start=N
     for suite_index,suite in enumerate(suites):
         suite_root=output/suite;suite_root.mkdir(parents=True,exist_ok=True)
         base=seed_start+settings['suites'].index(suite)*1000
-        if used&set(range(base,base+episodes)):raise ValueError('Evaluation seeds overlap train/validation')
+        if used&set(range(base,base+episodes)):raise ValueError('These test scenes overlap the training or validation scenes.')
         for mode in ['one_shot','feedback']:
             rows=[];latencies=[];sim=ArmSim(config['data']['image_size'])
             try:

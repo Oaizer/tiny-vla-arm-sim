@@ -1,4 +1,4 @@
-"""Checks for contracts that would invalidate the experiment if broken."""
+"""Check the language rules and repeatable simulator behavior."""
 import unittest
 import numpy as np
 from tinyvla.language import commands,parse,tokenize,OBJECTS

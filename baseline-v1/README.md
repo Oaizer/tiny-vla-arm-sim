@@ -1,33 +1,29 @@
-# Tiny VLA: simulated Panda pick and place
+# TinyVLA v1: simulated pick and place
 
-A locally trained, 16,104-parameter vision-language-action policy for a narrow tabletop task. Runs on CPU in Linux or Windows through WSL. It is a custom model trained from scratch, not a SmolVLA checkpoint or a LIBERO benchmark result.
+This first version trained a 16,104-parameter policy to move a simulated Panda arm. It runs on a CPU in Linux or Ubuntu under WSL. The model was trained from scratch. It is not a SmolVLA checkpoint or a LIBERO benchmark result.
 
-**Measured result:** 94/100 successful unseen pick-and-place trials (95% Wilson interval 87.5–97.2%), 69,687-byte checkpoint, and 1.51 ms median / 2.63 ms p95 CPU inference. See [RESULTS.md](RESULTS.md), [demo.mp4](demo.mp4), and [the checkpoint](runs/tiny/best.pt).
+In 100 held-out trials, the model placed the requested cube on the requested pad in 94 trials. The checkpoint is 69,687 bytes. CPU inference took 1.51 ms at the median and 2.63 ms at p95. See the [full results](RESULTS.md), [demo video](demo.mp4), and [checkpoint](runs/tiny/best.pt).
 
-## What it does
+## Task and model
 
-Input: one 96 × 96 RGB overhead image, a tokenized instruction, and the Panda gripper pose/opening. Output: eight Cartesian waypoints and finger-opening commands. A conventional inverse-kinematics/position controller executes those commands in PyBullet. The physics engine supplies gravity, collisions, and finger friction; there is no object attachment constraint or teleport during execution.
+The model reads one 96 × 96 RGB image from an overhead camera, a short command, and the gripper pose and opening. It predicts eight arm and gripper waypoints. PyBullet supplies gravity, collisions, and finger contact. The simulation does not attach or move the object by code during a task.
 
-Supported instruction template: `put the COLOR block on the PAD pad`, with COLOR = red/green/blue and PAD = yellow/purple. Three blocks are present in every scene, so the instruction must select an object and destination. Object positions, pad positions, and block brightness vary between scenes.
+Commands name a red, green, or blue cube and a yellow or purple pad. Three cubes are present in each scene. Object positions, pad positions, and cube brightness change across scenes.
 
-## Model
+Three image layers find the target. Learned word embeddings guide the model to the object and pad. A learned action head predicts the waypoints. Object coordinates are used to create training targets and score trials. The model only sees the image, command, and gripper data.
 
-Three convolutional layers encode the image. Learned word embeddings condition two spatial attention maps. Their soft coordinates and the robot state feed a learned linear action head. The complete network emits the waypoint/gripper sequence. Simulator object coordinates are available to the training teacher and outcome scorer only; the policy receives RGB, tokens, and proprioception.
+This first version uses a fixed camera, upright cubes, and a small command grammar. It plans from the first image and does not correct its path if an object moves. It is not a general language model, obstacle planner, or tested physical-arm controller.
 
-The camera is fixed, blocks are identical upright cubes, and commands follow a small grammar. This is an open-loop action-chunk policy: it plans from the initial observation and does not correct for objects moving during execution. It is not a general language model, a collision planner, or a physical-arm deployment package.
+## Run it
 
-## Reproduce
-
-Requires Linux (or Ubuntu under WSL), `uv`, and roughly 1 GB for the CPU runtime. No GPU, paid services, or cloud credentials are needed.
+You need Linux or Ubuntu under WSL, `uv`, and about 1 GB for the CPU software.
 
 ```bash
 bash setup.sh
 bash run_pipeline.sh
 ```
 
-The virtual environment is `/var/tmp/tiny-vla-env`; override `VLA_ENV` to choose another path. On this Windows machine, the project is at `/mnt/c/Users/oaize/Documents/Codex/2026-10-07/i-w/outputs/tiny-vla` inside WSL.
-
-Run just the trained policy evaluation:
+The virtual environment is in `/var/tmp/tiny-vla-env`. Set `VLA_ENV` to use another folder. To test the saved model:
 
 ```bash
 /var/tmp/tiny-vla-env/bin/python evaluate.py \
@@ -35,7 +31,7 @@ Run just the trained policy evaluation:
   --episodes 100 --start-seed 20000 --output evaluation
 ```
 
-Run a specific instruction and produce a video:
+To run one command and save a video:
 
 ```bash
 /var/tmp/tiny-vla-env/bin/python demo.py \
@@ -43,44 +39,40 @@ Run a specific instruction and produce a video:
   --seed 30001 --output my-demo.mp4
 ```
 
-## Training and evaluation design
+## Training and tests
 
-- Train: 1,200 initial scenes, seeds 0–1199, and all six commands per scene (7,200 labelled action chunks).
-- Validation: 120 different scenes, seeds 10000–10119; select checkpoint using action prediction error.
-- Physics testing: 100 new scenes, seeds 20000–20099, with all six instructions distributed across the run.
-- Supervision: scripted teacher uses simulator state to construct action chunks. A sample of teacher rollouts is executed to verify its grasping behavior; generation does not execute every training chunk.
-- Loss: action imitation plus auxiliary spatial attention supervision. The auxiliary labels are unavailable during inference.
-- After neural training, `refit_head.py` fits the linear action head by ridge regression on the 7,200 training pairs and accepts it only if validation error improves. This reduced horizontal validation RMSE from 5.03 to 1.53 mm. Test scenes were not used for training or checkpoint selection.
-- Success: instructed block was lifted above 10 cm, then finished resting within 4.5 cm of the instructed pad center. Logs record final distance and observed lift height. Other cubes are distractors; their displacement is not part of the success metric.
-- Ablations: remove image content or change the source-color instruction while keeping the scored goal fixed, to check that the learned policy uses vision and language.
+- Training used 1,200 scenes (seeds 0–1199) and all six commands in each scene: 7,200 labeled action chunks.
+- Validation used 120 other scenes (seeds 10000–10119) to select the model.
+- Testing used 100 new scenes (seeds 20000–20099). Each of the six commands appears in the test set.
+- A script created action targets from simulated scene state. We ran the scripted teacher in 12 simulations to check its grasp behavior; we did not execute every training action chunk.
+- Training combined action imitation with image-location supervision. The extra image labels are not available at run time.
+- After training, a linear action head was fit using training data only. Horizontal validation error fell from 5.03 mm to 1.53 mm RMSE. Test scenes were not used to train or select the model.
+- A place succeeds if the named cube rises above 10 cm and comes to rest within 4.5 cm of the named pad center.
+- Extra checks removed the image or changed the command's object while scoring against the original goal. These checks test whether the model uses the image and color words; they do not show general language skill.
 
-Check `evaluation/summary.json` for measured task success and latency, `evaluation/episodes.jsonl` for every trial, and the MP4 files for recorded rollouts. Training curves are in `runs/tiny/train.jsonl`; the selected model is `runs/tiny/best.pt`.
+The evaluation folder has trial logs and videos. The training log and checkpoint are in `runs/tiny/`.
 
 ## Files
 
-- `simulator.py`: Panda environment, teacher, physics controller, scorer.
-- `generate.py`: deterministic image/instruction/action data generation.
-- `model.py`: complete trainable VLA architecture.
-- `train.py`: CPU training and checkpoint selection.
-- `refit_head.py`: training-only least-squares fit of the learned action head.
-- `evaluate.py`: held-out physics evaluation, ablations, and videos.
-- `demo.py`: run one supported instruction and save an annotated video.
-- `setup.sh`, `run_pipeline.sh`: reproduce the experiment.
+- `simulator.py`: Panda arm, physics, scripted teacher, and scorer.
+- `generate.py`: creates repeatable image, command, and action data.
+- `model.py`: model layers.
+- `train.py`: CPU training and model selection.
+- `refit_head.py`: fits the action head using training data.
+- `evaluate.py`: held-out tests and videos.
+- `demo.py`: runs one supported command and saves a video.
+- `setup.sh`, `run_pipeline.sh`: set up and run the experiment.
 
-## Next steps toward a physical arm
+## Before trying a physical arm
 
-1. Replace the Panda URDF and controller with the intended arm's geometry and control semantics.
-2. Match camera calibration, gripper dimensions, joint limits, and action rates.
-3. Add textures, lighting, pose, friction, mass, and camera randomization and test the resulting distribution shifts.
-4. Collect real demonstrations and fine-tune; this simulation result alone does not establish real-world transfer.
-5. Replace the one-shot chunk with repeated observations and short-horizon replanning before attempting dynamic tasks.
+Use the intended arm model and controls. Match the camera, gripper, joint limits, and control rate. Add scene changes and collect real demonstrations. Test new observations and short action steps before trying tasks where objects can move. This simulation result does not show transfer to a real arm.
 
-For broader language tasks and more varied scenes, the larger path discussed in the chat is LeRobot + SmolVLA + LIBERO on Linux with suitable training compute. That experiment has not been represented as completed by this project.
+For broader language and more varied scenes, a separate project could compare LeRobot, SmolVLA, and LIBERO on Linux with suitable training compute. That work is not part of this version.
 
-## Upstream dependencies
+## Upstream packages
 
 - [PyBullet and the bundled Franka Panda model](https://github.com/bulletphysics/bullet3)
 - [PyTorch](https://pytorch.org/)
 - [LeRobot LIBERO guide](https://github.com/huggingface/lerobot/blob/main/docs/source/libero.mdx)
 
-Robot assets are supplied by the installed `pybullet_data` package and retain their upstream licensing.
+The Panda assets come from the installed `pybullet_data` package and retain their upstream license.

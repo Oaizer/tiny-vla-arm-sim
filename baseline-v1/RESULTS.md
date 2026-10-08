@@ -1,65 +1,65 @@
-# Completed simulation experiment
+# TinyVLA v1 results
 
-The model was trained and evaluated locally on the user's machine using the CPU under Ubuntu WSL. No cloud training or paid compute was used. Source code, training data, logs, checkpoints, and videos are included.
+We trained and tested this model on the local CPU in Ubuntu under WSL. No cloud training or paid compute was used. The table reports one test run.
 
-| Measurement | Result |
+| Measure | Result |
 |---|---:|
-| Held-out physics trials | 100 |
+| Held-out trials | 100 |
 | Successful pick and place | **94 / 100** |
 | Success rate | **94%** |
 | 95% Wilson interval | 87.5%–97.2% |
-| Trainable parameters | **16,104** |
-| Saved checkpoint size | **69,687 bytes** |
-| CPU policy inference, median | **1.51 ms** |
-| CPU policy inference, p95 | **2.63 ms** |
-| Neural training updates | 3,000 |
-| Neural training elapsed time | 208.3 seconds |
-| Training scenes / labelled action chunks | 1,200 / 7,200 |
+| Learned parameters | **16,104** |
+| Checkpoint size | **69,687 bytes** |
+| CPU inference, median | **1.51 ms** |
+| CPU inference, p95 | **2.63 ms** |
+| Training updates | 3,000 |
+| Training time | 208.3 seconds |
+| Training scenes / labeled action chunks | 1,200 / 7,200 |
 | Validation scenes | 120 |
-| Horizontal validation error after head refit | 1.53 mm RMSE |
+| Horizontal validation error after fitting the action head | 1.53 mm RMSE |
 
-Latency measures tensor conversion plus a policy forward pass, not camera rendering, physics stepping, or the seconds needed to complete a movement. It was measured during this local run and may vary with CPU load.
+Inference time covers tensor preparation and one model prediction. It does not include image capture, rendering, physics, or arm movement. It can change with CPU load.
 
-## Task breakdown
+## Results by command
 
-| Instruction | Successes / trials |
+| Command | Successful trials |
 |---|---:|
-| Red block → yellow pad | 15 / 17 |
-| Red block → purple pad | 16 / 17 |
-| Green block → yellow pad | 16 / 17 |
-| Green block → purple pad | 15 / 17 |
-| Blue block → yellow pad | 16 / 16 |
-| Blue block → purple pad | 16 / 16 |
+| Red cube to yellow pad | 15 / 17 |
+| Red cube to purple pad | 16 / 17 |
+| Green cube to yellow pad | 16 / 17 |
+| Green cube to purple pad | 15 / 17 |
+| Blue cube to yellow pad | 16 / 16 |
+| Blue cube to purple pad | 16 / 16 |
 
-## Checks that the inputs matter
+## Input checks
 
-The same 30 extra scene seeds (21000–21029) were run in each condition. These trials were not used to change the model.
+We ran the same 30 extra scene seeds in each row. We did not use these trials to change the model.
 
-| Condition | Success against the original goal |
+| Test | Success against the original goal |
 |---|---:|
-| Correct image and instruction | 30 / 30 |
-| Instruction requests a different block | 0 / 30 |
-| Camera image replaced by zeros | 0 / 30 |
+| Correct image and command | 30 / 30 |
+| Command names a different cube | 0 / 30 |
+| Camera image is blank | 0 / 30 |
 
-These checks support that this policy depends on both vision and the color words. They do not establish general language understanding or robustness to unfamiliar cameras or objects. Changing the instruction intentionally changes the requested behavior; failure against the original goal is the expected outcome.
+The results show that this policy used the camera image and color words in these tests. They do not show that it understands general language or can handle unfamiliar objects and cameras. When a command names a different cube, success is scored against the original goal, so failure is expected.
 
-## Evidence
+## Files and failed trials
 
-- [Annotated learned-policy demo](demo.mp4): new scene seed 30000, red block to yellow pad, successful lift and placement.
-- [Recorded failure](evaluation/failure_20093.mp4): green block to purple pad, failed grasp.
-- [All 100 trial records](evaluation/episodes.jsonl).
-- [Machine-readable results](evaluation/summary.json).
-- [Training log](runs/tiny/train.jsonl).
-- [Linear head refit results](runs/tiny/refit.json).
-- [Exact environment packages](environment.lock.txt).
-- [Model checkpoint](runs/tiny/best.pt).
+- [Demo video](demo.mp4): a new scene, seed 30000, red cube to yellow pad.
+- [Failed trial video](evaluation/failure_20093.mp4): green cube to purple pad; the grasp failed.
+- `evaluation/episodes.jsonl`: all 100 trial records.
+- `evaluation/summary.json`: summary results.
+- `runs/tiny/train.jsonl`: training log.
+- `runs/tiny/refit.json`: action-head fitting results.
+- `environment.lock.txt`: package versions.
+- `runs/tiny/best.pt`: model checkpoint.
 
-The first six benchmark rollouts were all recorded, one for each instruction, under `evaluation/`. The six failed benchmark seeds were 20033, 20037, 20062, 20072, 20084, and 20093. All six failed to lift the intended block above 10 cm. The failure video replays one of them; small differences in contact dynamics between a standalone replay and an ongoing batch can change exact distances.
+The first six test videos show one trial for each command. The six failed seeds were 20033, 20037, 20062, 20072, 20084, and 20093. Each failed to lift the intended cube above 10 cm. A replay video can differ slightly because object contact depends on the physics step.
 
-## Scope of the result
+## What this result covers
 
-This completes a deliberately narrow simulation prototype: fixed overhead camera, upright colored cubes, two target pads, six command combinations, and one-shot eight-waypoint actions. The arm is the bundled Panda in PyBullet. The object is held by simulated gripper contact, not a scripted attachment. Standard IK and position servos execute learned Cartesian/gripper commands.
+This was a small simulation test with a fixed overhead camera, upright colored cubes, two pads, six commands, and one action plan per image. The arm is the Panda model bundled with PyBullet. Simulated finger contact holds objects; no code attaches them to the gripper. Standard inverse kinematics and joint controls carry out the learned waypoints.
 
-The training set contains scripted action targets for generated scenes, not 7,200 individually rollout-validated demonstrations. The scripted teacher was checked on 12 physical simulation rollouts before data generation. The learned policy was then independently evaluated as documented above.
+The training set contains scripted action targets for generated scenes. We did not validate all 7,200 targets by running them in simulation. We ran the teacher in 12 simulation episodes before generating the data.
 
-This is a custom miniature VLA, not a fine-tuned SmolVLA or a LIBERO reproduction. Those were the initial suggested tools; the available machine has an Intel Arc GPU and no NVIDIA CUDA GPU, so this completed run uses a smaller CPU-trainable architecture. No real-world arm transfer has been tested. There is no mid-motion visual correction, obstacle avoidance, open-vocabulary language, or distribution-shift guarantee.
+This is a small model trained from scratch. It is not a fine-tuned SmolVLA model or a LIBERO result. We did not test it on a physical arm. It does not adjust its path during movement, avoid obstacles, understand open-ended commands, or guarantee success when scenes change.
