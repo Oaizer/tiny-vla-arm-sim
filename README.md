@@ -4,6 +4,8 @@ This project trains a small vision and language policy to control a simulated Pa
 
 The project also has a small world model trained only on simulated arm episodes. It predicts future observations and compares nearby grasp commands. See the [world model guide](docs/WORLD_MODEL.md), [work plan](docs/WORLD_MODEL_PLAN.md), and [world model results](artifacts/world-v1/RESULTS.md).
 
+The next experiment tests a consistent grasp offset. Read the [experiment plan](docs/WORLD_MODEL_V2.md). Run `python -m tinyvla.world_iteration run` to reproduce its frozen comparison with the saved model weights.
+
 ## Results
 
 The trained model has **17,896 parameters**. Its checkpoint is **78,815 bytes**. We tested two controllers in 800 trials across ten test sets. The feedback controller succeeded in 39 of 40 standard trials, 32 of 40 trials where an object moved, and 24 of 40 trials with a forced drop. It stopped before moving in 39 of 40 trials where the requested object was missing. Feedback did worse than one-shot control in some changed scenes.
@@ -55,4 +57,4 @@ uv sync --locked
 uv run --locked python -m unittest discover -s tests -v
 ```
 
-The GitHub Actions workflow runs the project checks. The Git repository includes the VLA data, model weights, and experiment reports. The larger world-model trajectories stay in the local output package; the repository includes their hashes and collection code. The PyBullet arm and other packages keep their own licenses.
+The GitHub Actions workflow runs the project checks. The Git repository includes the VLA data, model weights, and experiment reports. Download the larger world-model trajectories from the [version 1 release](https://github.com/Oaizer/tiny-vla-arm-sim/releases/tag/world-model-v1). The repository includes their hashes and collection code. The PyBullet arm and other packages keep their own licenses.

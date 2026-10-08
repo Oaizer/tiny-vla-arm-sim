@@ -32,7 +32,9 @@ def benchmark(config, root, policy_path, development=False, limit=None):
     for suite in suites:
         suite_index = settings['suites'].index(suite)
         for mode in modes:
-            model, ckpt = (None, None) if mode == 'feedback' else load_world(root / 'model' / f'{mode}.pt')
+            stage = config.get('model_stages', {}).get(mode, mode)
+            model_root = Path(config.get('model_root', root / 'model'))
+            model, ckpt = (None, None) if mode == 'feedback' else load_world(model_root / f'{stage}.pt')
             first_seed = start + suite_index * 1000
             if ckpt and set(range(first_seed, first_seed + count)) & set(ckpt['training_seeds'] + ckpt['validation_seeds']):
                 raise ValueError('Controller tests share training or validation seeds.')
@@ -50,7 +52,8 @@ def benchmark(config, root, policy_path, development=False, limit=None):
                             tip_object(sim, task)
                         if suite == 'missing':
                             sim.perturb('missing', task)
-                        planner = None if model is None else GraspPlanner(model, config['planner'])
+                        planner_settings = {**config['planner'], **config.get('planner_variants', {}).get(mode, {})}
+                        planner = None if model is None else GraspPlanner(model, planner_settings)
                         view = SensorArm(sim, extractor, planner)
                         agent = Agent(policy, task.instruction, base_settings) if planner is None else PlanningAgent(policy, task.instruction, base_settings)
                         events = []
@@ -96,7 +99,7 @@ def benchmark(config, root, policy_path, development=False, limit=None):
                 sim.close()
     result = {'development': development, 'seconds': time.time() - begin, 'suites': summaries,
               'policy_sha256': hashlib.sha256(Path(policy_path).read_bytes()).hexdigest(),
-              'model_hashes': {mode: hashlib.sha256((root / 'model' / f'{mode}.pt').read_bytes()).hexdigest()
+              'model_hashes': {mode: hashlib.sha256((Path(config.get('model_root', root / 'model')) / f"{config.get('model_stages', {}).get(mode, mode)}.pt").read_bytes()).hexdigest()
                                for mode in modes if mode != 'feedback'}, 'config': config}
     (directory / 'summary.json').write_text(json.dumps(result, indent=2))
     return result

@@ -55,8 +55,14 @@ class GraspPlanner:
         accepted = (best != 0 and gain >= self.settings['minimum_gain']
                     and float(disagreement[best]) <= self.settings['max_disagreement'])
         choice = best if accepted else 0
+        self.last_actions = actions.copy()
+        self.last_predictions = predictions.numpy().copy()
         record = {'accepted': accepted, 'candidate': choice, 'predicted_gain': gain,
+                  'requested_xyz': np.asarray(xyz).tolist(), 'grip': float(grip), 'steps': int(steps),
                   'disagreement': float(disagreement[best]), 'offset_m': (first[choice] - np.asarray(xyz)).tolist(),
+                  'predicted_cost': float(costs.mean(0)[choice]),
+                  'predicted_held': float(held.mean(0)[choice]),
+                  'predicted_position': position[:, choice].mean(0).tolist(),
                   'milliseconds': (time.perf_counter() - begin) * 1000}
         self.decisions.append(record)
         return first[choice]
@@ -73,6 +79,7 @@ class SensorArm:
         self.feature_ms = []
         self.source = None
         self.source_xy = None
+        self.grasp_offset = None
         self.planning_enabled = not (planner and getattr(planner, 'settings', {}).get('recovery_only', False))
         self.refresh()
 
@@ -92,7 +99,19 @@ class SensorArm:
     def move(self, xyz, grip, steps=120, frames=None):
         xyz = np.asarray(xyz).copy()
         near_source = self.source_xy is not None and np.linalg.norm(xyz[:2] - self.source_xy) < .065
-        if self.planner is not None and self.planning_enabled and self.source is not None and near_source and xyz[2] < .07:
+        eligible = self.planner is not None and self.planning_enabled and self.source is not None and near_source and xyz[2] < .07
+        coherent = self.planner is not None and getattr(self.planner, 'settings', {}).get('coherent_grasp', False)
+        if coherent:
+            if eligible and grip > .02:
+                chosen = self.planner.choose(self.history, xyz, grip, steps, self.source)
+                self.grasp_offset = chosen - xyz
+                xyz = chosen
+            elif eligible and self.grasp_offset is not None and grip <= .02:
+                xyz = xyz + self.grasp_offset
+                self.grasp_offset = None
+            else:
+                self.grasp_offset = None
+        elif eligible:
             xyz = self.planner.choose(self.history, xyz, grip, steps, self.source)
         self._arm.move(xyz, grip, steps, frames)
         self.refresh()
