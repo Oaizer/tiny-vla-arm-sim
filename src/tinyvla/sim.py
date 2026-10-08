@@ -148,6 +148,14 @@ class ArmSim:
     def execute_chunk(self,action,frames=None):
         for i,w in enumerate(action):self.move(w[:3],w[3],160 if i in [2,6] else 150,frames)
 
+    def move_smooth(self,xyz,grip,steps=150,frames=None):
+        """Bounded Cartesian carrying segments, using the same IK/servo interface."""
+        start=self.state()[:3];goal=np.array(xyz,float)
+        pieces=max(1,int(np.ceil(np.linalg.norm(goal-start)/.025)))
+        substeps=max(24,int(np.ceil(steps/pieces)))
+        for fraction in np.linspace(1/pieces,1,pieces):
+            self.move(start+(goal-start)*fraction,grip,substeps,frames)
+
     def perturb(self,event,task):
         """Evaluation harness only. These events do not expose labels to controllers."""
         if event=='object_moved' and task.object in self.objects:

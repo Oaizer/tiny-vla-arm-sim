@@ -30,7 +30,7 @@ The controller receives proprioception separately for actual pose and finger-ope
 
 Inverse kinematics and joint position control execute Cartesian commands. A phase supervisor requests new observations, checks learned presence, detects an empty gripper using encoders, retries, and stops at an attempt/inference budget. Recovery rules are designed rather than learned from failure trajectories. Recording failures now provides data for a later learned recovery model.
 
-The overhead view is occluded during a grasp, so the supervisor moves the arm aside before replanning. It replans at phase boundaries rather than continuously tracking arbitrary objects through occlusion. A wrist camera or temporal observation model would be needed for that extension.
+The overhead view is occluded during a grasp, so the supervisor parks the empty arm to reobserve before grasping. Destination replanning uses the image at the lift pose, where pads remain visible. It replans at phase boundaries rather than continuously tracking arbitrary objects through occlusion. A wrist camera or temporal observation model would be needed for that extension.
 
 ## Future alternative
 

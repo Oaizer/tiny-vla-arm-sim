@@ -21,6 +21,8 @@ Camera calibration is supplied in every condition, including the camera shift. R
 
 Each suite runs **one-shot** execution and **feedback** execution on identical scene seeds and instructions with the same frozen checkpoint. A simulator reset clears physical state and motor history before each episode. The benchmark configuration sets 40 trials per mode per suite.
 
+Both controllers use the same carrying motion controller: Cartesian targets are interpolated in segments no longer than 2.5 cm, with at least 24 physics ticks per segment. Reset/data generation retains its original direct servo motion, so this controller change does not alter the generated training observations.
+
 - `nominal`: fresh scenes inside training ranges.
 - `lighting`, `camera`, `appearance`, `dynamics`, `positions`: one held-out shift at a time.
 - `language`: held-out sentence combinations inside the declared vocabulary.

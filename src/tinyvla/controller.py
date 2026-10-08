@@ -37,12 +37,14 @@ class Agent:
 
     def run(self,sim,mode='feedback',event=None,frames=None):
         retries=0;recovered=False;threshold=self.settings['empty_gripper_threshold_m']
+        carry=getattr(sim,'move_smooth',sim.move)
         try:
             action,info=self.observe(sim,'initial');valid,reason=self.valid(action,info)
             if not valid:return self.report('stopped_'+reason,retries,recovered)
             if mode=='one_shot':
                 for i,w in enumerate(action):
-                    sim.move(w[:3],w[3],160 if i in [2,6] else 150,frames)
+                    motion=carry if i in [3,4,5] else sim.move
+                    motion(w[:3],w[3],160 if i in [2,6] else 150,frames)
                     if event and i==0:event('after_approach')
                     if event and i==3:event('after_lift')
                 sim.step(100,frames);return self.report('executed',0,False)
@@ -64,20 +66,25 @@ class Agent:
                 sim.move(action[0,:3],action[0,3],130,frames)
                 sim.move(action[1,:3],action[1,3],150,frames)
                 sim.move(action[2,:3],action[2,3],190,frames)
-                sim.move(action[3,:3],action[3,3],160,frames)
+                carry(action[3,:3],action[3,3],160,frames)
                 if event:event('after_lift')
                 # Uses finger position encoders, not object poses or contact labels.
                 if sim.state()[3]<threshold:
                     self.trace.append({'phase':'empty_gripper_retry','attempt':attempt+1})
                     recovered=True;continue
                 if info['task']==1:return self.report('lifted',retries,recovered)
-                # Move held object to the edge of the view and observe destination again.
-                sim.move([.28,-.32,.28],0.,150,frames)
+                # Destination remains visible from the lift pose; avoid an extra carry detour.
                 updated,pad_info=self.observe(sim,'destination_replan');valid,reason=self.valid(updated,pad_info,source=False)
                 if not valid:
                     # Keep grip, hold above the bounded workspace, and stop.
                     return self.report('stopped_'+reason,retries,recovered)
-                for i in range(4,8):sim.move(updated[i,:3],updated[i,3],170 if i==6 else 150,frames)
+                lost=False
+                for i in [4,5]:
+                    carry(updated[i,:3],updated[i,3],150,frames)
+                    if sim.state()[3]<threshold:
+                        lost=True;recovered=True;self.trace.append({'phase':'transport_slip_retry','attempt':attempt+1});break
+                if lost:continue
+                for i in [6,7]:sim.move(updated[i,:3],updated[i,3],170 if i==6 else 150,frames)
                 sim.step(100,frames);return self.report('placed',retries,recovered)
             sim.move(sim.park,.04,150,frames);return self.report('stopped_attempt_budget',retries,recovered)
         except (RuntimeError,ValueError) as error:

@@ -59,9 +59,11 @@ def benchmark(config,run_root,suites=None,episodes=None,videos=None,seed_start=N
                             if events:return
                             if (suite=='object_moved' and stage=='after_approach') or (suite=='slip' and stage=='after_lift'):
                                 sim.perturb(suite,task);events.append({'stage':stage,'event':suite})
-                        frames=[];commands_before=sim.command_count;agent=Agent(model,text,config['controller'])
+                        frames=[sim.image(384,True)]*10 if i<videos else []
+                        commands_before=sim.command_count;agent=Agent(model,text,config['controller'])
                         result=agent.run(sim,mode,inject,frames if i<videos else None)
                         outcome=sim.score(task);moved_commands=sim.command_count-commands_before
+                        if i<videos:frames.extend([sim.image(384,True)]*12)
                         row={'suite':suite,'mode':mode,'seed':seed,'instruction':text,'task':task.kind,'object':task.object,'pad':task.pad,
                             **outcome,**result,'events':events,'motion_segments':moved_commands,
                             'safe_stop':bool(result['status'].startswith('stopped') and moved_commands==0)}
@@ -87,11 +89,13 @@ def demo(config,run_root,instruction,seed=80000,event_name=None,output=None):
     task=parse(instruction);sim=ArmSim(config['data']['image_size']);frames=[];events=[]
     try:
         sim.reset(seed)
+        frames.extend([sim.image(384,True)]*12)
         def inject(stage):
             if not events and ((event_name=='object_moved' and stage=='after_approach') or (event_name=='slip' and stage=='after_lift')):
                 sim.perturb(event_name,task);events.append(stage)
         result=Agent(model,instruction,config['controller']).run(sim,'feedback',inject,frames)
         outcome=sim.score(task);path=Path(output) if output else root/'demo.mp4'
+        frames.extend([sim.image(384,True)]*20)
         annotate_video(path,frames,instruction,f'TinyVLA v2 | feedback | {event_name or "nominal"}')
         report={'instruction':instruction,'seed':seed,**outcome,**result,'event':event_name,'video':str(path)}
         path.with_suffix('.json').write_text(json.dumps(report,indent=2));return report

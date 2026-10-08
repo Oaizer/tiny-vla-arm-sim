@@ -17,6 +17,7 @@ def main():
     dm=sub.add_parser('demo');dm.add_argument('--run-dir',default='artifacts');dm.add_argument('--instruction',required=True)
     dm.add_argument('--seed',type=int,default=80000);dm.add_argument('--event',choices=['object_moved','slip']);dm.add_argument('--output')
     rep=sub.add_parser('report');rep.add_argument('--run-dir',default='artifacts')
+    for command_parser in (run,ev,dm,rep):command_parser.add_argument('--config',default=argparse.SUPPRESS)
     args=parser.parse_args();config=json.loads(Path(args.config).read_text())
     if args.command=='run':
         root=Path(args.run_dir or 'artifacts/runs/'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ'))
