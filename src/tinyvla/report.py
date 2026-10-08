@@ -15,7 +15,7 @@ def write_report(config,root,result):
     project=Path(__file__).resolve().parents[2]
     try:commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=project,text=True,stderr=subprocess.DEVNULL).strip()
     except subprocess.CalledProcessError:commit=None
-    sources={str(p.relative_to(project)):sha(p) for p in sorted((project/'src').rglob('*.py'))}
+    sources={str(p.relative_to(project)):sha(p) for p in sorted((project/'src').rglob('*')) if p.is_file() and p.suffix in ['.py','.png']}
     files={str(p.relative_to(root)):sha(p) for p in sorted(root.rglob('*')) if p.is_file() and p.suffix in ['.pt','.npz','.jsonl']}
     manifest={'project_version':__version__,'git_commit':commit,'python':sys.version,'platform':platform.platform(),
         'torch':torch.__version__,'config':config,'sources_sha256':sources,'artifacts_sha256':files,
@@ -33,7 +33,13 @@ def write_report(config,root,result):
         if suite=='missing':
             lines.append(f"| missing source (safe stop) | {one['safe_stops']}/{one['episodes']} | {fb['safe_stops']}/{fb['episodes']} | {fb['retries']} |")
         else:lines.append(f"| {suite} | {one['successes']}/{one['episodes']} | {fb['successes']}/{fb['episodes']} | {fb['retries']} |")
-    lines += ['', 'Each pair uses matching scene seeds and instructions. Success is measured by simulator state only after execution; that state is unavailable to the policy/supervisor. Missing-source rows measure stopping before any task motion. The moved-object event relocates the object once after approach; the slip event opens and recloses the gripper once after lifting.','',
+    slip=next((r for r in result['suites'] if r['suite']=='slip' and r['mode']=='feedback'),None)
+    if slip:
+        breakdown=', '.join(f"{name}: {row['successes']}/{row['episodes']}" for name,row in slip['by_object'].items())
+        lines += ['',f'Slip recovery by object: {breakdown}. Fallen cylinders remain a substantial failure case.']
+    p95=max(r['latency_p95_ms'] for r in result['suites'])
+    lines += ['',f'Maximum per-suite p95 neural inference latency: {p95:.2f} ms on this CPU. This excludes rendering, inverse kinematics, and robot motion.',
+        '', 'Each pair uses matching scene seeds and instructions. Success is measured by simulator state only after execution; that state is unavailable to the policy/supervisor. Missing-source rows measure stopping before any task motion. The moved-object event relocates the object once after approach; the slip event opens and recloses the gripper once after lifting.','',
         'Detailed JSON summaries include task/object breakdowns, Wilson confidence intervals, inference latency, and checkpoint hashes. JSONL files retain all trials, commands, supervisor events, retries, and stop reasons. Videos show the first configured trials per suite.','',
         '## Scope','',
         'Four object identities (red cube, red cylinder, blue cube, green cylinder), three pad destinations, two task families, and a declared command grammar. Camera calibration is supplied as an input; object coordinates are not. Images and dynamics vary within training ranges; individual benchmark suites apply held-out shifts. This is a compact structured visuomotor system, not open-vocabulary language or a foundation VLA. No physical arm was used.','',

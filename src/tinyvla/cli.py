@@ -6,6 +6,7 @@ from .data import generate
 from .train import train
 from .evaluate import benchmark,demo
 from .report import write_report
+from .replay import replay_failures
 
 def main():
     parser=argparse.ArgumentParser(prog='tinyvla');parser.add_argument('--config',default='configs/project.json')
@@ -17,7 +18,8 @@ def main():
     dm=sub.add_parser('demo');dm.add_argument('--run-dir',default='artifacts');dm.add_argument('--instruction',required=True)
     dm.add_argument('--seed',type=int,default=80000);dm.add_argument('--event',choices=['object_moved','slip']);dm.add_argument('--output')
     rep=sub.add_parser('report');rep.add_argument('--run-dir',default='artifacts')
-    for command_parser in (run,ev,dm,rep):command_parser.add_argument('--config',default=argparse.SUPPRESS)
+    fail=sub.add_parser('replay-failures');fail.add_argument('--run-dir',default='artifacts')
+    for command_parser in (run,ev,dm,rep,fail):command_parser.add_argument('--config',default=argparse.SUPPRESS)
     args=parser.parse_args();config=json.loads(Path(args.config).read_text())
     if args.command=='run':
         root=Path(args.run_dir or 'artifacts/runs/'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ'))
@@ -30,6 +32,7 @@ def main():
              'validation':generate(root/'data/validation.npz',data['validation_scenes'],data['validation_seed_start'],data['image_size'],data['examples_per_scene'])}
         (root/'generation.json').write_text(json.dumps(gen,indent=2));train(config,root)
         result=benchmark(config,root);demo(config,root,'put the red cylinder on the cyan pad',event_name='object_moved')
+        replay_failures(config,root)
         write_report(config,root,result);print(f'Complete experiment: {root}/RESULTS.md',flush=True)
     elif args.command=='evaluate':
         if args.episodes is not None and args.episodes<1:parser.error('--episodes must be positive')
@@ -38,5 +41,6 @@ def main():
     elif args.command=='demo':print(json.dumps(demo(config,args.run_dir,args.instruction,args.seed,args.event,args.output),indent=2))
     elif args.command=='report':
         root=Path(args.run_dir);write_report(config,root,json.loads((root/'evaluation/summary.json').read_text()))
+    elif args.command=='replay-failures':replay_failures(config,args.run_dir)
 
 if __name__=='__main__':main()

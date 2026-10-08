@@ -2,6 +2,12 @@
 
 A reproducible CPU project for learning vision-and-language-conditioned actions on a simulated Panda arm. Version 2 expands the original prototype to shape discrimination, three destinations, placing/lifting tasks, randomized scenes, and bounded visual feedback/recovery.
 
+## Completed experiment
+
+The trained model has **17,896 parameters** and a **78,815-byte checkpoint**. The frozen-model benchmark contains 800 trials across ten suites and two controllers. Feedback succeeded in 39/40 nominal trials, 32/40 moved-object trials, and 24/40 induced-slip trials. Missing-source stopping succeeded in 39/40 trials. Feedback reduces success on some unperturbed distribution shifts; it is not uniformly better.
+
+See [the full results](artifacts/RESULTS.md), [moved-object recovery video](artifacts/demo.mp4), [slip recovery video](artifacts/slip-demo.mp4), and the failed rollout videos under `artifacts/evaluation/`. The recovery rules are scripted; the vision, instruction selection, and waypoint model are learned.
+
 ## Run
 
 Linux or Ubuntu under WSL, Python **3.11.16**, and [uv](https://docs.astral.sh/uv/). Dependencies and their hashes are pinned in `uv.lock`; the PyTorch CPU index is explicit.
@@ -10,7 +16,7 @@ Linux or Ubuntu under WSL, Python **3.11.16**, and [uv](https://docs.astral.sh/u
 bash run.sh
 ```
 
-This one command checks simulator/language contracts, creates a fresh experiment directory, generates training/validation data, trains, refits the action heads using training data only, runs paired benchmark suites, records a demo, and writes results plus an integrity manifest. It does not overwrite a previous experiment. No GPU or paid service is needed.
+This one command checks simulator/language contracts, creates a fresh experiment directory, generates training/validation data, trains, refits the action heads using training data only, runs paired benchmark suites, records a demo and representative failed rollouts, and writes results plus an integrity manifest. It does not overwrite a previous experiment. No GPU or paid service is needed.
 
 For an existing experiment:
 
