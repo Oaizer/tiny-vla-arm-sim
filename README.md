@@ -2,6 +2,8 @@
 
 This project trains a small vision and language policy to control a simulated Panda arm. It runs on a CPU in Linux or Ubuntu under WSL. The second version adds shape recognition, three target pads, placing and lifting tasks, varied scenes, and a feedback controller.
 
+The project also has a small world model trained only on simulated arm episodes. It predicts future observations and compares nearby grasp commands. See the [world model guide](docs/WORLD_MODEL.md), [work plan](docs/WORLD_MODEL_PLAN.md), and [world model results](artifacts/world-v1/RESULTS.md).
+
 ## Results
 
 The trained model has **17,896 parameters**. Its checkpoint is **78,815 bytes**. We tested two controllers in 800 trials across ten test sets. The feedback controller succeeded in 39 of 40 standard trials, 32 of 40 trials where an object moved, and 24 of 40 trials with a forced drop. It stopped before moving in 39 of 40 trials where the requested object was missing. Feedback did worse than one-shot control in some changed scenes.

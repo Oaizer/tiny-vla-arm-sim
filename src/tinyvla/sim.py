@@ -104,8 +104,8 @@ class ArmSim:
         return np.stack([np.linalg.inv(self.homography(.04))]*len(OBJECTS)+
                         [np.linalg.inv(self.homography(.001))]*len(PADS)).astype(np.float32)
 
-    def observation(self):
-        return {'rgb':self.image(),'state':self.state(),'calibration':self.calibration()}
+    def observation(self, size=None):
+        return {'rgb':self.image(size),'state':self.state(),'calibration':self.calibration()}
 
     def labels(self):
         """Return training labels for each visible object and pad."""
