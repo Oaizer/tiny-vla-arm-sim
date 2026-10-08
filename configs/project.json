@@ -1,0 +1,7 @@
+{
+  "model_goal": {"max_parameters": 100000, "max_checkpoint_bytes": 1000000, "target_cpu_p95_ms": 15, "supported_task_families": ["place", "lift"]},
+  "data": {"train_scenes": 2400, "validation_scenes": 200, "train_seed_start": 0, "validation_seed_start": 10000, "examples_per_scene": 3, "image_size": 128},
+  "training": {"seed": 42, "steps": 4000, "batch_size": 32, "threads": 4, "learning_rate": 0.003},
+  "evaluation": {"episodes_per_suite": 40, "seed_start": 30000, "suites": ["nominal", "lighting", "camera", "appearance", "dynamics", "positions", "language", "object_moved", "slip", "missing"], "videos_per_suite": 1},
+  "controller": {"max_attempts": 3, "presence_threshold": 0.65, "empty_gripper_threshold_m": 0.008, "max_inference_calls": 24, "workspace_min": [0.28, -0.33, 0.015], "workspace_max": [0.78, 0.37, 0.38]}
+}

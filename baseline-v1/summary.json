@@ -1,0 +1,43 @@
+{
+  "episodes": 100,
+  "successes": 94,
+  "success_rate": 0.94,
+  "wilson_95": [
+    0.8752303146877748,
+    0.9722142547333433
+  ],
+  "latency_p50_ms": 1.5065155000115737,
+  "latency_p95_ms": 2.6267513499789166,
+  "parameters": 16104,
+  "checkpoint_bytes": 69687,
+  "checkpoint": "runs/tiny/best.pt",
+  "start_seed": 20000,
+  "ablation": "none",
+  "teacher": false,
+  "by_instruction": {
+    "put the blue block on the purple pad": {
+      "episodes": 16,
+      "successes": 16
+    },
+    "put the blue block on the yellow pad": {
+      "episodes": 16,
+      "successes": 16
+    },
+    "put the green block on the purple pad": {
+      "episodes": 17,
+      "successes": 15
+    },
+    "put the green block on the yellow pad": {
+      "episodes": 17,
+      "successes": 16
+    },
+    "put the red block on the purple pad": {
+      "episodes": 17,
+      "successes": 16
+    },
+    "put the red block on the yellow pad": {
+      "episodes": 17,
+      "successes": 15
+    }
+  }
+}
