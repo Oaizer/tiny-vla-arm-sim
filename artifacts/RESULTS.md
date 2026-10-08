@@ -1,37 +1,37 @@
-# TinyVLA v2 experiment results
+# TinyVLA v2 results
 
-Trained CPU model: **17,896 parameters**, **78,815 checkpoint bytes**.
-Training time: 472.4 seconds; validation horizontal action RMSE: 2.07 mm.
+The CPU model has **17,896 learned parameters**. Its checkpoint is **78,815 bytes**.
+Training took 472.4 seconds. The horizontal action error on validation data was 2.07 mm RMSE.
 
-The feedback supervisor replans from fresh RGB before grasping and before placement, detects empty grasps using finger encoders, and retries within a fixed attempt budget. The recovery logic is scripted; perception, instruction selection, and waypoint heads are learned.
+The feedback controller checks a new image before it grasps and before it places an object. It uses the finger sensors to detect an empty grasp, retries a limited number of times, and then stops. These recovery rules are hand-written. The model learns to read images and commands and to predict arm waypoints.
 
-| Suite | One-shot success | Feedback success | Feedback retries |
+| Test set | One-shot successes | Feedback successes | Feedback retries |
 |---|---:|---:|---:|
-| nominal | 40/40 | 39/40 | 1 |
-| lighting | 33/40 | 34/40 | 1 |
-| camera | 40/40 | 38/40 | 1 |
-| appearance | 33/40 | 33/40 | 8 |
-| dynamics | 38/40 | 37/40 | 1 |
-| positions | 38/40 | 33/40 | 2 |
-| language | 37/40 | 36/40 | 1 |
-| object_moved | 0/40 | 32/40 | 14 |
-| slip | 0/40 | 24/40 | 44 |
-| missing source (safe stop) | 39/40 | 39/40 | 0 |
+| Standard scenes | 40/40 | 39/40 | 1 |
+| Changed lighting | 33/40 | 34/40 | 1 |
+| Changed camera view | 40/40 | 38/40 | 1 |
+| Changed object size and angle | 33/40 | 33/40 | 8 |
+| Changed object weight and grip | 38/40 | 37/40 | 1 |
+| Changed object positions | 38/40 | 33/40 | 2 |
+| New command wordings | 37/40 | 36/40 | 1 |
+| Object moved during the task | 0/40 | 32/40 | 14 |
+| Object dropped after the lift | 0/40 | 24/40 | 44 |
+| Missing object: stopped before moving | 39/40 | 39/40 | 0 |
 
-Slip recovery by object: red cube: 11/12, red cylinder: 1/12, blue cube: 8/8, green cylinder: 4/8. Fallen cylinders remain a substantial failure case.
+Success after a forced slip, by object: red cube: 11/12, red cylinder: 1/12, blue cube: 8/8, green cylinder: 4/8. Dropped cylinders remain difficult to recover.
 
-Maximum per-suite p95 neural inference latency: 5.73 ms on this CPU. This excludes rendering, inverse kinematics, and robot motion.
+The slowest p95 model inference time across the test sets was 5.73 ms on this CPU. This does not include rendering, arm calculations, or movement.
 
-Each pair uses matching scene seeds and instructions. Success is measured by simulator state only after execution; that state is unavailable to the policy/supervisor. Missing-source rows measure stopping before any task motion. The moved-object event relocates the object once after approach; the slip event opens and recloses the gripper once after lifting.
+Each pair of results uses the same scene seeds and commands. After each trial, the scorer checks the simulator state. The model and controller cannot read this scoring data. In the moved-object test, the scene moves the object once after the arm approaches. In the slip test, the scene opens and closes the gripper once after the lift.
 
-Detailed JSON summaries include task/object breakdowns, Wilson confidence intervals, inference latency, and checkpoint hashes. JSONL files retain all trials, commands, supervisor events, retries, and stop reasons. Videos show the first configured trials per suite.
+The JSON summaries show results by task and object, confidence intervals, model timing, and checkpoint hashes. The JSONL files keep each trial, command, retry, stop reason, and controller event. Videos show the first trials listed in the configuration.
 
 ## Scope
 
-Four object identities (red cube, red cylinder, blue cube, green cylinder), three pad destinations, two task families, and a declared command grammar. Camera calibration is supplied as an input; object coordinates are not. Images and dynamics vary within training ranges; individual benchmark suites apply held-out shifts. This is a compact structured visuomotor system, not open-vocabulary language or a foundation VLA. No physical arm was used.
+The task has four object types (red cube, red cylinder, blue cube, and green cylinder), three pad colors, and two task types. The command grammar and camera calibration are provided. The model does not receive object positions. Test sets change scene features that were also varied during training. This small model does not support open-ended language. We tested it only in simulation.
 
-The original 94/100 result describes a different, easier v1 scene distribution and is not directly comparable to these expanded v2 suites.
+The v1 result of 94 successes in 100 trials came from easier scenes with different objects, pads, and camera settings. It cannot be compared directly with these v2 results.
 
 ## Reproducibility
 
-See `manifest.json` for the exact source/artifact hashes, environment, Git revision, configuration, and seed ranges. Use the repository lockfile and `tinyvla run` to reproduce a fresh experiment. Generated artifacts are excluded from Git but retained beside this report.
+See `manifest.json` for source and artifact hashes, the software environment, Git revision, settings, and seed ranges. Use the lock file and `tinyvla run` to create a new experiment. The Git repository includes this run and its data.

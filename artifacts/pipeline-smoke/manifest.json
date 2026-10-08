@@ -1,6 +1,6 @@
 {
   "project_version": "0.2.0",
-  "git_commit": "da05cb610a6c0dea376b1aebdf60fa2f6cda7036",
+  "git_commit": "1b8a2c77fb62f0e661283785ee29d59d9397848a",
   "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]",
   "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
   "torch": "2.14.1+cpu",
@@ -56,15 +56,17 @@
   },
   "sources_sha256": {
     "src/tinyvla/__init__.py": "a03d8463ac9c1d91f59027600dd507a762b38c4f7aa6d8a15b0d10f6ec2ddc8b",
-    "src/tinyvla/cli.py": "c29f175009d255379448fc1bfffba24131f744381df2959b27b1015f47be66c6",
-    "src/tinyvla/controller.py": "09aec9ef0ef027a5ff99e42bbc47bc1ce7e34501941a0b650b55bd5965b9f207",
-    "src/tinyvla/data.py": "96a96d8e329825db3bdb58869bf374cac633d4dd8797cf86b509754552fb2c4c",
-    "src/tinyvla/evaluate.py": "aba4fc2abcdaae84a2fa9b1030e2f9e5fc880bed1e4d498a5809b42ff886710a",
-    "src/tinyvla/language.py": "b9a1445796d4385a3057f5541e3812d7666a4c309997a2401525e2fbb6e61f7b",
-    "src/tinyvla/model.py": "06ee59910566a7cce9525d0b273680dd79236832c6e155d3163459384f24fe7d",
-    "src/tinyvla/report.py": "d60176a5dfe621bccd59e042057731dd25bd7acf5a5bacef3cd3b04e2b782d2a",
-    "src/tinyvla/sim.py": "3b4b763e07b39c698f2b21a8d3f955fee9c3c5dc53b4a2f65a96aff70da46fa0",
-    "src/tinyvla/train.py": "3e16ebc0d605f7ac84c3cf7742cb7a1af76dfb2ca4c06923e14a45d434c8d30e"
+    "src/tinyvla/cli.py": "9caadd06b951d437cdeca4b32dddb4ea1ae2d30423f3185148a8186f2afb3e8d",
+    "src/tinyvla/controller.py": "06c8e167447128d38f7bbbc27a3921284fd82f9eac5d11a17bed5e3b8b4252bc",
+    "src/tinyvla/data.py": "8c24432611749f058556b963f705967759cb69cc9f2b5f542b5bbbc9b1af6566",
+    "src/tinyvla/evaluate.py": "181c5ecde0d33426d07ec1429dbdab7ad140db38af4e2efec2c07422f792ee99",
+    "src/tinyvla/floor.png": "6d3c746d7a72eb982df1207c9fe35befa0501105e20f9e393eedf54d84084ddb",
+    "src/tinyvla/language.py": "6fb0f8acbb994d5296458e562d5f479eb1c78ce1e840e502d9449225a061fb91",
+    "src/tinyvla/model.py": "2d4ca429e53a99bbb9a29486c436ba806e58321e0621bd488f7288ffc49424ff",
+    "src/tinyvla/replay.py": "c4092e052c8fe3ab0af0aabd8ff5546e30debe4ae9ee50eec738812c3508da5d",
+    "src/tinyvla/report.py": "859d739e9f7c6e6bb3f8707848f94843cd972707ad51c31d2c68f240677fb1b2",
+    "src/tinyvla/sim.py": "f39bd643c280aa8fbda3d0457aae0b123ce32f2baf9a8a85348e0ccb799fdce0",
+    "src/tinyvla/train.py": "36c81e9adfa67efaad889ff1013229939b6b82eca056ecfda0124fd8b0000405"
   },
   "artifacts_sha256": {
     "data/train.npz": "f0619c3e3a0d4def10d2a1e0d6a9d5c7fa422ed70a0fa24b7eb5544ec9a0f5cb",
