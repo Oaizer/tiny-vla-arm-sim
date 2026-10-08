@@ -1,0 +1,29 @@
+{
+  "suite": "dynamics",
+  "mode": "feedback",
+  "seed": 34019,
+  "original_success": false,
+  "success": false,
+  "distance_m": 0.4203797351668581,
+  "lift_height_m": 0.0218296875,
+  "status": "stopped_source_not_visible",
+  "retries": 0,
+  "recovery_triggered": false,
+  "inference_calls": 1,
+  "inference_ms": [
+    2.7875520000293363
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.3952840268611908,
+      "pad_confidence": 0.9999988079071045,
+      "gripper_m": 0.03999990224838257,
+      "task": 1
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/dynamics/feedback_failure_34019.mp4"
+}

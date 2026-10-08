@@ -1,0 +1,286 @@
+{
+  "checkpoint": "artifacts/model/best.pt",
+  "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "parameters": 17896,
+  "checkpoint_bytes": 78815,
+  "benchmark_seconds": 29.629218816757202,
+  "seed_start": 12020,
+  "suites": [
+    {
+      "suite": "nominal",
+      "mode": "one_shot",
+      "episodes": 16,
+      "successes": 14,
+      "safe_stops": 0,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "lift": {
+          "episodes": 4,
+          "successes": 3
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 3
+        }
+      },
+      "latency_p50_ms": 2.049898999999744,
+      "latency_p95_ms": 21.997047499999756,
+      "success_rate": 0.875,
+      "wilson_95": [
+        0.6397666856325173,
+        0.9650232506629428
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "nominal",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 15,
+      "safe_stops": 0,
+      "retries": 3,
+      "recovery_triggers": 2,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "lift": {
+          "episodes": 4,
+          "successes": 3
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "blue cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 3
+        }
+      },
+      "latency_p50_ms": 1.7998230000006998,
+      "latency_p95_ms": 4.035911600000475,
+      "success_rate": 0.9375,
+      "wilson_95": [
+        0.7167073163197013,
+        0.9888809426916687
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "object_moved",
+      "mode": "one_shot",
+      "episodes": 16,
+      "successes": 0,
+      "safe_stops": 0,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "lift": {
+          "episodes": 4,
+          "successes": 0
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "blue cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 0
+        }
+      },
+      "latency_p50_ms": 2.547258500000815,
+      "latency_p95_ms": 3.700094500000084,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.19361341827271994
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "object_moved",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 13,
+      "safe_stops": 0,
+      "retries": 3,
+      "recovery_triggers": 16,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 12,
+          "successes": 10
+        },
+        "lift": {
+          "episodes": 4,
+          "successes": 3
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 4
+        }
+      },
+      "latency_p50_ms": 2.357630500000596,
+      "latency_p95_ms": 5.307153250000418,
+      "success_rate": 0.8125,
+      "wilson_95": [
+        0.5699064013154177,
+        0.9340852122641324
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "slip",
+      "mode": "one_shot",
+      "episodes": 16,
+      "successes": 1,
+      "safe_stops": 0,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 12,
+          "successes": 1
+        },
+        "lift": {
+          "episodes": 4,
+          "successes": 0
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "blue cube": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 1
+        }
+      },
+      "latency_p50_ms": 2.408558999999144,
+      "latency_p95_ms": 3.703185500000039,
+      "success_rate": 0.0625,
+      "wilson_95": [
+        0.01111905730833121,
+        0.2832926836802987
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "slip",
+      "mode": "feedback",
+      "episodes": 16,
+      "successes": 7,
+      "safe_stops": 0,
+      "retries": 21,
+      "recovery_triggers": 16,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 12,
+          "successes": 5
+        },
+        "lift": {
+          "episodes": 4,
+          "successes": 2
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 4,
+          "successes": 4
+        },
+        "red cylinder": {
+          "episodes": 4,
+          "successes": 0
+        },
+        "blue cube": {
+          "episodes": 4,
+          "successes": 3
+        },
+        "green cylinder": {
+          "episodes": 4,
+          "successes": 0
+        }
+      },
+      "latency_p50_ms": 1.82742100000155,
+      "latency_p95_ms": 3.30380830000081,
+      "success_rate": 0.4375,
+      "wilson_95": [
+        0.2309836333518552,
+        0.6682180439322347
+      ],
+      "safe_stop_rate": 0.0
+    }
+  ]
+}

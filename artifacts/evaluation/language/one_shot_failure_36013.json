@@ -1,0 +1,29 @@
+{
+  "suite": "language",
+  "mode": "one_shot",
+  "seed": 36013,
+  "original_success": false,
+  "success": false,
+  "distance_m": 2.3019423917228514,
+  "lift_height_m": 0.028735371192423653,
+  "status": "executed",
+  "retries": 0,
+  "recovery_triggered": false,
+  "inference_calls": 1,
+  "inference_ms": [
+    2.036404999955721
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.9999276995658875,
+      "pad_confidence": 0.9999988079071045,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/language/one_shot_failure_36013.mp4"
+}

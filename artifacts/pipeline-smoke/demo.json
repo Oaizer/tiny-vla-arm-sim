@@ -1,0 +1,27 @@
+{
+  "instruction": "put the red cylinder on the cyan pad",
+  "seed": 80000,
+  "success": false,
+  "distance_m": 0.366039271717951,
+  "lift_height_m": 0.0218296875,
+  "status": "stopped_source_not_visible",
+  "retries": 0,
+  "recovery_triggered": false,
+  "inference_calls": 1,
+  "inference_ms": [
+    2.306188999909864
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.5150874257087708,
+      "pad_confidence": 0.5158798694610596,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "event": "object_moved",
+  "video": "artifacts/pipeline-smoke/demo.mp4"
+}

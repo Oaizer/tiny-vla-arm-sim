@@ -1,0 +1,930 @@
+{
+  "checkpoint": "artifacts/model/best.pt",
+  "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "parameters": 17896,
+  "checkpoint_bytes": 78815,
+  "benchmark_seconds": 353.699835062027,
+  "seed_start": 30000,
+  "suites": [
+    {
+      "suite": "nominal",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 40,
+      "safe_stops": 0,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 30
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 10
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        }
+      },
+      "latency_p50_ms": 1.7570174999974597,
+      "latency_p95_ms": 3.9236946500068357,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "nominal",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 39,
+      "safe_stops": 0,
+      "retries": 1,
+      "recovery_triggers": 1,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 29
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 10
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        }
+      },
+      "latency_p50_ms": 1.8214860000114186,
+      "latency_p95_ms": 3.5197841500078653,
+      "success_rate": 0.975,
+      "wilson_95": [
+        0.8711834051199223,
+        0.9955732825922052
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "lighting",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 33,
+      "safe_stops": 4,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 25
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 8
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 9
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 10
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      },
+      "latency_p50_ms": 1.6973074999953042,
+      "latency_p95_ms": 5.038764950023731,
+      "success_rate": 0.825,
+      "wilson_95": [
+        0.6804970794560755,
+        0.9125469700311694
+      ],
+      "safe_stop_rate": 0.1
+    },
+    {
+      "suite": "lighting",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 34,
+      "safe_stops": 4,
+      "retries": 1,
+      "recovery_triggers": 1,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 26
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 8
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 9
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 10
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        }
+      },
+      "latency_p50_ms": 1.9033209999861356,
+      "latency_p95_ms": 3.3257360999954244,
+      "success_rate": 0.85,
+      "wilson_95": [
+        0.7092737396097997,
+        0.9293890829149256
+      ],
+      "safe_stop_rate": 0.1
+    },
+    {
+      "suite": "camera",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 40,
+      "safe_stops": 0,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 30
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 10
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        }
+      },
+      "latency_p50_ms": 1.6772259999981998,
+      "latency_p95_ms": 4.0026658000115845,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "camera",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 38,
+      "safe_stops": 0,
+      "retries": 1,
+      "recovery_triggers": 1,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 28
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 10
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      },
+      "latency_p50_ms": 1.9645499999967342,
+      "latency_p95_ms": 3.765163750004774,
+      "success_rate": 0.95,
+      "wilson_95": [
+        0.834958291820748,
+        0.9861796228538989
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "appearance",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 33,
+      "safe_stops": 2,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 26
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 7
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 7
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      },
+      "latency_p50_ms": 3.4266669999993837,
+      "latency_p95_ms": 5.727617350007108,
+      "success_rate": 0.825,
+      "wilson_95": [
+        0.6804970794560755,
+        0.9125469700311694
+      ],
+      "safe_stop_rate": 0.05
+    },
+    {
+      "suite": "appearance",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 33,
+      "safe_stops": 2,
+      "retries": 8,
+      "recovery_triggers": 5,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 26
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 7
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 10
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 8
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      },
+      "latency_p50_ms": 1.7451589999950556,
+      "latency_p95_ms": 3.671650999990561,
+      "success_rate": 0.825,
+      "wilson_95": [
+        0.6804970794560755,
+        0.9125469700311694
+      ],
+      "safe_stop_rate": 0.05
+    },
+    {
+      "suite": "dynamics",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 38,
+      "safe_stops": 2,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 29
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 9
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 10
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        }
+      },
+      "latency_p50_ms": 1.8812609999940832,
+      "latency_p95_ms": 3.235405499992793,
+      "success_rate": 0.95,
+      "wilson_95": [
+        0.834958291820748,
+        0.9861796228538989
+      ],
+      "safe_stop_rate": 0.05
+    },
+    {
+      "suite": "dynamics",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 37,
+      "safe_stops": 2,
+      "retries": 1,
+      "recovery_triggers": 1,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 28
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 9
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 10
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        }
+      },
+      "latency_p50_ms": 1.8546759999935603,
+      "latency_p95_ms": 4.030311899981596,
+      "success_rate": 0.925,
+      "wilson_95": [
+        0.8013546984090248,
+        0.9741644432281419
+      ],
+      "safe_stop_rate": 0.05
+    },
+    {
+      "suite": "positions",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 38,
+      "safe_stops": 0,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 29
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 9
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 8
+        }
+      },
+      "latency_p50_ms": 1.8090664999874662,
+      "latency_p95_ms": 3.052742750011816,
+      "success_rate": 0.95,
+      "wilson_95": [
+        0.834958291820748,
+        0.9861796228538989
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "positions",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 33,
+      "safe_stops": 0,
+      "retries": 2,
+      "recovery_triggers": 2,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 24
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 9
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 8
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 10
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      },
+      "latency_p50_ms": 1.7741715000170188,
+      "latency_p95_ms": 3.6171356999943782,
+      "success_rate": 0.825,
+      "wilson_95": [
+        0.6804970794560755,
+        0.9125469700311694
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "language",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 37,
+      "safe_stops": 1,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 28
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 9
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 10
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      },
+      "latency_p50_ms": 1.9155749999981708,
+      "latency_p95_ms": 3.3011525999910414,
+      "success_rate": 0.925,
+      "wilson_95": [
+        0.8013546984090248,
+        0.9741644432281419
+      ],
+      "safe_stop_rate": 0.025
+    },
+    {
+      "suite": "language",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 36,
+      "safe_stops": 1,
+      "retries": 1,
+      "recovery_triggers": 1,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 28
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 8
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 10
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      },
+      "latency_p50_ms": 1.7125859999964632,
+      "latency_p95_ms": 3.634491000008211,
+      "success_rate": 0.9,
+      "wilson_95": [
+        0.7694792561952611,
+        0.9604211124044252
+      ],
+      "safe_stop_rate": 0.025
+    },
+    {
+      "suite": "object_moved",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 0,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 0
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 0
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      },
+      "latency_p50_ms": 1.856878500007042,
+      "latency_p95_ms": 3.8913164000405223,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "object_moved",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 32,
+      "safe_stops": 0,
+      "retries": 14,
+      "recovery_triggers": 40,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 25
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 7
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 12
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 6
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 7
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      },
+      "latency_p50_ms": 1.7803399999820613,
+      "latency_p95_ms": 3.7261525999895184,
+      "success_rate": 0.8,
+      "wilson_95": [
+        0.6524239261814333,
+        0.8950013502683314
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "slip",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 0,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 0
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 0
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      },
+      "latency_p50_ms": 1.8791530000044077,
+      "latency_p95_ms": 3.2917957999728733,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "slip",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 24,
+      "safe_stops": 0,
+      "retries": 44,
+      "recovery_triggers": 39,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 19
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 5
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 11
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 1
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 8
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 4
+        }
+      },
+      "latency_p50_ms": 1.8403729999931784,
+      "latency_p95_ms": 3.5536191999938183,
+      "success_rate": 0.6,
+      "wilson_95": [
+        0.445956198273935,
+        0.7365188938759863
+      ],
+      "safe_stop_rate": 0.0
+    },
+    {
+      "suite": "missing",
+      "mode": "one_shot",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 39,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 0
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 0
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      },
+      "latency_p50_ms": 1.7442199999777586,
+      "latency_p95_ms": 3.288459550000765,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "safe_stop_rate": 0.975
+    },
+    {
+      "suite": "missing",
+      "mode": "feedback",
+      "episodes": 40,
+      "successes": 0,
+      "safe_stops": 39,
+      "retries": 0,
+      "recovery_triggers": 0,
+      "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+      "by_task": {
+        "place": {
+          "episodes": 30,
+          "successes": 0
+        },
+        "lift": {
+          "episodes": 10,
+          "successes": 0
+        }
+      },
+      "by_object": {
+        "red cube": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "red cylinder": {
+          "episodes": 12,
+          "successes": 0
+        },
+        "blue cube": {
+          "episodes": 8,
+          "successes": 0
+        },
+        "green cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      },
+      "latency_p50_ms": 1.8755340000211618,
+      "latency_p95_ms": 3.552339000009397,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "safe_stop_rate": 0.975
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "project_version": "0.2.0",
+  "git_commit": "e77f1f37094f6bcd5e7dff1d9fbffd67060eba9a",
+  "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "torch": "2.14.1+cpu",
+  "config": {
+    "model_goal": {
+      "max_parameters": 100000,
+      "max_checkpoint_bytes": 1000000,
+      "target_cpu_p95_ms": 15,
+      "supported_task_families": [
+        "place",
+        "lift"
+      ]
+    },
+    "data": {
+      "train_scenes": 2400,
+      "validation_scenes": 200,
+      "train_seed_start": 0,
+      "validation_seed_start": 10000,
+      "examples_per_scene": 3,
+      "image_size": 128
+    },
+    "training": {
+      "seed": 42,
+      "steps": 4000,
+      "batch_size": 32,
+      "threads": 4,
+      "learning_rate": 0.003
+    },
+    "evaluation": {
+      "episodes_per_suite": 40,
+      "seed_start": 30000,
+      "suites": [
+        "nominal",
+        "lighting",
+        "camera",
+        "appearance",
+        "dynamics",
+        "positions",
+        "language",
+        "object_moved",
+        "slip",
+        "missing"
+      ],
+      "videos_per_suite": 1
+    },
+    "controller": {
+      "max_attempts": 3,
+      "presence_threshold": 0.65,
+      "empty_gripper_threshold_m": 0.008,
+      "max_inference_calls": 24,
+      "workspace_min": [
+        0.28,
+        -0.33,
+        0.015
+      ],
+      "workspace_max": [
+        0.78,
+        0.37,
+        0.38
+      ]
+    }
+  },
+  "sources_sha256": {
+    "src/tinyvla/__init__.py": "a03d8463ac9c1d91f59027600dd507a762b38c4f7aa6d8a15b0d10f6ec2ddc8b",
+    "src/tinyvla/cli.py": "2f7c086578d46375c49f52618653b1ede6e4590c362fc8208db3a2b198db760c",
+    "src/tinyvla/controller.py": "6f6ef37db86f2cf95b75127ebcfb461fd56971a69b1a44c339a35b81934aa51f",
+    "src/tinyvla/data.py": "96a96d8e329825db3bdb58869bf374cac633d4dd8797cf86b509754552fb2c4c",
+    "src/tinyvla/evaluate.py": "aba4fc2abcdaae84a2fa9b1030e2f9e5fc880bed1e4d498a5809b42ff886710a",
+    "src/tinyvla/floor.png": "6d3c746d7a72eb982df1207c9fe35befa0501105e20f9e393eedf54d84084ddb",
+    "src/tinyvla/language.py": "b9a1445796d4385a3057f5541e3812d7666a4c309997a2401525e2fbb6e61f7b",
+    "src/tinyvla/model.py": "06ee59910566a7cce9525d0b273680dd79236832c6e155d3163459384f24fe7d",
+    "src/tinyvla/replay.py": "1c1865d35e6e0468f83a9efc43657e2b7105a7eb329707c7fdd5714e0c62d5a4",
+    "src/tinyvla/report.py": "4f2930d4dd2d1244c1f39716ae90b7917a4d4ea80257ed6603794002c1f74afe",
+    "src/tinyvla/sim.py": "2e43b0f9a77d7e0e69ee14286a7bbc8a0b86ab03e36b5f4a558e7e4023514b6d",
+    "src/tinyvla/train.py": "3e16ebc0d605f7ac84c3cf7742cb7a1af76dfb2ca4c06923e14a45d434c8d30e"
+  },
+  "artifacts_sha256": {
+    "data/train.npz": "3626c6354cb8695478c58c53859540bdf3722b516b0d83778c01261b2e75f007",
+    "data/validation.npz": "fc4890a64980ce2bea0b6283852ebb8cad79a93e0d892ffa36f968dbca9aed80",
+    "development/missing/feedback.jsonl": "44cedd3e4ae4bc53b7bc0fa8d8079e88a931f8c35595d8e7fbbb149381a1c005",
+    "development/missing/one_shot.jsonl": "9aedb7b9d3aa4603b49f5023f09f10aad0a793cbcea8d29e7a67f2f651beb706",
+    "development/nominal/feedback.jsonl": "aa2eaab42d6edb36c12288d6cdd761fc920216b250be5640fcecf8ee78f6e13a",
+    "development/nominal/one_shot.jsonl": "e7fe10f8787c9952e965406a8c37acf21135d2db487b6399110f8483c379eb72",
+    "development/object_moved/feedback.jsonl": "7bc15a49d7321023d573542040ef264a97aa4c607274ee02cb3e615ac771a4bf",
+    "development/object_moved/one_shot.jsonl": "53d76960067437721fa12e089432734b3cd7061982d170e12a13a45d3d19f69e",
+    "development/slip/feedback.jsonl": "c8762a04ed214ee8c712e551b32dc2933d1dccdf6832e7760a3534b8d7b47d61",
+    "development/slip/one_shot.jsonl": "2325f1711e6b8f161f0937ac8c432ad1c55101c724ae1861e25030ae0b7a7998",
+    "development-v2/nominal/feedback.jsonl": "22601c356c0c3c3e9c82cc95d3251b15b44b30fa82b1f39d23e70bd179ac87a7",
+    "development-v2/nominal/one_shot.jsonl": "414a3d5c3ec811a94acaf3ab83cd2da963f27c6ca07772b08a72945b0de76c44",
+    "development-v2/object_moved/feedback.jsonl": "f47dbdf7cc672b6637ce0799d527398890b2a06ff9712d8c04486a7420dceb05",
+    "development-v2/object_moved/one_shot.jsonl": "31c895ed12bd4b1c458651626a95990963d483daa7d0103bbd88aebeeaa8b8ce",
+    "development-v2/slip/feedback.jsonl": "0c444508e674598d54c090d1932f71f34c323d9481d321997dacb3dabb22d45f",
+    "development-v2/slip/one_shot.jsonl": "eab97019b1e8de1cb6793a819aab0d5f3ea35c9eb98cd6bece2c6fb2b3190b70",
+    "evaluation/appearance/feedback.jsonl": "e46204839db286fe7b58eea850c0f6b48f04a4c96a75e99e281ac51f99c87225",
+    "evaluation/appearance/one_shot.jsonl": "dfa7d87bf9abb31c1f35d3fb77fb4945162b38eee5811ee3959bdcba27ccd425",
+    "evaluation/camera/feedback.jsonl": "469e2b5ec25c8ee877a6dda27840c40acc94c7bda2720dc9c14b6b30f0ecf77a",
+    "evaluation/camera/one_shot.jsonl": "4b1afd92e4e4a9f6625ede91b5dddb88e13fcb88f5e9113547931b73551efb66",
+    "evaluation/dynamics/feedback.jsonl": "f675b3f1ba867a8a48e23482fef4942117a04ce2e3f821873dd856da4904f2e5",
+    "evaluation/dynamics/one_shot.jsonl": "bf607e7830f2697807f1e60aa0399a6ce3149376cdb881b39d15501e83b1c613",
+    "evaluation/language/feedback.jsonl": "a4ca3988505a4ec0567f9f0a4a55003c653d4e0ad86fe12b77a9a2bd39e8f19c",
+    "evaluation/language/one_shot.jsonl": "aded65e9e0c62cbe5b0ab622c5b05e4078ce12127246c4354d17c161c8df5078",
+    "evaluation/lighting/feedback.jsonl": "0170c8c48efc7143b7a1db14dac8447dd633d40bd6572a03c7143cd819917bce",
+    "evaluation/lighting/one_shot.jsonl": "e65b1484f4f4b0672b920d988e529f3a4dec162d97e8523e8c827ccdb3ed8382",
+    "evaluation/missing/feedback.jsonl": "b68c2133b4ea177a3de2bbff9147e19129bcaf50ad74da381f81d09fa42d8020",
+    "evaluation/missing/one_shot.jsonl": "c875a3b53579d854a2f0f3815bb24fbedf052f5dbb8dd30c21fed1c61b354cf5",
+    "evaluation/nominal/feedback.jsonl": "c6728bbc817003938b9a5834d90153051835747cf1d7a32b99203965d4f5cdb5",
+    "evaluation/nominal/one_shot.jsonl": "8564a571f469e2c85e4b93ac083b83e9fe467cb4fbc6d255df0c49041e038635",
+    "evaluation/object_moved/feedback.jsonl": "6498b818e41d0c483f268042fb2801abd6c03145cb656bf229f13315a27a9161",
+    "evaluation/object_moved/one_shot.jsonl": "38a856ac9376c6c4b2bb4f99f90e31f0ea7747899169fba94340df1edb8b7540",
+    "evaluation/positions/feedback.jsonl": "0e012d32c614dc834e268ce51bb197992cb8053e7e841aa83e9a5c7732534131",
+    "evaluation/positions/one_shot.jsonl": "991a11a3642a5a66be555f40ef06262870ff1bbd2f0083991e2fe33aa60cbc5f",
+    "evaluation/slip/feedback.jsonl": "fe87ad64306db2d6f930b0d9479fed70e0883af44b73c68f19cb4dff713a1269",
+    "evaluation/slip/one_shot.jsonl": "8595f516f89c3e1262cee0cbd1f3559adf5f49abda3d65e7f52f7ae21c10abf6",
+    "model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "model/training.jsonl": "75ed61daf4d6c19a09ed07a29b502e824548bf56cbc0ed3aae20c9ca81684142",
+    "pipeline-smoke/data/train.npz": "f0619c3e3a0d4def10d2a1e0d6a9d5c7fa422ed70a0fa24b7eb5544ec9a0f5cb",
+    "pipeline-smoke/data/validation.npz": "bf8ed7133eb36012859052ed95d874702dd948ba1d136b0c68c88b7cf552febd",
+    "pipeline-smoke/evaluation/nominal/feedback.jsonl": "cc5769cb65577fc92befb2275a9b89484aa2069bd90ca4bd2e6d569bab311eb7",
+    "pipeline-smoke/evaluation/nominal/one_shot.jsonl": "52b09676c0a90123f3dd5396f39943a368e0185a6e923ecc571fe8ecd6d9006f",
+    "pipeline-smoke/model/best.pt": "4e0835fb2f08f56067756b27963369f0f85228908e3ee86679e1b9a7614f23d7",
+    "pipeline-smoke/model/training.jsonl": "1335425972882d57974b595812783665c9b23b0705bf2fbb2efe6b2c46128e40"
+  },
+  "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "architecture": "TinyVLA-v2",
+  "seed_ranges": {
+    "train": [
+      0,
+      2399
+    ],
+    "validation": [
+      10000,
+      10199
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "suite": "slip",
+  "mode": "feedback",
+  "episodes": 40,
+  "successes": 24,
+  "safe_stops": 0,
+  "retries": 44,
+  "recovery_triggers": 39,
+  "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "by_task": {
+    "place": {
+      "episodes": 30,
+      "successes": 19
+    },
+    "lift": {
+      "episodes": 10,
+      "successes": 5
+    }
+  },
+  "by_object": {
+    "red cube": {
+      "episodes": 12,
+      "successes": 11
+    },
+    "red cylinder": {
+      "episodes": 12,
+      "successes": 1
+    },
+    "blue cube": {
+      "episodes": 8,
+      "successes": 8
+    },
+    "green cylinder": {
+      "episodes": 8,
+      "successes": 4
+    }
+  },
+  "latency_p50_ms": 1.8403729999931784,
+  "latency_p95_ms": 3.5536191999938183,
+  "success_rate": 0.6,
+  "wilson_95": [
+    0.445956198273935,
+    0.7365188938759863
+  ],
+  "safe_stop_rate": 0.0
+}

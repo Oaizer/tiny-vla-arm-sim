@@ -1,0 +1,16 @@
+{
+  "train": {
+    "scenes": 16,
+    "examples": 48,
+    "seed_start": 0,
+    "seed_end": 15,
+    "seconds": 1.7170495986938477
+  },
+  "validation": {
+    "scenes": 8,
+    "examples": 24,
+    "seed_start": 10000,
+    "seed_end": 10007,
+    "seconds": 0.8544256687164307
+  }
+}

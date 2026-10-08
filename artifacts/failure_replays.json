@@ -1,0 +1,597 @@
+[
+  {
+    "suite": "nominal",
+    "mode": "feedback",
+    "seed": 30037,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.32545451077530824,
+    "lift_height_m": 0.0218296875,
+    "status": "stopped_outside_workspace",
+    "retries": 1,
+    "recovery_triggered": true,
+    "inference_calls": 3,
+    "inference_ms": [
+      5.730679999999211,
+      2.6098649999539703,
+      2.2865390000106345
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.940315306186676,
+        "pad_confidence": 0.9999987483024597,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      },
+      {
+        "phase": "pregrasp_replan",
+        "call": 2,
+        "source_confidence": 0.939995288848877,
+        "pad_confidence": 0.9999987483024597,
+        "gripper_m": 0.039999984204769135,
+        "task": 0
+      },
+      {
+        "phase": "visual_correction",
+        "distance_m": 0.03439880907535553
+      },
+      {
+        "phase": "empty_gripper_retry",
+        "attempt": 1
+      },
+      {
+        "phase": "recovery",
+        "call": 3,
+        "source_confidence": 0.9754102826118469,
+        "pad_confidence": 0.9999986290931702,
+        "gripper_m": 0.039999980479478836,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/nominal/feedback_failure_30037.mp4"
+  },
+  {
+    "suite": "lighting",
+    "mode": "one_shot",
+    "seed": 31010,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.44778560834886844,
+    "lift_height_m": 0.0218296875,
+    "status": "stopped_destination_not_visible",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      2.450828000007732
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.8912835717201233,
+        "pad_confidence": 0.07858853787183762,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/lighting/one_shot_failure_31010.mp4"
+  },
+  {
+    "suite": "lighting",
+    "mode": "feedback",
+    "seed": 31010,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.44778560834886844,
+    "lift_height_m": 0.0218296875,
+    "status": "stopped_destination_not_visible",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      1.7292119999865463
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.8912835717201233,
+        "pad_confidence": 0.07858853787183762,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/lighting/feedback_failure_31010.mp4"
+  },
+  {
+    "suite": "camera",
+    "mode": "feedback",
+    "seed": 32017,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.24306526144976903,
+    "lift_height_m": 0.232075310710659,
+    "status": "stopped_destination_not_visible",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 3,
+    "inference_ms": [
+      1.9277430000101958,
+      2.365381000004163,
+      2.0520329999840214
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.9610002636909485,
+        "pad_confidence": 0.999988317489624,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      },
+      {
+        "phase": "pregrasp_replan",
+        "call": 2,
+        "source_confidence": 0.9582540988922119,
+        "pad_confidence": 0.9999886751174927,
+        "gripper_m": 0.039999980479478836,
+        "task": 0
+      },
+      {
+        "phase": "visual_correction",
+        "distance_m": 0.00021337693033274263
+      },
+      {
+        "phase": "destination_replan",
+        "call": 3,
+        "source_confidence": 0.035199571400880814,
+        "pad_confidence": 0.001476789708249271,
+        "gripper_m": 0.01995261199772358,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/camera/feedback_failure_32017.mp4"
+  },
+  {
+    "suite": "appearance",
+    "mode": "one_shot",
+    "seed": 33001,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.23331182807857223,
+    "lift_height_m": 0.0218296875,
+    "status": "stopped_source_not_visible",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      2.0321380000041245
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.2704848647117615,
+        "pad_confidence": 0.9999957084655762,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/appearance/one_shot_failure_33001.mp4"
+  },
+  {
+    "suite": "appearance",
+    "mode": "feedback",
+    "seed": 33001,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.23331182807857223,
+    "lift_height_m": 0.0218296875,
+    "status": "stopped_source_not_visible",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      2.5398120000090785
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.2704848647117615,
+        "pad_confidence": 0.9999957084655762,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/appearance/feedback_failure_33001.mp4"
+  },
+  {
+    "suite": "dynamics",
+    "mode": "one_shot",
+    "seed": 34019,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.4203797351668581,
+    "lift_height_m": 0.0218296875,
+    "status": "stopped_source_not_visible",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      3.1318050000095354
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.3952840268611908,
+        "pad_confidence": 0.9999988079071045,
+        "gripper_m": 0.03999990224838257,
+        "task": 1
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/dynamics/one_shot_failure_34019.mp4"
+  },
+  {
+    "suite": "dynamics",
+    "mode": "feedback",
+    "seed": 34019,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.4203797351668581,
+    "lift_height_m": 0.0218296875,
+    "status": "stopped_source_not_visible",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      2.7875520000293363
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.3952840268611908,
+        "pad_confidence": 0.9999988079071045,
+        "gripper_m": 0.03999990224838257,
+        "task": 1
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/dynamics/feedback_failure_34019.mp4"
+  },
+  {
+    "suite": "positions",
+    "mode": "one_shot",
+    "seed": 35003,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.044684643072776864,
+    "lift_height_m": 0.03238868119440129,
+    "status": "executed",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      2.3110390000056213
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.9649948477745056,
+        "pad_confidence": 0.9999969005584717,
+        "gripper_m": 0.03999990224838257,
+        "task": 1
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/positions/one_shot_failure_35003.mp4"
+  },
+  {
+    "suite": "positions",
+    "mode": "feedback",
+    "seed": 35001,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.17809265492731974,
+    "lift_height_m": 0.23215140631386785,
+    "status": "stopped_destination_not_visible",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 3,
+    "inference_ms": [
+      2.1131589999754397,
+      1.9382969999810484,
+      2.7497959999891464
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.9880268573760986,
+        "pad_confidence": 0.9999936819076538,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      },
+      {
+        "phase": "pregrasp_replan",
+        "call": 2,
+        "source_confidence": 0.9878086447715759,
+        "pad_confidence": 0.9999935626983643,
+        "gripper_m": 0.039999984204769135,
+        "task": 0
+      },
+      {
+        "phase": "visual_correction",
+        "distance_m": 0.00029961628024466336
+      },
+      {
+        "phase": "destination_replan",
+        "call": 3,
+        "source_confidence": 0.005019143223762512,
+        "pad_confidence": 0.15072575211524963,
+        "gripper_m": 0.021415188908576965,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/positions/feedback_failure_35001.mp4"
+  },
+  {
+    "suite": "language",
+    "mode": "one_shot",
+    "seed": 36013,
+    "original_success": false,
+    "success": false,
+    "distance_m": 2.3019423917228514,
+    "lift_height_m": 0.028735371192423653,
+    "status": "executed",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      2.036404999955721
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.9999276995658875,
+        "pad_confidence": 0.9999988079071045,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/language/one_shot_failure_36013.mp4"
+  },
+  {
+    "suite": "language",
+    "mode": "feedback",
+    "seed": 36013,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.7103866313337727,
+    "lift_height_m": 0.028735371192423653,
+    "status": "stopped_outside_workspace",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 2,
+    "inference_ms": [
+      2.0041120000087176,
+      1.869682999995348
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.9999276995658875,
+        "pad_confidence": 0.9999988079071045,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      },
+      {
+        "phase": "pregrasp_replan",
+        "call": 2,
+        "source_confidence": 0.9999265074729919,
+        "pad_confidence": 0.9999988079071045,
+        "gripper_m": 0.039999980479478836,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/language/feedback_failure_36013.mp4"
+  },
+  {
+    "suite": "object_moved",
+    "mode": "one_shot",
+    "seed": 37000,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.46513599300206143,
+    "lift_height_m": 0.0218296875,
+    "status": "executed",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      3.7045410000473566
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.9881541728973389,
+        "pad_confidence": 1.0,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/object_moved/one_shot_failure_37000.mp4"
+  },
+  {
+    "suite": "object_moved",
+    "mode": "feedback",
+    "seed": 37004,
+    "original_success": false,
+    "success": false,
+    "distance_m": 1.428696201186155,
+    "lift_height_m": 0.03382425075864156,
+    "status": "stopped_source_not_visible",
+    "retries": 1,
+    "recovery_triggered": true,
+    "inference_calls": 3,
+    "inference_ms": [
+      1.9161669999903097,
+      1.903373000004649,
+      2.11867699999857
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.9359488487243652,
+        "pad_confidence": 1.0,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      },
+      {
+        "phase": "pregrasp_replan",
+        "call": 2,
+        "source_confidence": 0.9487915635108948,
+        "pad_confidence": 1.0,
+        "gripper_m": 0.03999987617135048,
+        "task": 0
+      },
+      {
+        "phase": "visual_correction",
+        "distance_m": 0.10113881528377533
+      },
+      {
+        "phase": "empty_gripper_retry",
+        "attempt": 1
+      },
+      {
+        "phase": "recovery",
+        "call": 3,
+        "source_confidence": 0.02118346095085144,
+        "pad_confidence": 1.0,
+        "gripper_m": 0.039999961853027344,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/object_moved/feedback_failure_37004.mp4"
+  },
+  {
+    "suite": "slip",
+    "mode": "one_shot",
+    "seed": 38000,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.23076317188163423,
+    "lift_height_m": 0.23249669203119244,
+    "status": "executed",
+    "retries": 0,
+    "recovery_triggered": false,
+    "inference_calls": 1,
+    "inference_ms": [
+      1.75968499991086
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.9981383085250854,
+        "pad_confidence": 1.0,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/slip/one_shot_failure_38000.mp4"
+  },
+  {
+    "suite": "slip",
+    "mode": "feedback",
+    "seed": 38005,
+    "original_success": false,
+    "success": false,
+    "distance_m": 0.2997331870231729,
+    "lift_height_m": 0.23250883078292942,
+    "status": "stopped_source_not_visible",
+    "retries": 1,
+    "recovery_triggered": true,
+    "inference_calls": 3,
+    "inference_ms": [
+      2.6909739999609883,
+      2.075154000067414,
+      2.0745900000065376
+    ],
+    "trace": [
+      {
+        "phase": "initial",
+        "call": 1,
+        "source_confidence": 0.9571701884269714,
+        "pad_confidence": 0.9999530911445618,
+        "gripper_m": 0.03999990224838257,
+        "task": 0
+      },
+      {
+        "phase": "pregrasp_replan",
+        "call": 2,
+        "source_confidence": 0.9746175408363342,
+        "pad_confidence": 0.9999538064002991,
+        "gripper_m": 0.03999989852309227,
+        "task": 0
+      },
+      {
+        "phase": "visual_correction",
+        "distance_m": 0.0017538437386974692
+      },
+      {
+        "phase": "empty_gripper_retry",
+        "attempt": 1
+      },
+      {
+        "phase": "recovery",
+        "call": 3,
+        "source_confidence": 0.053052157163619995,
+        "pad_confidence": 0.9999533295631409,
+        "gripper_m": 0.03999989107251167,
+        "task": 0
+      }
+    ],
+    "error": null,
+    "matches_original_success": true,
+    "video": "artifacts/evaluation/slip/feedback_failure_38005.mp4"
+  }
+]

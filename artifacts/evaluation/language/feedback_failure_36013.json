@@ -1,0 +1,38 @@
+{
+  "suite": "language",
+  "mode": "feedback",
+  "seed": 36013,
+  "original_success": false,
+  "success": false,
+  "distance_m": 0.7103866313337727,
+  "lift_height_m": 0.028735371192423653,
+  "status": "stopped_outside_workspace",
+  "retries": 0,
+  "recovery_triggered": false,
+  "inference_calls": 2,
+  "inference_ms": [
+    2.0041120000087176,
+    1.869682999995348
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.9999276995658875,
+      "pad_confidence": 0.9999988079071045,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    },
+    {
+      "phase": "pregrasp_replan",
+      "call": 2,
+      "source_confidence": 0.9999265074729919,
+      "pad_confidence": 0.9999988079071045,
+      "gripper_m": 0.039999980479478836,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/language/feedback_failure_36013.mp4"
+}

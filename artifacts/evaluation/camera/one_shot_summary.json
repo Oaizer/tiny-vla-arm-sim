@@ -1,0 +1,46 @@
+{
+  "suite": "camera",
+  "mode": "one_shot",
+  "episodes": 40,
+  "successes": 40,
+  "safe_stops": 0,
+  "retries": 0,
+  "recovery_triggers": 0,
+  "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "by_task": {
+    "place": {
+      "episodes": 30,
+      "successes": 30
+    },
+    "lift": {
+      "episodes": 10,
+      "successes": 10
+    }
+  },
+  "by_object": {
+    "red cube": {
+      "episodes": 12,
+      "successes": 12
+    },
+    "red cylinder": {
+      "episodes": 12,
+      "successes": 12
+    },
+    "blue cube": {
+      "episodes": 8,
+      "successes": 8
+    },
+    "green cylinder": {
+      "episodes": 8,
+      "successes": 8
+    }
+  },
+  "latency_p50_ms": 1.6772259999981998,
+  "latency_p95_ms": 4.0026658000115845,
+  "success_rate": 1.0,
+  "wilson_95": [
+    0.9123754607496077,
+    1.0
+  ],
+  "safe_stop_rate": 0.0
+}

@@ -1,0 +1,49 @@
+{
+  "instruction": "put the red cylinder on the cyan pad",
+  "seed": 80000,
+  "success": true,
+  "distance_m": 0.011027081939963062,
+  "lift_height_m": 0.2342675442830519,
+  "status": "placed",
+  "retries": 0,
+  "recovery_triggered": true,
+  "inference_calls": 3,
+  "inference_ms": [
+    5.156165000016699,
+    2.1409589999734635,
+    1.9592529999954422
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.7643758058547974,
+      "pad_confidence": 0.9999755620956421,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    },
+    {
+      "phase": "pregrasp_replan",
+      "call": 2,
+      "source_confidence": 0.9689306020736694,
+      "pad_confidence": 0.9999744892120361,
+      "gripper_m": 0.03999987989664078,
+      "task": 0
+    },
+    {
+      "phase": "visual_correction",
+      "distance_m": 0.09656780958175659
+    },
+    {
+      "phase": "destination_replan",
+      "call": 3,
+      "source_confidence": 0.5102013349533081,
+      "pad_confidence": 0.9999724626541138,
+      "gripper_m": 0.020629161968827248,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "event": "object_moved",
+  "video": "artifacts/demo.mp4"
+}

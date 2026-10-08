@@ -1,0 +1,55 @@
+{
+  "suite": "object_moved",
+  "mode": "feedback",
+  "seed": 37004,
+  "original_success": false,
+  "success": false,
+  "distance_m": 1.428696201186155,
+  "lift_height_m": 0.03382425075864156,
+  "status": "stopped_source_not_visible",
+  "retries": 1,
+  "recovery_triggered": true,
+  "inference_calls": 3,
+  "inference_ms": [
+    1.9161669999903097,
+    1.903373000004649,
+    2.11867699999857
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.9359488487243652,
+      "pad_confidence": 1.0,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    },
+    {
+      "phase": "pregrasp_replan",
+      "call": 2,
+      "source_confidence": 0.9487915635108948,
+      "pad_confidence": 1.0,
+      "gripper_m": 0.03999987617135048,
+      "task": 0
+    },
+    {
+      "phase": "visual_correction",
+      "distance_m": 0.10113881528377533
+    },
+    {
+      "phase": "empty_gripper_retry",
+      "attempt": 1
+    },
+    {
+      "phase": "recovery",
+      "call": 3,
+      "source_confidence": 0.02118346095085144,
+      "pad_confidence": 1.0,
+      "gripper_m": 0.039999961853027344,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/object_moved/feedback_failure_37004.mp4"
+}

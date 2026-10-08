@@ -1,0 +1,29 @@
+{
+  "suite": "lighting",
+  "mode": "feedback",
+  "seed": 31010,
+  "original_success": false,
+  "success": false,
+  "distance_m": 0.44778560834886844,
+  "lift_height_m": 0.0218296875,
+  "status": "stopped_destination_not_visible",
+  "retries": 0,
+  "recovery_triggered": false,
+  "inference_calls": 1,
+  "inference_ms": [
+    1.7292119999865463
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.8912835717201233,
+      "pad_confidence": 0.07858853787183762,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/lighting/feedback_failure_31010.mp4"
+}

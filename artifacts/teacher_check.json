@@ -1,0 +1,118 @@
+{
+  "teacher_successes": 14,
+  "episodes": 16,
+  "trials": [
+    {
+      "seed": 12000,
+      "instruction": "put the red cube on the yellow pad",
+      "success": false,
+      "distance_m": 0.784578337099087,
+      "lift_height_m": 0.040122167092434685
+    },
+    {
+      "seed": 12001,
+      "instruction": "put the red cube on the purple pad",
+      "success": true,
+      "distance_m": 0.015968363547996384,
+      "lift_height_m": 0.2353362021323209
+    },
+    {
+      "seed": 12002,
+      "instruction": "put the red cube on the cyan pad",
+      "success": true,
+      "distance_m": 0.03982395214173114,
+      "lift_height_m": 0.282932340621013
+    },
+    {
+      "seed": 12003,
+      "instruction": "lift the red cube",
+      "success": true,
+      "distance_m": 0.018178295686378403,
+      "lift_height_m": 0.2370856588348743
+    },
+    {
+      "seed": 12004,
+      "instruction": "put the red cylinder on the yellow pad",
+      "success": true,
+      "distance_m": 0.03838072184000328,
+      "lift_height_m": 0.24586719462881076
+    },
+    {
+      "seed": 12005,
+      "instruction": "put the red cylinder on the purple pad",
+      "success": true,
+      "distance_m": 0.023810090018451417,
+      "lift_height_m": 0.2398460678771015
+    },
+    {
+      "seed": 12006,
+      "instruction": "put the red cylinder on the cyan pad",
+      "success": false,
+      "distance_m": 2.5009198076724286,
+      "lift_height_m": 0.2929674168048726
+    },
+    {
+      "seed": 12007,
+      "instruction": "lift the red cylinder",
+      "success": true,
+      "distance_m": 0.01748995162508645,
+      "lift_height_m": 0.23547417296241407
+    },
+    {
+      "seed": 12008,
+      "instruction": "put the blue cube on the yellow pad",
+      "success": true,
+      "distance_m": 0.03649677395322447,
+      "lift_height_m": 0.24957692614274699
+    },
+    {
+      "seed": 12009,
+      "instruction": "put the blue cube on the purple pad",
+      "success": true,
+      "distance_m": 0.01639055592170665,
+      "lift_height_m": 0.2527477734877942
+    },
+    {
+      "seed": 12010,
+      "instruction": "put the blue cube on the cyan pad",
+      "success": true,
+      "distance_m": 0.016467006135269385,
+      "lift_height_m": 0.24181718662330945
+    },
+    {
+      "seed": 12011,
+      "instruction": "lift the blue cube",
+      "success": true,
+      "distance_m": 0.018970209331781993,
+      "lift_height_m": 0.23913811933228982
+    },
+    {
+      "seed": 12012,
+      "instruction": "put the green cylinder on the yellow pad",
+      "success": true,
+      "distance_m": 0.03573647127190446,
+      "lift_height_m": 0.24231158623996968
+    },
+    {
+      "seed": 12013,
+      "instruction": "put the green cylinder on the purple pad",
+      "success": true,
+      "distance_m": 0.0335493842671452,
+      "lift_height_m": 0.24712725532766683
+    },
+    {
+      "seed": 12014,
+      "instruction": "put the green cylinder on the cyan pad",
+      "success": true,
+      "distance_m": 0.026673597601418707,
+      "lift_height_m": 0.2521441108619105
+    },
+    {
+      "seed": 12015,
+      "instruction": "lift the green cylinder",
+      "success": true,
+      "distance_m": 0.020096606981093265,
+      "lift_height_m": 0.23759521882974927
+    }
+  ]
+}

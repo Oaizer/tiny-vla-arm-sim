@@ -1,0 +1,46 @@
+{
+  "suite": "missing",
+  "mode": "feedback",
+  "episodes": 16,
+  "successes": 0,
+  "safe_stops": 16,
+  "retries": 0,
+  "recovery_triggers": 0,
+  "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "by_task": {
+    "place": {
+      "episodes": 12,
+      "successes": 0
+    },
+    "lift": {
+      "episodes": 4,
+      "successes": 0
+    }
+  },
+  "by_object": {
+    "red cube": {
+      "episodes": 4,
+      "successes": 0
+    },
+    "red cylinder": {
+      "episodes": 4,
+      "successes": 0
+    },
+    "blue cube": {
+      "episodes": 4,
+      "successes": 0
+    },
+    "green cylinder": {
+      "episodes": 4,
+      "successes": 0
+    }
+  },
+  "latency_p50_ms": 1.8433244999300769,
+  "latency_p95_ms": 2.3268672500194043,
+  "success_rate": 0.0,
+  "wilson_95": [
+    0.0,
+    0.19361341827271994
+  ],
+  "safe_stop_rate": 1.0
+}

@@ -1,0 +1,89 @@
+{
+  "project_version": "0.2.0",
+  "git_commit": "da05cb610a6c0dea376b1aebdf60fa2f6cda7036",
+  "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "torch": "2.14.1+cpu",
+  "config": {
+    "model_goal": {
+      "max_parameters": 100000,
+      "max_checkpoint_bytes": 1000000,
+      "target_cpu_p95_ms": 15,
+      "supported_task_families": [
+        "place",
+        "lift"
+      ]
+    },
+    "data": {
+      "train_scenes": 16,
+      "validation_scenes": 8,
+      "train_seed_start": 0,
+      "validation_seed_start": 10000,
+      "examples_per_scene": 3,
+      "image_size": 128
+    },
+    "training": {
+      "seed": 42,
+      "steps": 2,
+      "batch_size": 32,
+      "threads": 4,
+      "learning_rate": 0.003
+    },
+    "evaluation": {
+      "episodes_per_suite": 2,
+      "seed_start": 90000,
+      "suites": [
+        "nominal"
+      ],
+      "videos_per_suite": 0
+    },
+    "controller": {
+      "max_attempts": 3,
+      "presence_threshold": 0.65,
+      "empty_gripper_threshold_m": 0.008,
+      "max_inference_calls": 24,
+      "workspace_min": [
+        0.28,
+        -0.33,
+        0.015
+      ],
+      "workspace_max": [
+        0.78,
+        0.37,
+        0.38
+      ]
+    }
+  },
+  "sources_sha256": {
+    "src/tinyvla/__init__.py": "a03d8463ac9c1d91f59027600dd507a762b38c4f7aa6d8a15b0d10f6ec2ddc8b",
+    "src/tinyvla/cli.py": "c29f175009d255379448fc1bfffba24131f744381df2959b27b1015f47be66c6",
+    "src/tinyvla/controller.py": "09aec9ef0ef027a5ff99e42bbc47bc1ce7e34501941a0b650b55bd5965b9f207",
+    "src/tinyvla/data.py": "96a96d8e329825db3bdb58869bf374cac633d4dd8797cf86b509754552fb2c4c",
+    "src/tinyvla/evaluate.py": "aba4fc2abcdaae84a2fa9b1030e2f9e5fc880bed1e4d498a5809b42ff886710a",
+    "src/tinyvla/language.py": "b9a1445796d4385a3057f5541e3812d7666a4c309997a2401525e2fbb6e61f7b",
+    "src/tinyvla/model.py": "06ee59910566a7cce9525d0b273680dd79236832c6e155d3163459384f24fe7d",
+    "src/tinyvla/report.py": "d60176a5dfe621bccd59e042057731dd25bd7acf5a5bacef3cd3b04e2b782d2a",
+    "src/tinyvla/sim.py": "3b4b763e07b39c698f2b21a8d3f955fee9c3c5dc53b4a2f65a96aff70da46fa0",
+    "src/tinyvla/train.py": "3e16ebc0d605f7ac84c3cf7742cb7a1af76dfb2ca4c06923e14a45d434c8d30e"
+  },
+  "artifacts_sha256": {
+    "data/train.npz": "f0619c3e3a0d4def10d2a1e0d6a9d5c7fa422ed70a0fa24b7eb5544ec9a0f5cb",
+    "data/validation.npz": "bf8ed7133eb36012859052ed95d874702dd948ba1d136b0c68c88b7cf552febd",
+    "evaluation/nominal/feedback.jsonl": "cc5769cb65577fc92befb2275a9b89484aa2069bd90ca4bd2e6d569bab311eb7",
+    "evaluation/nominal/one_shot.jsonl": "52b09676c0a90123f3dd5396f39943a368e0185a6e923ecc571fe8ecd6d9006f",
+    "model/best.pt": "4e0835fb2f08f56067756b27963369f0f85228908e3ee86679e1b9a7614f23d7",
+    "model/training.jsonl": "1335425972882d57974b595812783665c9b23b0705bf2fbb2efe6b2c46128e40"
+  },
+  "checkpoint_sha256": "4e0835fb2f08f56067756b27963369f0f85228908e3ee86679e1b9a7614f23d7",
+  "architecture": "TinyVLA-v2",
+  "seed_ranges": {
+    "train": [
+      0,
+      15
+    ],
+    "validation": [
+      10000,
+      10007
+    ]
+  }
+}

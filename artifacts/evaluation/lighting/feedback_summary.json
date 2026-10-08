@@ -1,0 +1,46 @@
+{
+  "suite": "lighting",
+  "mode": "feedback",
+  "episodes": 40,
+  "successes": 34,
+  "safe_stops": 4,
+  "retries": 1,
+  "recovery_triggers": 1,
+  "checkpoint_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "by_task": {
+    "place": {
+      "episodes": 30,
+      "successes": 26
+    },
+    "lift": {
+      "episodes": 10,
+      "successes": 8
+    }
+  },
+  "by_object": {
+    "red cube": {
+      "episodes": 12,
+      "successes": 9
+    },
+    "red cylinder": {
+      "episodes": 12,
+      "successes": 10
+    },
+    "blue cube": {
+      "episodes": 8,
+      "successes": 7
+    },
+    "green cylinder": {
+      "episodes": 8,
+      "successes": 8
+    }
+  },
+  "latency_p50_ms": 1.9033209999861356,
+  "latency_p95_ms": 3.3257360999954244,
+  "success_rate": 0.85,
+  "wilson_95": [
+    0.7092737396097997,
+    0.9293890829149256
+  ],
+  "safe_stop_rate": 0.1
+}

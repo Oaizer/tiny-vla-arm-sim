@@ -1,0 +1,75 @@
+{
+  "instruction": "put the blue cube on the yellow pad",
+  "seed": 80001,
+  "success": true,
+  "distance_m": 0.003710201462344332,
+  "lift_height_m": 0.23397106386892122,
+  "status": "placed",
+  "retries": 1,
+  "recovery_triggered": true,
+  "inference_calls": 5,
+  "inference_ms": [
+    4.123871000047075,
+    2.1207460000027822,
+    3.605620000030285,
+    2.316216999986409,
+    2.251053000009051
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.9995765686035156,
+      "pad_confidence": 0.9999999403953552,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    },
+    {
+      "phase": "pregrasp_replan",
+      "call": 2,
+      "source_confidence": 0.9995684027671814,
+      "pad_confidence": 0.9999999403953552,
+      "gripper_m": 0.03999989852309227,
+      "task": 0
+    },
+    {
+      "phase": "visual_correction",
+      "distance_m": 9.032435627887025e-05
+    },
+    {
+      "phase": "empty_gripper_retry",
+      "attempt": 1
+    },
+    {
+      "phase": "recovery",
+      "call": 3,
+      "source_confidence": 0.9996050596237183,
+      "pad_confidence": 0.9999999403953552,
+      "gripper_m": 0.03999987617135048,
+      "task": 0
+    },
+    {
+      "phase": "pregrasp_replan",
+      "call": 4,
+      "source_confidence": 0.9995974898338318,
+      "pad_confidence": 0.9999999403953552,
+      "gripper_m": 0.03999987244606018,
+      "task": 0
+    },
+    {
+      "phase": "visual_correction",
+      "distance_m": 0.00011101431300630793
+    },
+    {
+      "phase": "destination_replan",
+      "call": 5,
+      "source_confidence": 0.0020104600116610527,
+      "pad_confidence": 0.9999999403953552,
+      "gripper_m": 0.022584378719329834,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "event": "slip",
+  "video": "artifacts/slip-demo.mp4"
+}

@@ -1,0 +1,21 @@
+{
+  "before": {
+    "normalized_action_mse": 0.0001068975322504434,
+    "xy_rmse_mm": 3.9778203868248636,
+    "source_accuracy": 1.0,
+    "task_accuracy": 1.0,
+    "pad_accuracy": 1.0,
+    "presence_accuracy": 0.9992857142857143,
+    "valid_examples": 516.0
+  },
+  "after": {
+    "normalized_action_mse": 2.3913959265946475e-05,
+    "xy_rmse_mm": 2.0747013002500685,
+    "source_accuracy": 1.0,
+    "task_accuracy": 1.0,
+    "pad_accuracy": 1.0,
+    "presence_accuracy": 0.9992857142857143,
+    "valid_examples": 516.0
+  },
+  "accepted": true
+}

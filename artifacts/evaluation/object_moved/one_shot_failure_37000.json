@@ -1,0 +1,29 @@
+{
+  "suite": "object_moved",
+  "mode": "one_shot",
+  "seed": 37000,
+  "original_success": false,
+  "success": false,
+  "distance_m": 0.46513599300206143,
+  "lift_height_m": 0.0218296875,
+  "status": "executed",
+  "retries": 0,
+  "recovery_triggered": false,
+  "inference_calls": 1,
+  "inference_ms": [
+    3.7045410000473566
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.9881541728973389,
+      "pad_confidence": 1.0,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/object_moved/one_shot_failure_37000.mp4"
+}

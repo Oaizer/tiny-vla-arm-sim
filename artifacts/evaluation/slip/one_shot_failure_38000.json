@@ -1,0 +1,29 @@
+{
+  "suite": "slip",
+  "mode": "one_shot",
+  "seed": 38000,
+  "original_success": false,
+  "success": false,
+  "distance_m": 0.23076317188163423,
+  "lift_height_m": 0.23249669203119244,
+  "status": "executed",
+  "retries": 0,
+  "recovery_triggered": false,
+  "inference_calls": 1,
+  "inference_ms": [
+    1.75968499991086
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.9981383085250854,
+      "pad_confidence": 1.0,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/slip/one_shot_failure_38000.mp4"
+}

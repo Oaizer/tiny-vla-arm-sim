@@ -1,0 +1,51 @@
+{
+  "suite": "camera",
+  "mode": "feedback",
+  "seed": 32017,
+  "original_success": false,
+  "success": false,
+  "distance_m": 0.24306526144976903,
+  "lift_height_m": 0.232075310710659,
+  "status": "stopped_destination_not_visible",
+  "retries": 0,
+  "recovery_triggered": false,
+  "inference_calls": 3,
+  "inference_ms": [
+    1.9277430000101958,
+    2.365381000004163,
+    2.0520329999840214
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.9610002636909485,
+      "pad_confidence": 0.999988317489624,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    },
+    {
+      "phase": "pregrasp_replan",
+      "call": 2,
+      "source_confidence": 0.9582540988922119,
+      "pad_confidence": 0.9999886751174927,
+      "gripper_m": 0.039999980479478836,
+      "task": 0
+    },
+    {
+      "phase": "visual_correction",
+      "distance_m": 0.00021337693033274263
+    },
+    {
+      "phase": "destination_replan",
+      "call": 3,
+      "source_confidence": 0.035199571400880814,
+      "pad_confidence": 0.001476789708249271,
+      "gripper_m": 0.01995261199772358,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/camera/feedback_failure_32017.mp4"
+}

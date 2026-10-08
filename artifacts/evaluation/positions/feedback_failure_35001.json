@@ -1,0 +1,51 @@
+{
+  "suite": "positions",
+  "mode": "feedback",
+  "seed": 35001,
+  "original_success": false,
+  "success": false,
+  "distance_m": 0.17809265492731974,
+  "lift_height_m": 0.23215140631386785,
+  "status": "stopped_destination_not_visible",
+  "retries": 0,
+  "recovery_triggered": false,
+  "inference_calls": 3,
+  "inference_ms": [
+    2.1131589999754397,
+    1.9382969999810484,
+    2.7497959999891464
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.9880268573760986,
+      "pad_confidence": 0.9999936819076538,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    },
+    {
+      "phase": "pregrasp_replan",
+      "call": 2,
+      "source_confidence": 0.9878086447715759,
+      "pad_confidence": 0.9999935626983643,
+      "gripper_m": 0.039999984204769135,
+      "task": 0
+    },
+    {
+      "phase": "visual_correction",
+      "distance_m": 0.00029961628024466336
+    },
+    {
+      "phase": "destination_replan",
+      "call": 3,
+      "source_confidence": 0.005019143223762512,
+      "pad_confidence": 0.15072575211524963,
+      "gripper_m": 0.021415188908576965,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/positions/feedback_failure_35001.mp4"
+}

@@ -1,0 +1,55 @@
+{
+  "suite": "slip",
+  "mode": "feedback",
+  "seed": 38005,
+  "original_success": false,
+  "success": false,
+  "distance_m": 0.2997331870231729,
+  "lift_height_m": 0.23250883078292942,
+  "status": "stopped_source_not_visible",
+  "retries": 1,
+  "recovery_triggered": true,
+  "inference_calls": 3,
+  "inference_ms": [
+    2.6909739999609883,
+    2.075154000067414,
+    2.0745900000065376
+  ],
+  "trace": [
+    {
+      "phase": "initial",
+      "call": 1,
+      "source_confidence": 0.9571701884269714,
+      "pad_confidence": 0.9999530911445618,
+      "gripper_m": 0.03999990224838257,
+      "task": 0
+    },
+    {
+      "phase": "pregrasp_replan",
+      "call": 2,
+      "source_confidence": 0.9746175408363342,
+      "pad_confidence": 0.9999538064002991,
+      "gripper_m": 0.03999989852309227,
+      "task": 0
+    },
+    {
+      "phase": "visual_correction",
+      "distance_m": 0.0017538437386974692
+    },
+    {
+      "phase": "empty_gripper_retry",
+      "attempt": 1
+    },
+    {
+      "phase": "recovery",
+      "call": 3,
+      "source_confidence": 0.053052157163619995,
+      "pad_confidence": 0.9999533295631409,
+      "gripper_m": 0.03999989107251167,
+      "task": 0
+    }
+  ],
+  "error": null,
+  "matches_original_success": true,
+  "video": "artifacts/evaluation/slip/feedback_failure_38005.mp4"
+}
