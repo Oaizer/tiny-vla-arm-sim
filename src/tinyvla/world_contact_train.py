@@ -43,8 +43,10 @@ def logits_for(base, head, data, examples=None):
 
 def calibrate(raw, labels, steps=300):
     # Fit one positive scale and one bias per object on validation scenes only.
-    raw = raw.detach().float().mean(0).reshape(-1, 4)
-    labels = labels.float().reshape(-1, 4)
+    # Validation batches are produced under inference_mode; clone them after
+    # leaving that context so LBFGS can use them in its backward pass.
+    raw = raw.detach().float().mean(0).reshape(-1, 4).clone()
+    labels = labels.float().reshape(-1, 4).clone()
     slope = nn.Parameter(torch.ones(4))
     bias = nn.Parameter(torch.zeros(4))
     optimizer = torch.optim.LBFGS([slope, bias], lr=.2, max_iter=steps,
