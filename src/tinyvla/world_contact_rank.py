@@ -41,14 +41,16 @@ def main():
     data_config = json.loads(Path('configs/world_contact.json').read_text())
     model_path = Path(data_config['source']['checkpoint'])
     head_path = root / 'contact-head.pt'
-    output_protocol = root / 'candidate_rank_protocol.json'
+    output_protocol = root / 'candidate_rank_v2_protocol.json'
+    output_result = root / 'candidate_rank_v2.json'
     if output_protocol.exists():
         raise FileExistsError('This ranking protocol already ran. Keep its results and use a new project copy for another study.')
     if not head_path.is_file() or not root.joinpath('report.json').is_file():
         raise FileNotFoundError('Collect and train the contact head before ranking candidates.')
     # Use new scene seeds that did not train or evaluate contact probabilities.
-    ranking = {'episodes': 40, 'seed_base': 183000, 'index_offset': 400,
-               'seed_start': 183400, 'seed_end': 183439, 'candidates_per_scene': 25,
+    ranking = {'episodes': 40, 'seed_base': 183000, 'index_offset': 500,
+               'seed_start': 183500, 'seed_end': 183539, 'candidates_per_scene': 25,
+               'decision': 'first recorded open-gripper command after the initial approach',
                'steps_predicted': 3, 'steps_executed_for_contact': 2,
                'contact_threshold_n': .01}
     code_paths = [Path(data_config['source']['checkpoint']), Path(data_config['source']['policy']),
@@ -65,10 +67,10 @@ def main():
     output_protocol.write_text(json.dumps(protocol, indent=2))
 
     collect_config = json.loads(json.dumps(data_config))
-    collect_config['data'].update({'ranking_episodes': ranking['episodes'],
-                                   'ranking_seed': ranking['seed_base'],
-                                   'ranking_offset': ranking['index_offset']})
-    collect(collect_config, root, data_config['source']['policy'], 'ranking', ranking['episodes'])
+    collect_config['data'].update({'ranking_v2_episodes': ranking['episodes'],
+                                   'ranking_v2_seed': ranking['seed_base'],
+                                   'ranking_v2_offset': ranking['index_offset']})
+    collect(collect_config, root, data_config['source']['policy'], 'ranking_v2', ranking['episodes'])
 
     base, _ = load_world(model_path)
     bundle = torch.load(head_path, map_location='cpu', weights_only=False)
@@ -77,7 +79,7 @@ def main():
     scale = torch.tensor(bundle['calibration_scale'])
     bias = torch.tensor(bundle['calibration_bias'])
     scenarios, seen = [], set()
-    for path in sorted((root / 'ranking').glob('*.npz')):
+    for path in sorted((root / 'ranking_v2').glob('*.npz')):
         with np.load(path) as stored:
             features = stored['features'].astype(np.float32)
             actions = stored['actions'].astype(np.float32)
@@ -85,13 +87,16 @@ def main():
         metadata = json.loads(path.with_suffix('.json').read_text())
         task = parse(metadata['instruction'])
         source = OBJECTS.index(task.object)
-        choice = next((index for index in range(2, len(actions) - 3)
+        choice = next((index for index in range(1, len(actions) - 3)
                        if actions[index, 2] <= .055 and actions[index, 3] > .02
                        and seed not in seen), None)
         if choice is None:
             continue
         seen.add(seed)
-        history = torch.from_numpy(features[choice - 2:choice + 1])[None]
+        history_start = max(0, choice - 2)
+        history_frames = np.concatenate([np.repeat(features[:1], 2 - (choice - history_start), axis=0),
+                                         features[history_start:choice + 1]], axis=0)
+        history = torch.from_numpy(history_frames)[None]
         xyz = candidates(actions[choice, :3].copy())
         sequence = np.zeros((len(xyz), 3, 5), np.float32)
         sequence[:, 0, :3] = xyz
@@ -173,7 +178,13 @@ def main():
                                       'unchanged_contact_rate': float(np.mean([x['unchanged_top1_contact'] for x in rows])),
                                       'oracle_contact_exists_rate': float(np.mean([x['oracle_has_contact'] for x in rows])),
                                       'head_average_precision': float(np.nanmean([x['contact_head_average_precision'] for x in rows]))}
-    (root / 'candidate_rank.json').write_text(json.dumps(result, indent=2))
+    (root / 'candidate_rank_failed_attempt.json').write_text(json.dumps({
+        'protocol': json.loads((root / 'candidate_rank_protocol.json').read_text()),
+        'collected_scenes': 40, 'eligible_scenes': 21, 'status': 'incomplete',
+        'cause': 'The first selector began at action index 2. It skipped the open approach at index 1 in 19 scenes.',
+        'discarded_seed_range': '183400-183439',
+        'corrective_action': 'Freeze a new protocol, use the first open approach, and collect fresh seeds.'}, indent=2))
+    (root / 'candidate_rank_v2.json').write_text(json.dumps(result, indent=2))
     print(json.dumps({k: v for k, v in result.items() if k not in ('rows', 'protocol')}, indent=2), flush=True)
 
 

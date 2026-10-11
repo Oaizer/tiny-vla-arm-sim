@@ -12,7 +12,7 @@ Train a small contact head on the saved version 1 JEPA latent predictions. Freez
 
 Run `python -m tinyvla.world_contact collect` to gather the configured train, validation, and test splits. Run `python -m tinyvla.world_contact train` to fit the contact head and score it on validation and test. Both commands use PyBullet only. The report records the seed lists, source hashes, contact threshold, model hash, calibration, and per-object metrics.
 
-After training, run `python -m tinyvla.world_contact_rank` to check candidate ranking in 40 additional scenes (seeds 183400–183439). The script saves a frozen protocol, collects the new scenes, and compares the learned contact score with the old held score and the unchanged candidate. It executes candidate approach and closure branches in offline copies of each simulation state. It does not control the arm policy or alter any controller setting.
+After training, run `python -m tinyvla.world_contact_rank` to check candidate ranking in 40 additional scenes (seeds 183500–183539). The script saves a frozen protocol, collects the new scenes, and compares the learned contact score with the old held score and the unchanged candidate. It executes candidate approach and closure branches in offline copies of each simulation state. It does not control the arm policy or alter any controller setting. The first attempt skipped the open approach in 19 scenes; it is preserved as an incomplete run. The second protocol fixes the selection and uses fresh seeds.
 
 ## Decision rule
 
