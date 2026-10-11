@@ -1,0 +1,31 @@
+{
+  "ranking": {
+    "episodes": 40,
+    "seed_base": 183000,
+    "index_offset": 500,
+    "seed_start": 183500,
+    "seed_end": 183539,
+    "candidates_per_scene": 25,
+    "decision": "first recorded open-gripper command after the initial approach",
+    "steps_predicted": 3,
+    "steps_executed_for_contact": 2,
+    "contact_threshold_n": 0.01
+  },
+  "model_hashes": {
+    "artifacts/world-v1/model/jepa.pt": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57",
+    "artifacts/model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "configs/world_contact.json": "62b39fc66686393b2d1da6f732c49c1cb30fb5cf8148b5ead26d794a50e87762",
+    "src/tinyvla/world_contact_data.py": "bf20f79e402a74b6c994c3d5110c692cd8da846f9cffe5457cc0ede965a4a901",
+    "src/tinyvla/world_contact_train.py": "02df648d7ea89ab796d3113c1bd9a8f4f65ba1964306cb6b19e0557a2bca724e",
+    "src/tinyvla/world_contact_rank.py": "de202d561a0a28c096cd7f2c6a6629dcdcb547afaf0c1bab8cac168a127d4bf6",
+    "src/tinyvla/world_model.py": "772c1df736b0305e7a4a48b7b656cb044c3bd2e9fcbe41c48f1a958b960dc75c",
+    "src/tinyvla/world_data.py": "ad2faa44f3627b870132fc5565542e08fa5f9160f9f5d46cbc22265f873caeca",
+    "src/tinyvla/sim.py": "429cdd76e5eb69dfb2059b47fe5716548535f8e08aff650f840a44322a523a8f",
+    "src/tinyvla/evaluate.py": "181c5ecde0d33426d07ec1429dbdab7ad140db38af4e2efec2c07422f792ee99",
+    "src/tinyvla/controller.py": "06c8e167447128d38f7bbbc27a3921284fd82f9eac5d11a17bed5e3b8b4252bc",
+    "uv.lock": "dcbd89ed18b9c8c38a141e00a46d4873bcb0d525935596c8dd05dcd7ba818859",
+    "artifacts/world-v3/contact/contact-head.pt": "2b2320058642ba5842c2dfc1cd9bc720d50b07d2656092b827958a282b6ae354"
+  },
+  "contact_test_report_sha256": "387287fe88ed2912889505755b7096313db62a2d152c54bb7414f43ea255c899",
+  "warning": "Offline candidate contact audit only. No planner controls the arm."
+}

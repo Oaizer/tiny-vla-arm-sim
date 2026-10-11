@@ -1,0 +1,777 @@
+{
+  "split": "ranking_v2",
+  "episodes": 40,
+  "transitions": 2445,
+  "seed_min": 183500,
+  "seed_max": 183539,
+  "episodes_with_contact": 36,
+  "contact_steps_by_object": [
+    230,
+    220,
+    155,
+    153
+  ],
+  "seconds": 61.1,
+  "rows": [
+    {
+      "seed": 183500,
+      "index": 500,
+      "split": "ranking_v2",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 109,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "positive_steps": 2,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183501,
+      "index": 501,
+      "split": "ranking_v2",
+      "instruction": "put the red cylinder on the purple pad",
+      "object": "red cylinder",
+      "transitions": 83,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183502,
+      "index": 502,
+      "split": "ranking_v2",
+      "instruction": "put the red cylinder on the cyan pad",
+      "object": "red cylinder",
+      "transitions": 117,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183503,
+      "index": 503,
+      "split": "ranking_v2",
+      "instruction": "lift the red cylinder",
+      "object": "red cylinder",
+      "transitions": 16,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        14
+      ],
+      "positive_steps": 14,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183504,
+      "index": 504,
+      "split": "ranking_v2",
+      "instruction": "put the blue cube on the yellow pad",
+      "object": "blue cube",
+      "transitions": 45,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        41,
+        0,
+        0
+      ],
+      "positive_steps": 41,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183505,
+      "index": 505,
+      "split": "ranking_v2",
+      "instruction": "put the blue cube on the purple pad",
+      "object": "blue cube",
+      "transitions": 42,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        38,
+        0,
+        0
+      ],
+      "positive_steps": 38,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183506,
+      "index": 506,
+      "split": "ranking_v2",
+      "instruction": "put the blue cube on the cyan pad",
+      "object": "blue cube",
+      "transitions": 83,
+      "tipped": false,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "positive_steps": 1,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183507,
+      "index": 507,
+      "split": "ranking_v2",
+      "instruction": "lift the blue cube",
+      "object": "blue cube",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        13,
+        0,
+        0
+      ],
+      "positive_steps": 13,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183508,
+      "index": 508,
+      "split": "ranking_v2",
+      "instruction": "put the green cylinder on the yellow pad",
+      "object": "green cylinder",
+      "transitions": 38,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        34,
+        0
+      ],
+      "positive_steps": 34,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183509,
+      "index": 509,
+      "split": "ranking_v2",
+      "instruction": "put the green cylinder on the purple pad",
+      "object": "green cylinder",
+      "transitions": 80,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183510,
+      "index": 510,
+      "split": "ranking_v2",
+      "instruction": "put the green cylinder on the cyan pad",
+      "object": "green cylinder",
+      "transitions": 68,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        37,
+        0
+      ],
+      "positive_steps": 37,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183511,
+      "index": 511,
+      "split": "ranking_v2",
+      "instruction": "lift the green cylinder",
+      "object": "green cylinder",
+      "transitions": 36,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        9,
+        0
+      ],
+      "positive_steps": 9,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183512,
+      "index": 512,
+      "split": "ranking_v2",
+      "instruction": "put the red cube on the yellow pad",
+      "object": "red cube",
+      "transitions": 37,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        33,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 33,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183513,
+      "index": 513,
+      "split": "ranking_v2",
+      "instruction": "put the red cube on the purple pad",
+      "object": "red cube",
+      "transitions": 77,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true,
+      "contact_steps": [
+        43,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 43,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183514,
+      "index": 514,
+      "split": "ranking_v2",
+      "instruction": "put the red cube on the cyan pad",
+      "object": "red cube",
+      "transitions": 71,
+      "tipped": false,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 3,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183515,
+      "index": 515,
+      "split": "ranking_v2",
+      "instruction": "lift the red cube",
+      "object": "red cube",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 1,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183516,
+      "index": 516,
+      "split": "ranking_v2",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 81,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        11
+      ],
+      "positive_steps": 11,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183517,
+      "index": 517,
+      "split": "ranking_v2",
+      "instruction": "put the red cylinder on the purple pad",
+      "object": "red cylinder",
+      "transitions": 36,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        32
+      ],
+      "positive_steps": 32,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183518,
+      "index": 518,
+      "split": "ranking_v2",
+      "instruction": "put the red cylinder on the cyan pad",
+      "object": "red cylinder",
+      "transitions": 89,
+      "tipped": true,
+      "drop_commands": true,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        36
+      ],
+      "positive_steps": 36,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183519,
+      "index": 519,
+      "split": "ranking_v2",
+      "instruction": "lift the red cylinder",
+      "object": "red cylinder",
+      "transitions": 57,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "positive_steps": 2,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183520,
+      "index": 520,
+      "split": "ranking_v2",
+      "instruction": "put the blue cube on the yellow pad",
+      "object": "blue cube",
+      "transitions": 74,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        10,
+        0,
+        0
+      ],
+      "positive_steps": 10,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183521,
+      "index": 521,
+      "split": "ranking_v2",
+      "instruction": "put the blue cube on the purple pad",
+      "object": "blue cube",
+      "transitions": 81,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        10,
+        0,
+        0
+      ],
+      "positive_steps": 10,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183522,
+      "index": 522,
+      "split": "ranking_v2",
+      "instruction": "put the blue cube on the cyan pad",
+      "object": "blue cube",
+      "transitions": 82,
+      "tipped": false,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "positive_steps": 1,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183523,
+      "index": 523,
+      "split": "ranking_v2",
+      "instruction": "lift the blue cube",
+      "object": "blue cube",
+      "transitions": 16,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        14,
+        0,
+        0
+      ],
+      "positive_steps": 14,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183524,
+      "index": 524,
+      "split": "ranking_v2",
+      "instruction": "put the green cylinder on the yellow pad",
+      "object": "green cylinder",
+      "transitions": 37,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        33,
+        0
+      ],
+      "positive_steps": 33,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183525,
+      "index": 525,
+      "split": "ranking_v2",
+      "instruction": "put the green cylinder on the purple pad",
+      "object": "green cylinder",
+      "transitions": 161,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183526,
+      "index": 526,
+      "split": "ranking_v2",
+      "instruction": "put the green cylinder on the cyan pad",
+      "object": "green cylinder",
+      "transitions": 61,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        32,
+        0
+      ],
+      "positive_steps": 32,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183527,
+      "index": 527,
+      "split": "ranking_v2",
+      "instruction": "lift the green cylinder",
+      "object": "green cylinder",
+      "transitions": 36,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        10,
+        0
+      ],
+      "positive_steps": 10,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183528,
+      "index": 528,
+      "split": "ranking_v2",
+      "instruction": "put the red cube on the yellow pad",
+      "object": "red cube",
+      "transitions": 67,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true,
+      "contact_steps": [
+        38,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 38,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183529,
+      "index": 529,
+      "split": "ranking_v2",
+      "instruction": "put the red cube on the purple pad",
+      "object": "red cube",
+      "transitions": 90,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true,
+      "contact_steps": [
+        50,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 50,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183530,
+      "index": 530,
+      "split": "ranking_v2",
+      "instruction": "put the red cube on the cyan pad",
+      "object": "red cube",
+      "transitions": 77,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        35,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 35,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183531,
+      "index": 531,
+      "split": "ranking_v2",
+      "instruction": "lift the red cube",
+      "object": "red cube",
+      "transitions": 32,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        27,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 27,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183532,
+      "index": 532,
+      "split": "ranking_v2",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 88,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        12
+      ],
+      "positive_steps": 12,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183533,
+      "index": 533,
+      "split": "ranking_v2",
+      "instruction": "put the red cylinder on the purple pad",
+      "object": "red cylinder",
+      "transitions": 72,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "positive_steps": 1,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183534,
+      "index": 534,
+      "split": "ranking_v2",
+      "instruction": "put the red cylinder on the cyan pad",
+      "object": "red cylinder",
+      "transitions": 33,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        29
+      ],
+      "positive_steps": 29,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183535,
+      "index": 535,
+      "split": "ranking_v2",
+      "instruction": "lift the red cylinder",
+      "object": "red cylinder",
+      "transitions": 16,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        14
+      ],
+      "positive_steps": 14,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183536,
+      "index": 536,
+      "split": "ranking_v2",
+      "instruction": "put the blue cube on the yellow pad",
+      "object": "blue cube",
+      "transitions": 36,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        32,
+        0,
+        0
+      ],
+      "positive_steps": 32,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183537,
+      "index": 537,
+      "split": "ranking_v2",
+      "instruction": "put the blue cube on the purple pad",
+      "object": "blue cube",
+      "transitions": 37,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        33,
+        0,
+        0
+      ],
+      "positive_steps": 33,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183538,
+      "index": 538,
+      "split": "ranking_v2",
+      "instruction": "put the blue cube on the cyan pad",
+      "object": "blue cube",
+      "transitions": 83,
+      "tipped": false,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "positive_steps": 3,
+      "force_threshold_n": 0.01
+    },
+    {
+      "seed": 183539,
+      "index": 539,
+      "split": "ranking_v2",
+      "instruction": "lift the blue cube",
+      "object": "blue cube",
+      "transitions": 35,
+      "tipped": false,
+      "drop_commands": true,
+      "success": true,
+      "contact_steps": [
+        0,
+        24,
+        0,
+        0
+      ],
+      "positive_steps": 24,
+      "force_threshold_n": 0.01
+    }
+  ]
+}

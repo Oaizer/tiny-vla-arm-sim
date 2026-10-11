@@ -8,6 +8,8 @@ The [second world-model experiment](artifacts/world-v2/RESULTS.md) tests a consi
 
 Nine matched clips from three version 2 trials are in the [video bundle](https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v2/tiny-vla-impact-videos.zip). The bundle includes a playback gallery and SHA-256 checksums. The clips show a successful forced-slip recovery, a matched slip trial where both planners fail, and a trial after the object is moved. They are selected examples; the full trial results are in the report.
 
+Version 3 trains a 6,468 parameter contact head from PyBullet finger-force labels. It improves held-out contact prediction, but its top grasp contacts less often than the unchanged command in a 40-scene ranking audit. The head stays offline. Read the [version 3 results](artifacts/world-v3/contact/RESULTS.md) and [experiment log](docs/WORLD_MODEL_LOG.md). Download all derived data and weights from the [version 3 release](https://github.com/Oaizer/tiny-vla-arm-sim/releases/tag/world-model-v3-contact). The bundle includes 480 data episodes, including the preserved 40-scene pilot, plus the 1000-branch corrected audit, model, reports, and hashes. Run `python scripts/verify_world_contact.py` to check the files and recreate the manifest.
+
 ## Results
 
 The trained model has **17,896 parameters**. Its checkpoint is **78,815 bytes**. We tested two controllers in 800 trials across ten test sets. The feedback controller succeeded in 39 of 40 standard trials, 32 of 40 trials where an object moved, and 24 of 40 trials with a forced drop. It stopped before moving in 39 of 40 trials where the requested object was missing. Feedback did worse than one-shot control in some changed scenes.
