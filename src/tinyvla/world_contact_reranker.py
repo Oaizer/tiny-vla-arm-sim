@@ -82,6 +82,8 @@ def selected_command(actions):
 
 
 def build():
+    torch.set_num_threads(1)
+    torch.set_num_interop_threads(1)
     ROOT.mkdir(parents=True, exist_ok=True)
     protocol_path = ROOT / 'protocol.json'
     if protocol_path.exists() or any((ROOT / f'branches_{s}.npz').exists() for s in ('train', 'validation', 'test')):
