@@ -1,0 +1,778 @@
+{
+  "split": "test",
+  "episodes": 40,
+  "seed_min": 186200,
+  "seed_max": 186239,
+  "transitions": 3236,
+  "episodes_with_contact": 24,
+  "tipped_episodes": 29,
+  "drop_episodes": 13,
+  "contact_steps_by_object": [
+    0,
+    0,
+    2,
+    696
+  ],
+  "rows": [
+    {
+      "seed": 186200,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 92,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        45
+      ],
+      "positive_steps": 45,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186201,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 41,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        38
+      ],
+      "positive_steps": 38,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186202,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 34,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        30
+      ],
+      "positive_steps": 30,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186203,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 34,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        30
+      ],
+      "positive_steps": 30,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186204,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 111,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186205,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 45,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        41
+      ],
+      "positive_steps": 41,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186206,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 37,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        33
+      ],
+      "positive_steps": 33,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186207,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 96,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186208,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 74,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        32
+      ],
+      "positive_steps": 32,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186209,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 91,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186210,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 33,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        30
+      ],
+      "positive_steps": 30,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186211,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 116,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186212,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 122,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186213,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 44,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        41
+      ],
+      "positive_steps": 41,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186214,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 44,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        40
+      ],
+      "positive_steps": 40,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186215,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 90,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        10
+      ],
+      "positive_steps": 10,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186216,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 43,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        39
+      ],
+      "positive_steps": 39,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186217,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 80,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186218,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 38,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        34
+      ],
+      "positive_steps": 34,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186219,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 72,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        32
+      ],
+      "positive_steps": 32,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186220,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 123,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186221,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 83,
+      "tipped": true,
+      "drop_commands": true,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        46
+      ],
+      "positive_steps": 46,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186222,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 40,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        36
+      ],
+      "positive_steps": 36,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186223,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 81,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        9
+      ],
+      "positive_steps": 9,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186224,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 115,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186225,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 118,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186226,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 101,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186227,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 142,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186228,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 171,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186229,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 116,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186230,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 113,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186231,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 118,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186232,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 84,
+      "tipped": false,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "positive_steps": 1,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186233,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 38,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        34
+      ],
+      "positive_steps": 34,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186234,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 83,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        10
+      ],
+      "positive_steps": 10,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186235,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 86,
+      "tipped": true,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        2,
+        1
+      ],
+      "positive_steps": 3,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186236,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 43,
+      "tipped": true,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        39
+      ],
+      "positive_steps": 39,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    },
+    {
+      "seed": 186237,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 98,
+      "tipped": false,
+      "drop_commands": true,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        10
+      ],
+      "positive_steps": 10,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186238,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 39,
+      "tipped": false,
+      "drop_commands": false,
+      "success": true,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        35
+      ],
+      "positive_steps": 35,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.008
+    },
+    {
+      "seed": 186239,
+      "split": "test",
+      "instruction": "put the red cylinder on the yellow pad",
+      "object": "red cylinder",
+      "transitions": 107,
+      "tipped": true,
+      "drop_commands": false,
+      "success": false,
+      "contact_steps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "positive_steps": 0,
+      "force_threshold_n": 0.01,
+      "high_noise_std": 0.02
+    }
+  ]
+}
