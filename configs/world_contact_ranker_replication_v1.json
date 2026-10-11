@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "description": "Independent fresh-scene test of the frozen V5 grasp candidate reranker.",
+  "data": {
+    "episodes": 40,
+    "seed_start": 188240,
+    "tip_probability": 0.8,
+    "drop_probability": 0.45,
+    "high_noise_probability": 0.65,
+    "high_noise_std": 0.02,
+    "low_noise_std": 0.008,
+    "contact_threshold_n": 0.01
+  },
+  "frozen_model": "artifacts/world-v5/reranker/ranker.pt",
+  "frozen_test_report": "artifacts/world-v5/reranker/test_results.json"
+}
