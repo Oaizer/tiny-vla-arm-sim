@@ -1,0 +1,29 @@
+{
+  "version": 3,
+  "data": {
+    "train_episodes": 240,
+    "validation_episodes": 80,
+    "test_episodes": 80,
+    "train_seed": 180000,
+    "validation_seed": 181000,
+    "test_seed": 182000,
+    "train_offset": 120,
+    "validation_offset": 240,
+    "test_offset": 320,
+    "horizon": 3
+  },
+  "training": {
+    "seed": 18273,
+    "threads": 4,
+    "batch_size": 128,
+    "steps": 1600,
+    "learning_rate": 0.001,
+    "hidden_size": 64,
+    "calibration_steps": 300
+  },
+  "source": {
+    "root": "artifacts/world-v1",
+    "checkpoint": "artifacts/world-v1/model/jepa.pt",
+    "policy": "artifacts/model/best.pt"
+  }
+}
