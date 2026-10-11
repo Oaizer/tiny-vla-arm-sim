@@ -100,7 +100,7 @@
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-head">
         <h1 id="page-title">Small arm.<br>Hard tests.</h1>
-        <div class="hero-note"><strong>SIMULATION ONLY</strong>PyBullet arm · small VLA · five model iterations<br>No physical robot tests</div>
+        <div class="hero-note"><strong>SIMULATION ONLY</strong>PyBullet arm · small VLA · six model iterations<br>No physical robot tests</div>
       </div>
       <p class="hero-intro">A working record of attempts to make a compact world model help a robot arm choose a grasp. The evidence includes <span>misses, ties, and small gains.</span></p>
       <div class="lead-evidence">
@@ -129,12 +129,12 @@
     </section>
 
     <section id="method" class="section" aria-labelledby="method-title">
-      <div class="section-head"><h2 id="method-title" class="section-title">How to read this work</h2><p>The models were trained and tested with simulated scenes and simulator labels.</p></div>
+      <div class="section-head"><h2 id="method-title" class="section-title">How to read this work</h2><p>The models were trained and tested with simulated scenes and simulator labels. V6 let the world model propose one bounded grasp offset during recovery.</p></div>
       <div class="method">
         <div><h3>Policy</h3><p>A small vision-language-action policy maps the camera and instruction to arm commands. The original feedback controller remains the default.</p></div>
         <div><h3>World model</h3><p>A JEPA-style model predicts future visual and arm state from proposed commands. It uses simulator labels and is not fully self-supervised.</p></div>
         <div><h3>Contact label</h3><p>Finger force above 0.01 N marks contact. Candidate checks execute an approach and close branch from a saved simulator state.</p></div>
-        <div><h3>Limit</h3><p>Contact after closure does not measure a stable grasp, object lift, retention, or task completion. No model in the later studies controls the arm.</p></div>
+        <div><h3>Limit</h3><p>Contact after closure does not measure a stable grasp, object lift, retention, or task completion. V6 did not improve task success, and its reranker inputs need correction. Feedback remains the default.</p></div>
       </div>
     </section>
   </main>

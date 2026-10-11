@@ -13,6 +13,7 @@ from .sim import ArmSim
 from .world_data import VisualFeatures, tip_object
 from .world_model import load_world
 from .world_planner import GraspPlanner, PlanningAgent, SensorArm
+from .world_hybrid import HybridGraspPlanner
 
 
 def benchmark(config, root, policy_path, development=False, limit=None):
@@ -46,14 +47,19 @@ def benchmark(config, root, policy_path, development=False, limit=None):
                 with (folder / f'{mode}.jsonl').open('w') as log:
                     for index in range(count):
                         seed = first_seed + index
-                        task = parse(instruction_for(index))
+                        task = parse(config.get('task_instruction') or instruction_for(index))
                         sim.reset(seed, 'dynamics' if suite == 'dynamics' else 'nominal')
                         if suite == 'tipped':
                             tip_object(sim, task)
                         if suite == 'missing':
                             sim.perturb('missing', task)
                         planner_settings = {**config['planner'], **config.get('planner_variants', {}).get(mode, {})}
-                        planner = None if model is None else GraspPlanner(model, planner_settings)
+                        if mode == 'hybrid':
+                            hybrid_config = config['hybrid']
+                            planner = HybridGraspPlanner(model, planner_settings,
+                                hybrid_config['contact_model'], hybrid_config['reranker'])
+                        else:
+                            planner = None if model is None else GraspPlanner(model, planner_settings)
                         view = SensorArm(sim, extractor, planner)
                         agent = Agent(policy, task.instruction, base_settings) if planner is None else PlanningAgent(policy, task.instruction, base_settings)
                         events = []

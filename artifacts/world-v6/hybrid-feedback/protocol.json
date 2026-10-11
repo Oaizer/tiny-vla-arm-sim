@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "created_unix": 1791760769,
+  "source_commit": "aa2eca129013d72b471e1676b49970f81afaa0af",
+  "python": "3.11.16",
+  "torch": "2.14.1+cpu",
+  "torch_threads": 1,
+  "seed_start": 191000,
+  "episodes_per_condition": 8,
+  "conditions": [
+    "nominal",
+    "tipped",
+    "slip",
+    "object_moved",
+    "dynamics",
+    "missing"
+  ],
+  "instruction": "put the red cylinder on the yellow pad",
+  "hypothesis": "A bounded world-model grasp proposal during recovery can retain feedback verification and improve task success.",
+  "guard": {
+    "recovery_only": true,
+    "min_rank_score_margin": 0.05,
+    "max_contact_predictor_disagreement": 0.25,
+    "candidate_offsets_m": "existing 25-point grasp set, at most 12 mm vertical and 6 mm horizontal",
+    "feedback_checks": [
+      "camera replanning",
+      "finger encoder after lift",
+      "bounded retry and stop"
+    ]
+  },
+  "scope": "Red cylinder only. Fixed placement instruction. Simulation only.",
+  "source_sha256": {
+    "configs/world_hybrid_v6.json": "c341146fab31309d0bb45ed09df3f51bdd51f396e1cac8e1fbfdc154834c9302",
+    "configs/project.json": "cdd559da88a9c39f0e6c2cb50ad57442fbd09a675e0b75e48b4ad8ba08cb4bcf",
+    "uv.lock": "dcbd89ed18b9c8c38a141e00a46d4873bcb0d525935596c8dd05dcd7ba818859",
+    "src/tinyvla/world_hybrid_experiment.py": "d192c36f558b6b00f80ca7ef4903b6f9635f991b3a0030f2be88a08442b3f717",
+    "src/tinyvla/world_hybrid.py": "f6fd107f31c945e3950a0796a13462341e9328758ffe8ee03c656bc5d8200262",
+    "src/tinyvla/world_evaluate.py": "9cac8a2bb79caaf55676de6a1e27a295a4ef2962512c94a174e212f0692a67ed",
+    "src/tinyvla/world_planner.py": "7764ec62a293b127578604c42e28682127cc86a2c454ed6225dce36ce72f767e",
+    "src/tinyvla/controller.py": "06c8e167447128d38f7bbbc27a3921284fd82f9eac5d11a17bed5e3b8b4252bc",
+    "src/tinyvla/world_model.py": "772c1df736b0305e7a4a48b7b656cb044c3bd2e9fcbe41c48f1a958b960dc75c",
+    "src/tinyvla/world_contact_reranker.py": "bf6a0550f5fdd4ea17eaf62cc6da742465fc9a83154ebcd7f8274fc6039429b4",
+    "src/tinyvla/world_contact_rank.py": "de202d561a0a28c096cd7f2c6a6629dcdcb547afaf0c1bab8cac168a127d4bf6",
+    "src/tinyvla/world_contact_train.py": "02df648d7ea89ab796d3113c1bd9a8f4f65ba1964306cb6b19e0557a2bca724e",
+    "src/tinyvla/world_data.py": "ad2faa44f3627b870132fc5565542e08fa5f9160f9f5d46cbc22265f873caeca",
+    "src/tinyvla/evaluate.py": "181c5ecde0d33426d07ec1429dbdab7ad140db38af4e2efec2c07422f792ee99",
+    "src/tinyvla/sim.py": "429cdd76e5eb69dfb2059b47fe5716548535f8e08aff650f840a44322a523a8f",
+    "src/tinyvla/language.py": "6fb0f8acbb994d5296458e562d5f479eb1c78ce1e840e502d9449225a061fb91",
+    "artifacts/model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "artifacts/world-v1/model/jepa.pt": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57",
+    "artifacts/world-v4/contact/contact-head.pt": "e30bdec30093a5b9c0bd2555393e4853973b6877f1bc08bb27160936a396d214",
+    "artifacts/world-v5/reranker/ranker.pt": "ea303f90c972b97899f91631cfc72587878a49a7833075e37a7f716d144dccbb",
+    "artifacts/world-v5/reranker/protocol.json": "9cbd0f7737d65d7fe5fd92b535beef2d0e3ee3b133981017e4a5e8aee4cd6786"
+  }
+}

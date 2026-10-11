@@ -1,0 +1,22 @@
+{
+  "task_instruction": "put the red cylinder on the yellow pad",
+  "model_root": "artifacts/world-v1/model",
+  "model_stages": {"hybrid": "jepa"},
+  "hybrid": {
+    "contact_model": "artifacts/world-v4/contact/contact-head.pt",
+    "reranker": "artifacts/world-v5/reranker/ranker.pt"
+  },
+  "planner": {
+    "recovery_only": true,
+    "coherent_grasp": true,
+    "hybrid_min_score_gain": 0.05,
+    "hybrid_max_contact_disagreement": 0.25
+  },
+  "evaluation": {
+    "episodes": 8,
+    "final_seed": 191000,
+    "inference_threads": 1,
+    "suites": ["nominal", "tipped", "slip", "object_moved", "dynamics", "missing"]
+  },
+  "final_models": ["hybrid"]
+}

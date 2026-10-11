@@ -57,11 +57,24 @@
       "question": "Can a tiny model combine contact forecasts and candidate geometry?",
       "evidence": "40 training, 20 validation, and 40 test scenes; plus 40 fresh replication scenes. 1,000 branches in each test.",
       "measure": "First test: 29/40 vs 26/40 unchanged. Replication: 27/40 vs 25/40. Combined: 56/80 vs 51/80.",
-      "detail": "The 241-parameter reranker had candidate AP 0.816 and 0.832 across the two audits; unchanged grasp AP was 0.777 and 0.801. Paired results: 12 wins, 7 losses, 61 ties (exact sign p=0.359). It remains offline.",
+      "detail": "The 241-parameter reranker had candidate AP 0.816 and 0.832 across the two audits; unchanged grasp AP was 0.777 and 0.801. Paired results: 12 wins, 7 losses, 61 ties (exact sign p=0.359). V6 later tested it as a recovery proposal; that test showed no task-success gain.",
       "result": "Small consistent contact-ranking lead; not a control result",
       "status": "good",
       "source": "../artifacts/world-v5/reranker/RESULTS.md",
       "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v5-reranker/tiny-vla-world-v5-reranker.zip"
+    },
+    {
+      "id": "v6",
+      "title": "Guarded world-model proposal with feedback recovery",
+      "kind": "Hybrid controller test",
+      "question": "Can a bounded model proposal help after feedback detects an empty grasp?",
+      "evidence": "40 matched red-cylinder task trials across five conditions, plus 8 missing-object checks; 8 task trials per condition.",
+      "measure": "Feedback 26/40; hybrid 26/40. Paired outcomes: 0 wins, 0 losses, 40 ties (exact sign p=1.000).",
+      "detail": "Feedback acted first. On recovery, the frozen JEPA and V5 ranker proposed a bounded grasp offset. Finger checks, camera replanning, and retries remained active. The ranker made 3 proposals during 17 retries; none changed task success. A feature audit found a contact-head channel mismatch in V5, so correct its inputs and retrain before another controller test.",
+      "result": "No task-success gain; reranker features need correction",
+      "status": "warn",
+      "source": "../artifacts/world-v6/hybrid-feedback/RESULTS.md",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v6-hybrid-feedback/tiny-vla-world-v6-hybrid-feedback.zip"
     }
   ],
   "trials": [
@@ -90,6 +103,14 @@
         {"name": "Feedback", "outcome": "SUCCESS", "file": "media/object_moved-173017-feedback.mp4"},
         {"name": "JEPA", "outcome": "SUCCESS", "file": "media/object_moved-173017-jepa.mp4"},
         {"name": "Coherent offset", "outcome": "SUCCESS", "file": "media/object_moved-173017-coherent.mp4"}
+      ]
+    },
+    {
+      "title": "Guarded recovery · tipped red cylinder · seed 192000",
+      "scene": "Matched simulation clips. Both controllers place the red cylinder.",
+      "videos": [
+        {"name": "Feedback", "outcome": "SUCCESS", "file": "media/world-v6-tipped-192000-feedback.mp4"},
+        {"name": "Guarded hybrid", "outcome": "SUCCESS", "file": "media/world-v6-tipped-192000-hybrid.mp4"}
       ]
     }
   ]

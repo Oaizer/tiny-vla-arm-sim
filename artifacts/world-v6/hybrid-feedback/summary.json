@@ -1,0 +1,27 @@
+{
+  "task_trials": 40,
+  "task_suites": [
+    "dynamics",
+    "nominal",
+    "object_moved",
+    "slip",
+    "tipped"
+  ],
+  "matched_seeds": true,
+  "feedback_successes": 26,
+  "hybrid_successes": 26,
+  "wins": 0,
+  "losses": 0,
+  "ties": 40,
+  "exact_two_sided_sign_p": 1.0,
+  "missing_object_trials": 8,
+  "feedback_safe_stops_missing": 7,
+  "hybrid_safe_stops_missing": 7,
+  "hybrid_retries": 17,
+  "ranker_decisions": 3,
+  "ranker_accepted": 3,
+  "ranker_fallbacks": 0,
+  "interpretation": "A simulation comparison of one red-cylinder hybrid configuration. The model proposes only after a feedback failure; camera and finger-sensor checks and bounded retries remain active. This is not evidence for other objects or real hardware.",
+  "protocol_sha256": "096fb17ff93a3023ca787078649e1174377b5544d2b84cea9cbb49727c636215",
+  "evaluation_seconds": 218.49210381507874
+}
