@@ -16,7 +16,7 @@ Collect 20 more red-cylinder scenes for ranking with seeds 187000–187019. Test
 
 Report average precision, Brier score, precision, recall, and calibration for the targeted test episodes. Also report results on the combined held-out set, with the per-object rows. For ranking, report top-choice contact rate and candidate average precision. Preserve every episode, failed collection, protocol, model hash, and seed list.
 
-Keep the head offline if the fresh red-cylinder test or ranking result is weak or mixed. A new controller comparison needs a clear gain on fresh ranking scenes first. Do not use the 40 ranking scenes to tune the model.
+Keep the head offline if the fresh red-cylinder test or ranking result is weak or mixed. A new controller comparison needs a clear gain on fresh ranking scenes first. Do not use the 20 ranking scenes to tune the model.
 
 ## Run
 
