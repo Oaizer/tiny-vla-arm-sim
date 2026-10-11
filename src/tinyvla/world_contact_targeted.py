@@ -247,7 +247,8 @@ def rank(config):
                 'scenes': config['data']['ranking_episodes'], 'candidates_per_scene': 25,
                 'object': 'red cylinder', 'tip_probability': config['data']['tip_probability'],
                 'contact_threshold_n': .01, 'branches': 'offline state copies; no controller use',
-                'source_hashes': source_hashes(), 'contact_report_sha256': digest(ROOT / 'report.json')}
+                'source_hashes': {**source_hashes(), str(head_path): digest(head_path)},
+                'contact_report_sha256': digest(ROOT / 'report.json')}
     (ROOT / 'ranking_protocol.json').write_text(json.dumps(protocol, indent=2))
     collect_targeted(config, 'ranking')
     rows = []
