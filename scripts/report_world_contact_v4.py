@@ -14,6 +14,7 @@ def pct(value):
 def main():
     report = json.loads((OUT / 'report.json').read_text())
     rank = json.loads((OUT / 'ranking_results.json').read_text())
+    replication = json.loads((OUT / 'ranking_replication_results.json').read_text())
     target = report['targeted_red_cylinder_test']['objects']['red cylinder']
     v3 = report['version_3_head_on_targeted_red_cylinder_test']['objects']['red cylinder']
     old = report['targeted_red_cylinder_old_score_test']['objects']['red cylinder']
@@ -47,11 +48,17 @@ We ran 20 new red-cylinder scenes and 500 offline candidate branches. The new he
 
 This ranking result favors the new score over the old geometric score, but it ties the unchanged command's top-choice contact rate. The new head and unchanged command had the same contact outcome in all {len(rows) - paired_differences} scenes. The sample is small. The ranking check measures finger contact after closure, not object lift, grasp retention, or task completion.
 
+## Independent ranking replication
+
+We froze the head and ran a separate check on 40 new scenes (seeds 187020–187059), with 1000 candidate branches. The new head's top candidate contacted in {sum(row['head_top1_contact'] for row in replication['rows'])}/40 scenes ({pct(replication['head_top1_rate'])}). The unchanged command contacted in {sum(row['unchanged_contact'] for row in replication['rows'])}/40 ({pct(replication['unchanged_rate'])}); the old score contacted in {sum(row['old_top1_contact'] for row in replication['rows'])}/40 ({pct(replication['old_top1_rate'])}). Candidate average precision was {replication['head_mean_ap']:.3f} for the new head and {replication['old_mean_ap']:.3f} for the old score. The new head had {replication['paired_wins_vs_unchanged']} wins and {replication['paired_losses_vs_unchanged']} losses against the unchanged command.
+
+The replication keeps the slight candidate-ranking advantage over the old score, but the new head's top candidate contacted less often than the unchanged command. This confirms that the version 4 score does not yet provide a reliable grasp-selection gain.
+
 ## Decision
 
-Keep the new head offline. Its red-cylinder prediction improved on the new test scenes, and its candidate ranking improved over the old score. However, calibration remains weak and the selected command did not beat the unchanged command. Repeat ranking on a larger fresh set before planning a controller comparison. No real robot was used.
+Keep the new head offline. Red-cylinder contact prediction improved on the new test scenes, but the independent ranking replication did not beat the unchanged command. Calibration remains weak. Collect more diverse grasp and slip scenes and improve the selection result before planning a controller comparison. No real robot was used.
 
-The checkpoint was selected at training step {report['selected_step']}; it has {report['parameters']:,} parameters. Read `report.json`, `ranking_results.json`, `ranking_protocol.json`, the episode metadata, and `manifest.json` for details and hashes.
+The checkpoint was selected at training step {report['selected_step']}; it has {report['parameters']:,} parameters. Read `report.json`, both ranking result and protocol pairs, the episode metadata, and `manifest.json` for details and hashes.
 '''
     path = OUT / 'RESULTS.md'
     path.write_text(text)

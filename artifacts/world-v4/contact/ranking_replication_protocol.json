@@ -1,0 +1,31 @@
+{
+  "seed_start": 187020,
+  "seed_end": 187059,
+  "scenes": 40,
+  "candidates_per_scene": 25,
+  "object": "red cylinder",
+  "contact_threshold_n": 0.01,
+  "independent_replication_of": "187000-187019",
+  "model_hashes": {
+    "configs/world_contact_v4.json": "537ed20404d64667dfe202e9e7040e2046e1f232a8cff7f4c55653ddd2c04811",
+    "src/tinyvla/world_contact_targeted.py": "379ae083946b4b2d38b966d32319540596a40ed9beb745e39150579f77e5d47d",
+    "src/tinyvla/world_contact_data.py": "bf20f79e402a74b6c994c3d5110c692cd8da846f9cffe5457cc0ede965a4a901",
+    "src/tinyvla/world_contact_train.py": "02df648d7ea89ab796d3113c1bd9a8f4f65ba1964306cb6b19e0557a2bca724e",
+    "src/tinyvla/world_contact_rank.py": "de202d561a0a28c096cd7f2c6a6629dcdcb547afaf0c1bab8cac168a127d4bf6",
+    "src/tinyvla/world_model.py": "772c1df736b0305e7a4a48b7b656cb044c3bd2e9fcbe41c48f1a958b960dc75c",
+    "src/tinyvla/world_data.py": "ad2faa44f3627b870132fc5565542e08fa5f9160f9f5d46cbc22265f873caeca",
+    "src/tinyvla/sim.py": "429cdd76e5eb69dfb2059b47fe5716548535f8e08aff650f840a44322a523a8f",
+    "src/tinyvla/evaluate.py": "181c5ecde0d33426d07ec1429dbdab7ad140db38af4e2efec2c07422f792ee99",
+    "src/tinyvla/language.py": "6fb0f8acbb994d5296458e562d5f479eb1c78ce1e840e502d9449225a061fb91",
+    "src/tinyvla/controller.py": "06c8e167447128d38f7bbbc27a3921284fd82f9eac5d11a17bed5e3b8b4252bc",
+    "configs/world_contact.json": "62b39fc66686393b2d1da6f732c49c1cb30fb5cf8148b5ead26d794a50e87762",
+    "uv.lock": "dcbd89ed18b9c8c38a141e00a46d4873bcb0d525935596c8dd05dcd7ba818859",
+    "artifacts/world-v1/model/jepa.pt": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57",
+    "artifacts/model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "artifacts/world-v3/contact/contact-head.pt": "2b2320058642ba5842c2dfc1cd9bc720d50b07d2656092b827958a282b6ae354",
+    "scripts/rank_world_contact_v4_replication.py": "b8782eb40fb3a5d6a5aa49a5f54bd5fe32eb842bdf14d316c32ab1370a28172c",
+    "artifacts/world-v4/contact/contact-head.pt": "e30bdec30093a5b9c0bd2555393e4853973b6877f1bc08bb27160936a396d214"
+  },
+  "training_report_sha256": "296333e5351862a4fdf9078bb76da71e2ab5892570c1cc4a3ce287a54bcb0192",
+  "warning": "Offline candidate ranking only. No controller test."
+}

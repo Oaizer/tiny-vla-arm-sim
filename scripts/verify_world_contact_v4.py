@@ -41,7 +41,8 @@ def verify_split(name, seed_start, count):
 
 
 def main():
-    splits = {'train': (185000, 103), 'validation': (185600, 24), 'test': (186200, 40), 'ranking': (187000, 20)}
+    splits = {'train': (185000, 103), 'validation': (185600, 24), 'test': (186200, 40),
+              'ranking': (187000, 20), 'replication/ranking': (187020, 40)}
     verified = {name: verify_split(name, start, count) for name, (start, count) in splits.items()}
     report = json.loads((OUT / 'report.json').read_text())
     rank = json.loads((OUT / 'ranking_results.json').read_text())
@@ -59,6 +60,14 @@ def main():
     for relative, expected in protocol['source_hashes'].items():
         assert sha(ROOT / relative) == expected, f'ranking input changed: {relative}'
     assert rank['protocol'] == protocol
+    replication_protocol = json.loads((OUT / 'ranking_replication_protocol.json').read_text())
+    replication = json.loads((OUT / 'ranking_replication_results.json').read_text())
+    assert replication['protocol'] == replication_protocol
+    assert replication['scenes'] == 40 and replication['branches'] == 1000
+    assert len(replication['rows']) == 40
+    for relative, expected in replication_protocol['model_hashes'].items():
+        assert sha(ROOT / relative) == expected, f'replication input changed: {relative}'
+    assert replication_protocol['training_report_sha256'] == sha(OUT / 'report.json')
     for split, hashes in report['dataset_sha256'].items():
         folder = OUT / split.removeprefix('target_') if split.startswith('target_') else Path('artifacts/world-v3/contact') / split.removeprefix('base_')
         for filename, expected in hashes.items():

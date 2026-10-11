@@ -18,7 +18,7 @@ To check the small first audit, keep the trained weights fixed and run a second,
 
 Report average precision, Brier score, precision, recall, and calibration for the targeted test episodes. Also report results on the combined held-out set, with the per-object rows. For ranking, report top-choice contact rate and candidate average precision. Preserve every episode, failed collection, protocol, model hash, and seed list.
 
-Keep the head offline if the fresh red-cylinder test or ranking result is weak or mixed. A new controller comparison needs a clear gain on fresh ranking scenes first. Do not use the 20 ranking scenes to tune the model.
+Keep the head offline if the fresh red-cylinder test or ranking result is weak or mixed. A new controller comparison needs a clear gain on fresh ranking scenes first. Do not use either ranking cohort to tune the model.
 
 ## Run
 
@@ -30,6 +30,7 @@ uv run --locked python -m tinyvla.world_contact_targeted collect --split validat
 uv run --locked python -m tinyvla.world_contact_targeted collect --split test
 uv run --locked python -m tinyvla.world_contact_targeted train
 uv run --locked python -m tinyvla.world_contact_targeted rank
+uv run --locked python scripts/rank_world_contact_v4_replication.py
 ```
 
-The project environment may need to be activated first. Outputs are written to `artifacts/world-v4/contact/`. The report and ranking protocol record the source and data hashes.
+The project environment may need to be activated first. Outputs are written to `artifacts/world-v4/contact/`. The report and ranking protocols record the source and data hashes. The independent ranking data is saved under `artifacts/world-v4/contact/replication/`.

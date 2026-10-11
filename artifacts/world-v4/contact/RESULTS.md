@@ -26,8 +26,14 @@ We ran 20 new red-cylinder scenes and 500 offline candidate branches. The new he
 
 This ranking result favors the new score over the old geometric score, but it ties the unchanged command's top-choice contact rate. The new head and unchanged command had the same contact outcome in all 20 scenes. The sample is small. The ranking check measures finger contact after closure, not object lift, grasp retention, or task completion.
 
+## Independent ranking replication
+
+We froze the head and ran a separate check on 40 new scenes (seeds 187020–187059), with 1000 candidate branches. The new head's top candidate contacted in 20/40 scenes (50.0%). The unchanged command contacted in 22/40 (55.0%); the old score contacted in 18/40 (45.0%). Candidate average precision was 0.742 for the new head and 0.719 for the old score. The new head had 3 wins and 5 losses against the unchanged command.
+
+The replication keeps the slight candidate-ranking advantage over the old score, but the new head's top candidate contacted less often than the unchanged command. This confirms that the version 4 score does not yet provide a reliable grasp-selection gain.
+
 ## Decision
 
-Keep the new head offline. Its red-cylinder prediction improved on the new test scenes, and its candidate ranking improved over the old score. However, calibration remains weak and the selected command did not beat the unchanged command. Repeat ranking on a larger fresh set before planning a controller comparison. No real robot was used.
+Keep the new head offline. Red-cylinder contact prediction improved on the new test scenes, but the independent ranking replication did not beat the unchanged command. Calibration remains weak. Collect more diverse grasp and slip scenes and improve the selection result before planning a controller comparison. No real robot was used.
 
-The checkpoint was selected at training step 900; it has 6,468 parameters. Read `report.json`, `ranking_results.json`, `ranking_protocol.json`, the episode metadata, and `manifest.json` for details and hashes.
+The checkpoint was selected at training step 900; it has 6,468 parameters. Read `report.json`, both ranking result and protocol pairs, the episode metadata, and `manifest.json` for details and hashes.
