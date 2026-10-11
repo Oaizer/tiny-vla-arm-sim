@@ -127,7 +127,7 @@ def train(config, root):
         with torch.no_grad():
             states, _ = base.rollout(base.encode(history), actions)
         predictions = head(states.permute(1, 0, 2, 3))
-        target = labels[:, None].expand(-1, 3, -1, -1).permute(1, 0, 2, 3)
+        target = labels[:, None].expand(-1, 3, -1, -1)
         loss = nn.functional.binary_cross_entropy_with_logits(predictions, target,
                                                                pos_weight=pos_weight)
         optimizer.zero_grad(); loss.backward(); nn.utils.clip_grad_norm_(head.parameters(), 5); optimizer.step()
