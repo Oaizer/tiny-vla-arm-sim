@@ -8,9 +8,9 @@ The JEPA model and arm controller stay fixed. The contact head stays offline. No
 
 ## Data
 
-Collect 320 training, 80 validation, and 80 test episodes. Every new episode uses the red cylinder and the same yellow pad instruction. The seed ranges are 185000–185319, 185600–185679, and 186200–186279. Use an 80% tipped-object rate, a 45% forced-slip rate, and stronger approach noise than the version 3 collection. Existing version 3 train and validation episodes add variety. Keep the 80 new red-cylinder test episodes separate as the main held-out result.
+Collect 103 training, 24 validation, and 40 test episodes. Every new episode uses the red cylinder and the same yellow pad instruction. The seed ranges are 185000–185102, 185600–185623, and 186200–186239. Use an 80% tipped-object rate, a 45% forced-slip rate, and stronger approach noise than the version 3 collection. Existing version 3 train and validation episodes add variety. Keep the 40 new red-cylinder test episodes separate as the main held-out result. The run uses fewer scenes than first planned because image and sensor collection took longer than expected.
 
-Collect 40 more red-cylinder scenes for ranking with seeds 187000–187039. Test 25 approach and closure branches from each saved state. Compare the learned score with the old geometric score and the unchanged command. Record the actual finger force after closure. These branches are offline simulator copies. They do not control the task policy.
+Collect 20 more red-cylinder scenes for ranking with seeds 187000–187019. Test 25 approach and closure branches from each saved state. Compare the learned score with the old geometric score and the unchanged command. Record the actual finger force after closure. These branches are offline simulator copies. They do not control the task policy. Treat this smaller ranking sample as preliminary.
 
 ## Measures and decision
 
