@@ -12,6 +12,8 @@ Collect 103 training, 24 validation, and 40 test episodes. Every new episode use
 
 Collect 20 more red-cylinder scenes for ranking with seeds 187000–187019. Test 25 approach and closure branches from each saved state. Compare the learned score with the old geometric score and the unchanged command. Record the actual finger force after closure. These branches are offline simulator copies. They do not control the task policy. Treat this smaller ranking sample as preliminary.
 
+To check the small first audit, keep the trained weights fixed and run a second, independent ranking cohort of 40 red-cylinder scenes with seeds 187020–187059. Do not pool the first cohort into the primary replication result. Save its protocol and data in a separate folder.
+
 ## Measures and decision
 
 Report average precision, Brier score, precision, recall, and calibration for the targeted test episodes. Also report results on the combined held-out set, with the per-object rows. For ranking, report top-choice contact rate and candidate average precision. Preserve every episode, failed collection, protocol, model hash, and seed list.
