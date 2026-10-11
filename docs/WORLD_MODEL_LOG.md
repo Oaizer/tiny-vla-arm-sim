@@ -76,3 +76,15 @@ On the 40 fresh red-cylinder test scenes, average precision rose to 0.777 from 0
 The first candidate check used 20 red-cylinder scenes and 500 branches. The new head and unchanged command each selected contact in 13 scenes, with matching outcomes in every scene. The old geometric score did so in nine. Average precision across candidates was 0.849 for the new head and 0.769 for the old score. We then froze the head and ran an independent ranking check on 40 new scenes and 1000 branches. The head selected contact in 20 scenes; the unchanged command did so in 22, and the old score in 18. Candidate average precision was 0.742 for the new head and 0.719 for the old score. The independent check did not confirm a top-choice gain over the unchanged command. Both checks measured contact after closure only, not lift, retention, or task success.
 
 Keep the new head offline. The independent ranking check did not beat the unchanged command. Collect more diverse grasp and slip scenes and improve the selection result before planning a controller comparison. No real robot was used. The [version 4 report](../artifacts/world-v4/contact/RESULTS.md), protocols, episode files, and manifest contain the detailed evidence.
+
+## Fifth experiment: rerank grasp candidates
+
+The version 4 head improved red-cylinder contact prediction, but its independent ranking check did not beat the unchanged grasp. We trained a 241-parameter reranker to combine the three contact forecasts, the old geometric scores, each candidate's offset, its offset from the predicted target position, and whether the target was tipped. The frozen JEPA model, version 4 contact head, and arm controller did not change.
+
+We used 40 training scenes, 20 validation scenes, and 40 test scenes, then froze the model before a further 40-scene replication. Each scene had 25 candidate branches. The labels came from measured PyBullet finger force after the close command. Training selected step 100 using validation candidate average precision.
+
+On the first fresh test, the reranker selected contact in 29/40 scenes; the unchanged grasp did so in 26/40. Mean per-scene candidate average precision was 0.816 for the reranker and 0.777 for the unchanged grasp. The paired result was 7 wins and 4 losses, with 29 ties.
+
+The independent replication selected contact in 27/40 scenes, compared with 25/40 for the unchanged grasp. Candidate average precision was 0.832 and 0.801. The paired result was 5 wins and 3 losses, with 32 ties. Together, the two checks show 12 wins, 7 losses, and 61 ties. The exact two-sided sign test gives p=0.359.
+
+This is a consistent but small contact-ranking lead. It does not establish better lift, retention, placement, or task success. Keep the reranker offline. The next step is a larger independent ranking test; consider a frozen controller comparison only if it confirms a clear gain. All scenes are simulated. See `artifacts/world-v5/reranker/RESULTS.md`, both version 5 protocols, the verification script, and the version 5 manifest.

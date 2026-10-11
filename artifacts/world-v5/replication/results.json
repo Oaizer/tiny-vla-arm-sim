@@ -1,0 +1,360 @@
+{
+  "protocol_sha256": "004e396a809195f7a2ef3d7dfa16c782b3fbe1fbf95a0fbbe13a0628d658dd65",
+  "reranker_sha256": "ea303f90c972b97899f91631cfc72587878a49a7833075e37a7f716d144dccbb",
+  "scenes": 40,
+  "branches": 1000,
+  "test_metrics": {
+    "reranker": {
+      "scenes": 40,
+      "scenes_with_positive": 33,
+      "macro_average_precision": 0.8315198332980197,
+      "top1_contact_rate": 0.675
+    },
+    "contact_head": {
+      "scenes": 40,
+      "scenes_with_positive": 33,
+      "macro_average_precision": 0.7608388711123716,
+      "top1_contact_rate": 0.575
+    },
+    "old_geometric_score": {
+      "scenes": 40,
+      "scenes_with_positive": 33,
+      "macro_average_precision": 0.6641553811173996,
+      "top1_contact_rate": 0.425
+    },
+    "unchanged_command": {
+      "scenes": 40,
+      "scenes_with_positive": 33,
+      "macro_average_precision": 0.8008185525065737,
+      "top1_contact_rate": 0.625
+    }
+  },
+  "paired_reranker_vs_unchanged": {
+    "wins": 5,
+    "ties": 32,
+    "losses": 3
+  },
+  "rows": [
+    {
+      "seed": 188240,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": true,
+      "positive_candidates": 12,
+      "average_precision": 0.536197330934173
+    },
+    {
+      "seed": 188241,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 25,
+      "average_precision": 1.0
+    },
+    {
+      "seed": 188242,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": false,
+      "positive_candidates": 11,
+      "average_precision": 0.9254656959202414
+    },
+    {
+      "seed": 188243,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": true,
+      "positive_candidates": 17,
+      "average_precision": 0.6085134481961108
+    },
+    {
+      "seed": 188244,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 0,
+      "average_precision": NaN
+    },
+    {
+      "seed": 188245,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 24,
+      "average_precision": 0.9947856280193236
+    },
+    {
+      "seed": 188246,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 22,
+      "average_precision": 0.8674788696471535
+    },
+    {
+      "seed": 188247,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": false,
+      "positive_candidates": 16,
+      "average_precision": 0.9669706518971225
+    },
+    {
+      "seed": 188248,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": false,
+      "positive_candidates": 3,
+      "average_precision": 0.8095238095238094
+    },
+    {
+      "seed": 188249,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 12,
+      "average_precision": 0.8719287656787656
+    },
+    {
+      "seed": 188250,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 20,
+      "average_precision": 0.967716365601091
+    },
+    {
+      "seed": 188251,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": false,
+      "positive_candidates": 4,
+      "average_precision": 0.7986111111111112
+    },
+    {
+      "seed": 188252,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 18,
+      "average_precision": 0.8660658332226959
+    },
+    {
+      "seed": 188253,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 6,
+      "average_precision": 0.21675438596491226
+    },
+    {
+      "seed": 188254,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 13,
+      "average_precision": 0.6283927053993943
+    },
+    {
+      "seed": 188255,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 0,
+      "average_precision": NaN
+    },
+    {
+      "seed": 188256,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 23,
+      "average_precision": 0.8650892129765758
+    },
+    {
+      "seed": 188257,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 25,
+      "average_precision": 1.0
+    },
+    {
+      "seed": 188258,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 20,
+      "average_precision": 0.986084777160292
+    },
+    {
+      "seed": 188259,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 23,
+      "average_precision": 0.9900774556256597
+    },
+    {
+      "seed": 188260,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 20,
+      "average_precision": 0.9607445655461035
+    },
+    {
+      "seed": 188261,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 0,
+      "average_precision": NaN
+    },
+    {
+      "seed": 188262,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 0,
+      "average_precision": NaN
+    },
+    {
+      "seed": 188263,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 0,
+      "average_precision": NaN
+    },
+    {
+      "seed": 188264,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 0,
+      "average_precision": NaN
+    },
+    {
+      "seed": 188265,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 4,
+      "average_precision": 0.17853506787330317
+    },
+    {
+      "seed": 188266,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 25,
+      "average_precision": 1.0
+    },
+    {
+      "seed": 188267,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 0,
+      "average_precision": NaN
+    },
+    {
+      "seed": 188268,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 20,
+      "average_precision": 1.0
+    },
+    {
+      "seed": 188269,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": false,
+      "positive_candidates": 18,
+      "average_precision": 0.8475216843716419
+    },
+    {
+      "seed": 188270,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 24,
+      "average_precision": 0.9888242283079239
+    },
+    {
+      "seed": 188271,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 25,
+      "average_precision": 1.0
+    },
+    {
+      "seed": 188272,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 20,
+      "average_precision": 0.8797930077187885
+    },
+    {
+      "seed": 188273,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 20,
+      "average_precision": 0.9976190476190476
+    },
+    {
+      "seed": 188274,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": false,
+      "positive_candidates": 1,
+      "average_precision": 0.16666666666666666
+    },
+    {
+      "seed": 188275,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 25,
+      "average_precision": 1.0
+    },
+    {
+      "seed": 188276,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 16,
+      "average_precision": 0.7908179494116994
+    },
+    {
+      "seed": 188277,
+      "reranker_choice": 3,
+      "reranker_contact": false,
+      "unchanged_contact": true,
+      "positive_candidates": 19,
+      "average_precision": 0.7299762344410453
+    },
+    {
+      "seed": 188278,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 25,
+      "average_precision": 1.0
+    },
+    {
+      "seed": 188279,
+      "reranker_choice": 3,
+      "reranker_contact": true,
+      "unchanged_contact": true,
+      "positive_candidates": 25,
+      "average_precision": 1.0
+    }
+  ],
+  "interpretation": "Independent offline red-cylinder contact ranking check. No controller use."
+}

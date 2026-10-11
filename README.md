@@ -1,5 +1,7 @@
 # TinyVLA for a simulated robot arm
 
+The [simulation portfolio](portfolio/index.html) compares the project iterations and includes selected trial videos.
+
 This project trains a small vision and language policy to control a simulated Panda arm. It runs on a CPU in Linux or Ubuntu under WSL. The second version adds shape recognition, three target pads, placing and lifting tasks, varied scenes, and a feedback controller.
 
 The project also has a small world model trained only on simulated arm episodes. It predicts future observations and compares nearby grasp commands. See the [world model guide](docs/WORLD_MODEL.md), [work plan](docs/WORLD_MODEL_PLAN.md), and [world model results](artifacts/world-v1/RESULTS.md).
@@ -64,3 +66,5 @@ uv run --locked python -m unittest discover -s tests -v
 The GitHub Actions workflow runs the project checks. The Git repository includes the VLA data, model weights, and experiment reports. Download the larger world-model trajectories from the [version 1 release](https://github.com/Oaizer/tiny-vla-arm-sim/releases/tag/world-model-v1). The repository includes their hashes and collection code. The PyBullet arm and other packages keep their own licenses.
 
 Version 4 adds targeted red-cylinder data. On 40 fresh red-cylinder scenes, its contact head reached 0.777 average precision, compared with 0.732 for the version 3 head on the same scenes. In an independent 40-scene ranking check, its top grasp made contact in 20 scenes, compared with 22 for the unchanged command. The head ranked candidates slightly better than the old score, but did not beat the unchanged command. It remains offline. Read the [version 4 results](artifacts/world-v4/contact/RESULTS.md) and [experiment plan](docs/WORLD_MODEL_V4_PLAN.md). The [version 4 release](https://github.com/Oaizer/tiny-vla-arm-sim/releases/tag/world-model-v4-contact) includes both ranking cohorts, its targeted data, and the version 3 base data needed to reproduce training.
+
+Version 5 trains a 241-parameter grasp reranker. On two fresh 40-scene checks it chose contact in 56/80 scenes, compared with 51/80 for the unchanged grasp. The result is a small contact-ranking lead, not a task-success gain. The reranker stays offline. Read the [version 5 results](artifacts/world-v5/reranker/RESULTS.md), [experiment plan](docs/WORLD_CONTACT_RANKER_PLAN.md), and [replication plan](docs/WORLD_CONTACT_RANKER_REPLICATION_PLAN.md). The [portfolio page](portfolio/index.html) brings the iterations and selected trial videos together.

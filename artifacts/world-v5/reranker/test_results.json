@@ -1,0 +1,38 @@
+{
+  "protocol_sha256": "9cbd0f7737d65d7fe5fd92b535beef2d0e3ee3b133981017e4a5e8aee4cd6786",
+  "ranker_sha256": "ea303f90c972b97899f91631cfc72587878a49a7833075e37a7f716d144dccbb",
+  "test_metrics": {
+    "reranker": {
+      "scenes": 40,
+      "scenes_with_positive": 36,
+      "macro_average_precision": 0.8163755867709033,
+      "top1_contact_rate": 0.725
+    },
+    "contact_head": {
+      "scenes": 40,
+      "scenes_with_positive": 36,
+      "macro_average_precision": 0.6787927458719074,
+      "top1_contact_rate": 0.5
+    },
+    "old_geometric_score": {
+      "scenes": 40,
+      "scenes_with_positive": 36,
+      "macro_average_precision": 0.6489694112143186,
+      "top1_contact_rate": 0.4
+    },
+    "unchanged_command": {
+      "scenes": 40,
+      "scenes_with_positive": 36,
+      "macro_average_precision": 0.7765991895891968,
+      "top1_contact_rate": 0.65
+    }
+  },
+  "paired_top1_vs_unchanged": {
+    "vs_unchanged": 7,
+    "ties_vs_unchanged": 29,
+    "losses_vs_unchanged": 4
+  },
+  "test_scenes": 40,
+  "test_branches": 1000,
+  "interpretation": "Offline red-cylinder contact ranking only. The reranker did not control the arm."
+}

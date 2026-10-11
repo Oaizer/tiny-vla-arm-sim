@@ -1,0 +1,96 @@
+{
+  "title": "TinyVLA · simulation record",
+  "updated": "2026-10-11",
+  "iterations": [
+    {
+      "id": "v1",
+      "title": "World model in the control loop",
+      "kind": "Controller comparison",
+      "question": "Can a small JEPA-style world model improve grasp recovery?",
+      "evidence": "200 task attempts per controller across 5 conditions; missing-object stops were reported separately.",
+      "measure": "JEPA planner 152/200 task successes; feedback 155/200.",
+      "detail": "Prediction error improved only slightly over the hold-current estimate. The planner did not improve overall task completion, so feedback stayed the default.",
+      "result": "No task-success gain",
+      "status": "warn",
+      "source": "../artifacts/world-v1/RESULTS.md"
+    },
+    {
+      "id": "v2",
+      "title": "Keep the grasp offset consistent",
+      "kind": "Controller comparison",
+      "question": "Can one offset from open descent through closure reduce ranking errors?",
+      "evidence": "720 matched trials; 6 conditions; 40 trials per condition and controller.",
+      "measure": "Feedback 150/200; original JEPA and coherent-offset variant 145/200 each.",
+      "detail": "The coherent variant cut planning calls from 146 to 41. It had no paired wins and 5 losses against feedback. The change did not improve success or produce a material speed gain.",
+      "result": "Fewer planner calls; no gain",
+      "status": "warn",
+      "source": "../artifacts/world-v2/RESULTS.md"
+    },
+    {
+      "id": "v3",
+      "title": "Predict finger contact",
+      "kind": "Contact model",
+      "question": "Can measured finger force give a better grasp signal than the held score?",
+      "evidence": "240 training, 80 validation, 80 test scenes; 40 new ranking scenes and 1,000 branches.",
+      "measure": "Test macro AP 0.585 vs 0.223; Brier 0.068 vs 0.138. Ranking top choice: 25/40 vs 27/40 unchanged.",
+      "detail": "Prediction improved overall, but red-cylinder recall stayed low. Candidate AP was 0.778 for the head and 0.738 for the old score. The contact head stayed out of the controller.",
+      "result": "Better prediction; mixed ranking",
+      "status": "warn",
+      "source": "../artifacts/world-v3/contact/RESULTS.md"
+    },
+    {
+      "id": "v4",
+      "title": "Target red-cylinder contact",
+      "kind": "Targeted contact model",
+      "question": "Does targeted tipped-cylinder and slip data improve the weak object class?",
+      "evidence": "103 training, 24 validation, 40 test scenes; then 20 ranking scenes and 40 independent scenes.",
+      "measure": "Red-cylinder AP 0.777 vs V3 0.732. Independent ranking: 20/40 vs 22/40 unchanged.",
+      "detail": "Recall at a 0.5 threshold improved from 7.2% to 29.8%, but calibration stayed weak. The fresh independent ranking did not beat the unchanged grasp.",
+      "result": "Better red-cylinder prediction; no ranking gain",
+      "status": "warn",
+      "source": "../artifacts/world-v4/contact/RESULTS.md"
+    },
+    {
+      "id": "v5",
+      "title": "Learn to rank grasp candidates",
+      "kind": "Offline reranker",
+      "question": "Can a tiny model combine contact forecasts and candidate geometry?",
+      "evidence": "40 training, 20 validation, and 40 test scenes; plus 40 fresh replication scenes. 1,000 branches in each test.",
+      "measure": "First test: 29/40 vs 26/40 unchanged. Replication: 27/40 vs 25/40. Combined: 56/80 vs 51/80.",
+      "detail": "The 241-parameter reranker had candidate AP 0.816 and 0.832 across the two audits; unchanged grasp AP was 0.777 and 0.801. Paired results: 12 wins, 7 losses, 61 ties (exact sign p=0.359). It remains offline.",
+      "result": "Small consistent contact-ranking lead; not a control result",
+      "status": "good",
+      "source": "../artifacts/world-v5/reranker/RESULTS.md",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v5-reranker/tiny-vla-world-v5-reranker.zip"
+    }
+  ],
+  "trials": [
+    {
+      "title": "Slip · trial 172000",
+      "scene": "Red cube after a forced slip. All three controllers place it.",
+      "videos": [
+        {"name": "Feedback", "outcome": "SUCCESS", "file": "media/slip-172000-feedback.mp4"},
+        {"name": "JEPA", "outcome": "SUCCESS", "file": "media/slip-172000-jepa.mp4"},
+        {"name": "Coherent offset", "outcome": "SUCCESS", "file": "media/slip-172000-coherent.mp4"}
+      ]
+    },
+    {
+      "title": "Slip · trial 172012",
+      "scene": "Green cylinder after a forced slip. Feedback places it; both planners fail.",
+      "videos": [
+        {"name": "Feedback", "outcome": "SUCCESS", "file": "media/slip-172012-feedback.mp4"},
+        {"name": "JEPA", "outcome": "FAILED", "file": "media/slip-172012-jepa.mp4"},
+        {"name": "Coherent offset", "outcome": "FAILED", "file": "media/slip-172012-coherent.mp4"}
+      ]
+    },
+    {
+      "title": "Object moved · trial 173017",
+      "scene": "Red cube moved after approach. All three controllers place it.",
+      "videos": [
+        {"name": "Feedback", "outcome": "SUCCESS", "file": "media/object_moved-173017-feedback.mp4"},
+        {"name": "JEPA", "outcome": "SUCCESS", "file": "media/object_moved-173017-jepa.mp4"},
+        {"name": "Coherent offset", "outcome": "SUCCESS", "file": "media/object_moved-173017-coherent.mp4"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "selected_step": 100,
+  "validation": {
+    "scenes": 20,
+    "scenes_with_positive": 18,
+    "macro_average_precision": 0.7501834868991938,
+    "top1_contact_rate": 0.7
+  },
+  "training_scenes": 40,
+  "parameters": 241,
+  "protocol_sha256": "9cbd0f7737d65d7fe5fd92b535beef2d0e3ee3b133981017e4a5e8aee4cd6786",
+  "ranker_sha256": "ea303f90c972b97899f91631cfc72587878a49a7833075e37a7f716d144dccbb"
+}
