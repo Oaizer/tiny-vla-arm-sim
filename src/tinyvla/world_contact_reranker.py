@@ -53,6 +53,9 @@ def split_config(cfg, split):
 
 def collect(split=None):
     cfg = config()
+    # Small CPU inference calls are slower when PyTorch starts a large thread pool.
+    torch.set_num_threads(1)
+    torch.set_num_interop_threads(1)
     targeted.ROOT = ROOT / 'episodes'
     splits = [split] if split else ['train', 'validation', 'test']
     for name in splits:
@@ -101,7 +104,7 @@ def build():
         for split in ('train', 'validation', 'test')}, 'candidate_count': 25,
         'decision': 'first recorded open-gripper command after the initial approach',
         'candidate_execution': 'offline branch from a saved PyBullet state; execute approach and close only',
-        'contact_threshold_n': .01, 'features': FEATURE_NAMES,
+        'contact_threshold_n': .01, 'torch_threads': 1, 'features': FEATURE_NAMES,
         'source_hashes': source_hashes(), 'episode_sha256': episodes,
         'contact_head_sha256': digest(Path(cfg['source']['contact_head']))}
     protocol_path.write_text(json.dumps(protocol, indent=2))
