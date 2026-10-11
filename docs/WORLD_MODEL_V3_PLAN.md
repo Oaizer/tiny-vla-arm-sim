@@ -12,6 +12,8 @@ Train a small contact head on the saved version 1 JEPA latent predictions. Freez
 
 Run `python -m tinyvla.world_contact collect` to gather the configured train, validation, and test splits. Run `python -m tinyvla.world_contact train` to fit the contact head and score it on validation and test. Both commands use PyBullet only. The report records the seed lists, source hashes, contact threshold, model hash, calibration, and per-object metrics.
 
+After training, run `python -m tinyvla.world_contact_rank` to check candidate ranking in 40 additional scenes (seeds 183400–183439). The script saves a frozen protocol, collects the new scenes, and compares the learned contact score with the old held score and the unchanged candidate. It executes candidate approach and closure branches in offline copies of each simulation state. It does not control the arm policy or alter any controller setting.
+
 ## Decision rule
 
 Do not change the planner in this experiment. The new head must improve average precision and Brier score over the old score on test scenes, without losing all recall for any object. It must also be calibrated well enough for its score to have a useful probability meaning. Report failures and per-object results. If it passes, test candidate ranking on separate development seeds before planning a new, frozen arm comparison. If it fails, keep the head offline and expand the contact data before another attempt.
