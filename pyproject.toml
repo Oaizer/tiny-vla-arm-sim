@@ -16,7 +16,7 @@ tinyvla = "tinyvla.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-tinyvla = ["floor.png"]
+tinyvla = ["floor.png", "assets/**/*.urdf", "assets/**/*.STL", "assets/**/*.txt", "assets/**/*.md"]
 
 [[tool.uv.index]]
 name = "pytorch-cpu"

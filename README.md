@@ -2,9 +2,11 @@
 
 The [simulation portfolio](portfolio/index.html) compares the project iterations and includes selected trial videos.
 
-This project trains a small vision and language policy to control a simulated Panda arm. It runs on a CPU in Linux or Ubuntu under WSL. The second version adds shape recognition, three target pads, placing and lifting tasks, varied scenes, and a feedback controller.
+This project trains a small vision and language policy in PyBullet. Its existing benchmarks use the Franka Panda for physics and rendering. A separate preview mode shows Seeed's official B601-RS model while the Panda handles physics. The B601-RS has six arm joints and a gripper; the visual proxy follows the Panda tool pose. This preview does not make the current policy or benchmark B601-RS compatible. It runs on a CPU in Linux or Ubuntu under WSL. The second version adds shape recognition, three target pads, placing and lifting tasks, varied scenes, and a feedback controller.
 
 The project also has a small world model trained only on simulated arm episodes. It predicts future observations and compares nearby grasp commands. See the [world model guide](docs/WORLD_MODEL.md), [work plan](docs/WORLD_MODEL_PLAN.md), and [world model results](artifacts/world-v1/RESULTS.md).
+
+The [B601-RS preview](docs/B601_SIMULATION.md) uses Seeed's official arm model for appearance while the existing Panda simulator handles physics. Run `python scripts/demo_b601_visual.py` to create its scripted preview video. This is not a B601-RS dynamics test.
 
 The [second world-model experiment](artifacts/world-v2/RESULTS.md) tests a consistent grasp offset. In 720 fresh simulation trials, feedback completed 150 of 200 tasks. Both JEPA variants completed 145 of 200. Each controller stopped before motion in 39 of 40 missing-object trials. Feedback remains the default. Read the [experiment plan](docs/WORLD_MODEL_V2.md) and [prediction audit](artifacts/world-v2/PREDICTION_AUDIT.md). Run `python -m tinyvla.world_iteration run` to reproduce the comparison with the saved model weights.
 
