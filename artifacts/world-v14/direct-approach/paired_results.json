@@ -1,0 +1,496 @@
+{
+  "task_trials": 40,
+  "feedback_successes": 24,
+  "direct_approach_successes": 21,
+  "wins": 0,
+  "losses": 3,
+  "ties": 37,
+  "exact_two_sided_sign_p": 0.25,
+  "missing_trials": 8,
+  "feedback_missing_safe_stops": 8,
+  "direct_approach_missing_safe_stops": 8,
+  "protocol_sha256": "233365ef44da13c3551394e3fb84a1bfda11d1b3b442938aabb675087400f907",
+  "evaluation_seconds": 208.00487089157104,
+  "rows": [
+    {
+      "suite": "nominal",
+      "seed": 360000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 360001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 360002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 360003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 360004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 360005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 360006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 360007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 361000,
+      "feedback_success": true,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 361001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 361002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true
+    },
+    {
+      "suite": "tipped",
+      "seed": 361003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 361004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 361005,
+      "feedback_success": true,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 361006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 361007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 362000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 362001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 362002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 362003,
+      "feedback_success": true,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 362004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 362005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 362006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 362007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 363000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 363001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 363002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 363003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 363004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 363005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 363006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 363007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 364000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 364001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 364002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 364003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 364004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 364005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 364006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 364007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false
+    },
+    {
+      "suite": "missing",
+      "seed": 365000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 365001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 365002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 365003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 365004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 365005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 365006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 365007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true
+    }
+  ]
+}

@@ -140,3 +140,11 @@ On the primary matched test, feedback completed 26/40 tasks and V13 completed 30
 Both tests had a positive net gain. The test is still small, and the paired result is not strong statistical evidence. The current result is a repeatable positive simulation signal, not proof of a general gain. Missing-object safe stops were 15/16 for each controller across the two tests. Keep testing with more seeds and more task conditions before using the ranker beyond this simulated red-cylinder task. No real robot was used.
 
 The V13 ranker, data, videos, protocols, and per-seed results are in `artifacts/world-v13/task-ranker/`. Run `uv run --locked python scripts/verify_world_hybrid_v13.py` to check its hashes and paired counts. The portfolio has selected matched videos from the primary test and replication.
+
+## Fourteenth experiment: plan from the parked camera view
+
+The first V13 camera plan already comes from the parked pose. The old controller then moved toward its predicted grasp point, returned to park, and ran another pregrasp inference. We tested a direct-approach variant that follows the first plan and skips that probe, retreat, and second inference. Finger checks, retries, and the destination camera replan after lift remain active.
+
+We ran the original and direct-approach hybrid on the same 40 new task seeds and the same frozen ranker. Both completed 21/40 tasks; all 40 paired outcomes tied. Both safely stopped in all eight missing-object checks. The direct variant used 89 policy inference calls, down from 122. Mean control time did not improve: it was 2.19 seconds per trial versus 2.06 seconds for the original. The motion clips show the removed probe-and-return on one matched successful scene. This removes the visible back-and-forth without a measured task-success change in this seed set; it does not show faster control.
+
+The current simulator still uses a Panda arm. The selected hardware target is the Seeed reBot B601-RS, which has six arm joints plus a gripper and a different robot model and motor interface. Before any hardware work, the next sim phase must use the B601-RS model, limits, and dynamics, then collect new training data. See the [B601-RS simulation plan](WORLD_MODEL_PLAN.md#target-arm-seeed-rebot-b601-rs).

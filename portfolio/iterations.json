@@ -1,6 +1,6 @@
 {
   "title": "TinyVLA Â· simulation record",
-  "updated": "2026-10-11",
+  "updated": "2026-10-12",
   "iterations": [
     {
       "id": "v1",
@@ -160,6 +160,18 @@
       "status": "good",
       "source": "../artifacts/world-v13/task-ranker/REPLICATION.md",
       "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v13-task-success/tiny-vla-world-v13-task-success.zip"
+    },
+    {
+      "id": "v14",
+      "title": "Plan from the parked camera view",
+      "kind": "Controller motion experiment",
+      "question": "Can the controller skip its initial probe-and-return without reducing task success?",
+      "evidence": "40 matched hybrid task trials on the same fresh seeds; plus 8 missing-object checks.",
+      "measure": "Original and direct-approach hybrid both completed 21/40 tasks. Paired outcomes: 0 wins, 0 losses, 40 ties. Inference calls fell from 122 to 89.",
+      "detail": "V14 follows the first camera plan from the parked pose. It skips the first approach, retreat, and second pregrasp inference. Finger checks, retries, and the post-lift camera replan remain active. Both controllers stopped safely in 8/8 missing-object checks. Mean control time did not improve: 2.06 s for the original and 2.19 s for V14.",
+      "result": "No probe; same task success",
+      "status": "good",
+      "source": "../artifacts/world-v14/direct-approach/RESULTS.md"
     }
   ],
   "trials": [
@@ -273,6 +285,22 @@
           "file": "media/world-v13-tipped-351001-hybrid.mp4"
         }
       ]
+    },
+    {
+      "title": "Parked-view plan · seed 360000",
+      "scene": "Same nominal scene and V13 task ranker. The original controller probes and retreats; V14 follows its first plan. Both complete the task. This clip shows one matched motion example.",
+      "videos": [
+        {
+          "name": "Original probe and return",
+          "outcome": "SUCCESS",
+          "file": "media/world-v14-seed-360000-original.mp4"
+        },
+        {
+          "name": "V14 direct approach",
+          "outcome": "SUCCESS",
+          "file": "media/world-v14-seed-360000-direct.mp4"
+        }
+      ]
     }
   ]
-}\n
+}

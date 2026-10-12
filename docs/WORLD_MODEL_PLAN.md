@@ -2,7 +2,7 @@
 
 ## Goal
 
-Train a small model from simulation data. Use it to predict the result of arm commands and choose better grasp moves. Compare it with the existing feedback controller. All data and tests use PyBullet. Success means a working, measured experiment; any gain in task success must come from the recorded tests.
+Train a small model from simulation data. Use it to predict the result of arm commands and choose better grasp moves. Compare it with the existing feedback controller. Current tests use a Panda arm in PyBullet. The next robot target is the Seeed reBot Arm B601-RS. Success means a working, measured experiment; any gain in task success must come from the recorded tests.
 
 ## Work order
 
@@ -36,3 +36,9 @@ The initial planner changes grasp commands only. The existing controller supplie
 ## Known limits
 
 The gripper keeps the original fixed orientation. The camera may lose sight of an object during a grasp. Three observations give limited memory. Good feature predictions do not prove that a plan will succeed. This work must report actual arm outcomes separately.
+
+## Target arm: Seeed reBot B601-RS
+
+The current Panda simulator is a software prototype. It does not match the B601-RS joint count, geometry, dynamics, or motor interface. Before training for the B601-RS, use Seeed's RS robot model and simulated scene, then check the camera, workspace, joint limits, gripper mapping, and motion timing. The B601-RS has six arm joints plus a gripper and uses RobStride motors over CAN. Seeed documents an RS-specific MuJoCo scene and ROS 2 interfaces. Start with the [B601-RS digital twin guide](https://wiki.seeedstudio.com/rebot_arm_b601_rs_web_simulator_developer_guide/) and the [B601-RS ROS 2 guide](https://wiki.seeedstudio.com/rebot_arm_b601_rs_ros2_integration/).
+
+Keep all training and evaluation in simulation. First match the arm geometry and safe joint limits. Then adapt the Cartesian action interface, collect B601-RS simulation episodes, and retrain the policy and world model on that simulator. Do not send Panda joint targets or the current checkpoint to the B601-RS.
