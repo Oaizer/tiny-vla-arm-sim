@@ -1,0 +1,16 @@
+{
+  "seed": 61304,
+  "train_scenes": 240,
+  "validation_scenes": 60,
+  "train_seed": 220000,
+  "validation_seed": 230000,
+  "examples_per_scene": 3,
+  "image_size": 128,
+  "fine_tune_steps": 600,
+  "batch_size": 32,
+  "learning_rate": 0.00015,
+  "target_mix": 0.5,
+  "evaluation_seed": 240000,
+  "episodes_per_condition": 8,
+  "conditions": ["nominal", "tipped", "slip", "object_moved", "dynamics", "missing"]
+}
