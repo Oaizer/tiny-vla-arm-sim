@@ -64,7 +64,6 @@ class B601Sim:
         self.eye = [.91, -1.05, .92]
         self.aim = [.34, 0, .11]
         self.view = pb.computeViewMatrix(self.eye, self.aim, [0, 0, 1])
-        self.proj = pb.computeProjectionMatrixFOV(42, 1, .03, 3)
         return self
 
     def _make_scene(self):
@@ -84,9 +83,15 @@ class B601Sim:
         for _ in range(12): pb.stepSimulation()
 
     def image(self, size=None):
-        n = size or self.size
-        image = pb.getCameraImage(n,n,self.view,self.proj,renderer=pb.ER_TINY_RENDERER,shadow=1)
-        return np.asarray(image[2],np.uint8).reshape(n,n,4)[:,:,:3].copy()
+        resolution = self.size if size is None else size
+        if isinstance(resolution, int):
+            width = height = resolution
+        else:
+            width, height = (int(value) for value in resolution)
+        projection = pb.computeProjectionMatrixFOV(42, width / height, .03, 3)
+        image = pb.getCameraImage(width, height, self.view, projection,
+                                  renderer=pb.ER_TINY_RENDERER, shadow=1)
+        return np.asarray(image[2], np.uint8).reshape(height, width, 4)[:, :, :3].copy()
 
     def object_position(self, name):
         return np.asarray(pb.getBasePositionAndOrientation(self.objects[name])[0],float)

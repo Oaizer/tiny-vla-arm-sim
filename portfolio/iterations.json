@@ -306,12 +306,12 @@
   "trials": [
     {
       "title": "Barrier transfer · seed 610001",
-      "scene": "B601-RS PyBullet model. Three cubes cross a 45 mm solid wall. The 384 × 432 clip plays at half speed to show the grasp and lift. This is one success from a 12-seed scripted-teacher batch; seed 610000 was used for initial wall-height tuning.",
+      "scene": "B601-RS PyBullet model. Three cubes cross a 45 mm solid wall. The 1280 × 768 clip plays at half speed to show the grasp and lift. This is one success from a 12-seed scripted-teacher batch; seed 610000 was used for initial wall-height tuning.",
       "videos": [
         {
-          "name": "Obstacle-clear transfer · half speed",
+          "name": "Obstacle-clear transfer · 720p scene · half speed",
           "outcome": "SUCCESS",
-          "file": "media/b601-rs-obstacle-seed-610001-slow.mp4"
+          "file": "media/b601-rs-obstacle-seed-610001-hd.mp4"
         }
       ]
     },

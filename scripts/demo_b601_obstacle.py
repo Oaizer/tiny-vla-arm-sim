@@ -54,7 +54,7 @@ def make_scene(sim, seed):
 
 
 def write_video(frames, seed, result):
-    path = MEDIA / f"b601-rs-obstacle-seed-{seed}-slow.mp4"
+    path = MEDIA / f"b601-rs-obstacle-seed-{seed}-hd.mp4"
     with imageio.get_writer(path, fps=5, codec="libx264", quality=9) as writer:
         for frame in frames:
             height, width = frame.shape[:2]
@@ -108,7 +108,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     MEDIA.mkdir(parents=True, exist_ok=True)
     capture_seeds = set() if args.no_video else {args.video_seed}
-    sim = B601Sim(size=384, frame_stride=24)
+    sim = B601Sim(size=(1280, 720), frame_stride=24)
     records = []
     started = time.time()
     try:
