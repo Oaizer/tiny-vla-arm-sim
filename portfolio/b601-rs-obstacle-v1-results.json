@@ -16,6 +16,9 @@
   },
   "approach_height_m": 0.14,
   "carry_height_m": 0.2,
+  "tuning_seeds": [
+    610000
+  ],
   "seed_range": [
     610000,
     610011

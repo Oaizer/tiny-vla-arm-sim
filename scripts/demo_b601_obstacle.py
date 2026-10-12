@@ -55,14 +55,14 @@ def make_scene(sim, seed):
 
 def write_video(frames, seed, result):
     path = MEDIA / f"b601-rs-obstacle-seed-{seed}.mp4"
-    with imageio.get_writer(path, fps=10, codec="libx264", quality=9) as writer:
+    with imageio.get_writer(path, fps=5, codec="libx264", quality=9) as writer:
         for frame in frames:
             height, width = frame.shape[:2]
             canvas = Image.new("RGB", (width, height + 48), (20, 24, 27))
             canvas.paste(Image.fromarray(frame), (0, 48))
             draw = ImageDraw.Draw(canvas)
             draw.text((8, 5), "Seeed reBot B601-RS | PyBullet", fill=(245, 245, 238))
-            draw.text((8, 24), f"Barrier transfer | seed {seed} | {result}", fill=(190, 220, 190))
+            draw.text((8, 24), f"Half-speed replay | seed {seed} | {result}", fill=(190, 220, 190))
             writer.append_data(np.asarray(canvas))
     return path.relative_to(ROOT / "portfolio").as_posix()
 
@@ -108,7 +108,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     MEDIA.mkdir(parents=True, exist_ok=True)
     capture_seeds = set() if args.no_video else {args.video_seed}
-    sim = B601Sim(size=384, frame_stride=96)
+    sim = B601Sim(size=384, frame_stride=24)
     records = []
     started = time.time()
     try:
@@ -139,6 +139,7 @@ def main():
         "barrier": {"x_m": WALL_X, "top_m": WALL_TOP, "half_width_m": .008},
         "approach_height_m": APPROACH_HEIGHT,
         "carry_height_m": CARRY_HEIGHT,
+        "tuning_seeds": [610000],
         "seed_range": [min(seeds), max(seeds)] if seeds else [],
         "max_target_speed_rad_s": MAX_TARGET_SPEED_RAD_S,
         "records": records,
@@ -152,7 +153,7 @@ def main():
         f"Each trial randomizes three cube starts, yaw, and pick order. Every cube must cross a solid "
         f"{WALL_TOP * 100:.0f} mm barrier and land within {SUCCESS_TOLERANCE_M * 1000:.0f} mm of its matching pad. "
         f"The simulator-state teacher uses a {CARRY_HEIGHT * 1000:.0f} mm carry waypoint and can retry each placement twice.\n\n"
-        f"This is scripted PyBullet evidence on the articulated Seeed B601-RS model. It is not a learned-policy result or a real-arm safety test. The sample is small and unpaired.\n",
+        f"Seed 610000 was also used to check an earlier, taller wall. The other 11 seeds were not used in that tuning check. This is scripted PyBullet evidence on the articulated Seeed B601-RS model, not a learned-policy result or a real-arm safety test. The sample is small and unpaired.\n",
         encoding="utf-8")
     print(json.dumps({"successes": payload["successes"], "trials": len(records),
                       "objects_placed": payload["objects_placed"],

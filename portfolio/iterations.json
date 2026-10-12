@@ -294,9 +294,9 @@
       "title": "Clear a barrier during three-cube sorting",
       "kind": "B601-RS obstacle transfer challenge",
       "question": "Can the current scripted motion transfer three cubes across a solid tabletop barrier?",
-      "evidence": "12 fresh seeds; each trial randomizes three cube starts, yaw, and pick order.",
+      "evidence": "12 seeds; each trial randomizes three cube starts, yaw, and pick order. Seed 610000 was reused from the initial wall-height check.",
       "measure": "8/12 complete sorts; 30/36 cubes placed within 35 mm.",
-      "detail": "A 45 mm wall separates every start from its matching pad. The teacher uses a 200 mm carry waypoint and up to two retries per cube. The open-table V7 batch scored 9/12 and 33/36 on different seeds, so these are not paired results. This is scripted simulation evidence, not a policy gain.",
+      "detail": "A 45 mm wall separates every start from its matching pad. The teacher uses a 200 mm carry waypoint and up to two retries per cube. Seed 610000 was used to check an earlier, taller wall before this batch was fixed; the other 11 seeds were not used in that check. The open-table V7 batch scored 9/12 and 33/36 on different seeds, so these are not paired results. This is scripted simulation evidence, not a policy gain.",
       "result": "Harder task; 8/12 sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#barrier-clear-transfer-v1",
@@ -306,10 +306,10 @@
   "trials": [
     {
       "title": "Barrier transfer · seed 610001",
-      "scene": "B601-RS PyBullet model. Three cubes cross a 45 mm solid wall. This is one success from a 12-seed scripted-teacher batch.",
+      "scene": "B601-RS PyBullet model. Three cubes cross a 45 mm solid wall. The 384 × 432 clip plays at half speed to show the grasp and lift. This is one success from a 12-seed scripted-teacher batch; seed 610000 was used for initial wall-height tuning.",
       "videos": [
         {
-          "name": "Obstacle-clear transfer",
+          "name": "Obstacle-clear transfer · half speed",
           "outcome": "SUCCESS",
           "file": "media/b601-rs-obstacle-seed-610001.mp4"
         }

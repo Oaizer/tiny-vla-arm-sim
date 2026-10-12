@@ -44,9 +44,9 @@ All versions use fresh seed batches. These are small, unpaired samples, so compa
 
 The next challenge adds a solid 45 mm wall between the randomized starts and the three matching pads. The same articulated B601-RS model and simulator-state teacher are used. Each of 12 fresh seeds randomizes cube starts, yaw, and pick order. The arm carries at 200 mm and may retry a placement twice.
 
-The result is **8/12 complete sorts and 30/36 cubes placed**. The open-table V7 run scored 9/12 and 33/36, but it used different seeds and no wall. Treat this as a harder task result, not a paired comparison or a policy improvement. Four trials still had at least one failed placement. The challenge is useful for exposing path clearance and recovery limits.
+The result is **8/12 complete sorts and 30/36 cubes placed**. Seed 610000 was used once to check an earlier, taller wall before the final batch was fixed; the other 11 seeds were not used in that check. The open-table V7 run scored 9/12 and 33/36, but it used different seeds and no wall. Treat this as a harder task result, not a paired comparison or a policy improvement. Four trials still had at least one failed placement. The challenge is useful for exposing path clearance and recovery limits.
 
-The selected clip is [seed 610001](../portfolio/media/b601-rs-obstacle-seed-610001.mp4). Per-seed starts, object errors, and outcomes are in [the tracked result file](../portfolio/b601-rs-obstacle-v1-results.json).
+The selected clip is [seed 610001](../portfolio/media/b601-rs-obstacle-seed-610001.mp4). It is 384 × 432 and plays at half speed, with denser frames around each grasp. Per-seed starts, object errors, and outcomes are in [the tracked result file](../portfolio/b601-rs-obstacle-v1-results.json).
 
 Reproduce the batch and selected video from the project root:
 
