@@ -1,5 +1,5 @@
 {
-  "title": "TinyVLA · simulation record",
+  "title": "TinyVLA Â· simulation record",
   "updated": "2026-10-11",
   "iterations": [
     {
@@ -158,60 +158,121 @@
       "detail": "Both fresh seed ranges favored V13. The combined gain is 6 tasks, but the paired test is small and does not establish a reliable effect. Missing-object safe stops were 15/16 for both controllers. Keep testing in simulation before any real-arm use.",
       "result": "Repeatable positive gain; early evidence",
       "status": "good",
-      "source": "../artifacts/world-v13/task-ranker/REPLICATION.md"
+      "source": "../artifacts/world-v13/task-ranker/REPLICATION.md",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v13-task-success/tiny-vla-world-v13-task-success.zip"
     }
   ],
   "trials": [
     {
-      "title": "Slip · trial 172000",
+      "title": "Slip Â· trial 172000",
       "scene": "Red cube after a forced slip. All three controllers place it.",
       "videos": [
-        {"name": "Feedback", "outcome": "SUCCESS", "file": "media/slip-172000-feedback.mp4"},
-        {"name": "JEPA", "outcome": "SUCCESS", "file": "media/slip-172000-jepa.mp4"},
-        {"name": "Coherent offset", "outcome": "SUCCESS", "file": "media/slip-172000-coherent.mp4"}
+        {
+          "name": "Feedback",
+          "outcome": "SUCCESS",
+          "file": "media/slip-172000-feedback.mp4"
+        },
+        {
+          "name": "JEPA",
+          "outcome": "SUCCESS",
+          "file": "media/slip-172000-jepa.mp4"
+        },
+        {
+          "name": "Coherent offset",
+          "outcome": "SUCCESS",
+          "file": "media/slip-172000-coherent.mp4"
+        }
       ]
     },
     {
-      "title": "Slip · trial 172012",
+      "title": "Slip Â· trial 172012",
       "scene": "Green cylinder after a forced slip. Feedback places it; both planners fail.",
       "videos": [
-        {"name": "Feedback", "outcome": "SUCCESS", "file": "media/slip-172012-feedback.mp4"},
-        {"name": "JEPA", "outcome": "FAILED", "file": "media/slip-172012-jepa.mp4"},
-        {"name": "Coherent offset", "outcome": "FAILED", "file": "media/slip-172012-coherent.mp4"}
+        {
+          "name": "Feedback",
+          "outcome": "SUCCESS",
+          "file": "media/slip-172012-feedback.mp4"
+        },
+        {
+          "name": "JEPA",
+          "outcome": "FAILED",
+          "file": "media/slip-172012-jepa.mp4"
+        },
+        {
+          "name": "Coherent offset",
+          "outcome": "FAILED",
+          "file": "media/slip-172012-coherent.mp4"
+        }
       ]
     },
     {
-      "title": "Object moved · trial 173017",
+      "title": "Object moved Â· trial 173017",
       "scene": "Red cube moved after approach. All three controllers place it.",
       "videos": [
-        {"name": "Feedback", "outcome": "SUCCESS", "file": "media/object_moved-173017-feedback.mp4"},
-        {"name": "JEPA", "outcome": "SUCCESS", "file": "media/object_moved-173017-jepa.mp4"},
-        {"name": "Coherent offset", "outcome": "SUCCESS", "file": "media/object_moved-173017-coherent.mp4"}
+        {
+          "name": "Feedback",
+          "outcome": "SUCCESS",
+          "file": "media/object_moved-173017-feedback.mp4"
+        },
+        {
+          "name": "JEPA",
+          "outcome": "SUCCESS",
+          "file": "media/object_moved-173017-jepa.mp4"
+        },
+        {
+          "name": "Coherent offset",
+          "outcome": "SUCCESS",
+          "file": "media/object_moved-173017-coherent.mp4"
+        }
       ]
     },
     {
-      "title": "Guarded recovery · tipped red cylinder · seed 192000",
+      "title": "Guarded recovery Â· tipped red cylinder Â· seed 192000",
       "scene": "Matched simulation clips. Both controllers place the red cylinder.",
       "videos": [
-        {"name": "Feedback", "outcome": "SUCCESS", "file": "media/world-v6-tipped-192000-feedback.mp4"},
-        {"name": "Guarded hybrid", "outcome": "SUCCESS", "file": "media/world-v6-tipped-192000-hybrid.mp4"}
+        {
+          "name": "Feedback",
+          "outcome": "SUCCESS",
+          "file": "media/world-v6-tipped-192000-feedback.mp4"
+        },
+        {
+          "name": "Guarded hybrid",
+          "outcome": "SUCCESS",
+          "file": "media/world-v6-tipped-192000-hybrid.mp4"
+        }
       ]
     },
     {
-      "title": "Task-success ranking · tipped cylinder · seed 341000",
+      "title": "Task-success ranking Â· tipped cylinder Â· seed 341000",
       "scene": "Same simulated scene. Feedback stops outside the workspace. V13 grasps and places the cylinder. This is one selected trial.",
       "videos": [
-        {"name": "Feedback", "outcome": "FAILED", "file": "media/world-v13-tipped-341000-feedback.mp4"},
-        {"name": "V13 task-success ranker", "outcome": "SUCCESS", "file": "media/world-v13-tipped-341000-hybrid.mp4"}
+        {
+          "name": "Feedback",
+          "outcome": "FAILED",
+          "file": "media/world-v13-tipped-341000-feedback.mp4"
+        },
+        {
+          "name": "V13 task-success ranker",
+          "outcome": "SUCCESS",
+          "file": "media/world-v13-tipped-341000-hybrid.mp4"
+        }
       ]
     },
     {
-      "title": "Independent replication · tipped cylinder · seed 351001",
+      "title": "Independent replication Â· tipped cylinder Â· seed 351001",
       "scene": "Second fresh seed range. Feedback misses the placement. The frozen V13 ranker succeeds. This is one selected trial.",
       "videos": [
-        {"name": "Feedback", "outcome": "FAILED", "file": "media/world-v13-tipped-351001-feedback.mp4"},
-        {"name": "V13 task-success ranker", "outcome": "SUCCESS", "file": "media/world-v13-tipped-351001-hybrid.mp4"}
+        {
+          "name": "Feedback",
+          "outcome": "FAILED",
+          "file": "media/world-v13-tipped-351001-feedback.mp4"
+        },
+        {
+          "name": "V13 task-success ranker",
+          "outcome": "SUCCESS",
+          "file": "media/world-v13-tipped-351001-hybrid.mp4"
+        }
       ]
     }
   ]
-}
+}\n
