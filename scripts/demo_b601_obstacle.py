@@ -54,7 +54,7 @@ def make_scene(sim, seed):
 
 
 def write_video(frames, seed, result):
-    path = MEDIA / f"b601-rs-obstacle-seed-{seed}.mp4"
+    path = MEDIA / f"b601-rs-obstacle-seed-{seed}-slow.mp4"
     with imageio.get_writer(path, fps=5, codec="libx264", quality=9) as writer:
         for frame in frames:
             height, width = frame.shape[:2]
