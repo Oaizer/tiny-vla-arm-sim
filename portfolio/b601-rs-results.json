@@ -1,0 +1,183 @@
+{
+  "title": "B601-RS joint-limited physics pilot",
+  "model": "Seeed B601-RS URDF",
+  "simulator": "PyBullet",
+  "task": "scripted pick and place of a cube",
+  "seeds": [
+    601000,
+    601001,
+    601002,
+    601003,
+    601004,
+    601005,
+    601006,
+    601007,
+    601008,
+    601009,
+    601010,
+    601011
+  ],
+  "successes": 12,
+  "trials": 12,
+  "records": [
+    {
+      "seed": 601000,
+      "start_m": [
+        0.2441,
+        -0.135,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.01755760756093747,
+      "final_height_m": 0.12098999999999817,
+      "commands": 8,
+      "joint_limits_respected": true,
+      "video": "media/b601-rs-seed-601000-joint-limited.mp4"
+    },
+    {
+      "seed": 601001,
+      "start_m": [
+        0.2548,
+        -0.1355,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.0177368557717404,
+      "final_height_m": 0.12098999999999994,
+      "commands": 8,
+      "joint_limits_respected": true
+    },
+    {
+      "seed": 601002,
+      "start_m": [
+        0.2534,
+        -0.1555,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.04273955311768631,
+      "final_height_m": 0.12098999999997308,
+      "commands": 8,
+      "joint_limits_respected": true
+    },
+    {
+      "seed": 601003,
+      "start_m": [
+        0.2263,
+        -0.1523,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.041659121863359336,
+      "final_height_m": 0.12098999999996336,
+      "commands": 8,
+      "joint_limits_respected": true
+    },
+    {
+      "seed": 601004,
+      "start_m": [
+        0.25,
+        -0.136,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.020082407059138517,
+      "final_height_m": 0.12098999999999993,
+      "commands": 8,
+      "joint_limits_respected": true,
+      "video": "media/b601-rs-seed-601004-joint-limited.mp4"
+    },
+    {
+      "seed": 601005,
+      "start_m": [
+        0.2487,
+        -0.151,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.0385756357572823,
+      "final_height_m": 0.12098999999992949,
+      "commands": 8,
+      "joint_limits_respected": true
+    },
+    {
+      "seed": 601006,
+      "start_m": [
+        0.2495,
+        -0.1721,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.04146807360855801,
+      "final_height_m": 0.12098999999996256,
+      "commands": 8,
+      "joint_limits_respected": true
+    },
+    {
+      "seed": 601007,
+      "start_m": [
+        0.2486,
+        -0.177,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.04177714826002623,
+      "final_height_m": 0.12098999999999831,
+      "commands": 8,
+      "joint_limits_respected": true
+    },
+    {
+      "seed": 601008,
+      "start_m": [
+        0.2402,
+        -0.1606,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.0343055117331725,
+      "final_height_m": 0.1209899999999937,
+      "commands": 8,
+      "joint_limits_respected": true,
+      "video": "media/b601-rs-seed-601008-joint-limited.mp4"
+    },
+    {
+      "seed": 601009,
+      "start_m": [
+        0.2306,
+        -0.1699,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.03723264883700673,
+      "final_height_m": 0.1209899999999732,
+      "commands": 8,
+      "joint_limits_respected": true
+    },
+    {
+      "seed": 601010,
+      "start_m": [
+        0.2428,
+        -0.1422,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.0234518379108918,
+      "final_height_m": 0.12098999999999992,
+      "commands": 8,
+      "joint_limits_respected": true
+    },
+    {
+      "seed": 601011,
+      "start_m": [
+        0.228,
+        -0.1391,
+        0.1197
+      ],
+      "success": true,
+      "distance_m": 0.02246293265050871,
+      "final_height_m": 0.12098999999999993,
+      "commands": 8,
+      "joint_limits_respected": true
+    }
+  ]
+}

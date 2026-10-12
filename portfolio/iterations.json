@@ -1,5 +1,5 @@
 {
-  "title": "TinyVLA Â· simulation record",
+  "title": "TinyVLA — simulation record",
   "updated": "2026-10-12",
   "iterations": [
     {
@@ -172,12 +172,57 @@
       "result": "No probe; same task success",
       "status": "good",
       "source": "../artifacts/world-v14/direct-approach/RESULTS.md"
+    },
+    {
+      "id": "b601-rs-v1",
+      "title": "Run trials on the articulated B601-RS arm",
+      "kind": "Native-arm physics pilot",
+      "question": "Can a joint-limited pick-and-place run on the B601-RS model without the Panda surrogate?",
+      "evidence": "12 seeded red-cube trials with small randomized starts; 3 selected videos. The teacher reads simulator state.",
+      "measure": "12/12 placements; all six arm joints stayed within their URDF limits. Speed and gripper conversion still need calibration.",
+      "detail": "The trials load Seeed’s B601-RS URDF in PyBullet, use its six arm joints and two prismatic fingers, and move with quintic joint-space profiles. The reference peaks at up to 2.25 rad/s, above Seeed’s 1.50 rad/s web target limit; the finger motor-to-width conversion is not reproduced. This validates the articulated simulator path, not a learned VLA or a controller-faithful speed and gripper stack.",
+      "result": "B601 mechanics pilot passed",
+      "status": "good",
+      "source": "../docs/B601_SIMULATION.md#current-evidence"
     }
   ],
   "trials": [
     {
+      "title": "B601-RS joint-limited trial · seed 601000",
+      "scene": "Red cube start 0.244 m, -0.135 m. Physical contact in the articulated B601-RS PyBullet model; scripted teacher, not a trained policy.",
+      "videos": [
+        {
+          "name": "B601-RS native-arm teacher",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-seed-601000-joint-limited.mp4"
+        }
+      ]
+    },
+    {
+      "title": "B601-RS joint-limited trial · seed 601004",
+      "scene": "Red cube start 0.250 m, -0.136 m. Physical contact in the articulated B601-RS PyBullet model; scripted teacher, not a trained policy.",
+      "videos": [
+        {
+          "name": "B601-RS native-arm teacher",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-seed-601004-joint-limited.mp4"
+        }
+      ]
+    },
+    {
+      "title": "B601-RS joint-limited trial · seed 601008",
+      "scene": "Red cube start 0.240 m, -0.161 m. Physical contact in the articulated B601-RS PyBullet model; scripted teacher, not a trained policy.",
+      "videos": [
+        {
+          "name": "B601-RS native-arm teacher",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-seed-601008-joint-limited.mp4"
+        }
+      ]
+    },
+    {
       "title": "Slip Â· trial 172000",
-      "scene": "Red cube after a forced slip. All three controllers place it.",
+      "scene": "Historical Panda-arm PyBullet trial. Red cube after a forced slip. All three controllers place it.",
       "videos": [
         {
           "name": "Feedback",
@@ -198,7 +243,7 @@
     },
     {
       "title": "Slip Â· trial 172012",
-      "scene": "Green cylinder after a forced slip. Feedback places it; both planners fail.",
+      "scene": "Historical Panda-arm PyBullet trial. Green cylinder after a forced slip. Feedback places it; both planners fail.",
       "videos": [
         {
           "name": "Feedback",
@@ -219,7 +264,7 @@
     },
     {
       "title": "Object moved Â· trial 173017",
-      "scene": "Red cube moved after approach. All three controllers place it.",
+      "scene": "Historical Panda-arm PyBullet trial. Red cube moved after approach. All three controllers place it.",
       "videos": [
         {
           "name": "Feedback",
@@ -240,7 +285,7 @@
     },
     {
       "title": "Guarded recovery Â· tipped red cylinder Â· seed 192000",
-      "scene": "Matched simulation clips. Both controllers place the red cylinder.",
+      "scene": "Historical Panda-arm PyBullet trial. Matched simulation clips. Both controllers place the red cylinder.",
       "videos": [
         {
           "name": "Feedback",
@@ -256,7 +301,7 @@
     },
     {
       "title": "Task-success ranking Â· tipped cylinder Â· seed 341000",
-      "scene": "Same simulated scene. Feedback stops outside the workspace. V13 grasps and places the cylinder. This is one selected trial.",
+      "scene": "Historical Panda-arm PyBullet trial. Same simulated scene. Feedback stops outside the workspace. V13 grasps and places the cylinder. This is one selected trial.",
       "videos": [
         {
           "name": "Feedback",
@@ -272,7 +317,7 @@
     },
     {
       "title": "Independent replication Â· tipped cylinder Â· seed 351001",
-      "scene": "Second fresh seed range. Feedback misses the placement. The frozen V13 ranker succeeds. This is one selected trial.",
+      "scene": "Historical Panda-arm PyBullet trial. Second fresh seed range. Feedback misses the placement. The frozen V13 ranker succeeds. This is one selected trial.",
       "videos": [
         {
           "name": "Feedback",
@@ -288,7 +333,7 @@
     },
     {
       "title": "Parked-view plan · seed 360000",
-      "scene": "Same nominal scene and V13 task ranker. The original controller probes and retreats; V14 follows its first plan. Both complete the task. This clip shows one matched motion example.",
+      "scene": "Historical Panda-arm PyBullet trial. Same nominal scene and V13 task ranker. The original controller probes and retreats; V14 follows its first plan. Both complete the task. This clip shows one matched motion example.",
       "videos": [
         {
           "name": "Original probe and return",

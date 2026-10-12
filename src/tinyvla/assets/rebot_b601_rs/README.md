@@ -1,7 +1,7 @@
 # Seeed reBot Arm B601-RS model
 
-This folder contains Seeed Studio's official B601-RS URDF and mesh files. The source is [`Seeed-Projects/reBot-DevArm`](https://github.com/Seeed-Projects/reBot-DevArm), pinned at commit `69de7380656a86440aead27692dc6deee1a7f024`, under `Rebot_Arm_description/RS/`. The included licence is CERN-OHL-W-2.0.
+This folder contains Seeed Studio’s B601-RS URDF and meshes from [`Seeed-Projects/reBot-DevArm`](https://github.com/Seeed-Projects/reBot-DevArm), pinned at commit `69de7380656a86440aead27692dc6deee1a7f024`, under `Rebot_Arm_description/RS/`. The included licence is CERN-OHL-W-2.0.
 
-The model is used as a visual proxy in the current PyBullet scenes. Its six arm joints solve for the pose of the hidden Panda tool. Its gripper opening follows the Panda finger opening. Proxy collisions are disabled. The Panda still handles contact, inverse kinematics, and task scoring. This gives the videos the B601-RS appearance without claiming B601-RS dynamics or benchmark results.
+The PyBullet pilot loads this model as the physical arm. It uses the six revolute arm joints, both prismatic finger joints, joint limits, inertia, and mesh collisions. The simulator adds the table and test objects. Joint targets use a quintic profile with a quintic time profile. See the pilot report for its tested speed and the difference from Seeed’s control limits.
 
-The proxy changes the camera image seen by the current policy. Existing checkpoints were trained with the Panda visible, so they must be retrained and reevaluated before their results can be interpreted with this appearance. Existing saved videos remain unchanged until new trials are recorded.
+The pilot teacher reads exact object positions from simulation. This is useful for checking arm mechanics, grasp contact, trial timing, and video capture. It does not evaluate a learned policy. Existing VLA checkpoints and results use the Panda model and do not transfer to this arm.

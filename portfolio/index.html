@@ -100,9 +100,9 @@
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-head">
         <h1 id="page-title">Small arm.<br>Hard tests.</h1>
-        <div class="hero-note"><strong>SIMULATION ONLY</strong>B601-RS preview · Panda-based results · 14 experiments<br>No physical robot tests</div>
+        <div class="hero-note"><strong>SIMULATION ONLY</strong>B601-RS physics pilot · Panda-based VLA results · 15 experiments<br>No physical robot tests</div>
       </div>
-      <p class="hero-intro">A measured record of small vision-language-action and world-model experiments. The latest ranker improved task success on two fresh seed sets. The evidence still includes <span>misses, losses, and uncertainty.</span></p>
+      <p class="hero-intro">A measured record of simulated vision-language-action experiments and arm tests. The latest native-arm pilot uses the articulated B601-RS model. Earlier VLA scores use Panda. The evidence keeps <span>misses, losses, and uncertainty.</span></p>
       <div class="lead-evidence">
         <div class="lead-film">
           <span class="film-label">Selected matched trial · tipped cylinder · 341000</span>
@@ -124,13 +124,13 @@
     </section>
 
     <section id="trials" class="section" aria-labelledby="trials-title">
-      <div class="section-head"><h2 id="trials-title" class="section-title">Trial films</h2><p>Matched examples use the same scene seed across controllers. These clips are selected examples, not a sample of average performance.</p></div>
-      <div class="film-row"><div class="film"><div class="film-title"><span>B601-RS appearance demo</span><span class="success">VISUAL CHECK</span></div><video controls preload="none" playsinline aria-label="B601-RS visual proxy follows a scripted pick and place in simulation"><source src="media/b601-rs-visual-proxy-demo.mp4" type="video/mp4">Your browser does not support video playback.</video><small>Official B601-RS appearance model · Panda physics surrogate · scripted teacher, not a benchmark result</small></div></div>
+      <div class="section-head"><h2 id="trials-title" class="section-title">Trial films</h2><p>Selected examples from the trial sets. The first clips use the articulated B601-RS model; later clips are historical Panda-arm VLA trials. They use different controllers and are not a matched comparison.</p></div>
+      <p class="comparison-note">B601-RS pilot: 12/12 scripted placements on seeded starts. This checks the arm model, joint-limited motion, gripper contact, and video capture. It does not measure a trained policy. <a href="b601-rs-results.json">Open all B601 trial results</a>.</p>
       <div id="trial-list"><p class="loading">Loading trial films…</p></div>
     </section>
 
     <section id="method" class="section" aria-labelledby="method-title">
-      <div class="section-head"><h2 id="method-title" class="section-title">How to read this work</h2><p>The models were trained and tested with simulated scenes and simulator labels. V13 scores grasp candidates with full pick, lift, and place outcomes.</p></div>
+      <div class="section-head"><h2 id="method-title" class="section-title">How to read this work</h2><p>The VLA models were trained and tested with simulated scenes and simulator labels. V13 scores grasp candidates with full pick, lift, and place outcomes. The new B601-RS pilot uses its own articulated URDF model and a simulator-state teacher; it is separate from VLA results.</p></div>
       <div class="method">
         <div><h3>Policy</h3><p>A small vision-language-action policy maps the camera and instruction to arm commands. The original feedback controller remains the default.</p></div>
         <div><h3>World model</h3><p>A JEPA-style model predicts future visual and arm state from proposed commands. It uses simulator labels and is not fully self-supervised.</p></div>

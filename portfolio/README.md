@@ -17,3 +17,5 @@ Open `http://localhost:8000/portfolio/`.
 Add one entry to `iterations.json`. Include the experiment question, seed counts, the main comparison, and what the result does not prove. Link its tracked results report. Add matched video files under `media/` only when they show a useful comparison and keep their captions tied to the measured trial.
 
 The experiment source, configuration, protocols, summaries, and data manifests are in the repository and its versioned GitHub release assets. The raw episode data are too large for normal Git history.
+
+The B601-RS pilot uses the articulated Seeed URDF with PyBullet physics. Its selected clips and tracked [per-seed data](b601-rs-results.json) appear before the older Panda VLA videos. See [B601-RS simulation notes](../docs/B601_SIMULATION.md) for scope and limits.

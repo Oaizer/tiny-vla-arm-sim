@@ -1,23 +1,30 @@
-# B601-RS visual model in simulation
+# B601-RS simulation pilot
 
-The project includes a separate preview mode that renders Seeed Studio's official reBot B601-RS mesh model. The mesh is packaged under `src/tinyvla/assets/rebot_b601_rs/RS/` with the URDF-relative file layout preserved. See that folder's README and licence for source and reuse terms.
+The earlier B601 visual proxy has been removed. It solved arm poses from a Panda tool pose each frame, which could jump between inverse-kinematics solutions and did not use B601 physics.
 
-## What the model does
+The current pilot loads the Seeed B601-RS URDF directly in PyBullet. The robot’s six joints and two prismatic fingers move in the physics simulation. The scene uses a table, object collision, and the arm’s mesh collision model. The official URDF and meshes are pinned in `src/tinyvla/assets/rebot_b601_rs/`; see its README and included CERN-OHL-W-2.0 licence.
 
-The B601-RS model is a visual proxy in the preview mode. The simulator solves its six arm joints to place the gripper at the hidden Panda tool pose. Its gripper follows the Panda finger opening. The proxy has no collisions. The Panda still drives the scene physics, contact checks, and task score. Run `python scripts/demo_b601_visual.py` to recreate the scripted visual demonstration in the portfolio.
+## Reproduce the pilot
 
-This keeps the change limited to appearance and leaves the existing benchmark simulator unchanged. It does not make old results a B601-RS evaluation. The preview uses the B601-RS image, while the benchmark still uses the Panda image. Old trial videos remain as originally recorded.
-
-## Check the model files
-
-Run this from the repository root:
+From the project root, with the project dependencies installed:
 
 ```bash
-python -m tinyvla.b601_model_check
+PYTHONPATH=src python scripts/demo_b601_trials.py
 ```
 
-The check confirms that the URDF is valid XML, every referenced mesh is present, and the expected six arm joints and two gripper joints are defined. Loading the full scene also needs the project dependencies from the lock file.
+To rebuild only the three selected videos, add `--videos-only`.
 
-## Next step for a B601-RS experiment
+The script runs 12 seeded cube placements, saves three selected videos under `portfolio/media/`, and writes per-seed results to `artifacts/b601-rs-pilot/` and `portfolio/b601-rs-results.json`. The latter is tracked so the portfolio data is available on GitHub. The scripted teacher reads object and target positions from the simulator. It does not use the VLA or world model.
 
-Use an RS-specific physics scene, joint limits, actuator settings, and gripper contact model. Then collect fresh training and test episodes and retrain the policy and world model. Do not treat the visual proxy as a dynamics-accurate digital twin.
+## Motion and gripper
+
+- The arm uses the URDF’s six joint limits and torque ratings.
+- The position servo moves joint targets along quintic profiles. Segment duration uses 1.2 rad/s, but the quintic profile peaks at up to 2.25 rad/s. Seeed lists 1.50 rad/s as the top web target speed, so this is a simulation pilot, not a faithful copy of its online controller.
+- The two gripper fingers use their separate prismatic joints. This pilot commands their URDF ranges directly. It does not reproduce Seeed’s motor-to-width conversion or claim millimetre-accurate gripper width.
+- The physics engine resolves finger, object, and table contacts. Arm self-collision is disabled for performance. Seeed documents a web speed range up to 1.50 rad/s and a gripper width range of 0–71.5 mm in its [B601-RS digital twin guide](https://wiki.seeedstudio.com/rebot_arm_b601_rs_web_simulator_developer_guide/).
+
+## Current evidence
+
+The pilot completed 12 of 12 seeded placements in its narrow test area. It shows that the model and trial path work for a scripted teacher. It does not test varied tasks, robustness, learned perception, or the VLA checkpoint. The [tracked per-seed results](../portfolio/b601-rs-results.json) include object starts, placement errors, and joint-limit checks. The older VLA benchmarks are still Panda results and remain listed separately on the portfolio page.
+
+Before policy training, calibrate target speed and gripper width conversion against Seeed’s own B601-RS simulation controller. Then collect B601-RS episodes with joint-state observations and train a fresh policy on this arm. Evaluate it on new seeds against a B601-specific feedback controller. Keep all tests in simulation.
