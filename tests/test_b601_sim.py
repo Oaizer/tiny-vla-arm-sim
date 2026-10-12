@@ -5,6 +5,21 @@ from tinyvla.sim_b601 import B601Sim, LIMITS, pb
 
 
 class B601SimulationContracts(unittest.TestCase):
+    def test_folded_joint_move_respects_the_reference_speed_cap(self):
+        sim = B601Sim()
+        try:
+            sim.reset(1)
+            target = sim.home_q.copy()
+            target[0] = .2
+            sim.move_joints(target)
+            self.assertLessEqual(sim.peak_reference_speed_rad_s, 1.5 + 1e-6)
+            self.assertEqual(sim.command_count, 1)
+            for value, (lower, upper) in zip(sim.q, LIMITS[:6]):
+                self.assertGreaterEqual(value, lower - 1e-5)
+                self.assertLessEqual(value, upper + 1e-5)
+        finally:
+            sim.close()
+
     def test_seeded_teacher_trial_uses_the_arm_and_places_the_object(self):
         sim = B601Sim()
         try:
@@ -15,6 +30,7 @@ class B601SimulationContracts(unittest.TestCase):
             self.assertTrue(outcome["success"])
             self.assertTrue(outcome["joint_limits_respected"])
             self.assertEqual(outcome["commands"], 8)
+            self.assertLessEqual(sim.peak_reference_speed_rad_s, 1.5 + 1e-6)
             self.assertLess(outcome["distance_m"], .055)
             for joint, (lower, upper) in zip(sim.arm_joints, LIMITS[:6]):
                 position = pb.getJointState(sim.arm, joint)[0]

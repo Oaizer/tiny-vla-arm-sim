@@ -1,0 +1,433 @@
+{
+  "title": "B601-RS randomized three-object precision sorting V4",
+  "version": "b601-rs-sort-v4",
+  "model": "Seeed B601-RS URDF",
+  "simulator": "PyBullet",
+  "task": "sort three colored cubes onto color-matched pads",
+  "success_tolerance_m": 0.035,
+  "trials": 5,
+  "successes": 2,
+  "objects_placed": 10,
+  "objects_attempted": 15,
+  "recovery_attempts": 14,
+  "max_placement_error_m": 0.82231,
+  "mean_placement_error_m": 0.22985,
+  "max_target_speed_rad_s": 1.5,
+  "seed_range": [
+    604000,
+    604004
+  ],
+  "records": [
+    {
+      "seed": 604000,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.365,
+            -0.18,
+            0.125
+          ],
+          "yaw_rad": 0.5911
+        },
+        "blue cube": {
+          "position_m": [
+            0.255,
+            0.0,
+            0.125
+          ],
+          "yaw_rad": -0.9325
+        },
+        "green cube": {
+          "position_m": [
+            0.31,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": 0.8047
+        }
+      },
+      "pick_order": [
+        "red cube",
+        "green cube",
+        "blue cube"
+      ],
+      "objects": [
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.03202,
+          "final_position_m": [
+            0.365,
+            -0.18,
+            0.1197
+          ],
+          "attempts": 0,
+          "recovery_attempts": 0,
+          "commands": 0
+        },
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.01034,
+          "final_position_m": [
+            0.35033,
+            0.1602,
+            0.12099
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "commands": 16
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.00802,
+          "final_position_m": [
+            0.33278,
+            0.00349,
+            0.11999
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "commands": 16
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 32,
+      "video": "media/b601-rs-sort-v4-seed-604000.mp4"
+    },
+    {
+      "seed": 604001,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.365,
+            -0.18,
+            0.125
+          ],
+          "yaw_rad": 0.5382
+        },
+        "blue cube": {
+          "position_m": [
+            0.255,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": 0.7168
+        },
+        "green cube": {
+          "position_m": [
+            0.31,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": -1.4255
+        }
+      },
+      "pick_order": [
+        "blue cube",
+        "red cube",
+        "green cube"
+      ],
+      "objects": [
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.02861,
+          "final_position_m": [
+            0.3686,
+            -0.0007,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "commands": 8
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.03201,
+          "final_position_m": [
+            0.365,
+            -0.17998,
+            0.11999
+          ],
+          "attempts": 0,
+          "recovery_attempts": 0,
+          "commands": 0
+        },
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": false,
+          "distance_m": 0.82231,
+          "final_position_m": [
+            1.03362,
+            0.60169,
+            0.02099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "commands": 24
+        }
+      ],
+      "success": false,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 32
+    },
+    {
+      "seed": 604002,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.255,
+            0.0,
+            0.125
+          ],
+          "yaw_rad": -0.6964
+        },
+        "blue cube": {
+          "position_m": [
+            0.255,
+            -0.18,
+            0.125
+          ],
+          "yaw_rad": -0.2187
+        },
+        "green cube": {
+          "position_m": [
+            0.31,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": 0.7469
+        }
+      },
+      "pick_order": [
+        "red cube",
+        "green cube",
+        "blue cube"
+      ],
+      "objects": [
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.01966,
+          "final_position_m": [
+            0.35859,
+            -0.16639,
+            0.12099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "commands": 24
+        },
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": false,
+          "distance_m": 0.3472,
+          "final_position_m": [
+            0.09792,
+            -0.0889,
+            0.02099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "commands": 24
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.0133,
+          "final_position_m": [
+            0.3282,
+            0.00614,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "commands": 8
+        }
+      ],
+      "success": false,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 56
+    },
+    {
+      "seed": 604003,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.365,
+            0.12,
+            0.125
+          ],
+          "yaw_rad": -0.9771
+        },
+        "blue cube": {
+          "position_m": [
+            0.365,
+            0.0,
+            0.125
+          ],
+          "yaw_rad": 0.1772
+        },
+        "green cube": {
+          "position_m": [
+            0.255,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": 0.8816
+        }
+      },
+      "pick_order": [
+        "red cube",
+        "blue cube",
+        "green cube"
+      ],
+      "objects": [
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": false,
+          "distance_m": 0.72214,
+          "final_position_m": [
+            0.56635,
+            0.52575,
+            0.01999
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "commands": 24
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": false,
+          "distance_m": 0.75337,
+          "final_position_m": [
+            0.26651,
+            -0.74977,
+            0.01999
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "commands": 24
+        },
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": false,
+          "distance_m": 0.62122,
+          "final_position_m": [
+            0.69811,
+            0.66762,
+            0.02099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "commands": 24
+        }
+      ],
+      "success": false,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 72
+    },
+    {
+      "seed": 604004,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.255,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": 0.6762
+        },
+        "blue cube": {
+          "position_m": [
+            0.31,
+            0.06,
+            0.125
+          ],
+          "yaw_rad": -0.6439
+        },
+        "green cube": {
+          "position_m": [
+            0.255,
+            -0.18,
+            0.125
+          ],
+          "yaw_rad": 0.6849
+        }
+      },
+      "pick_order": [
+        "red cube",
+        "green cube",
+        "blue cube"
+      ],
+      "objects": [
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.00618,
+          "final_position_m": [
+            0.33764,
+            -0.15429,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "commands": 8
+        },
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.01119,
+          "final_position_m": [
+            0.33078,
+            0.15367,
+            0.12099
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "commands": 8
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.02017,
+          "final_position_m": [
+            0.34047,
+            0.02016,
+            0.12812
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "commands": 8
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 24
+    }
+  ]
+}

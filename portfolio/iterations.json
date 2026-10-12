@@ -184,6 +184,110 @@
       "result": "B601 mechanics pilot passed",
       "status": "good",
       "source": "../docs/B601_SIMULATION.md#current-evidence"
+    },
+    {
+      "id": "b601-rs-sort-v2",
+      "title": "Randomize three cube starts",
+      "kind": "B601-RS sorting challenge",
+      "question": "Can the articulated arm sort three colored cubes from randomized starts?",
+      "evidence": "5 fresh seeds; a 4-by-7 start grid; randomized yaw and pick order; 35 mm placement tolerance.",
+      "measure": "3/5 complete sorts; 12/15 cubes placed; 14 recovery attempts.",
+      "detail": "The broad workspace exposed edge-of-reach and transfer failures. Some cubes moved off the table. Retries could not recover them. The teacher reads exact simulator state.",
+      "result": "Workspace too broad",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#sort-v2-evidence",
+      "data": "b601-rs-sort-v2-results.json"
+    },
+    {
+      "id": "b601-rs-sort-v3",
+      "title": "Narrow the randomized start band",
+      "kind": "B601-RS sorting challenge",
+      "question": "Does removing the far start positions make the three-cube task reliable?",
+      "evidence": "5 fresh seeds; 3-by-7 start grid; randomized yaw and pick order.",
+      "measure": "1/5 complete sorts; 11/15 cubes placed; 9 recovery attempts.",
+      "detail": "A narrower table region alone did not fix failures. The old 220 mm approach pose had 50–88 mm IK position error in the tested grid.",
+      "result": "Narrowing alone did not help",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#sort-v3-evidence",
+      "data": "b601-rs-sort-v3-results.json"
+    },
+    {
+      "id": "b601-rs-sort-v4",
+      "title": "Lower the approach and carry poses",
+      "kind": "B601-RS motion test",
+      "question": "Does a lower waypoint reduce B601 inverse-kinematics error?",
+      "evidence": "5 fresh seeds; same three-cube sort and 35 mm placement check.",
+      "measure": "2/5 complete sorts; 10/15 cubes placed.",
+      "detail": "A 140 mm approach reduced the IK pose error. Lowering the carry pose as well did not improve sorting. The selected replay shows cubes displaced during the transfer sequence.",
+      "result": "Better IK fit; task still unreliable",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#sort-v4-evidence",
+      "data": "b601-rs-sort-v4-results.json"
+    },
+    {
+      "id": "b601-rs-sort-v5",
+      "title": "Keep transfers inside the core workspace",
+      "kind": "B601-RS motion test",
+      "question": "Can a smaller start area and raised carry pose avoid table collisions?",
+      "evidence": "5 fresh seeds; x positions capped at 310 mm; 35 mm placement check.",
+      "measure": "1/5 complete sorts; 9/15 cubes placed.",
+      "detail": "This combination did not solve the problem. Some objects were knocked off the table. The next test returns the arm to its folded pose between picks.",
+      "result": "No improvement",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#sort-v5-evidence",
+      "data": "b601-rs-sort-v5-results.json"
+    },
+    {
+      "id": "b601-rs-sort-v6",
+      "title": "Return to the folded pose between picks",
+      "kind": "B601-RS sorting controller",
+      "question": "Does returning to a known joint pose reduce collisions between picks?",
+      "evidence": "12 fresh seeds; 36 cube placements; randomized yaw and pick order.",
+      "measure": "9/12 complete sorts; 31/36 cubes placed; 23 recovery attempts.",
+      "detail": "The arm retracts to its folded joint pose after each placement. This gave the best complete-sort rate so far. The batch still has three failed tasks and uses a scripted teacher.",
+      "result": "Best full-sort rate so far",
+      "status": "good",
+      "source": "../docs/B601_SIMULATION.md#sort-v6-evidence",
+      "data": "b601-rs-sort-v6-results.json"
+    },
+    {
+      "id": "b601-rs-sort-v7",
+      "title": "Remove edge starts and avoid no-op starts",
+      "kind": "B601-RS sorting challenge",
+      "question": "Can a reachable start band improve object placement without reducing the task?",
+      "evidence": "12 fresh seeds; starts stay at least 75 mm from their matching pads; 35 mm placement check.",
+      "measure": "9/12 complete sorts; 33/36 cubes placed; 12 recovery attempts.",
+      "detail": "The full-sort count matches V6, while two more cubes reached their pads. This is the strongest object-level result so far. The batches are unpaired, so the difference is not a statistical claim.",
+      "result": "Best placement count so far",
+      "status": "good",
+      "source": "../docs/B601_SIMULATION.md#sort-v7-evidence",
+      "data": "b601-rs-sort-v7-results.json"
+    },
+    {
+      "id": "b601-rs-sort-v8",
+      "title": "Increase start density",
+      "kind": "B601-RS challenge difficulty test",
+      "question": "How does a denser start area affect the B601 sorting task?",
+      "evidence": "12 fresh seeds; 18 candidate start positions; randomized yaw and pick order.",
+      "measure": "6/12 complete sorts; 29/36 cubes placed; 25 recovery attempts.",
+      "detail": "The denser, smaller start area reduced performance. This is useful evidence about the current motion limits, not a model gain.",
+      "result": "Harder scene; lower success",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#sort-v8-evidence",
+      "data": "b601-rs-sort-v8-results.json"
+    },
+    {
+      "id": "b601-rs-sort-v9",
+      "title": "Check the grasp before transferring",
+      "kind": "B601-RS recovery guard test",
+      "question": "Can a simulated lift check stop unsafe transfers after a missed grasp?",
+      "evidence": "12 fresh seeds; the teacher checks cube height and position before crossing the table.",
+      "measure": "9/12 complete sorts; 31/36 cubes placed; 13 failed-grasp checks.",
+      "detail": "The guard did not raise full-sort success above V6 or V7. It is a useful failure check, but the randomized task still needs better motion planning and a reliable B601 gripper model.",
+      "result": "No task-success gain",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#sort-v9-evidence",
+      "data": "b601-rs-sort-v9-results.json"
     }
   ],
   "trials": [
@@ -217,6 +321,83 @@
           "name": "B601-RS native-arm teacher",
           "outcome": "SUCCESS",
           "file": "media/b601-rs-seed-601008-joint-limited.mp4"
+        }
+      ]
+    },
+    {
+      "title": "V7 native-arm sort · seed 607000",
+      "scene": "B601-RS PyBullet trial. Randomized three-cube starts and order. The folded-pose return completes all three placements.",
+      "videos": [
+        {
+          "name": "V7 folded-pose sorting",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-sort-v7-seed-607000.mp4"
+        }
+      ]
+    },
+    {
+      "title": "V6 native-arm sort · seed 606003",
+      "scene": "B601-RS PyBullet trial. The arm returns to its folded joint pose between each cube. All three placements succeed.",
+      "videos": [
+        {
+          "name": "V6 folded-pose sorting",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-sort-v6-seed-606003.mp4"
+        }
+      ]
+    },
+    {
+      "title": "V5 native-arm sort · seed 605000",
+      "scene": "B601-RS PyBullet trial. Restricted start area and raised carry pose. The arm does not place every cube.",
+      "videos": [
+        {
+          "name": "V5 core-workspace test",
+          "outcome": "FAILED",
+          "file": "media/b601-rs-sort-v5-seed-605000.mp4"
+        }
+      ]
+    },
+    {
+      "title": "V4 native-arm sort · seed 604003",
+      "scene": "B601-RS PyBullet trial. Lower approach and carry poses. The replay shows objects displaced during the transfer sequence.",
+      "videos": [
+        {
+          "name": "V4 lower-waypoint test",
+          "outcome": "FAILED",
+          "file": "media/b601-rs-sort-v4-seed-604003.mp4"
+        }
+      ]
+    },
+    {
+      "title": "V4 native-arm sort · seed 604000",
+      "scene": "B601-RS PyBullet trial. All three cubes reach their matching pads within the per-object tolerance.",
+      "videos": [
+        {
+          "name": "V4 lower-waypoint test",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-sort-v4-seed-604000.mp4"
+        }
+      ]
+    },
+    {
+      "title": "V3 native-arm sort · seed 603000",
+      "scene": "B601-RS PyBullet trial. Narrow start grid with randomized yaw. The full three-cube task fails.",
+      "videos": [
+        {
+          "name": "V3 narrow-grid test",
+          "outcome": "FAILED",
+          "file": "media/b601-rs-sort-v3-seed-603000.mp4"
+        }
+      ]
+    },
+    {
+      "title": "V2 native-arm sort · seed 602000",
+      "scene": "B601-RS PyBullet trial. Broad randomized grid. One selected full-sort success from a five-seed batch.",
+      "videos": [
+        {
+          "name": "V2 randomized sorting",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-sort-seed-602000.mp4"
         }
       ]
     },

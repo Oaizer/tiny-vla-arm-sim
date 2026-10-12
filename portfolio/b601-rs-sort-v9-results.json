@@ -1,0 +1,1048 @@
+{
+  "title": "B601-RS randomized three-object precision sorting V9",
+  "version": "b601-rs-sort-v9",
+  "model": "Seeed B601-RS URDF",
+  "simulator": "PyBullet",
+  "task": "sort three colored cubes onto color-matched pads",
+  "success_tolerance_m": 0.035,
+  "trials": 12,
+  "successes": 9,
+  "objects_placed": 31,
+  "objects_attempted": 36,
+  "recovery_attempts": 24,
+  "pickup_failures": 13,
+  "max_placement_error_m": 0.83508,
+  "mean_placement_error_m": 0.08896,
+  "approach_height_m": 0.14,
+  "carry_height_m": 0.2,
+  "return_to_home_between_objects": true,
+  "min_start_to_matching_pad_distance_m": 0.075,
+  "grasp_check_before_transfer": true,
+  "max_target_speed_rad_s": 1.5,
+  "seed_range": [
+    609000,
+    609011
+  ],
+  "records": [
+    {
+      "seed": 609000,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.31,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": -1.0874
+        },
+        "blue cube": {
+          "position_m": [
+            0.255,
+            0.06,
+            0.125
+          ],
+          "yaw_rad": -1.0465
+        },
+        "green cube": {
+          "position_m": [
+            0.255,
+            0.18,
+            0.125
+          ],
+          "yaw_rad": 0.119
+        }
+      },
+      "pick_order": [
+        "green cube",
+        "blue cube",
+        "red cube"
+      ],
+      "objects": [
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.01277,
+          "final_position_m": [
+            0.3327,
+            0.14952,
+            0.12099
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "pickup_failures": 0,
+          "commands": 18
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.02283,
+          "final_position_m": [
+            0.32952,
+            0.02028,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.01498,
+          "final_position_m": [
+            0.32512,
+            -0.15828,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 36
+    },
+    {
+      "seed": 609001,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.31,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": -1.1951
+        },
+        "blue cube": {
+          "position_m": [
+            0.225,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": 1.0188
+        },
+        "green cube": {
+          "position_m": [
+            0.255,
+            0.12,
+            0.125
+          ],
+          "yaw_rad": 0.9852
+        }
+      },
+      "pick_order": [
+        "red cube",
+        "blue cube",
+        "green cube"
+      ],
+      "objects": [
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.01332,
+          "final_position_m": [
+            0.33209,
+            -0.14929,
+            0.11999
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "pickup_failures": 0,
+          "commands": 18
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.01764,
+          "final_position_m": [
+            0.33655,
+            0.0173,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.01873,
+          "final_position_m": [
+            0.33635,
+            0.17837,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 36
+    },
+    {
+      "seed": 609002,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.285,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": 1.4108
+        },
+        "blue cube": {
+          "position_m": [
+            0.255,
+            0.06,
+            0.125
+          ],
+          "yaw_rad": 0.9486
+        },
+        "green cube": {
+          "position_m": [
+            0.225,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": -0.1793
+        }
+      },
+      "pick_order": [
+        "green cube",
+        "blue cube",
+        "red cube"
+      ],
+      "objects": [
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.02373,
+          "final_position_m": [
+            0.33094,
+            0.18193,
+            0.11999
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "pickup_failures": 0,
+          "commands": 27
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": false,
+          "distance_m": 0.63494,
+          "final_position_m": [
+            -0.21949,
+            -0.30019,
+            0.02099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "pickup_failures": 3,
+          "commands": 21
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": false,
+          "distance_m": 0.67931,
+          "final_position_m": [
+            0.08986,
+            -0.79158,
+            0.02099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "pickup_failures": 2,
+          "commands": 23
+        }
+      ],
+      "success": false,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 71
+    },
+    {
+      "seed": 609003,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.225,
+            -0.18,
+            0.125
+          ],
+          "yaw_rad": -1.5208
+        },
+        "blue cube": {
+          "position_m": [
+            0.255,
+            0.12,
+            0.125
+          ],
+          "yaw_rad": 0.0046
+        },
+        "green cube": {
+          "position_m": [
+            0.31,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": -1.5263
+        }
+      },
+      "pick_order": [
+        "green cube",
+        "blue cube",
+        "red cube"
+      ],
+      "objects": [
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.01303,
+          "final_position_m": [
+            0.32922,
+            0.15269,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.01485,
+          "final_position_m": [
+            0.34576,
+            0.01369,
+            0.12099
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.02623,
+          "final_position_m": [
+            0.31944,
+            -0.17629,
+            0.12099
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "pickup_failures": 0,
+          "commands": 18
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 36
+    },
+    {
+      "seed": 609004,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.255,
+            0.12,
+            0.125
+          ],
+          "yaw_rad": -0.2391
+        },
+        "blue cube": {
+          "position_m": [
+            0.285,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": -0.7827
+        },
+        "green cube": {
+          "position_m": [
+            0.225,
+            0.0,
+            0.125
+          ],
+          "yaw_rad": 0.2069
+        }
+      },
+      "pick_order": [
+        "green cube",
+        "blue cube",
+        "red cube"
+      ],
+      "objects": [
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.0184,
+          "final_position_m": [
+            0.32419,
+            0.15059,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.02185,
+          "final_position_m": [
+            0.31942,
+            0.00734,
+            0.12099
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "pickup_failures": 0,
+          "commands": 18
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.01634,
+          "final_position_m": [
+            0.33185,
+            -0.14584,
+            0.12099
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 36
+    },
+    {
+      "seed": 609005,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.31,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": 1.1631
+        },
+        "blue cube": {
+          "position_m": [
+            0.31,
+            0.18,
+            0.125
+          ],
+          "yaw_rad": 0.8434
+        },
+        "green cube": {
+          "position_m": [
+            0.225,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": 0.5799
+        }
+      },
+      "pick_order": [
+        "green cube",
+        "red cube",
+        "blue cube"
+      ],
+      "objects": [
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": false,
+          "distance_m": 0.07331,
+          "final_position_m": [
+            0.27211,
+            0.13234,
+            0.12099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "pickup_failures": 2,
+          "commands": 23
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.02552,
+          "final_position_m": [
+            0.33481,
+            -0.13501,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": false,
+          "distance_m": 0.40782,
+          "final_position_m": [
+            0.33074,
+            0.40771,
+            0.12099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "pickup_failures": 3,
+          "commands": 21
+        }
+      ],
+      "success": false,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 53
+    },
+    {
+      "seed": 609006,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.255,
+            0.18,
+            0.125
+          ],
+          "yaw_rad": 1.3966
+        },
+        "blue cube": {
+          "position_m": [
+            0.225,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": 0.7591
+        },
+        "green cube": {
+          "position_m": [
+            0.225,
+            0.0,
+            0.125
+          ],
+          "yaw_rad": -0.5313
+        }
+      },
+      "pick_order": [
+        "green cube",
+        "blue cube",
+        "red cube"
+      ],
+      "objects": [
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.01147,
+          "final_position_m": [
+            0.33203,
+            0.16825,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.01849,
+          "final_position_m": [
+            0.34266,
+            0.0183,
+            0.12099
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "pickup_failures": 1,
+          "commands": 16
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.0176,
+          "final_position_m": [
+            0.33091,
+            -0.14494,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 34
+    },
+    {
+      "seed": 609007,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.225,
+            -0.18,
+            0.125
+          ],
+          "yaw_rad": 0.9739
+        },
+        "blue cube": {
+          "position_m": [
+            0.255,
+            0.06,
+            0.125
+          ],
+          "yaw_rad": -0.9539
+        },
+        "green cube": {
+          "position_m": [
+            0.31,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": -0.5581
+        }
+      },
+      "pick_order": [
+        "green cube",
+        "blue cube",
+        "red cube"
+      ],
+      "objects": [
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.01566,
+          "final_position_m": [
+            0.32858,
+            0.17071,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.00961,
+          "final_position_m": [
+            0.34533,
+            0.008,
+            0.11999
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "pickup_failures": 1,
+          "commands": 16
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.00578,
+          "final_position_m": [
+            0.33463,
+            -0.15788,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 34
+    },
+    {
+      "seed": 609008,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.225,
+            -0.18,
+            0.125
+          ],
+          "yaw_rad": 1.3852
+        },
+        "blue cube": {
+          "position_m": [
+            0.285,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": 0.3885
+        },
+        "green cube": {
+          "position_m": [
+            0.31,
+            -0.18,
+            0.125
+          ],
+          "yaw_rad": -0.8547
+        }
+      },
+      "pick_order": [
+        "green cube",
+        "red cube",
+        "blue cube"
+      ],
+      "objects": [
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.01668,
+          "final_position_m": [
+            0.3319,
+            0.17459,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.02863,
+          "final_position_m": [
+            0.32703,
+            -0.13448,
+            0.12099
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": false,
+          "distance_m": 0.83508,
+          "final_position_m": [
+            0.78183,
+            -0.70862,
+            0.02099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "pickup_failures": 0,
+          "commands": 27
+        }
+      ],
+      "success": false,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 45
+    },
+    {
+      "seed": 609009,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.31,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": 0.8246
+        },
+        "blue cube": {
+          "position_m": [
+            0.225,
+            0.12,
+            0.125
+          ],
+          "yaw_rad": 0.8203
+        },
+        "green cube": {
+          "position_m": [
+            0.225,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": 0.2247
+        }
+      },
+      "pick_order": [
+        "red cube",
+        "blue cube",
+        "green cube"
+      ],
+      "objects": [
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.02765,
+          "final_position_m": [
+            0.36744,
+            -0.15667,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.01668,
+          "final_position_m": [
+            0.35633,
+            0.00339,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.02752,
+          "final_position_m": [
+            0.35132,
+            0.18509,
+            0.12099
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "pickup_failures": 0,
+          "commands": 27
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 45
+    },
+    {
+      "seed": 609010,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.225,
+            0.06,
+            0.125
+          ],
+          "yaw_rad": -0.3149
+        },
+        "blue cube": {
+          "position_m": [
+            0.225,
+            -0.06,
+            0.125
+          ],
+          "yaw_rad": -1.3735
+        },
+        "green cube": {
+          "position_m": [
+            0.31,
+            0.0,
+            0.125
+          ],
+          "yaw_rad": -1.4819
+        }
+      },
+      "pick_order": [
+        "blue cube",
+        "red cube",
+        "green cube"
+      ],
+      "objects": [
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.01436,
+          "final_position_m": [
+            0.33312,
+            0.01261,
+            0.11999
+          ],
+          "attempts": 3,
+          "recovery_attempts": 2,
+          "pickup_failures": 1,
+          "commands": 25
+        },
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.01235,
+          "final_position_m": [
+            0.33283,
+            -0.14994,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.03419,
+          "final_position_m": [
+            0.37241,
+            0.17089,
+            0.11999
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "pickup_failures": 0,
+          "commands": 18
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 52
+    },
+    {
+      "seed": 609011,
+      "starts": {
+        "red cube": {
+          "position_m": [
+            0.285,
+            0.0,
+            0.125
+          ],
+          "yaw_rad": -1.3161
+        },
+        "blue cube": {
+          "position_m": [
+            0.31,
+            0.12,
+            0.125
+          ],
+          "yaw_rad": -0.9659
+        },
+        "green cube": {
+          "position_m": [
+            0.225,
+            -0.12,
+            0.125
+          ],
+          "yaw_rad": -1.1832
+        }
+      },
+      "pick_order": [
+        "red cube",
+        "blue cube",
+        "green cube"
+      ],
+      "objects": [
+        {
+          "object": "red cube",
+          "pad": "yellow",
+          "success": true,
+          "distance_m": 0.01786,
+          "final_position_m": [
+            0.33112,
+            -0.1445,
+            0.12099
+          ],
+          "attempts": 2,
+          "recovery_attempts": 1,
+          "pickup_failures": 0,
+          "commands": 18
+        },
+        {
+          "object": "blue cube",
+          "pad": "purple",
+          "success": true,
+          "distance_m": 0.00908,
+          "final_position_m": [
+            0.33533,
+            0.00779,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        },
+        {
+          "object": "green cube",
+          "pad": "cyan",
+          "success": true,
+          "distance_m": 0.02823,
+          "final_position_m": [
+            0.31451,
+            0.17215,
+            0.11999
+          ],
+          "attempts": 1,
+          "recovery_attempts": 0,
+          "pickup_failures": 0,
+          "commands": 9
+        }
+      ],
+      "success": true,
+      "joint_limits_respected": true,
+      "peak_reference_speed_rad_s": 1.5,
+      "commands": 36
+    }
+  ]
+}

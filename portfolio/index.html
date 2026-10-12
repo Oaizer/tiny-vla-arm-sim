@@ -100,7 +100,7 @@
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-head">
         <h1 id="page-title">Small arm.<br>Hard tests.</h1>
-        <div class="hero-note"><strong>SIMULATION ONLY</strong>B601-RS physics pilot · Panda-based VLA results · 15 experiments<br>No physical robot tests</div>
+        <div class="hero-note"><strong>SIMULATION ONLY</strong>B601-RS physics pilot · Panda-based VLA results · 23 experiments<br>No physical robot tests</div>
       </div>
       <p class="hero-intro">A measured record of simulated vision-language-action experiments and arm tests. The latest native-arm pilot uses the articulated B601-RS model. Earlier VLA scores use Panda. The evidence keeps <span>misses, losses, and uncertainty.</span></p>
       <div class="lead-evidence">
@@ -125,12 +125,12 @@
 
     <section id="trials" class="section" aria-labelledby="trials-title">
       <div class="section-head"><h2 id="trials-title" class="section-title">Trial films</h2><p>Selected examples from the trial sets. The first clips use the articulated B601-RS model; later clips are historical Panda-arm VLA trials. They use different controllers and are not a matched comparison.</p></div>
-      <p class="comparison-note">B601-RS pilot: 12/12 scripted placements on seeded starts. This checks the arm model, joint-limited motion, gripper contact, and video capture. It does not measure a trained policy. <a href="b601-rs-results.json">Open all B601 trial results</a>.</p>
+      <p class="comparison-note">B601-RS single-cube pilot: 12/12 placements. The best three-cube challenge: 9/12 full sorts and 33/36 cubes placed. Both use a scripted teacher with simulator state; neither evaluates a trained policy. <a href="b601-rs-results.json">Open all B601 trial results</a>.</p>
       <div id="trial-list"><p class="loading">Loading trial films…</p></div>
     </section>
 
     <section id="method" class="section" aria-labelledby="method-title">
-      <div class="section-head"><h2 id="method-title" class="section-title">How to read this work</h2><p>The VLA models were trained and tested with simulated scenes and simulator labels. V13 scores grasp candidates with full pick, lift, and place outcomes. The new B601-RS pilot uses its own articulated URDF model and a simulator-state teacher; it is separate from VLA results.</p></div>
+      <div class="section-head"><h2 id="method-title" class="section-title">How to read this work</h2><p>The VLA models were trained and tested with simulated scenes and simulator labels. V13 scores grasp candidates with full pick, lift, and place outcomes. The B601-RS challenge series uses its own articulated URDF and simulator-state teacher. It is separate from the Panda VLA results.</p></div>
       <div class="method">
         <div><h3>Policy</h3><p>A small vision-language-action policy maps the camera and instruction to arm commands. The original feedback controller remains the default.</p></div>
         <div><h3>World model</h3><p>A JEPA-style model predicts future visual and arm state from proposed commands. It uses simulator labels and is not fully self-supervised.</p></div>
@@ -156,7 +156,7 @@
         <article class="entry" id="${escapeHtml(item.id)}">
           <div class="entry-id">${escapeHtml(item.id.toUpperCase())}</div>
           <div><h3>${escapeHtml(item.title)}</h3><span class="entry-kind">${escapeHtml(item.kind)}</span></div>
-          <div class="entry-detail"><p>${escapeHtml(item.question)}</p><p>${escapeHtml(item.evidence)}</p><p class="measure">${escapeHtml(item.measure)}</p><p>${escapeHtml(item.detail)}</p><a class="source" href="${escapeHtml(item.source)}">Read full results →</a>${item.archive ? ` <a class="source" href="${escapeHtml(item.archive)}">Download data and weights →</a>` : ""}</div>
+          <div class="entry-detail"><p>${escapeHtml(item.question)}</p><p>${escapeHtml(item.evidence)}</p><p class="measure">${escapeHtml(item.measure)}</p><p>${escapeHtml(item.detail)}</p><a class="source" href="${escapeHtml(item.source)}">Read full results →</a>${item.data ? ` <a class="source" href="${escapeHtml(item.data)}">Open per-seed data →</a>` : ""}${item.archive ? ` <a class="source" href="${escapeHtml(item.archive)}">Download data and weights →</a>` : ""}</div>
           <div class="verdict ${verdictClass(item.status)}">${escapeHtml(item.result)}</div>
         </article>`).join("");
       document.querySelector("#trial-list").innerHTML = data.trials.map((trial) => `
