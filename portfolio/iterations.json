@@ -12,7 +12,7 @@
       "detail": "Prediction error improved only slightly over the hold-current estimate. The planner did not improve overall task completion, so feedback stayed the default.",
       "result": "No task-success gain",
       "status": "warn",
-      "source": "../artifacts/world-v1/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#first-fit"
     },
     {
       "id": "v2",
@@ -24,7 +24,7 @@
       "detail": "The coherent variant cut planning calls from 146 to 41. It had no paired wins and 5 losses against feedback. The change did not improve success or produce a material speed gain.",
       "result": "Fewer planner calls; no gain",
       "status": "warn",
-      "source": "../artifacts/world-v2/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#second-experiment-keep-the-grasp-offset-consistent"
     },
     {
       "id": "v3",
@@ -36,7 +36,7 @@
       "detail": "Prediction improved overall, but red-cylinder recall stayed low. Candidate AP was 0.778 for the head and 0.738 for the old score. The contact head stayed out of the controller.",
       "result": "Better prediction; mixed ranking",
       "status": "warn",
-      "source": "../artifacts/world-v3/contact/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#third-experiment-predict-direct-finger-contact"
     },
     {
       "id": "v4",
@@ -48,7 +48,7 @@
       "detail": "Recall at a 0.5 threshold improved from 7.2% to 29.8%, but calibration stayed weak. The fresh independent ranking did not beat the unchanged grasp.",
       "result": "Better red-cylinder prediction; no ranking gain",
       "status": "warn",
-      "source": "../artifacts/world-v4/contact/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#fourth-experiment-target-red-cylinder-contact"
     },
     {
       "id": "v5",
@@ -60,7 +60,7 @@
       "detail": "The 241-parameter reranker had candidate AP 0.816 and 0.832 across the two audits; unchanged grasp AP was 0.777 and 0.801. Paired results: 12 wins, 7 losses, 61 ties (exact sign p=0.359). V6 later tested it as a recovery proposal; that test showed no task-success gain.",
       "result": "Small consistent contact-ranking lead; not a control result",
       "status": "good",
-      "source": "../artifacts/world-v5/reranker/RESULTS.md",
+      "source": "../docs/WORLD_MODEL_LOG.md#fifth-experiment-rerank-grasp-candidates",
       "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v5-reranker/tiny-vla-world-v5-reranker.zip"
     },
     {
@@ -73,7 +73,7 @@
       "detail": "Feedback acted first. On recovery, the frozen JEPA and V5 ranker proposed a bounded grasp offset. Finger checks, camera replanning, and retries remained active. The ranker made 3 proposals during 17 retries; none changed task success. A feature audit found a contact-head channel mismatch in V5, so correct its inputs and retrain before another controller test.",
       "result": "No task-success gain; reranker features need correction",
       "status": "warn",
-      "source": "../artifacts/world-v6/hybrid-feedback/RESULTS.md",
+      "source": "../docs/WORLD_MODEL_LOG.md#sixth-experiment-guarded-model-proposal-with-feedback-recovery",
       "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v6-hybrid-feedback/tiny-vla-world-v6-hybrid-feedback.zip"
     },
     {
@@ -86,7 +86,7 @@
       "detail": "The corrected reranker used contact-head channel 3 for the red cylinder and removed the simulator-only tipped label. The controller had 0 wins, 0 losses, and 40 ties. Better contact ranking did not improve task success.",
       "result": "Better contact choice; no task gain",
       "status": "warn",
-      "source": "../artifacts/world-v7/corrected-hybrid/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#seventh-experiment-correct-contact-features"
     },
     {
       "id": "v8",
@@ -98,7 +98,7 @@
       "detail": "The adapted policy improved its tipped-scene waypoint metric but lost two task successes overall. It had 1 win and 3 losses against the base policy. Keep the base policy as the default.",
       "result": "Better waypoint metric; worse task result",
       "status": "warn",
-      "source": "../artifacts/world-v8/tipped-adaptation/evaluation/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#eighth-experiment-fine-tune-on-fallen-objects"
     },
     {
       "id": "v9",
@@ -110,7 +110,7 @@
       "detail": "The first low-confidence view still stopped the controller. A saved target was used only after a prior valid view and during bounded recovery. It did not add a successful task.",
       "result": "No task-success gain",
       "status": "warn",
-      "source": "../artifacts/world-v9/recovery-fallback/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#ninth-experiment-retry-from-the-last-valid-visual-target"
     },
     {
       "id": "v10",
@@ -122,7 +122,7 @@
       "detail": "A linear gate, a small MLP, and a crop classifier all missed most fallen cylinders. The gate did not meet the fixed validation limit, so the routed model stayed out of the controller.",
       "result": "Visual gate too weak",
       "status": "warn",
-      "source": "../artifacts/world-v10/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#tenth-experiment-route-to-the-adapted-policy"
     },
     {
       "id": "v11",
@@ -134,7 +134,7 @@
       "detail": "The permissive gate accepted all four non-default proposals. None changed the final task result. The missing-object safe-stop rate stayed 7/8 for both.",
       "result": "No task-success gain",
       "status": "warn",
-      "source": "../artifacts/world-v11/permissive-ranker/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#eleventh-and-twelfth-experiments-change-when-proposals-run"
     },
     {
       "id": "v12",
@@ -146,7 +146,7 @@
       "detail": "The ranker changed 41 grasp commands. Two feedback failures became successes, but two successful feedback trials became failures. The net task result was unchanged.",
       "result": "Mixed outcomes; no net gain",
       "status": "warn",
-      "source": "../artifacts/world-v12/first-grasp-ranker/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#eleventh-and-twelfth-experiments-change-when-proposals-run"
     },
     {
       "id": "v13",
@@ -158,7 +158,7 @@
       "detail": "Both fresh seed ranges favored V13. The combined gain is 6 tasks, but the paired test is small and does not establish a reliable effect. Missing-object safe stops were 15/16 for both controllers. Keep testing in simulation before any real-arm use.",
       "result": "Repeatable positive gain; early evidence",
       "status": "good",
-      "source": "../artifacts/world-v13/task-ranker/REPLICATION.md",
+      "source": "../docs/WORLD_MODEL_LOG.md#thirteenth-experiment-train-on-full-task-outcomes",
       "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v13-task-success/tiny-vla-world-v13-task-success.zip"
     },
     {
@@ -171,7 +171,7 @@
       "detail": "V14 follows the first camera plan from the parked pose. It skips the first approach, retreat, and second pregrasp inference. Finger checks, retries, and the post-lift camera replan remain active. Both controllers stopped safely in 8/8 missing-object checks. Mean control time did not improve: 2.06 s for the original and 2.19 s for V14.",
       "result": "No probe; same task success",
       "status": "good",
-      "source": "../artifacts/world-v14/direct-approach/RESULTS.md"
+      "source": "../docs/WORLD_MODEL_LOG.md#fourteenth-experiment-plan-from-the-parked-camera-view"
     },
     {
       "id": "b601-rs-v1",

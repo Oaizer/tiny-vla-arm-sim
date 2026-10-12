@@ -1,0 +1,48 @@
+name: Deploy portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'portfolio/**'
+      - 'docs/B601_SIMULATION.md'
+      - 'docs/WORLD_MODEL_LOG.md'
+      - 'README.md'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Pages
+        uses: actions/configure-pages@v5
+      - name: Build site
+        run: |
+          mkdir -p _site/portfolio _site/docs
+          cp -R portfolio/. _site/portfolio/
+          cp README.md _site/README.md
+          cp docs/B601_SIMULATION.md docs/WORLD_MODEL_LOG.md _site/docs/
+          printf '%s\n' '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=./portfolio/"><title>TinyVLA simulation record</title><a href="./portfolio/">Open the simulation record</a>' > _site/index.html
+          touch _site/.nojekyll
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Publish site
+        id: deployment
+        uses: actions/deploy-pages@v4
