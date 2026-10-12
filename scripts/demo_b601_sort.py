@@ -151,7 +151,7 @@ def main():
     return_to_home = args.version in {"v6", "v7", "v8", "v9"}
     out.mkdir(parents=True, exist_ok=True)
     MEDIA.mkdir(parents=True, exist_ok=True)
-    sim = B601Sim(size=192, frame_stride=24) if args.version in {"v6", "v7", "v8", "v9"} and not args.no_video else B601Sim()
+    sim = B601Sim(size=384, frame_stride=96) if args.version in {"v6", "v7", "v8", "v9"} and not args.no_video else B601Sim()
     records = []
     started = time.time()
     try:

@@ -40,6 +40,23 @@ All versions use fresh seed batches. These are small, unpaired samples, so compa
 | V8 | Use a denser, smaller start region | 6/12 | 29/36 | More crowded starts reduced task success. |
 | V9 | Add a simulated grasp check before transfer | 9/12 | 31/36 | The check did not improve full-sort success. |
 
+### Barrier-clear transfer V1
+
+The next challenge adds a solid 45 mm wall between the randomized starts and the three matching pads. The same articulated B601-RS model and simulator-state teacher are used. Each of 12 fresh seeds randomizes cube starts, yaw, and pick order. The arm carries at 200 mm and may retry a placement twice.
+
+The result is **8/12 complete sorts and 30/36 cubes placed**. The open-table V7 run scored 9/12 and 33/36, but it used different seeds and no wall. Treat this as a harder task result, not a paired comparison or a policy improvement. Four trials still had at least one failed placement. The challenge is useful for exposing path clearance and recovery limits.
+
+The selected clip is [seed 610001](../portfolio/media/b601-rs-obstacle-seed-610001.mp4). Per-seed starts, object errors, and outcomes are in [the tracked result file](../portfolio/b601-rs-obstacle-v1-results.json).
+
+Reproduce the batch and selected video from the project root:
+
+```bash
+PYTHONPATH=src:scripts python scripts/demo_b601_obstacle.py --trials 12 --no-video
+PYTHONPATH=src:scripts python scripts/demo_b601_obstacle.py --videos-only --video-seed 610001
+```
+
+The wall top is at 145 mm above the simulation origin, while the table top is 100 mm. The teacher uses a 140 mm approach height and a 200 mm carry waypoint. This waypoint is a scripted route choice; the simulation does not guarantee a minimum clearance for every arm link or model the real motor controller.
+
 V6 and V7 complete 9 of 12 trials each. V7 places 33 of 36 cubes, compared with 31 of 36 for V6. The batches use different seed ranges, so this is not a paired comparison. V7 is the current best setting, not a confirmed policy improvement. The arm still fails on some randomized scenes.
 
 ### Sort V2 evidence
@@ -84,6 +101,7 @@ Each version has a tracked result file with starts, pick order, object placement
 - [V7 per-seed data](../portfolio/b601-rs-sort-v7-results.json)
 - [V8 per-seed data](../portfolio/b601-rs-sort-v8-results.json)
 - [V9 per-seed data](../portfolio/b601-rs-sort-v9-results.json)
+- [Barrier-clear transfer V1 per-seed data](../portfolio/b601-rs-obstacle-v1-results.json)
 
 ### Reproduce the sorting challenges
 
@@ -99,10 +117,10 @@ Build its selected trial clip:
 PYTHONPATH=src python scripts/demo_b601_sort.py --version v7 --videos-only --video-seed 607000
 ```
 
-The script supports V2 through V9. Keep each result attached to its version and seed range. V9 checks the simulated object height after a lift and stops before transfer when the grasp check fails. All runs use a 1.50 rad/s cap on joint reference speed. This is not a motor speed limit, because the PyBullet position servo does not reproduce Seeed’s online motor controller.
+The sorting script supports V2 through V9. Keep each result attached to its version and seed range. V9 checks the simulated object height after a lift and stops before transfer when the grasp check fails. The barrier challenge runs from its own script. All runs use a 1.50 rad/s cap on joint reference speed. This is not a motor speed limit, because the PyBullet position servo does not reproduce Seeed’s online motor controller.
 
 ## Current evidence
 
-The one-cube pilot completed 12 of 12 seeded placements. The newer three-cube challenge completed 9 of 12 full sorts in its best 12-seed batch. Both use a scripted teacher. They do not test a learned VLA policy or real-arm safety. The [tracked per-seed results](../portfolio/b601-rs-results.json) include object starts, placement errors, and joint-limit checks. The older VLA benchmarks are still Panda results and remain listed separately on the portfolio page.
+The one-cube pilot completed 12 of 12 seeded placements. The best open-table three-cube batch completed 9 of 12 full sorts. The added barrier challenge completed 8 of 12. All use a scripted teacher. They do not test a learned VLA policy or real-arm safety. The [tracked per-seed results](../portfolio/b601-rs-results.json) include object starts, placement errors, and joint-limit checks. The older VLA benchmarks are still Panda results and remain listed separately on the portfolio page.
 
 Before policy training, calibrate target speed and gripper width conversion against Seeed’s own B601-RS simulation controller. Then collect B601-RS episodes with joint-state observations and train a fresh policy on this arm. Evaluate it on new seeds against a B601-specific feedback controller. Keep all tests in simulation.

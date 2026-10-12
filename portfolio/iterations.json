@@ -288,9 +288,44 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#sort-v9-evidence",
       "data": "b601-rs-sort-v9-results.json"
+    },
+    {
+      "id": "b601-rs-obstacle-v1",
+      "title": "Clear a barrier during three-cube sorting",
+      "kind": "B601-RS obstacle transfer challenge",
+      "question": "Can the current scripted motion transfer three cubes across a solid tabletop barrier?",
+      "evidence": "12 fresh seeds; each trial randomizes three cube starts, yaw, and pick order.",
+      "measure": "8/12 complete sorts; 30/36 cubes placed within 35 mm.",
+      "detail": "A 45 mm wall separates every start from its matching pad. The teacher uses a 200 mm carry waypoint and up to two retries per cube. The open-table V7 batch scored 9/12 and 33/36 on different seeds, so these are not paired results. This is scripted simulation evidence, not a policy gain.",
+      "result": "Harder task; 8/12 sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#barrier-clear-transfer-v1",
+      "data": "b601-rs-obstacle-v1-results.json"
     }
   ],
   "trials": [
+    {
+      "title": "Barrier transfer · seed 610001",
+      "scene": "B601-RS PyBullet model. Three cubes cross a 45 mm solid wall. This is one success from a 12-seed scripted-teacher batch.",
+      "videos": [
+        {
+          "name": "Obstacle-clear transfer",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-obstacle-seed-610001.mp4"
+        }
+      ]
+    },
+    {
+      "title": "Open-table sort · seed 607000",
+      "scene": "B601-RS PyBullet model. Selected V7 result from the strongest open-table sorting batch: 9/12 complete sorts and 33/36 cubes placed.",
+      "videos": [
+        {
+          "name": "V7 open-table sorting · 384 × 432",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-sort-v7-seed-607000.mp4"
+        }
+      ]
+    },
     {
       "title": "B601-RS joint-limited trial · seed 601000",
       "scene": "Red cube start 0.244 m, -0.135 m. Physical contact in the articulated B601-RS PyBullet model; scripted teacher, not a trained policy.",
