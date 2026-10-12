@@ -1,0 +1,610 @@
+{
+  "task_trials": 40,
+  "feedback_successes": 24,
+  "hybrid_successes": 24,
+  "wins": 0,
+  "losses": 0,
+  "ties": 40,
+  "exact_two_sided_sign_p": 1.0,
+  "missing_trials": 8,
+  "feedback_missing_safe_stops": 8,
+  "hybrid_missing_safe_stops": 8,
+  "planner_calls": 4,
+  "accepted_proposals": 4,
+  "protocol_sha256": "4c2d4793b5a92ddcfb39200fe05aafbc31741e590696fadf370746947db04552",
+  "evaluation_seconds": 146.5127673149109,
+  "rows": [
+    {
+      "suite": "nominal",
+      "seed": 310000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 310001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 310002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 310003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 310004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 310005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 310006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 310007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 311000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 311001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8241173624992371,
+          "contact_disagreement": 0.015354296192526817,
+          "predicted_contact": 0.6321057677268982,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999996811151505
+          ],
+          "fallback": false,
+          "milliseconds": 1.9433369998296257
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 311002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 311003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 311004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 311005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6369876265525818,
+          "contact_disagreement": 0.02665136568248272,
+          "predicted_contact": 0.31787109375,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999855250120164
+          ],
+          "fallback": false,
+          "milliseconds": 1.2063340000167955
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 311006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8267953991889954,
+          "contact_disagreement": 0.001173659460619092,
+          "predicted_contact": 0.9006958603858948,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000114157795907
+          ],
+          "fallback": false,
+          "milliseconds": 1.0837519998858625
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 311007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 312000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 312001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 312002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 312003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 312004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 312005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 312006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 312007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8944100737571716,
+          "contact_disagreement": 0.027640827000141144,
+          "predicted_contact": 0.606360673904419,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999899953603745
+          ],
+          "fallback": false,
+          "milliseconds": 1.727297000343242
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 313000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 313001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 313002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 313003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 313004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 313005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 313006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 313007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 314000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 314001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 314002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 314003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 314004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 314005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 314006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 314007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 315000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 315001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 315002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 315003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 315004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 315005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 315006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 315007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    }
+  ]
+}

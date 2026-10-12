@@ -36,9 +36,9 @@
     .hero-intro span{color:var(--red);font-weight:700}
     .lead-evidence{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(240px,.8fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);min-height:310px}
     .lead-film{position:relative;min-height:310px;background:#222;overflow:hidden}
-    .lead-film img{width:100%;height:100%;min-height:310px;display:block;object-fit:cover;object-position:center 42%;background:#222}
+    .lead-film img,.lead-film video{width:100%;height:100%;min-height:310px;display:block;object-fit:cover;object-position:center 42%;background:#222;color:var(--paper)}
     .watch-link{position:absolute;right:14px;bottom:14px;background:var(--paper);padding:9px 12px;font:11px var(--mono);text-transform:uppercase;letter-spacing:.04em;text-decoration:none}
-    .film-label{position:relative;display:block;background:var(--ink);color:var(--paper);padding:7px 10px;font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+    .film-label{position:relative;display:block;background:var(--ink);color:var(--paper);padding:7px 10px;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em}
     .lead-copy{padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid var(--ink)}
     .lead-copy h2{font:12px/1.7 var(--mono);text-transform:uppercase;letter-spacing:.08em;margin:0 0 15px}
     .lead-copy p{margin:0 0 15px;color:var(--muted);font-size:14px}
@@ -72,7 +72,7 @@
     .film{min-width:0}
     .film-title{display:flex;justify-content:space-between;gap:8px;font:11px var(--mono);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
     .film-title .success{color:var(--green)}.film-title .failed{color:var(--red)}
-    .film video{display:block;width:100%;aspect-ratio:16/10;background:#1c1d1a;object-fit:cover;border:1px solid var(--ink)}
+    .film video{display:block;width:100%;aspect-ratio:16/10;background:#1c1d1a;color:var(--paper);object-fit:cover;border:1px solid var(--ink)}
     .film small{display:block;margin-top:6px;color:var(--muted);font:11px var(--mono)}
     .method{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
     .method div{padding:18px 20px 18px 0;border-bottom:1px solid var(--rule)}
@@ -100,18 +100,18 @@
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-head">
         <h1 id="page-title">Small arm.<br>Hard tests.</h1>
-        <div class="hero-note"><strong>SIMULATION ONLY</strong>PyBullet arm · small VLA · six model iterations<br>No physical robot tests</div>
+        <div class="hero-note"><strong>SIMULATION ONLY</strong>PyBullet arm · small VLA · 13 model iterations<br>No physical robot tests</div>
       </div>
-      <p class="hero-intro">A working record of attempts to make a compact world model help a robot arm choose a grasp. The evidence includes <span>misses, ties, and small gains.</span></p>
+      <p class="hero-intro">A measured record of small vision-language-action and world-model experiments. The latest ranker improved task success on two fresh seed sets. The evidence still includes <span>misses, losses, and uncertainty.</span></p>
       <div class="lead-evidence">
         <div class="lead-film">
-          <span class="film-label">Selected matched trial · 172012</span>
-          <img src="media/slip-172012-feedback.jpg" alt="PyBullet simulation frame from matched trial 172012: the Panda arm beside colored blocks and pads">
-          <a class="watch-link" href="#trials">Watch all three controller clips ↓</a>
+          <span class="film-label">Selected matched trial · tipped cylinder · 341000</span>
+          <video controls preload="none" playsinline aria-label="V13 simulated arm places the tipped red cylinder on seed 341000"><source src="media/world-v13-tipped-341000-hybrid.mp4" type="video/mp4">Your browser does not support video playback.</video>
+          <a class="watch-link" href="#trials">Compare feedback and V13 ↓</a>
         </div>
         <div class="lead-copy">
-          <div><h2>One scene. Three controllers.</h2><p>A green cylinder slips. The feedback controller completes the task. Both planning variants fail. The other clips show successful runs too.</p></div>
-          <div class="result-stamp"><b>THE OPEN QUESTION</b>Can prediction improve contact choice without making end-task success worse?</div>
+          <div><h2>One scene. Same seed.</h2><p>Feedback stops outside the workspace. V13 selects a grasp from full-task simulation outcomes, then places the tipped cylinder. The trial is one example; the paired tests below count every seed.</p></div>
+          <div class="result-stamp"><b>80 MATCHED TASK TRIALS</b>V13: 57 successes · feedback: 51<br>11 wins · 5 losses · p = 0.210</div>
         </div>
       </div>
     </section>
@@ -129,12 +129,12 @@
     </section>
 
     <section id="method" class="section" aria-labelledby="method-title">
-      <div class="section-head"><h2 id="method-title" class="section-title">How to read this work</h2><p>The models were trained and tested with simulated scenes and simulator labels. V6 let the world model propose one bounded grasp offset during recovery.</p></div>
+      <div class="section-head"><h2 id="method-title" class="section-title">How to read this work</h2><p>The models were trained and tested with simulated scenes and simulator labels. V13 scores grasp candidates with full pick, lift, and place outcomes.</p></div>
       <div class="method">
         <div><h3>Policy</h3><p>A small vision-language-action policy maps the camera and instruction to arm commands. The original feedback controller remains the default.</p></div>
         <div><h3>World model</h3><p>A JEPA-style model predicts future visual and arm state from proposed commands. It uses simulator labels and is not fully self-supervised.</p></div>
-        <div><h3>Contact label</h3><p>Finger force above 0.01 N marks contact. Candidate checks execute an approach and close branch from a saved simulator state.</p></div>
-        <div><h3>Limit</h3><p>Contact after closure does not measure a stable grasp, object lift, retention, or task completion. V6 did not improve task success, and its reranker inputs need correction. Feedback remains the default.</p></div>
+        <div><h3>Training labels</h3><p>Earlier versions learned from finger contact. V13 learned from full simulated task outcomes. The live controller still uses camera and finger checks.</p></div>
+        <div><h3>Limit</h3><p>V13 gained six successes across 80 matched trials, but the exact paired test gave p = 0.210. This is early evidence for one simulated object and task. Feedback remains the default until larger tests confirm the gain.</p></div>
       </div>
     </section>
   </main>

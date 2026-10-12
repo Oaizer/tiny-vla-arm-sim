@@ -1,0 +1,9 @@
+{
+  "seed": 88219,
+  "fresh_detector_seed": 290000,
+  "fresh_detector_scenes_per_class": 40,
+  "controller_seed": 300000,
+  "episodes_per_condition": 8,
+  "conditions": ["nominal", "tipped", "slip", "object_moved", "dynamics", "missing"],
+  "max_validation_false_positive_rate": 0.05
+}

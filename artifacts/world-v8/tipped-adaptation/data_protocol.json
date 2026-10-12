@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "created_unix": 1791762210,
+  "seed": 61304,
+  "train_seed_range": [
+    220000,
+    220239
+  ],
+  "validation_seed_range": [
+    230000,
+    230059
+  ],
+  "task_scope": "Red-cylinder instructions; fallen red cylinder; simulation-generated labels.",
+  "fine_tuning": {
+    "steps": 600,
+    "batch_size": 32,
+    "learning_rate": 0.00015,
+    "target_mix": 0.5
+  },
+  "source_sha256": {
+    "configs/world_v8_adaptation.json": "b0351d50f2751f03ee793438129e35a11199e3e0170f49f683fa225975c62d20",
+    "src/tinyvla/world_v8_adaptation.py": "3e5652edd49090c03fcbd9948b227c2672e15863e80ff3ef0e3d839ae852ece4",
+    "src/tinyvla/model.py": "2d4ca429e53a99bbb9a29486c436ba806e58321e0621bd488f7288ffc49424ff",
+    "src/tinyvla/data.py": "8c24432611749f058556b963f705967759cb69cc9f2b5f542b5bbbc9b1af6566",
+    "src/tinyvla/sim.py": "429cdd76e5eb69dfb2059b47fe5716548535f8e08aff650f840a44322a523a8f",
+    "src/tinyvla/language.py": "6fb0f8acbb994d5296458e562d5f479eb1c78ce1e840e502d9449225a061fb91",
+    "src/tinyvla/world_data.py": "ad2faa44f3627b870132fc5565542e08fa5f9160f9f5d46cbc22265f873caeca",
+    "uv.lock": "dcbd89ed18b9c8c38a141e00a46d4873bcb0d525935596c8dd05dcd7ba818859",
+    "artifacts/model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "artifacts/data/train.npz": "3626c6354cb8695478c58c53859540bdf3722b516b0d83778c01261b2e75f007",
+    "artifacts/data/validation.npz": "fc4890a64980ce2bea0b6283852ebb8cad79a93e0d892ffa36f968dbca9aed80"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "seed": 197006,
+  "split": "test",
+  "instruction": "put the red cylinder on the yellow pad",
+  "object": "red cylinder",
+  "transitions": 70,
+  "tipped": true,
+  "drop_commands": false,
+  "success": false,
+  "contact_steps": [
+    0,
+    0,
+    0,
+    1
+  ],
+  "positive_steps": 1,
+  "force_threshold_n": 0.01,
+  "high_noise_std": 0.008
+}

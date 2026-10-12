@@ -1,0 +1,23 @@
+{
+  "suite": "nominal",
+  "mode": "feedback",
+  "episodes": 8,
+  "successes": 5,
+  "safe_stops": 0,
+  "wilson_95": [
+    0.30573785458380187,
+    0.863158240538479
+  ],
+  "retries": 1,
+  "planner_calls": 0,
+  "changed_commands": 0,
+  "planner_p95_ms": null,
+  "feature_p95_ms": 25.893932349958952,
+  "mean_control_seconds": 1.3066542343750598,
+  "by_object": {
+    "red cylinder": {
+      "episodes": 8,
+      "successes": 5
+    }
+  }
+}

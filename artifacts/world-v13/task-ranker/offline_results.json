@@ -1,0 +1,322 @@
+{
+  "protocol_sha256": "853d71377bb9b295fe6e880939ca9ade5b7b0e1c64b41c39f1fea338c030f087",
+  "ranker_sha256": "ece7cf82ae1dc2ae3f3309d1e7d7a2111916dc7579c30e9afaa0cabde7e1b418",
+  "split_summary": {
+    "train": {
+      "scenes": 40,
+      "success_branches": 243
+    },
+    "validation": {
+      "scenes": 20,
+      "success_branches": 115
+    },
+    "test": {
+      "scenes": 40,
+      "success_branches": 135
+    }
+  },
+  "selected_step": 100,
+  "parameters": 241,
+  "test_metrics": {
+    "task_success_ranker": {
+      "scenes": 40,
+      "scenes_with_positive": 21,
+      "macro_average_precision": 0.6071881624199094,
+      "top1_contact_rate": 0.3
+    },
+    "unchanged_grasp": {
+      "scenes": 40,
+      "scenes_with_positive": 21,
+      "macro_average_precision": 0.4656087537786588,
+      "top1_contact_rate": 0.1
+    }
+  },
+  "paired_vs_unchanged": {
+    "wins": 8,
+    "ties": 32,
+    "losses": 0
+  },
+  "scene_rows": [
+    {
+      "seed": 330000,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 3
+    },
+    {
+      "seed": 330001,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 4
+    },
+    {
+      "seed": 330002,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330003,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 2
+    },
+    {
+      "seed": 330004,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 6
+    },
+    {
+      "seed": 330005,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 7
+    },
+    {
+      "seed": 330006,
+      "ranker_success": true,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 5
+    },
+    {
+      "seed": 330007,
+      "ranker_success": true,
+      "unchanged_success": true,
+      "ranker_candidate": 3,
+      "positive_candidates": 11
+    },
+    {
+      "seed": 330008,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330009,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330010,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330011,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330012,
+      "ranker_success": true,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 3
+    },
+    {
+      "seed": 330013,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330014,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330015,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330016,
+      "ranker_success": true,
+      "unchanged_success": true,
+      "ranker_candidate": 3,
+      "positive_candidates": 11
+    },
+    {
+      "seed": 330017,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 5,
+      "positive_candidates": 4
+    },
+    {
+      "seed": 330018,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330019,
+      "ranker_success": true,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 13
+    },
+    {
+      "seed": 330020,
+      "ranker_success": true,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 8
+    },
+    {
+      "seed": 330021,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 6
+    },
+    {
+      "seed": 330022,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330023,
+      "ranker_success": true,
+      "unchanged_success": true,
+      "ranker_candidate": 3,
+      "positive_candidates": 16
+    },
+    {
+      "seed": 330024,
+      "ranker_success": true,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 8
+    },
+    {
+      "seed": 330025,
+      "ranker_success": true,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 10
+    },
+    {
+      "seed": 330026,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330027,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 1
+    },
+    {
+      "seed": 330028,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330029,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330030,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330031,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330032,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 2
+    },
+    {
+      "seed": 330033,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330034,
+      "ranker_success": true,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 1
+    },
+    {
+      "seed": 330035,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330036,
+      "ranker_success": true,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 3
+    },
+    {
+      "seed": 330037,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    },
+    {
+      "seed": 330038,
+      "ranker_success": true,
+      "unchanged_success": true,
+      "ranker_candidate": 3,
+      "positive_candidates": 11
+    },
+    {
+      "seed": 330039,
+      "ranker_success": false,
+      "unchanged_success": false,
+      "ranker_candidate": 3,
+      "positive_candidates": 0
+    }
+  ],
+  "interpretation": "Offline complete-task branches. Labels include the scripted transport path and simulator score; this does not establish closed-loop task success."
+}

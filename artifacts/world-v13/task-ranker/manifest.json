@@ -1,0 +1,8 @@
+{
+  "protocol_sha256": "853d71377bb9b295fe6e880939ca9ade5b7b0e1c64b41c39f1fea338c030f087",
+  "datasets": {
+    "branches_train.npz": "c360eb77e525de998343afd83b4a88bc7c958cbd34fe2e61b883798afcf1e90a",
+    "branches_validation.npz": "2e50b2af9ac79d8171d5535368e0245a7290e7bbac8212a9cd0c6346eb53c0a8",
+    "branches_test.npz": "d0f073bb4db011c0c3f631bb27994620cd237038dc747b9f347913ae760c4b9b"
+  }
+}

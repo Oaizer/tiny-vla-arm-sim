@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "created_unix": 1791762474,
+  "hypothesis": "Simulation fine-tuning on fallen red-cylinder demonstrations improves visual localization and task completion on tipped red-cylinder trials.",
+  "train_seed_range": [
+    220000,
+    220239
+  ],
+  "validation_seed_range": [
+    230000,
+    230059
+  ],
+  "evaluation_seed": 240000,
+  "episodes_per_condition": 8,
+  "conditions": [
+    "nominal",
+    "tipped",
+    "slip",
+    "object_moved",
+    "dynamics",
+    "missing"
+  ],
+  "source_sha256": {
+    "configs/world_v8_adaptation.json": "b0351d50f2751f03ee793438129e35a11199e3e0170f49f683fa225975c62d20",
+    "src/tinyvla/world_v8_adaptation.py": "7fa0deedc9aba8b5ebb0ec7caed166b1952b1874a87f08c1915627471763c8de",
+    "src/tinyvla/model.py": "2d4ca429e53a99bbb9a29486c436ba806e58321e0621bd488f7288ffc49424ff",
+    "src/tinyvla/data.py": "8c24432611749f058556b963f705967759cb69cc9f2b5f542b5bbbc9b1af6566",
+    "src/tinyvla/sim.py": "429cdd76e5eb69dfb2059b47fe5716548535f8e08aff650f840a44322a523a8f",
+    "src/tinyvla/controller.py": "06c8e167447128d38f7bbbc27a3921284fd82f9eac5d11a17bed5e3b8b4252bc",
+    "src/tinyvla/evaluate.py": "181c5ecde0d33426d07ec1429dbdab7ad140db38af4e2efec2c07422f792ee99",
+    "src/tinyvla/world_evaluate.py": "9cac8a2bb79caaf55676de6a1e27a295a4ef2962512c94a174e212f0692a67ed",
+    "src/tinyvla/language.py": "6fb0f8acbb994d5296458e562d5f479eb1c78ce1e840e502d9449225a061fb91",
+    "uv.lock": "dcbd89ed18b9c8c38a141e00a46d4873bcb0d525935596c8dd05dcd7ba818859",
+    "artifacts/model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "artifacts/data/train.npz": "3626c6354cb8695478c58c53859540bdf3722b516b0d83778c01261b2e75f007",
+    "artifacts/data/validation.npz": "fc4890a64980ce2bea0b6283852ebb8cad79a93e0d892ffa36f968dbca9aed80",
+    "artifacts/world-v8/tipped-adaptation/model/adapted.pt": "72038b8b9feed58dc38889d05126420fb4c614a0cf7a1ea5fff5840b6786da26",
+    "artifacts/world-v8/tipped-adaptation/data/train.npz": "73b596b1538b4053f78b4781b2b81a4d3b20814cc6eaa1db84704818b9af9513",
+    "artifacts/world-v8/tipped-adaptation/data/validation.npz": "44f7a3182c4590097a8ebb5491222a0a6b0ff5c8bd2850b86b43d670bed9543d"
+  }
+}

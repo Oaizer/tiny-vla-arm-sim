@@ -1,0 +1,9 @@
+{
+  "threshold": 0.5235321521759033,
+  "validation_recall": 0.05,
+  "validation_false_positive_rate": 0.05,
+  "fresh_tipped_recall": 0.025,
+  "fresh_nominal_false_positive_rate": 0.125,
+  "scenes_per_class": 40,
+  "selected_step": 60
+}

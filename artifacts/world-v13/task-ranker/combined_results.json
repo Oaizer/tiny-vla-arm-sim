@@ -1,0 +1,17 @@
+{
+  "task_trials": 80,
+  "feedback_successes": 51,
+  "hybrid_successes": 57,
+  "wins": 11,
+  "losses": 5,
+  "ties": 64,
+  "exact_two_sided_sign_p": 0.210113525390625,
+  "primary_seed_range": [
+    340000,
+    340039
+  ],
+  "replication_seed_range": [
+    350000,
+    350039
+  ]
+}

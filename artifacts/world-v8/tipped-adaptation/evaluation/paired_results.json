@@ -1,0 +1,495 @@
+{
+  "task_trials": 40,
+  "baseline_successes": 21,
+  "adapted_successes": 19,
+  "wins": 1,
+  "losses": 3,
+  "ties": 36,
+  "missing_trials": 8,
+  "baseline_missing_safe_stops": 8,
+  "adapted_missing_safe_stops": 8,
+  "rows": [
+    {
+      "suite": "nominal",
+      "seed": 240000,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 240001,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_outside_workspace",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 240002,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 240003,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 240004,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 240005,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 240006,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "nominal",
+      "seed": 240007,
+      "baseline_success": true,
+      "adapted_success": false,
+      "baseline_status": "placed",
+      "adapted_status": "stopped_outside_workspace",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 241000,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 241001,
+      "baseline_success": false,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 241002,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_outside_workspace",
+      "adapted_status": "stopped_outside_workspace",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 241003,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 241004,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 241005,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 241006,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "tipped",
+      "seed": 241007,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_outside_workspace",
+      "adapted_status": "stopped_outside_workspace",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 242000,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 242001,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_outside_workspace",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 242002,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 242003,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "placed",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 242004,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 242005,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 242006,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "slip",
+      "seed": 242007,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 243000,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 243001,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 243002,
+      "baseline_success": true,
+      "adapted_success": false,
+      "baseline_status": "placed",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 243003,
+      "baseline_success": true,
+      "adapted_success": false,
+      "baseline_status": "placed",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 243004,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 243005,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 243006,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "object_moved",
+      "seed": 243007,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 244000,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 244001,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 244002,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 244003,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 244004,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 244005,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 244006,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_attempt_budget",
+      "adapted_status": "stopped_attempt_budget",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "dynamics",
+      "seed": 244007,
+      "baseline_success": true,
+      "adapted_success": true,
+      "baseline_status": "placed",
+      "adapted_status": "placed",
+      "baseline_safe_stop": false,
+      "adapted_safe_stop": false
+    },
+    {
+      "suite": "missing",
+      "seed": 245000,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": true,
+      "adapted_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 245001,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": true,
+      "adapted_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 245002,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": true,
+      "adapted_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 245003,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": true,
+      "adapted_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 245004,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": true,
+      "adapted_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 245005,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": true,
+      "adapted_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 245006,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": true,
+      "adapted_safe_stop": true
+    },
+    {
+      "suite": "missing",
+      "seed": 245007,
+      "baseline_success": false,
+      "adapted_success": false,
+      "baseline_status": "stopped_source_not_visible",
+      "adapted_status": "stopped_source_not_visible",
+      "baseline_safe_stop": true,
+      "adapted_safe_stop": true
+    }
+  ],
+  "protocol_sha256": "c2cdf0b425d0a85249c3cee2bfda1d63a81615eebfa38fa4cf1df68dcc905836",
+  "adapted_model_sha256": "72038b8b9feed58dc38889d05126420fb4c614a0cf7a1ea5fff5840b6786da26"
+}

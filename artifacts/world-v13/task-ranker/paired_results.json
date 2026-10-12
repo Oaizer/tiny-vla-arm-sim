@@ -1,0 +1,1275 @@
+{
+  "task_trials": 40,
+  "feedback_successes": 26,
+  "hybrid_successes": 30,
+  "wins": 8,
+  "losses": 4,
+  "ties": 28,
+  "exact_two_sided_sign_p": 0.3876953125,
+  "missing_trials": 8,
+  "feedback_missing_safe_stops": 7,
+  "hybrid_missing_safe_stops": 7,
+  "protocol_sha256": "033e8da6eaf72e9cc8293c84ac52fe024f3d8ef051f4019b1a3ec9ed1d4cca8d",
+  "evaluation_seconds": 168.2490177154541,
+  "rows": [
+    {
+      "suite": "nominal",
+      "seed": 340000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.23597991466522217,
+          "contact_disagreement": 0.0057542938739061356,
+          "predicted_contact": 0.9663016200065613,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000134646892548
+          ],
+          "fallback": false,
+          "milliseconds": 2.129136999428738
+        }
+      ]
+    },
+    {
+      "suite": "nominal",
+      "seed": 340001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6099510192871094,
+          "contact_disagreement": 0.012980970554053783,
+          "predicted_contact": 0.7908387184143066,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999920442700387
+          ],
+          "fallback": false,
+          "milliseconds": 1.3087799998174887
+        }
+      ]
+    },
+    {
+      "suite": "nominal",
+      "seed": 340002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6088752746582031,
+          "contact_disagreement": 0.0012968473602086306,
+          "predicted_contact": 0.9604925513267517,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000231504440308
+          ],
+          "fallback": false,
+          "milliseconds": 1.1719560006895335
+        }
+      ]
+    },
+    {
+      "suite": "nominal",
+      "seed": 340003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.2487671971321106,
+          "contact_disagreement": 0.018726246431469917,
+          "predicted_contact": 0.8545554280281067,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.01100017748773098
+          ],
+          "fallback": false,
+          "milliseconds": 1.2595900006999727
+        }
+      ]
+    },
+    {
+      "suite": "nominal",
+      "seed": 340004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8746305704116821,
+          "contact_disagreement": 0.018315931782126427,
+          "predicted_contact": 0.27883878350257874,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999857112765313
+          ],
+          "fallback": false,
+          "milliseconds": 1.222025999595644
+        }
+      ]
+    },
+    {
+      "suite": "nominal",
+      "seed": 340005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7701104283332825,
+          "contact_disagreement": 0.010948586277663708,
+          "predicted_contact": 0.05823156610131264,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000162586569787
+          ],
+          "fallback": false,
+          "milliseconds": 1.1405870000089635
+        }
+      ]
+    },
+    {
+      "suite": "nominal",
+      "seed": 340006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.43267691135406494,
+          "contact_disagreement": 0.010077547281980515,
+          "predicted_contact": 0.44140544533729553,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999797508120537
+          ],
+          "fallback": false,
+          "milliseconds": 2.0382579996294226
+        }
+      ]
+    },
+    {
+      "suite": "nominal",
+      "seed": 340007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.4134788513183594,
+          "contact_disagreement": 0.00330545986071229,
+          "predicted_contact": 0.8967223763465881,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000006124377251
+          ],
+          "fallback": false,
+          "milliseconds": 1.1728030003723688
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 341000,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.5101849436759949,
+          "contact_disagreement": 0.0038305639754980803,
+          "predicted_contact": 0.7898948788642883,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999845936894417
+          ],
+          "fallback": false,
+          "milliseconds": 1.1703180007316405
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 341001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8250279426574707,
+          "contact_disagreement": 0.042545098811388016,
+          "predicted_contact": 0.3214259445667267,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000246405601502
+          ],
+          "fallback": false,
+          "milliseconds": 1.1787749999712105
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 341002,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.16099876165390015,
+          "contact_disagreement": 0.016997795552015305,
+          "predicted_contact": 0.7539673447608948,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000134646892548
+          ],
+          "fallback": false,
+          "milliseconds": 1.0238610002488713
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 341003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.49357402324676514,
+          "contact_disagreement": 0.025876499712467194,
+          "predicted_contact": 0.8029539585113525,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999929755926133
+          ],
+          "fallback": false,
+          "milliseconds": 1.1762820004150853
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 341004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.9600679874420166,
+          "contact_disagreement": 0.014732079580426216,
+          "predicted_contact": 0.34987711906433105,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.01100015327334404
+          ],
+          "fallback": false,
+          "milliseconds": 1.218879000589368
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 341005,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.45265936851501465,
+          "contact_disagreement": 0.006362492218613625,
+          "predicted_contact": 0.8271563649177551,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999788194894791
+          ],
+          "fallback": false,
+          "milliseconds": 1.2211620005473378
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 341006,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6950230598449707,
+          "contact_disagreement": 0.014434205368161201,
+          "predicted_contact": 0.815726101398468,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999804958701134
+          ],
+          "fallback": false,
+          "milliseconds": 1.3399370000115596
+        },
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6925934553146362,
+          "contact_disagreement": 0.01722985878586769,
+          "predicted_contact": 0.7977555394172668,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999806821346284
+          ],
+          "fallback": false,
+          "milliseconds": 1.1747630005629617
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 341007,
+      "feedback_success": true,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.4573338031768799,
+          "contact_disagreement": 0.011353357695043087,
+          "predicted_contact": 0.786317765712738,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.01099981613457203
+          ],
+          "fallback": false,
+          "milliseconds": 1.3666849999935948
+        },
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.28727662563323975,
+          "contact_disagreement": 0.02526780404150486,
+          "predicted_contact": 0.5842064023017883,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.01099981613457203
+          ],
+          "fallback": false,
+          "milliseconds": 2.283621999595198
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 342000,
+      "feedback_success": true,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.5904090404510498,
+          "contact_disagreement": 0.009505318477749825,
+          "predicted_contact": 0.9341011047363281,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999819859862328
+          ],
+          "fallback": false,
+          "milliseconds": 1.2289400001463946
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 342001,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.1697893738746643,
+          "contact_disagreement": 0.002606563037261367,
+          "predicted_contact": 0.9878355860710144,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999786332249642
+          ],
+          "fallback": false,
+          "milliseconds": 1.3237129996923613
+        },
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.16393449902534485,
+          "contact_disagreement": 0.003872266272082925,
+          "predicted_contact": 0.9825387597084045,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999788194894791
+          ],
+          "fallback": false,
+          "milliseconds": 1.0996979999617906
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 342002,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6167862415313721,
+          "contact_disagreement": 0.004235602915287018,
+          "predicted_contact": 0.7802824974060059,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000132784247399
+          ],
+          "fallback": false,
+          "milliseconds": 1.0260300005029421
+        },
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6095280051231384,
+          "contact_disagreement": 0.006053500343114138,
+          "predicted_contact": 0.7741281390190125,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000132784247399
+          ],
+          "fallback": false,
+          "milliseconds": 1.2836080004490213
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 342003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.9262622594833374,
+          "contact_disagreement": 0.026882190257310867,
+          "predicted_contact": 0.443943053483963,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.01099986456334591
+          ],
+          "fallback": false,
+          "milliseconds": 1.1776270002883393
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 342004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.3392599821090698,
+          "contact_disagreement": 0.005540438927710056,
+          "predicted_contact": 0.9520175457000732,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000063866376877
+          ],
+          "fallback": false,
+          "milliseconds": 1.1305309999443125
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 342005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7280663251876831,
+          "contact_disagreement": 0.037036020308732986,
+          "predicted_contact": 0.47738412022590637,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999739766120911
+          ],
+          "fallback": false,
+          "milliseconds": 1.1597610000535497
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 342006,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.2443402111530304,
+          "contact_disagreement": 0.0012219997588545084,
+          "predicted_contact": 0.9834206104278564,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999950245022774
+          ],
+          "fallback": false,
+          "milliseconds": 1.1620139994192868
+        },
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.43088945746421814,
+          "contact_disagreement": 0.0025764747988432646,
+          "predicted_contact": 0.8856730461120605,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999952107667924
+          ],
+          "fallback": false,
+          "milliseconds": 1.7964929993468104
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 342007,
+      "feedback_success": true,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6665292978286743,
+          "contact_disagreement": 0.008829993195831776,
+          "predicted_contact": 0.847179651260376,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999879464507104
+          ],
+          "fallback": false,
+          "milliseconds": 1.0685449997254182
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 343000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.9492670297622681,
+          "contact_disagreement": 0.006807276513427496,
+          "predicted_contact": 0.34404197335243225,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.01099998377263546
+          ],
+          "fallback": false,
+          "milliseconds": 1.1515249998410582
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 343001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8372849225997925,
+          "contact_disagreement": 0.006429062690585852,
+          "predicted_contact": 0.2156757116317749,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000199839472771
+          ],
+          "fallback": false,
+          "milliseconds": 1.2159030002294458
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 343002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.5064678192138672,
+          "contact_disagreement": 0.022990599274635315,
+          "predicted_contact": 0.8176568150520325,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.01099998377263546
+          ],
+          "fallback": false,
+          "milliseconds": 1.201604000016232
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 343003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6705290079116821,
+          "contact_disagreement": 0.00493976753205061,
+          "predicted_contact": 0.9424571990966797,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000196114182473
+          ],
+          "fallback": false,
+          "milliseconds": 1.1498599997139536
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 343004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.566391110420227,
+          "contact_disagreement": 0.03468666225671768,
+          "predicted_contact": 0.7265472412109375,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999883189797402
+          ],
+          "fallback": false,
+          "milliseconds": 1.1745600004360313
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 343005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7454802989959717,
+          "contact_disagreement": 0.008122614584863186,
+          "predicted_contact": 0.8872777819633484,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000041514635087
+          ],
+          "fallback": false,
+          "milliseconds": 1.1650280002868385
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 343006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7018555402755737,
+          "contact_disagreement": 0.03240245580673218,
+          "predicted_contact": 0.23164331912994385,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999909266829491
+          ],
+          "fallback": false,
+          "milliseconds": 1.1366919998181402
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 343007,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "stopped_attempt_budget",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7172330021858215,
+          "contact_disagreement": 0.018156344071030617,
+          "predicted_contact": 0.5891122817993164,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999879464507104
+          ],
+          "fallback": false,
+          "milliseconds": 1.4173170002322877
+        }
+      ]
+    },
+    {
+      "suite": "dynamics",
+      "seed": 344000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.4403899908065796,
+          "contact_disagreement": 0.006451659370213747,
+          "predicted_contact": 0.9654743075370789,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999883189797402
+          ],
+          "fallback": false,
+          "milliseconds": 1.6580020001129014
+        }
+      ]
+    },
+    {
+      "suite": "dynamics",
+      "seed": 344001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.1509980857372284,
+          "contact_disagreement": 0.0008612613892182708,
+          "predicted_contact": 0.9837672710418701,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000164449214936
+          ],
+          "fallback": false,
+          "milliseconds": 1.2842859996453626
+        }
+      ]
+    },
+    {
+      "suite": "dynamics",
+      "seed": 344002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8206791877746582,
+          "contact_disagreement": 0.022820767015218735,
+          "predicted_contact": 0.1845695823431015,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999752804636956
+          ],
+          "fallback": false,
+          "milliseconds": 1.172555000266584
+        }
+      ]
+    },
+    {
+      "suite": "dynamics",
+      "seed": 344003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.3009607493877411,
+          "contact_disagreement": 0.0015176417073234916,
+          "predicted_contact": 0.9754912257194519,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000065729022027
+          ],
+          "fallback": false,
+          "milliseconds": 1.3813470004606643
+        }
+      ]
+    },
+    {
+      "suite": "dynamics",
+      "seed": 344004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.41305479407310486,
+          "contact_disagreement": 0.029328806325793266,
+          "predicted_contact": 0.8447198271751404,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999987497925759
+          ],
+          "fallback": false,
+          "milliseconds": 2.057906000118237
+        }
+      ]
+    },
+    {
+      "suite": "dynamics",
+      "seed": 344005,
+      "feedback_success": true,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.28453385829925537,
+          "contact_disagreement": 0.03599997237324715,
+          "predicted_contact": 0.4228639304637909,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999877601861954
+          ],
+          "fallback": false,
+          "milliseconds": 1.213434000419511
+        }
+      ]
+    },
+    {
+      "suite": "dynamics",
+      "seed": 344006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8388612270355225,
+          "contact_disagreement": 0.020775029435753822,
+          "predicted_contact": 0.1580570489168167,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999873876571656
+          ],
+          "fallback": false,
+          "milliseconds": 1.3383790001171292
+        }
+      ]
+    },
+    {
+      "suite": "dynamics",
+      "seed": 344007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.9020030498504639,
+          "contact_disagreement": 0.051374807953834534,
+          "predicted_contact": 0.4149608612060547,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999842211604119
+          ],
+          "fallback": false,
+          "milliseconds": 1.4736450002601487
+        }
+      ]
+    },
+    {
+      "suite": "missing",
+      "seed": 345000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 345001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 345002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 345003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 345004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 345005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6562780141830444,
+          "contact_disagreement": 0.0008889652672223747,
+          "predicted_contact": 0.8758519291877747,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999799370765687
+          ],
+          "fallback": false,
+          "milliseconds": 1.2458889996196376
+        }
+      ]
+    },
+    {
+      "suite": "missing",
+      "seed": 345006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 345007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "planning": []
+    }
+  ]
+}

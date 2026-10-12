@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "created_unix": 1791763504,
+  "task_label": "Complete pick, lift, and place success in PyBullet; no physical arm.",
+  "train_scenes": 40,
+  "validation_scenes": 20,
+  "test_scenes": 40,
+  "test_seed_range": [
+    330000,
+    330039
+  ],
+  "candidate_count": 25,
+  "candidate_branch": "Open at the selected grasp point, close, lift, then execute the simulator teacher transport path.",
+  "features": "Corrected V7 contact channel, JEPA held score, candidate and predicted target geometry; tipped simulator labels omitted.",
+  "source_sha256": {
+    "configs/world_hybrid_v13.json": "f4f9162b51f3e8e7dfe37f26bc0d3e39d61a9651b3ca006ccd14853c1fa289aa",
+    "configs/world_contact_v4.json": "537ed20404d64667dfe202e9e7040e2046e1f232a8cff7f4c55653ddd2c04811",
+    "src/tinyvla/world_hybrid_v13_experiment.py": "8f94c2fad4d8c712d5dd67b2b2554e6288583efb26dc2dfc9f91b7d3dcff6097",
+    "src/tinyvla/world_hybrid_ranker_v7.py": "4c0b19d725a43d66ffbbe0b651c3374d2c22d5bbe12b9d3e90beb89403418f48",
+    "src/tinyvla/world_contact_targeted.py": "379ae083946b4b2d38b966d32319540596a40ed9beb745e39150579f77e5d47d",
+    "src/tinyvla/world_contact_data.py": "bf20f79e402a74b6c994c3d5110c692cd8da846f9cffe5457cc0ede965a4a901",
+    "src/tinyvla/world_contact_rank.py": "de202d561a0a28c096cd7f2c6a6629dcdcb547afaf0c1bab8cac168a127d4bf6",
+    "src/tinyvla/world_contact_reranker.py": "bf6a0550f5fdd4ea17eaf62cc6da742465fc9a83154ebcd7f8274fc6039429b4",
+    "src/tinyvla/world_contact_train.py": "02df648d7ea89ab796d3113c1bd9a8f4f65ba1964306cb6b19e0557a2bca724e",
+    "src/tinyvla/world_model.py": "772c1df736b0305e7a4a48b7b656cb044c3bd2e9fcbe41c48f1a958b960dc75c",
+    "src/tinyvla/world_data.py": "ad2faa44f3627b870132fc5565542e08fa5f9160f9f5d46cbc22265f873caeca",
+    "src/tinyvla/sim.py": "429cdd76e5eb69dfb2059b47fe5716548535f8e08aff650f840a44322a523a8f",
+    "src/tinyvla/evaluate.py": "181c5ecde0d33426d07ec1429dbdab7ad140db38af4e2efec2c07422f792ee99",
+    "src/tinyvla/language.py": "6fb0f8acbb994d5296458e562d5f479eb1c78ce1e840e502d9449225a061fb91",
+    "uv.lock": "dcbd89ed18b9c8c38a141e00a46d4873bcb0d525935596c8dd05dcd7ba818859",
+    "artifacts/model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "artifacts/world-v1/model/jepa.pt": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57",
+    "artifacts/world-v4/contact/contact-head.pt": "e30bdec30093a5b9c0bd2555393e4853973b6877f1bc08bb27160936a396d214",
+    "artifacts/world-v5/reranker/protocol.json": "9cbd0f7737d65d7fe5fd92b535beef2d0e3ee3b133981017e4a5e8aee4cd6786",
+    "artifacts/world-v5/reranker/branches_train.npz": "e05b144c3f77d9fd39edcff4f4293ea4032a79c670634c8bc1f7a4a7a6c2cd73",
+    "artifacts/world-v5/reranker/branches_validation.npz": "6df4f857489fabf637eea89b96885816570171e4803aed16bf25d5208501c196",
+    "artifacts/world-v5/reranker/ranker.pt": "ea303f90c972b97899f91631cfc72587878a49a7833075e37a7f716d144dccbb"
+  }
+}

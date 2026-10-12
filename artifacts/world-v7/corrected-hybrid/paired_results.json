@@ -1,0 +1,560 @@
+{
+  "task_trials": 40,
+  "feedback_successes": 25,
+  "hybrid_successes": 25,
+  "wins": 0,
+  "losses": 0,
+  "ties": 40,
+  "exact_two_sided_sign_p": 1.0,
+  "missing_trials": 8,
+  "feedback_missing_safe_stops": 8,
+  "hybrid_missing_safe_stops": 8,
+  "protocol_sha256": "8d361d27bdc2407efa6e8d50d09bda2107a5032f3a19c5a83421e583a9a89101",
+  "ranking_protocol_sha256": "a83a462573e71d7b3691524f42382dafa929b33c1332cf5526b9db527640748e",
+  "rows": [
+    {
+      "suite": "nominal",
+      "seed": 200000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 200001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 200002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 200003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 200004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 200005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 200006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 200007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 201000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 201001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 201002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 201003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 201004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6556383371353149,
+          "contact_disagreement": 0.026524288579821587,
+          "predicted_contact": 0.579136312007904,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999901816248894
+          ],
+          "fallback": false,
+          "milliseconds": 1.3972490000924154
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 201005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 201006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 201007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 202000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 202001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7155286073684692,
+          "contact_disagreement": 0.01736634224653244,
+          "predicted_contact": 0.592893660068512,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000002399086953
+          ],
+          "fallback": false,
+          "milliseconds": 1.4271720001488575
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 202002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 202003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7342849373817444,
+          "contact_disagreement": 0.002824606839567423,
+          "predicted_contact": 0.046650201082229614,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000041514635087
+          ],
+          "fallback": false,
+          "milliseconds": 1.1517929997353349
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 202004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 202005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 202006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6717404127120972,
+          "contact_disagreement": 0.04127433896064758,
+          "predicted_contact": 0.6379994750022888,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.01099991299211979
+          ],
+          "fallback": false,
+          "milliseconds": 1.5220589998534706
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 202007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 203000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 203001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 203002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 203003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 203004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 203005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 203006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 203007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 204000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 204001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 204002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 204003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 204004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 204005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 204006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 204007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 205000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 205001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 205002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 205003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 205004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 205005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 205006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 205007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "planning": []
+    }
+  ]
+}

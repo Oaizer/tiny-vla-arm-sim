@@ -98,3 +98,45 @@ The frozen comparison used 40 matched red-cylinder task trials: eight each in no
 The integration audit found two input limits. V5 training selected contact-head channel 1 for the red-cylinder target, but channel 1 is the blue-cube output because the contact head and language module use different object orders. We preserved the V5 mapping in this integration test. V5 also used a simulator tipped label in training; V6 estimated tipped state from the predicted object orientation. All three accepted proposals had a false tipped flag. The reranker inputs do not fully match its training inputs. Keep this hybrid offline. Correct the contact channel and validate an image-based tipped estimate before another controller test.
 
 The protocol records the source and model hashes, settings, and seed ranges. The per-seed records, selected matched videos, and summary are in `artifacts/world-v6/hybrid-feedback/`. Read the V6 report before using the hybrid. It is an integration test, not a general result.
+
+## Seventh experiment: correct contact features
+
+The V6 audit found that the contact head and language model use different object orders. The V5 ranker had used the blue-cube output when it was meant to use the red-cylinder output. We rebuilt the train and validation features with the correct red-cylinder channel and removed the simulator-only tipped label. We kept the V1 world model and V4 contact head frozen.
+
+On 40 fresh ranking scenes, the corrected ranker selected contact in 29/40 scenes. The unchanged grasp did so in 27/40. This was a small contact-only lead. On a separate 40-trial controller test, feedback and hybrid both completed 25 tasks. All 40 outcomes tied. Better contact choice did not improve the task result.
+
+## Eighth experiment: fine-tune on fallen objects
+
+We fine-tuned the VLA on 240 simulated scenes with a fallen red cylinder and mixed half of each training batch from the original data. A 60-scene held-out set lowered the fallen-scene waypoint error from 7.15 mm to 6.08 mm at the selected checkpoint. Error on the original validation scenes rose from 2.07 mm to 2.76 mm.
+
+On 40 new matched task trials, the base model completed 21 tasks and the adapted model completed 19. The paired result was one win and three losses for adaptation. The waypoint gain did not carry over to task success. Keep the adapted checkpoint out of the default policy.
+
+## Ninth experiment: retry from the last valid visual target
+
+Several tipped and slip trials stopped after the camera gave a low source score during recovery. We added a fallback that can reuse a recent valid action only after the controller has seen the source. A low-confidence first observation still stops. Workspace checks, destination checks, finger checks, and the attempt limit stayed active.
+
+The fallback ran 30 times in 40 matched trials. Feedback and hybrid both completed 21 tasks, and all 40 outcomes tied. Reusing the old target did not rescue a task.
+
+## Tenth experiment: route to the adapted policy
+
+We tried a linear classifier, a small multilayer classifier, and a crop-based image classifier to detect a fallen cylinder. The gates used camera and arm inputs. None read the simulator condition. We kept a 5% limit on false positives for upright scenes.
+
+Fresh tipped-object recall was 5% for the linear gate, 2.5% for the multilayer gate, and 2.5% for the crop classifier. The crop gate had a 12.5% false-positive rate. We did not run a controller test because the visual gates missed too many fallen objects.
+
+## Eleventh and twelfth experiments: change when proposals run
+
+The V11 test removed the score-margin and disagreement gates during bounded recovery. It accepted four proposals but had no task wins or losses: both controllers completed 24/40 tasks.
+
+The V12 test also used proposals on the first grasp. It accepted 41 proposals. Both controllers completed 23/40 tasks, with two wins and two losses for the hybrid. The net result was zero. The more active ranker did not improve the task score.
+
+## Thirteenth experiment: train on full task outcomes
+
+The contact ranker used contact after closure as its label. Contact alone did not say whether a grasp would lift and place the object. We trained a 241-parameter ranker with labels from full simulated pick, lift, and place branches. The train split had 40 scenes, validation had 20, and the fresh offline test had 40. Each scene had 25 grasp candidates. Training and validation used V5 train and validation scenes. The test used new seeds.
+
+The ranker selected a grasp that completed the scripted task in 12/40 fresh scenes. The unchanged grasp succeeded in 4/40. This was a screening result, not a closed-loop result. We then tested the frozen ranker in the feedback controller. It could use the existing candidate set on the first grasp and during recovery. The finger checks, camera checks, and retry limit remained active.
+
+On the primary matched test, feedback completed 26/40 tasks and V13 completed 30/40. There were 8 wins, 4 losses, and 28 ties for V13. We then ran an independent 40-trial replication without changing the ranker. Feedback completed 25 tasks; V13 completed 27. There were 3 wins, 1 loss, and 36 ties. Across both tests, V13 completed 57/80 tasks and feedback completed 51/80. The paired result was 11 wins, 5 losses, and 64 ties; exact two-sided sign p=0.210.
+
+Both tests had a positive net gain. The test is still small, and the paired result is not strong statistical evidence. The current result is a repeatable positive simulation signal, not proof of a general gain. Missing-object safe stops were 15/16 for each controller across the two tests. Keep testing with more seeds and more task conditions before using the ranker beyond this simulated red-cylinder task. No real robot was used.
+
+The V13 ranker, data, videos, protocols, and per-seed results are in `artifacts/world-v13/task-ranker/`. Run `uv run --locked python scripts/verify_world_hybrid_v13.py` to check its hashes and paired counts. The portfolio has selected matched videos from the primary test and replication.

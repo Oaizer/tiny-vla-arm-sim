@@ -1,0 +1,23 @@
+{
+  "suite": "tipped",
+  "mode": "hybrid",
+  "episodes": 8,
+  "successes": 2,
+  "safe_stops": 0,
+  "wilson_95": [
+    0.07147768885802763,
+    0.5907301208974108
+  ],
+  "retries": 8,
+  "planner_calls": 3,
+  "changed_commands": 3,
+  "planner_p95_ms": 1.8696366998483427,
+  "feature_p95_ms": 19.994257500070486,
+  "mean_control_seconds": 1.433005436500082,
+  "by_object": {
+    "red cylinder": {
+      "episodes": 8,
+      "successes": 2
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "development": false,
+  "seconds": 15.06117033958435,
+  "suites": [
+    {
+      "suite": "tipped",
+      "mode": "feedback",
+      "episodes": 1,
+      "successes": 0,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.0,
+        0.7934567085261071
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 21.768769749996864,
+      "mean_control_seconds": 4.846331826999631,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 1,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "hybrid",
+      "episodes": 1,
+      "successes": 1,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.20654329147389294,
+        1.0
+      ],
+      "retries": 0,
+      "planner_calls": 1,
+      "changed_commands": 1,
+      "planner_p95_ms": 2.721074999499251,
+      "feature_p95_ms": 20.765133700115257,
+      "mean_control_seconds": 8.614291042000332,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 1,
+          "successes": 1
+        }
+      }
+    }
+  ],
+  "policy_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "model_hashes": {
+    "hybrid": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57"
+  },
+  "config": {
+    "task_instruction": "put the red cylinder on the yellow pad",
+    "model_root": "artifacts/world-v1/model",
+    "model_stages": {
+      "hybrid": "jepa"
+    },
+    "hybrid": {
+      "contact_model": "artifacts/world-v4/contact/contact-head.pt",
+      "reranker": "artifacts/world-v13/task-ranker/ranker.pt"
+    },
+    "planner": {
+      "recovery_only": false,
+      "coherent_grasp": true,
+      "hybrid_min_score_gain": 0.0,
+      "hybrid_max_contact_disagreement": 1.0
+    },
+    "evaluation": {
+      "episodes": 1,
+      "final_seed": 341000,
+      "inference_threads": 1,
+      "suites": [
+        "tipped"
+      ]
+    },
+    "final_models": [
+      "hybrid"
+    ]
+  }
+}

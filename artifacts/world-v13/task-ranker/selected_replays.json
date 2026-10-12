@@ -1,0 +1,25 @@
+{
+  "protocol_sha256": "9eb4495fbc1d01365f76e1b42039d146bc7515c32a0f6ce5d49ae547fb96efca",
+  "rows": [
+    {
+      "seed": 341000,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "placed",
+      "feedback_video_sha256": "5246c7f8071d795f66d60bc9c5db1fe48eafce8bbb37262fa802d6b1be93e267",
+      "hybrid_video_sha256": "07a13776d3d88d7a42e94957418aa603c5a263687cd5f4cb0b78d216d51ed4a2",
+      "seconds": 15.06117033958435
+    },
+    {
+      "seed": 351001,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_video_sha256": "0a7358841f196c5fa4e11c3f2a87038eb72de382f4544526dcad3910bdd23f2a",
+      "hybrid_video_sha256": "62896f39535ea51946bc21932e99bb9d3f418613bb21f3b9fb0bf057c8ea1019",
+      "seconds": 22.689845323562622
+    }
+  ]
+}

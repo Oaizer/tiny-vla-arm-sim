@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "created_unix": 1791762971,
+  "classifier": "537-to-32-to-1 MLP on frozen visual features",
+  "train_positive_scenes": 240,
+  "train_negative_scenes": 240,
+  "validation_positive_scenes": 60,
+  "validation_negative_scenes": 60,
+  "fresh_test_scenes_per_class": 40,
+  "source_sha256": {
+    "configs/world_v10_router.json": "724c951bb0685368f04d8ab8f18922a9990f4a151ceba069ff4db36471b402d0",
+    "src/tinyvla/world_v10_router.py": "baef1f4eb7dac0d7c32d750d360ed72ca1e49bbff98adfd897d72ba4a4788133",
+    "src/tinyvla/world_data.py": "ad2faa44f3627b870132fc5565542e08fa5f9160f9f5d46cbc22265f873caeca",
+    "src/tinyvla/model.py": "2d4ca429e53a99bbb9a29486c436ba806e58321e0621bd488f7288ffc49424ff",
+    "src/tinyvla/sim.py": "429cdd76e5eb69dfb2059b47fe5716548535f8e08aff650f840a44322a523a8f",
+    "src/tinyvla/language.py": "6fb0f8acbb994d5296458e562d5f479eb1c78ce1e840e502d9449225a061fb91",
+    "uv.lock": "dcbd89ed18b9c8c38a141e00a46d4873bcb0d525935596c8dd05dcd7ba818859",
+    "artifacts/model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "artifacts/world-v8/tipped-adaptation/data/train.npz": "73b596b1538b4053f78b4781b2b81a4d3b20814cc6eaa1db84704818b9af9513",
+    "artifacts/world-v8/tipped-adaptation/data/validation.npz": "44f7a3182c4590097a8ebb5491222a0a6b0ff5c8bd2850b86b43d670bed9543d",
+    "artifacts/data/train.npz": "3626c6354cb8695478c58c53859540bdf3722b516b0d83778c01261b2e75f007",
+    "artifacts/data/validation.npz": "fc4890a64980ce2bea0b6283852ebb8cad79a93e0d892ffa36f968dbca9aed80"
+  }
+}

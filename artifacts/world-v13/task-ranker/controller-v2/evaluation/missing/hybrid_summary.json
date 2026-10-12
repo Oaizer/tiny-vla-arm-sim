@@ -1,0 +1,23 @@
+{
+  "suite": "missing",
+  "mode": "hybrid",
+  "episodes": 8,
+  "successes": 0,
+  "safe_stops": 7,
+  "wilson_95": [
+    0.0,
+    0.3244156195108769
+  ],
+  "retries": 0,
+  "planner_calls": 1,
+  "changed_commands": 1,
+  "planner_p95_ms": 1.2458889996196376,
+  "feature_p95_ms": 19.583056150122502,
+  "mean_control_seconds": 0.16488617812490247,
+  "by_object": {
+    "red cylinder": {
+      "episodes": 8,
+      "successes": 0
+    }
+  }
+}

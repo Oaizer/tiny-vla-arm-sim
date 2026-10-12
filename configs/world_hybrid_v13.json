@@ -1,0 +1,12 @@
+{
+  "task_instruction": "put the red cylinder on the yellow pad",
+  "model_root": "artifacts/world-v1/model",
+  "hybrid": {"contact_model": "artifacts/world-v4/contact/contact-head.pt", "reranker": "artifacts/world-v13/task-ranker/ranker.pt"},
+  "planner": {"recovery_only": false, "coherent_grasp": true, "hybrid_min_score_gain": 0.0, "hybrid_max_contact_disagreement": 1.0},
+  "ranking": {"train_scenes": 40, "validation_scenes": 20, "test_scenes": 40, "test_seed": 330000, "controller_seed": 340000,
+    "contact_threshold_n": 0.01, "candidate_count": 25},
+  "training": {"seed": 72341, "steps": 1200, "learning_rate": 0.002, "hidden_size": 16, "positive_weight_max": 20},
+  "evaluation": {"episodes": 8, "final_seed": 340000, "inference_threads": 1,
+    "suites": ["nominal", "tipped", "slip", "object_moved", "dynamics", "missing"]},
+  "final_models": ["hybrid"]
+}

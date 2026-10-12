@@ -1,0 +1,319 @@
+{
+  "development": false,
+  "seconds": 138.0955262184143,
+  "suites": [
+    {
+      "suite": "nominal",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 7,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.5291051942301386,
+        0.9775830911367038
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 19.816283199997997,
+      "mean_control_seconds": 1.7870839449998925,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      }
+    },
+    {
+      "suite": "nominal",
+      "mode": "hybrid",
+      "episodes": 8,
+      "successes": 6,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.40926987910258916,
+        0.9285223111419724
+      ],
+      "retries": 0,
+      "planner_calls": 8,
+      "changed_commands": 8,
+      "planner_p95_ms": 1.7730478998601027,
+      "feature_p95_ms": 20.02392219978901,
+      "mean_control_seconds": 1.9077001712500987,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 6
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 1,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.02241690886329617,
+        0.4708948057698615
+      ],
+      "retries": 5,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 20.136644750073174,
+      "mean_control_seconds": 0.8024852616250087,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "hybrid",
+      "episodes": 8,
+      "successes": 2,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.07147768885802763,
+        0.5907301208974108
+      ],
+      "retries": 7,
+      "planner_calls": 9,
+      "changed_commands": 9,
+      "planner_p95_ms": 1.5220458000840154,
+      "feature_p95_ms": 19.940069999938714,
+      "mean_control_seconds": 0.8462785535000421,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 2
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 0,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.0,
+        0.3244156195108769
+      ],
+      "retries": 9,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 20.081716400272853,
+      "mean_control_seconds": 1.0985963221249335,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "hybrid",
+      "episodes": 8,
+      "successes": 0,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.0,
+        0.3244156195108769
+      ],
+      "retries": 8,
+      "planner_calls": 8,
+      "changed_commands": 8,
+      "planner_p95_ms": 1.4013778999014903,
+      "feature_p95_ms": 19.96509449986661,
+      "mean_control_seconds": 1.129604077249951,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 7,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.5291051942301386,
+        0.9775830911367038
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 19.92929570005799,
+      "mean_control_seconds": 1.9848976404999803,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "hybrid",
+      "episodes": 8,
+      "successes": 7,
+      "safe_stops": 1,
+      "wilson_95": [
+        0.5291051942301386,
+        0.9775830911367038
+      ],
+      "retries": 0,
+      "planner_calls": 7,
+      "changed_commands": 7,
+      "planner_p95_ms": 1.4398383002117043,
+      "feature_p95_ms": 19.830754400118167,
+      "mean_control_seconds": 2.096969745874901,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 8,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.6755843804891231,
+        1.0
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 20.093493900412795,
+      "mean_control_seconds": 1.9290446592498824,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 8
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "hybrid",
+      "episodes": 8,
+      "successes": 8,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.6755843804891231,
+        1.0
+      ],
+      "retries": 0,
+      "planner_calls": 8,
+      "changed_commands": 8,
+      "planner_p95_ms": 1.7874848000701602,
+      "feature_p95_ms": 20.184492499993212,
+      "mean_control_seconds": 2.0101318426251282,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 8
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 0,
+      "safe_stops": 7,
+      "wilson_95": [
+        0.0,
+        0.3244156195108769
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 19.925343099748716,
+      "mean_control_seconds": 0.1499330607499587,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "hybrid",
+      "episodes": 8,
+      "successes": 0,
+      "safe_stops": 7,
+      "wilson_95": [
+        0.0,
+        0.3244156195108769
+      ],
+      "retries": 0,
+      "planner_calls": 1,
+      "changed_commands": 1,
+      "planner_p95_ms": 1.1739089995899121,
+      "feature_p95_ms": 18.893763000050967,
+      "mean_control_seconds": 0.16452378875010254,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      }
+    }
+  ],
+  "policy_sha256": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+  "model_hashes": {
+    "hybrid": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57"
+  },
+  "config": {
+    "task_instruction": "put the red cylinder on the yellow pad",
+    "model_root": "artifacts/world-v1/model",
+    "model_stages": {
+      "hybrid": "jepa"
+    },
+    "hybrid": {
+      "contact_model": "artifacts/world-v4/contact/contact-head.pt",
+      "reranker": "artifacts/world-v7/corrected-ranker/ranker.pt"
+    },
+    "planner": {
+      "recovery_only": false,
+      "coherent_grasp": true,
+      "hybrid_min_score_gain": 0.0,
+      "hybrid_max_contact_disagreement": 1.0
+    },
+    "evaluation": {
+      "episodes": 8,
+      "final_seed": 320000,
+      "inference_threads": 1,
+      "suites": [
+        "nominal",
+        "tipped",
+        "slip",
+        "object_moved",
+        "dynamics",
+        "missing"
+      ]
+    },
+    "final_models": [
+      "hybrid"
+    ]
+  }
+}

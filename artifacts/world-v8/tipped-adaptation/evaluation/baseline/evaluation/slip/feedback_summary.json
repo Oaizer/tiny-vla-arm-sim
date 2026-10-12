@@ -1,0 +1,23 @@
+{
+  "suite": "slip",
+  "mode": "feedback",
+  "episodes": 8,
+  "successes": 0,
+  "safe_stops": 0,
+  "wilson_95": [
+    0.0,
+    0.3244156195108769
+  ],
+  "retries": 9,
+  "planner_calls": 0,
+  "changed_commands": 0,
+  "planner_p95_ms": null,
+  "feature_p95_ms": 27.242124549843524,
+  "mean_control_seconds": 1.2387590012499459,
+  "by_object": {
+    "red cylinder": {
+      "episodes": 8,
+      "successes": 0
+    }
+  }
+}

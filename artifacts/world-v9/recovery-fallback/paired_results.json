@@ -1,0 +1,830 @@
+{
+  "task_trials": 40,
+  "feedback_successes": 21,
+  "hybrid_successes": 21,
+  "wins": 0,
+  "losses": 0,
+  "ties": 40,
+  "exact_two_sided_sign_p": 1.0,
+  "missing_trials": 8,
+  "feedback_missing_safe_stops": 8,
+  "hybrid_missing_safe_stops": 8,
+  "fallback_uses": 30,
+  "rows": [
+    {
+      "suite": "nominal",
+      "seed": 250000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 250001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 250002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 250003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 250004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 250005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 250006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "nominal",
+      "seed": 250007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 251000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 0,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7722463011741638,
+          "contact_disagreement": 0.02641979046165943,
+          "predicted_contact": 0.7066239714622498,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999907404184342
+          ],
+          "fallback": false,
+          "milliseconds": 2.026977999776136
+        }
+      ]
+    },
+    {
+      "suite": "tipped",
+      "seed": 251001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 2,
+      "fallbacks": 5,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 251002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 251003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 2,
+      "fallbacks": 3,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 251004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 251005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 251006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "tipped",
+      "seed": 251007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 2,
+      "fallbacks": 4,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 252000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 2,
+      "fallbacks": 3,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6749217510223389,
+          "contact_disagreement": 0.025714220479130745,
+          "predicted_contact": 0.1638658344745636,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000196114182473
+          ],
+          "fallback": false,
+          "milliseconds": 1.8346110000493354
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 252001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 2,
+      "fallbacks": 4,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7322545051574707,
+          "contact_disagreement": 0.00023350809351541102,
+          "predicted_contact": 0.03220696374773979,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000164449214936
+          ],
+          "fallback": false,
+          "milliseconds": 1.2870570003542525
+        },
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8299227356910706,
+          "contact_disagreement": 0.03453090041875839,
+          "predicted_contact": 0.44229140877723694,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000164449214936
+          ],
+          "fallback": false,
+          "milliseconds": 1.2129940000704664
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 252002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 1,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7420392036437988,
+          "contact_disagreement": 0.010837309993803501,
+          "predicted_contact": 0.8635889887809753,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999899953603745
+          ],
+          "fallback": false,
+          "milliseconds": 1.159712000116997
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 252003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 2,
+      "fallbacks": 4,
+      "planning": []
+    },
+    {
+      "suite": "slip",
+      "seed": 252004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 0,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.7573468685150146,
+          "contact_disagreement": 0.029431581497192383,
+          "predicted_contact": 0.8547894954681396,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000123471021653
+          ],
+          "fallback": false,
+          "milliseconds": 1.0734190000221133
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 252005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 2,
+      "fallbacks": 2,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.8786222338676453,
+          "contact_disagreement": 0.017312845215201378,
+          "predicted_contact": 0.5190086960792542,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999819859862328
+          ],
+          "fallback": false,
+          "milliseconds": 1.931160999902204
+        },
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.868639349937439,
+          "contact_disagreement": 0.01505345106124878,
+          "predicted_contact": 0.6377453804016113,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.010999819859862328
+          ],
+          "fallback": false,
+          "milliseconds": 2.1032210001976637
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 252006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 0,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.655182957649231,
+          "contact_disagreement": 0.023165052756667137,
+          "predicted_contact": 0.23559719324111938,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000095531344414
+          ],
+          "fallback": false,
+          "milliseconds": 1.433768999959284
+        }
+      ]
+    },
+    {
+      "suite": "slip",
+      "seed": 252007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 0,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.5857659578323364,
+          "contact_disagreement": 0.02462826855480671,
+          "predicted_contact": 0.3101847469806671,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000112295150757
+          ],
+          "fallback": false,
+          "milliseconds": 1.3701920001949475
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 253000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "stopped_outside_workspace",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 1,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 253001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 253002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 253003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 253004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 253005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "object_moved",
+      "seed": 253006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_attempt_budget",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 2,
+      "fallbacks": 0,
+      "planning": [
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.6126653552055359,
+          "contact_disagreement": 0.03136294335126877,
+          "predicted_contact": 0.3455992639064789,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000112295150757
+          ],
+          "fallback": false,
+          "milliseconds": 1.1583139998947445
+        },
+        {
+          "accepted": true,
+          "candidate": 3,
+          "proposed_candidate": 3,
+          "score_margin": 0.5997642278671265,
+          "contact_disagreement": 0.03208011016249657,
+          "predicted_contact": 0.34245243668556213,
+          "offset_m": [
+            0.006000000000000005,
+            0.0,
+            -0.011000112295150757
+          ],
+          "fallback": false,
+          "milliseconds": 1.1520459997882426
+        }
+      ]
+    },
+    {
+      "suite": "object_moved",
+      "seed": 253007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 254000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 254001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 254002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 254003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 254004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 254005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 254006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_status": "placed",
+      "hybrid_status": "placed",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "dynamics",
+      "seed": 254007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_attempt_budget",
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "retries": 2,
+      "fallbacks": 4,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 255000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 255001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 255002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 255003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 255004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 255005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 255006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    },
+    {
+      "suite": "missing",
+      "seed": 255007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible",
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "retries": 0,
+      "fallbacks": 0,
+      "planning": []
+    }
+  ],
+  "protocol_sha256": "f33b26eb9739b90e8d26dc6588813ef10e53d9dc0295de55ff7f61c6c486e87f",
+  "evaluation_seconds": 173.0384247303009
+}

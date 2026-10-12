@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "created_unix": 1791764411,
+  "purpose": "Recreate selected clips from already evaluated seeds; these replays do not add test trials.",
+  "seeds": [
+    341000,
+    351001
+  ],
+  "ranker_sha256": "ece7cf82ae1dc2ae3f3309d1e7d7a2111916dc7579c30e9afaa0cabde7e1b418",
+  "source_sha256": {
+    "scripts/export_world_hybrid_v13_replays.py": "b9c2619e8f2e624cff54fb25c441839c7ef2a795c64d4833faad8cf730589957",
+    "configs/world_hybrid_v13.json": "f4f9162b51f3e8e7dfe37f26bc0d3e39d61a9651b3ca006ccd14853c1fa289aa",
+    "src/tinyvla/world_hybrid_corrected.py": "bfbc22793ce72024d417734fc54ea4459fcc57c785720e4402a50396dd1d8402",
+    "src/tinyvla/world_hybrid_ranker_v7.py": "4c0b19d725a43d66ffbbe0b651c3374d2c22d5bbe12b9d3e90beb89403418f48",
+    "src/tinyvla/world_evaluate.py": "9cac8a2bb79caaf55676de6a1e27a295a4ef2962512c94a174e212f0692a67ed",
+    "src/tinyvla/world_planner.py": "7764ec62a293b127578604c42e28682127cc86a2c454ed6225dce36ce72f767e",
+    "src/tinyvla/controller.py": "06c8e167447128d38f7bbbc27a3921284fd82f9eac5d11a17bed5e3b8b4252bc",
+    "src/tinyvla/world_model.py": "772c1df736b0305e7a4a48b7b656cb044c3bd2e9fcbe41c48f1a958b960dc75c",
+    "src/tinyvla/world_contact_rank.py": "de202d561a0a28c096cd7f2c6a6629dcdcb547afaf0c1bab8cac168a127d4bf6",
+    "src/tinyvla/world_contact_reranker.py": "bf6a0550f5fdd4ea17eaf62cc6da742465fc9a83154ebcd7f8274fc6039429b4",
+    "src/tinyvla/world_contact_train.py": "02df648d7ea89ab796d3113c1bd9a8f4f65ba1964306cb6b19e0557a2bca724e",
+    "src/tinyvla/world_data.py": "ad2faa44f3627b870132fc5565542e08fa5f9160f9f5d46cbc22265f873caeca",
+    "src/tinyvla/evaluate.py": "181c5ecde0d33426d07ec1429dbdab7ad140db38af4e2efec2c07422f792ee99",
+    "src/tinyvla/sim.py": "429cdd76e5eb69dfb2059b47fe5716548535f8e08aff650f840a44322a523a8f",
+    "src/tinyvla/language.py": "6fb0f8acbb994d5296458e562d5f479eb1c78ce1e840e502d9449225a061fb91",
+    "artifacts/model/best.pt": "3fa1c51ba00da35045277e827e4f97e2079cc3b7830f2aef6deedbfd43eea6d8",
+    "artifacts/world-v1/model/jepa.pt": "39140ebbf3341714405e31d05bed5bb0a4616841e60407cee9cea1612344ea57",
+    "artifacts/world-v4/contact/contact-head.pt": "e30bdec30093a5b9c0bd2555393e4853973b6877f1bc08bb27160936a396d214",
+    "/mnt/c/Users/oaize/Documents/Codex/2026-10-07/i-w/outputs/tiny-vla-project/artifacts/world-v13/task-ranker/ranker.pt": "ece7cf82ae1dc2ae3f3309d1e7d7a2111916dc7579c30e9afaa0cabde7e1b418"
+  }
+}

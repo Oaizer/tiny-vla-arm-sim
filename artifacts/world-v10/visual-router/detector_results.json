@@ -1,0 +1,19 @@
+{
+  "threshold": 0.7575351595878601,
+  "validation_positive_recall": 0.05,
+  "validation_false_positive_rate": 0.05,
+  "test_tipped_recall": 0.05,
+  "test_nominal_false_positive_rate": 0.025,
+  "test_scenes_per_class": 40,
+  "test_seed_ranges": [
+    [
+      270000,
+      270039
+    ],
+    [
+      271000,
+      271039
+    ]
+  ],
+  "selected_step": 60
+}

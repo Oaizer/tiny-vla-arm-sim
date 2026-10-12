@@ -1,0 +1,165 @@
+{
+  "development": false,
+  "seconds": 74.38616156578064,
+  "suites": [
+    {
+      "suite": "nominal",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 5,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.30573785458380187,
+        0.863158240538479
+      ],
+      "retries": 1,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 25.893932349958952,
+      "mean_control_seconds": 1.3066542343750598,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 5
+        }
+      }
+    },
+    {
+      "suite": "tipped",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 1,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.02241690886329617,
+        0.4708948057698615
+      ],
+      "retries": 9,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 31.621539850084442,
+      "mean_control_seconds": 1.9743818924999914,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 1
+        }
+      }
+    },
+    {
+      "suite": "slip",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 0,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.0,
+        0.3244156195108769
+      ],
+      "retries": 8,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 40.01678924983004,
+      "mean_control_seconds": 1.1361705387499796,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      }
+    },
+    {
+      "suite": "object_moved",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 6,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.40926987910258916,
+        0.9285223111419724
+      ],
+      "retries": 3,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 26.673343649758863,
+      "mean_control_seconds": 2.013918119624975,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 6
+        }
+      }
+    },
+    {
+      "suite": "dynamics",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 7,
+      "safe_stops": 0,
+      "wilson_95": [
+        0.5291051942301386,
+        0.9775830911367038
+      ],
+      "retries": 2,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 34.175387250047656,
+      "mean_control_seconds": 2.191621376500052,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 7
+        }
+      }
+    },
+    {
+      "suite": "missing",
+      "mode": "feedback",
+      "episodes": 8,
+      "successes": 0,
+      "safe_stops": 8,
+      "wilson_95": [
+        0.0,
+        0.3244156195108769
+      ],
+      "retries": 0,
+      "planner_calls": 0,
+      "changed_commands": 0,
+      "planner_p95_ms": null,
+      "feature_p95_ms": 20.205664100171816,
+      "mean_control_seconds": 0.02423630175002245,
+      "by_object": {
+        "red cylinder": {
+          "episodes": 8,
+          "successes": 0
+        }
+      }
+    }
+  ],
+  "policy_sha256": "72038b8b9feed58dc38889d05126420fb4c614a0cf7a1ea5fff5840b6786da26",
+  "model_hashes": {},
+  "config": {
+    "task_instruction": "put the red cylinder on the yellow pad",
+    "model_root": "artifacts/world-v1/model",
+    "planner": {},
+    "evaluation": {
+      "episodes": 8,
+      "final_seed": 240000,
+      "inference_threads": 1,
+      "suites": [
+        "nominal",
+        "tipped",
+        "slip",
+        "object_moved",
+        "dynamics",
+        "missing"
+      ]
+    },
+    "final_models": []
+  }
+}

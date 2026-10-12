@@ -75,6 +75,90 @@
       "status": "warn",
       "source": "../artifacts/world-v6/hybrid-feedback/RESULTS.md",
       "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/world-model-v6-hybrid-feedback/tiny-vla-world-v6-hybrid-feedback.zip"
+    },
+    {
+      "id": "v7",
+      "title": "Correct the reranker inputs",
+      "kind": "Corrected offline model and controller test",
+      "question": "Does the corrected red-cylinder contact channel improve grasp ranking?",
+      "evidence": "40 fresh offline scenes with 1,000 branches; then 40 matched task trials and 8 missing-object checks.",
+      "measure": "Offline contact choice: 29/40 vs 27/40 unchanged. Controller: feedback and hybrid both 25/40.",
+      "detail": "The corrected reranker used contact-head channel 3 for the red cylinder and removed the simulator-only tipped label. The controller had 0 wins, 0 losses, and 40 ties. Better contact ranking did not improve task success.",
+      "result": "Better contact choice; no task gain",
+      "status": "warn",
+      "source": "../artifacts/world-v7/corrected-hybrid/RESULTS.md"
+    },
+    {
+      "id": "v8",
+      "title": "Fine-tune on fallen-cylinder scenes",
+      "kind": "Simulated policy adaptation",
+      "question": "Can extra fallen-object demonstrations improve the VLA policy?",
+      "evidence": "240 training scenes, 60 validation scenes, and 40 matched task trials.",
+      "measure": "Tipped waypoint error fell from 7.15 mm to 6.08 mm. Task success fell from 21/40 to 19/40.",
+      "detail": "The adapted policy improved its tipped-scene waypoint metric but lost two task successes overall. It had 1 win and 3 losses against the base policy. Keep the base policy as the default.",
+      "result": "Better waypoint metric; worse task result",
+      "status": "warn",
+      "source": "../artifacts/world-v8/tipped-adaptation/evaluation/RESULTS.md"
+    },
+    {
+      "id": "v9",
+      "title": "Retry with the last valid visual plan",
+      "kind": "Recovery controller test",
+      "question": "Can a saved visual target help when the camera briefly loses the object?",
+      "evidence": "40 matched task trials and 8 missing-object checks on fresh seeds.",
+      "measure": "Feedback 21/40; hybrid 21/40. The fallback ran 30 times.",
+      "detail": "The first low-confidence view still stopped the controller. A saved target was used only after a prior valid view and during bounded recovery. It did not add a successful task.",
+      "result": "No task-success gain",
+      "status": "warn",
+      "source": "../artifacts/world-v9/recovery-fallback/RESULTS.md"
+    },
+    {
+      "id": "v10",
+      "title": "Test visual routing to the adapted policy",
+      "kind": "Model routing experiments",
+      "question": "Can a small visual gate select the adapted policy only for a fallen object?",
+      "evidence": "Three gates tested on 40 fresh tipped and 40 fresh upright scenes each.",
+      "measure": "Best tipped-object recall was 5%, with a 2.5% false-positive rate. No controller test was run.",
+      "detail": "A linear gate, a small MLP, and a crop classifier all missed most fallen cylinders. The gate did not meet the fixed validation limit, so the routed model stayed out of the controller.",
+      "result": "Visual gate too weak",
+      "status": "warn",
+      "source": "../artifacts/world-v10/RESULTS.md"
+    },
+    {
+      "id": "v11",
+      "title": "Relax the proposal gate",
+      "kind": "Hybrid controller test",
+      "question": "Will more frequent recovery proposals turn contact ranking into task gains?",
+      "evidence": "40 matched task trials and 8 missing-object checks.",
+      "measure": "Feedback and hybrid both 24/40; 0 wins and 0 losses.",
+      "detail": "The permissive gate accepted all four non-default proposals. None changed the final task result. The missing-object safe-stop rate stayed 7/8 for both.",
+      "result": "No task-success gain",
+      "status": "warn",
+      "source": "../artifacts/world-v11/permissive-ranker/RESULTS.md"
+    },
+    {
+      "id": "v12",
+      "title": "Use the reranker on the first grasp",
+      "kind": "Hybrid controller test",
+      "question": "Can a grasp proposal help before the first failed attempt?",
+      "evidence": "40 matched task trials and 8 missing-object checks.",
+      "measure": "Feedback and hybrid both 23/40; 2 wins, 2 losses, and 36 ties.",
+      "detail": "The ranker changed 41 grasp commands. Two feedback failures became successes, but two successful feedback trials became failures. The net task result was unchanged.",
+      "result": "Mixed outcomes; no net gain",
+      "status": "warn",
+      "source": "../artifacts/world-v12/first-grasp-ranker/RESULTS.md"
+    },
+    {
+      "id": "v13",
+      "title": "Rank grasps by complete task success",
+      "kind": "Task-success ranker and independent replication",
+      "question": "Does a ranker trained on full pick, lift, and place outcomes improve the controller?",
+      "evidence": "Offline: 12/40 vs 4/40 successful grasp choices. Primary controller test: 30/40 vs 26/40. Independent replication: 27/40 vs 25/40.",
+      "measure": "Across 80 matched trials: V13 57/80; feedback 51/80. Paired results: 11 wins, 5 losses, and 64 ties (exact p=0.210).",
+      "detail": "Both fresh seed ranges favored V13. The combined gain is 6 tasks, but the paired test is small and does not establish a reliable effect. Missing-object safe stops were 15/16 for both controllers. Keep testing in simulation before any real-arm use.",
+      "result": "Repeatable positive gain; early evidence",
+      "status": "good",
+      "source": "../artifacts/world-v13/task-ranker/REPLICATION.md"
     }
   ],
   "trials": [
@@ -111,6 +195,22 @@
       "videos": [
         {"name": "Feedback", "outcome": "SUCCESS", "file": "media/world-v6-tipped-192000-feedback.mp4"},
         {"name": "Guarded hybrid", "outcome": "SUCCESS", "file": "media/world-v6-tipped-192000-hybrid.mp4"}
+      ]
+    },
+    {
+      "title": "Task-success ranking · tipped cylinder · seed 341000",
+      "scene": "Same simulated scene. Feedback stops outside the workspace. V13 grasps and places the cylinder. This is one selected trial.",
+      "videos": [
+        {"name": "Feedback", "outcome": "FAILED", "file": "media/world-v13-tipped-341000-feedback.mp4"},
+        {"name": "V13 task-success ranker", "outcome": "SUCCESS", "file": "media/world-v13-tipped-341000-hybrid.mp4"}
+      ]
+    },
+    {
+      "title": "Independent replication · tipped cylinder · seed 351001",
+      "scene": "Second fresh seed range. Feedback misses the placement. The frozen V13 ranker succeeds. This is one selected trial.",
+      "videos": [
+        {"name": "Feedback", "outcome": "FAILED", "file": "media/world-v13-tipped-351001-feedback.mp4"},
+        {"name": "V13 task-success ranker", "outcome": "SUCCESS", "file": "media/world-v13-tipped-351001-hybrid.mp4"}
       ]
     }
   ]

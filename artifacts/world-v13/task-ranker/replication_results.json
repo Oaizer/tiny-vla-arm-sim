@@ -1,0 +1,496 @@
+{
+  "task_trials": 40,
+  "feedback_successes": 25,
+  "hybrid_successes": 27,
+  "wins": 3,
+  "losses": 1,
+  "ties": 36,
+  "exact_two_sided_sign_p": 0.625,
+  "missing_trials": 8,
+  "feedback_missing_safe_stops": 8,
+  "hybrid_missing_safe_stops": 8,
+  "protocol_sha256": "dc74a75c9c303f5bbf3ff7c93cdaac8c30466835b70743a00454708f25c01abc",
+  "evaluation_seconds": 158.1901876926422,
+  "rows": [
+    {
+      "suite": "nominal",
+      "seed": 350000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "nominal",
+      "seed": 350001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "nominal",
+      "seed": 350002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "nominal",
+      "seed": 350003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "nominal",
+      "seed": 350004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "nominal",
+      "seed": 350005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "nominal",
+      "seed": 350006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "nominal",
+      "seed": 350007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "tipped",
+      "seed": 351000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "tipped",
+      "seed": 351001,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "tipped",
+      "seed": 351002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "tipped",
+      "seed": 351003,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "tipped",
+      "seed": 351004,
+      "feedback_success": false,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_outside_workspace",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "tipped",
+      "seed": 351005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "tipped",
+      "seed": 351006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "tipped",
+      "seed": 351007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "slip",
+      "seed": 352000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "slip",
+      "seed": 352001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "slip",
+      "seed": 352002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "slip",
+      "seed": 352003,
+      "feedback_success": true,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "slip",
+      "seed": 352004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "slip",
+      "seed": 352005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "slip",
+      "seed": 352006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "slip",
+      "seed": 352007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "object_moved",
+      "seed": 353000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "object_moved",
+      "seed": 353001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "object_moved",
+      "seed": 353002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "object_moved",
+      "seed": 353003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "object_moved",
+      "seed": 353004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "object_moved",
+      "seed": 353005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "object_moved",
+      "seed": 353006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "object_moved",
+      "seed": 353007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "dynamics",
+      "seed": 354000,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "dynamics",
+      "seed": 354001,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "dynamics",
+      "seed": 354002,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "dynamics",
+      "seed": 354003,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "dynamics",
+      "seed": 354004,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "dynamics",
+      "seed": 354005,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "dynamics",
+      "seed": 354006,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "dynamics",
+      "seed": 354007,
+      "feedback_success": true,
+      "hybrid_success": true,
+      "feedback_safe_stop": false,
+      "hybrid_safe_stop": false,
+      "feedback_status": "placed",
+      "hybrid_status": "placed"
+    },
+    {
+      "suite": "missing",
+      "seed": 355000,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "missing",
+      "seed": 355001,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "missing",
+      "seed": 355002,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "missing",
+      "seed": 355003,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "missing",
+      "seed": 355004,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "missing",
+      "seed": 355005,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "missing",
+      "seed": 355006,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    },
+    {
+      "suite": "missing",
+      "seed": 355007,
+      "feedback_success": false,
+      "hybrid_success": false,
+      "feedback_safe_stop": true,
+      "hybrid_safe_stop": true,
+      "feedback_status": "stopped_source_not_visible",
+      "hybrid_status": "stopped_source_not_visible"
+    }
+  ]
+}
