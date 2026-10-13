@@ -1,6 +1,6 @@
 {
   "title": "TinyVLA — simulation record",
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "iterations": [
     {
       "id": "v1",
@@ -301,6 +301,162 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#barrier-clear-transfer-v1",
       "data": "b601-rs-obstacle-v1-results.json"
+    },
+    {
+      "id": "b601-bc-v1",
+      "title": "BC V1 · 96 px images; all demonstrations",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "12 trials, matched held-out seeds; training used 6,489 samples from 160 episodes.",
+      "measure": "Policy 0/12 full sorts; 0/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "96 px images; all demonstrations. The selected checkpoint is epoch 38 with 130,968 parameters and 0.45 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "0/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v1-successful-only",
+      "title": "BC V1 successful-only · 96 px images; complete teacher episodes only",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "12 trials, matched held-out seeds; training used 3,816 samples from 110 episodes.",
+      "measure": "Policy 0/12 full sorts; 0/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "96 px images; complete teacher episodes only. The selected checkpoint is epoch 37 with 130,968 parameters and 0.48 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "0/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v2",
+      "title": "BC V2 · 192 px images; all demonstrations",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "12 trials, matched held-out seeds; training used 6,300 samples from 160 episodes.",
+      "measure": "Policy 0/12 full sorts; 0/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "192 px images; all demonstrations. The selected checkpoint is epoch 23 with 425,880 parameters and 0.69 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "0/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v2-successful-only",
+      "title": "BC V2 successful-only · 192 px images; complete teacher episodes only",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "12 trials, matched held-out seeds; training used 3,681 samples from 110 episodes.",
+      "measure": "Policy 0/12 full sorts; 1/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "192 px images; complete teacher episodes only. The selected checkpoint is epoch 33 with 425,880 parameters and 0.58 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "1/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v3",
+      "title": "BC V3 · Remove home labels; add a phase input",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "12 trials, matched held-out seeds; training used 5,600 samples from 160 episodes.",
+      "measure": "Policy 0/12 full sorts; 0/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "Remove home labels; add a phase input. The selected checkpoint is epoch 39 with 426,904 parameters and 0.74 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "0/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v4",
+      "title": "BC V4 · Add 960 teacher labels from policy-visited states",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "12 trials, matched held-out seeds; training used 6,368 samples from 200 episodes.",
+      "measure": "Policy 0/12 full sorts; 0/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "Add 960 teacher labels from policy-visited states. The selected checkpoint is epoch 30 with 426,904 parameters and 0.69 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "0/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v5",
+      "title": "BC V5 · 384 px images; 12 by 12 vision grid",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "12 trials, matched held-out seeds; training used 2,816 samples from 80 episodes.",
+      "measure": "Policy 0/12 full sorts; 0/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "384 px images; 12 by 12 vision grid. The selected checkpoint is epoch 34 with 918,424 parameters and 1.49 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "0/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v5b",
+      "title": "BC V5b · 384 px images; smaller 8 by 8 vision grid",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "12 trials, matched held-out seeds; training used 2,816 samples from 80 episodes.",
+      "measure": "Policy 0/12 full sorts; 0/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "384 px images; smaller 8 by 8 vision grid. The selected checkpoint is epoch 32 with 426,904 parameters and 1.58 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "0/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v6",
+      "title": "BC V6 · Cartesian waypoint actions; canonical face yaw",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "12 trials, matched held-out seeds; training used 2,816 samples from 80 episodes.",
+      "measure": "Policy 0/12 full sorts; 0/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "Cartesian waypoint actions; canonical face yaw. The selected checkpoint is epoch 40 with 426,774 parameters and 1.59 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "0/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v7",
+      "title": "BC V7 · Overhead camera; Cartesian waypoints",
+      "kind": "B601-RS learned policy",
+      "question": "Can this change improve the small policy's real sorting results?",
+      "evidence": "24 trials, two paired held-out seed groups; training used 2,672 samples from 80 episodes.",
+      "measure": "Policy 0/24 full sorts; 1/72 cubes. Teacher 13/24 sorts; 58/72 cubes.",
+      "detail": "Overhead camera; Cartesian waypoints. The selected checkpoint is epoch 37 with 426,774 parameters and 1.34 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success.",
+      "result": "1/72 cubes; 0/24 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v8",
+      "title": "BC V8 · Add 40 episodes of DAgger corrections",
+      "kind": "B601-RS learned policy",
+      "question": "Can teacher corrections on policy-visited states improve sorting?",
+      "evidence": "12 trials, matched held-out seeds; training used 3,440 samples from 112 episodes.",
+      "measure": "Policy 0/12 full sorts; 0/36 cubes. Teacher 5/12 sorts; 26/36 cubes.",
+      "detail": "Add 40 episodes of DAgger corrections. The selected checkpoint is epoch 34 with 426,774 parameters and 1.37 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success. The correction set had 40 episodes and 0 complete teacher-guided sorts; 768 correction samples entered training.",
+      "result": "0/36 cubes; 0/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
+    },
+    {
+      "id": "b601-bc-v9",
+      "title": "BC V9 · Add camera-derived cube and pad coordinates",
+      "kind": "B601-RS learned policy",
+      "question": "Can camera-derived target features improve cube placement?",
+      "evidence": "24 trials, two paired held-out seed groups; training used 2,672 samples from 80 episodes.",
+      "measure": "Policy 0/24 full sorts; 8/72 cubes. Teacher 13/24 sorts; 58/72 cubes.",
+      "detail": "Add camera-derived cube and pad coordinates. The selected checkpoint is epoch 36 with 427,798 parameters and 1.77 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success. This is an early object-level gain; neither V7 nor V9 completed a full sort in these 24 trials.",
+      "result": "8/72 cubes; 0/24 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json"
     }
   ],
   "trials": [
@@ -560,6 +716,28 @@
           "name": "V14 direct approach",
           "outcome": "SUCCESS",
           "file": "media/world-v14-seed-360000-direct.mp4"
+        }
+      ]
+    },
+    {
+      "title": "Face-aligned teacher · overhead view · seed 607000",
+      "scene": "Scripted B601-RS teacher run in PyBullet. The teacher uses cube yaw to turn the fingers toward a face. All three cubes reach their pads. 1280 × 768, 10 fps, 47.7 seconds.",
+      "videos": [
+        {
+          "name": "Face-aligned B601 teacher",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-sort-v7-face-aligned-seed-607000.mp4"
+        }
+      ]
+    },
+    {
+      "title": "Learned V9 policy · seed 622009",
+      "scene": "Held-out B601-RS simulation example. The visual-target policy places two cubes and misses the third. The full paired test scored 8/72 cubes and 0/24 complete sorts. This selected clip is one example, not the whole result. 1280 × 768, 10 fps.",
+      "videos": [
+        {
+          "name": "V9 visual-target policy",
+          "outcome": "PARTIAL",
+          "file": "media/b601-rs-bc-v9-seed-622009.mp4"
         }
       ]
     }

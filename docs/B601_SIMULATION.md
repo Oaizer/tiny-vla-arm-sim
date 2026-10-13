@@ -123,4 +123,86 @@ The sorting script supports V2 through V9. Keep each result attached to its vers
 
 The one-cube pilot completed 12 of 12 seeded placements. The best open-table three-cube batch completed 9 of 12 full sorts. The added barrier challenge completed 8 of 12. All use a scripted teacher. They do not test a learned VLA policy or real-arm safety. The [tracked per-seed results](../portfolio/b601-rs-results.json) include object starts, placement errors, and joint-limit checks. The older VLA benchmarks are still Panda results and remain listed separately on the portfolio page.
 
-Before policy training, calibrate target speed and gripper width conversion against Seeed’s own B601-RS simulation controller. Then collect B601-RS episodes with joint-state observations and train a fresh policy on this arm. Evaluate it on new seeds against a B601-specific feedback controller. Keep all tests in simulation.
+Train a B601-specific policy from this arm’s simulated camera and joint data; the earlier Panda policy does not transfer directly. The demonstration pilot and first learned baseline are described below. All tests in this project remain in simulation. The motor speed profile and gripper width conversion still need calibration before any later hardware integration.
+
+## B601 demonstration data pilot
+
+The recorder saves one sample before each scripted waypoint command. Each sample has an RGB image, six measured arm-joint positions and velocities, two measured finger positions, the current object-to-pad instruction, and the next six arm-joint and two finger-joint targets. These are waypoint labels, not 240 Hz motor commands.
+
+The earlier teacher held the wrist at one fixed yaw while cube yaw changed. That can put the fingers across corners instead of opposing faces. The data collector now rotates the wrist to match each cube's yaw. This uses privileged simulator orientation to choose the teacher action; the student still receives only its image, proprioception, and text. This grasp-alignment change is limited to the data collection script so earlier benchmark results stay reproducible.
+
+The scripted teacher uses exact object and pad poses to choose its targets. Those poses are not included in the saved policy observations. The dataset manifest records teacher success for each whole sorting episode, and assigns every fifth seed to validation. Keep all samples from an episode together when changing this split.
+
+The first 200-episode dataset used 96 × 96 images. It had 7,929 waypoint samples and 144 successful teacher episodes. The first learned controller matched waypoints well, but placed 0/36 cubes in 12 held-out sorts. Cube centers occupied only a few pixels, which made recovery after small movement errors difficult. This is a negative but useful baseline.
+
+The second dataset uses 192 × 192 camera images and a vision encoder that keeps an 8 × 8 spatial feature map. Collect it on a Python 3.11 environment with project dependencies installed:
+
+```bash
+PYTHONPATH=src:scripts python scripts/collect_b601_demos.py --episodes 200 --seed-start 630000 --workers 4 --image-size 192 --output artifacts/b601-demos-v2-192
+PYTHONPATH=src python scripts/audit_b601_demos.py artifacts/b601-demos-v2-192
+PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v2-192 --output artifacts/b601-bc-v2-192
+PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v2-192/policy.pt --trials 12 --seed-start 631000 --output artifacts/b601-bc-v2-192/heldout-evaluation.json
+```
+
+The output goes to `artifacts/b601-demos-v2-192/`, which is ignored by Git because rendered image data can be large. Use a new empty `--output` directory for each collection run. Four workers collect independent seeds in parallel; lower `--workers` if CPU use is too high. The audit checks image and state shapes, finite values, B601 action limits, manifest counts, and episode-level train/validation separation. The 96 × 96 baseline remains in `artifacts/b601-demos-v1/` for comparison.
+
+The behavior-cloning baseline is a small CNN for the camera, token embeddings for the instruction, and an MLP for joint state. It predicts the next six arm-joint and two gripper-joint waypoint targets. Training uses a held-out 20% split kept at the episode level. Validation scores measure waypoint imitation. `evaluate_b601_bc.py` then runs the policy on new seeds and compares it with the scripted teacher. The policy gets eight learned waypoints per object and has no retry logic; the teacher can retry up to three times. Task success is the meaningful closed-loop measure, while the training report also records parameter count, checkpoint size, and CPU inference latency. Test the 96 × 96 and 192 × 192 results as separate versions.
+
+## Learned B601 policy iterations
+
+The same 12 held-out seeds (621000–621011) were used for each policy test. The scripted teacher completed 5 of 12 sorts and placed 26 of 36 cubes. It can retry a pick up to three times. Each learned policy gets eight waypoints per object and no retries.
+
+| Version | Change | Learned sorts | Cubes placed | Teacher sorts |
+| --- | --- | ---: | ---: | ---: |
+| BC V1 | 96 × 96 images, mixed demonstrations | 0/12 | 0/36 | 5/12 |
+| BC V2 | 192 × 192 images; all demonstrations | 0/12 | 0/36 | 5/12 |
+| BC V2 success-only | Train on complete teacher episodes | 0/12 | 1/36 | 5/12 |
+| BC V3 | Remove return-home labels and add an eight-step phase input | 0/12 | 0/36 | 5/12 |
+| BC V4 | Add 960 teacher corrections from policy-visited states | 0/12 | 0/36 | 5/12 |
+| BC V5 | 384 px images; 12 × 12 vision grid | 0/12 | 0/36 | 5/12 |
+| BC V5b | Smaller 8 × 8 vision grid | 0/12 | 0/36 | 5/12 |
+| BC V6 | Predict Cartesian waypoints and face yaw | 0/12 | 0/36 | 5/12 |
+| BC V7 | Overhead camera with Cartesian waypoints | 0/12 | 1/36 | 5/12 |
+| BC V8 | Add 40 DAgger correction episodes | 0/12 | 0/36 | 5/12 |
+| BC V9 | Add image-derived cube and pad targets | 0/12 | 2/36 | 5/12 |
+
+The 192 × 192 model had 425,880 parameters and a 0.58–0.69 ms CPU forward pass. V3 had 426,904 parameters and a 0.74 ms CPU forward pass. V4 stayed at 426,904 parameters and reached 0.69 ms per forward pass. These values measure model inference only, not camera capture or arm movement. Waypoint error did not predict task success, so none of these policies replaces the scripted teacher in the portfolio's best-result summary.
+
+The first teacher used one fixed wrist yaw while cube yaw changed. The fingers could then meet cube corners. The demonstration collector now turns the wrist to align the fingers with each cube's faces. The teacher uses the simulator's cube orientation only to make its labels. The learned policy still receives only the camera image, joint state, language instruction, and waypoint phase.
+
+V3 removes the ninth return-home command from the imitation labels because evaluation performs that reset outside the policy. It adds an explicit phase index for approach, descend, close, lift, carry, place, release, and retreat. V4 adds labels queried from the teacher on states reached by the V3 policy. This is DAgger-style data collection. It did not improve held-out task success. The per-version metrics and seeds are in the [portfolio iteration record](../portfolio/iterations.json).
+
+The 384 × 384 overhead runs use Cartesian position, wrist yaw, and finger width targets. V7 placed one cube on the original 12-seed test. It did not complete a full sort. V8 added 40 DAgger episodes from V7 states. The teacher labeled 960 waypoints, but none of those episodes completed all three placements. V8 placed 0/36 cubes on the original test.
+
+V9 adds eight values computed from the camera image and instruction: the requested cube center, its square orientation, the named pad center, and detection flags. It does not read simulator object poses. On the original seeds, V9 placed 2/36 cubes, compared with 1/36 for V7. On a fresh paired set of 12 seeds, V9 placed 6/36 cubes and V7 placed 0/36. Neither policy completed a full sort in either group. Across 24 matched seeds, that is 8/72 placements for V9 and 1/72 for V7, with 0/24 full sorts for each. This is an early object-level gain. The sample is small, and cubes from the same trial can share failure causes.
+
+The separate teacher run on seed 607000 shows face-aligned grasps on all three cubes. It is a scripted simulator-state teacher, not a learned-policy result. The V9 learned-policy example on seed 622009 places two cubes and misses the third. Both clips use 1280 × 768 video. The page links to [all seed-level policy records](../portfolio/b601-bc-results.json).
+
+Reproduce V8 and V9 from the project root. DAgger validation remains separate from the original demonstration validation set:
+
+```bash
+PYTHONPATH=src python scripts/audit_b601_demos.py artifacts/b601-dagger-v8-overhead-40
+PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7-overhead384 --extra-training-dataset artifacts/b601-dagger-v8-overhead-40 --output artifacts/b601-bc-v8-overhead-dagger --action-mode cartesian --spatial-size 8 --epochs 80 --seed 20261013
+PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v8-overhead-dagger/policy.pt --trials 12 --seed-start 621000 --teacher-results artifacts/b601-bc-v7-overhead-cartesian/heldout-evaluation.json --output artifacts/b601-bc-v8-overhead-dagger/heldout-evaluation.json
+PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7-overhead384 --output artifacts/b601-bc-v9-overhead-visual-targets --action-mode cartesian --spatial-size 8 --epochs 40 --seed 20261014 --visual-target-features
+```
+
+The exporter rebuilds the compact portfolio data from the ignored local checkpoints and trial records:
+
+```bash
+python scripts/export_b601_bc_results.py
+python scripts/update_b601_portfolio.py
+```
+
+### 384-pixel experiment
+
+V5 uses 384 × 384 images and a 12 × 12 feature grid. It has 100 demonstration episodes with an episode-level validation split. Collect and train it with:
+
+```bash
+PYTHONPATH=src:scripts python scripts/collect_b601_demos.py --episodes 100 --seed-start 650000 --workers 4 --image-size 384 --output artifacts/b601-demos-v5-384
+PYTHONPATH=src python scripts/audit_b601_demos.py artifacts/b601-demos-v5-384
+PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v5-384 --output artifacts/b601-bc-v5-384 --epochs 40 --batch-size 32 --spatial-size 12
+PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v5-384/policy.pt --trials 12 --seed-start 621000 --teacher-results artifacts/b601-bc-v1-all/heldout-evaluation.json --output artifacts/b601-bc-v5-384/heldout-evaluation.json
+```
+
+The dataset and model files stay under ignored `artifacts/` so Git history does not contain large generated arrays. The portfolio tracks their sample counts, checkpoints, and held-out results in compact JSON files.

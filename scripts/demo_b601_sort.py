@@ -140,6 +140,9 @@ def main():
     parser.add_argument("--videos-only", action="store_true")
     parser.add_argument("--no-video", action="store_true", help="skip camera capture during evaluation")
     parser.add_argument("--video-seed", type=int, help="seed to use for the selected video")
+    parser.add_argument("--face-aligned", action="store_true",
+                        help="align the simulated gripper with each cube's faces for a demonstration clip")
+    parser.add_argument("--camera-view", choices=("oblique", "overhead"), default="oblique")
     args = parser.parse_args()
     version = f"b601-rs-sort-{args.version}"
     out = ROOT / "artifacts" / version
@@ -151,14 +154,22 @@ def main():
     return_to_home = args.version in {"v6", "v7", "v8", "v9"}
     out.mkdir(parents=True, exist_ok=True)
     MEDIA.mkdir(parents=True, exist_ok=True)
-    sim = B601Sim(size=384, frame_stride=96) if args.version in {"v6", "v7", "v8", "v9"} and not args.no_video else B601Sim()
+    if args.face_aligned and not args.no_video:
+        # Capture at 20 fps and write at 10 fps so the grasp plays at half speed.
+        sim = B601Sim(size=(1280, 720), frame_stride=12, camera_view=args.camera_view)
+    else:
+        sim = (B601Sim(size=384, frame_stride=96, camera_view=args.camera_view)
+               if args.version in {"v6", "v7", "v8", "v9"} and not args.no_video
+               else B601Sim(camera_view=args.camera_view))
+    sim.align_gripper_to_object = args.face_aligned
     records = []
     started = time.time()
     try:
         for seed in seeds:
             record, frames = run_trial(sim, seed, slots, approach_height, carry_height, return_to_home, args.version == "v9", seed in video_seeds and not args.no_video)
             if frames is not None:
-                record["video"] = write_video(frames, seed, "SUCCESS" if record["success"] else "FAILED", args.version, fps=10 if args.version in {"v6", "v7", "v8", "v9"} else 20)
+                label = f"{args.version}-face-aligned" if args.face_aligned else args.version
+                record["video"] = write_video(frames, seed, "SUCCESS" if record["success"] else "FAILED", label, fps=10 if args.version in {"v6", "v7", "v8", "v9"} else 20)
             records.append(record)
             print(json.dumps({"seed": seed, "success": record["success"],
                               "placed": sum(obj["success"] for obj in record["objects"]),
