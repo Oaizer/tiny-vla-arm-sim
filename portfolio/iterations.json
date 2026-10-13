@@ -581,6 +581,20 @@
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
       "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v7/b601-policy-models-v7.zip"
+    },
+    {
+      "id": "b601-bc-v18",
+      "title": "BC V18 · Gate large policy errors with teacher takeovers",
+      "kind": "B601-RS learned policy",
+      "question": "Can error-triggered teacher takeovers make DAgger data more useful?",
+      "evidence": "120 trials, 10 paired held-out seed groups; training used 7,152 samples from 232 episodes.",
+      "measure": "Policy 6/120 full sorts; 131/360 cubes. Teacher 80/120 sorts; 311/360 cubes.",
+      "detail": "Gate large policy errors with teacher takeovers. The selected checkpoint is epoch 18 with 427,798 parameters and 1.89 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success. The correction set had 50 episodes and 9 complete teacher-guided sorts; 960 correction samples entered training. V18 adds 960 intervention-guided correction samples from 50 episodes, including 9 complete sorts. Across 120 matched seeds, V18 placed 131/360 cubes and completed 6/120 full sorts. V17 placed 125/360 cubes and completed 5/120. V18 had 41 wins, 35 losses, and 44 ties (exact paired sign test p = 0.567). By color, green placements rose from 28 to 44, while blue placements fell from 52 to 39. This is the highest observed count, but the gain over V17 is not conclusive.",
+      "result": "131/360 cubes; 6/120 full sorts",
+      "status": "good",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v7/b601-policy-models-v7.zip"
     }
   ],
   "trials": [
@@ -895,6 +909,17 @@
           "name": "V17 DAgger candidate",
           "outcome": "SUCCESS",
           "file": "media/b601-rs-bc-v17-seed-624003-dual.mp4"
+        }
+      ]
+    },
+    {
+      "title": "Learned V18 intervention-guided DAgger · seed 626006",
+      "scene": "Held-out B601-RS simulation trial from seed group 626. V18 completes all three placements. Across 120 matched seeds, it placed 131/360 cubes and completed 6/120 full sorts. V17 placed 125/360 cubes and completed 5/120. The paired comparison is uncertain (41 wins, 35 losses, 44 ties; p = 0.567). The overhead view includes a synchronized oblique camera inset. 1280 × 768, 10 fps.",
+      "videos": [
+        {
+          "name": "V18 full-sort policy",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-bc-v18-seed-626006-dual.mp4"
         }
       ]
     }

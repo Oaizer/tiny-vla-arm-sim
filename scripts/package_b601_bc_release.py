@@ -17,19 +17,20 @@ VERSION_DIRS = [
     "b601-bc-v15-overhead-visual-delivery-weighted",
     "b601-bc-v16-overhead-visual-more-demos",
     "b601-bc-v17-overhead-visual-more-demos-dagger",
+    "b601-bc-v18-intervention-dagger",
 ]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", type=Path, default=ROOT / "artifacts")
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v7.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v8.zip")
     args = parser.parse_args()
     included = []
     with zipfile.ZipFile(args.output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
         for name in VERSION_DIRS:
             directory = args.artifacts / name
-            file_names = ["policy.pt", "RESULTS.json", "heldout-evaluation.json"]
+            file_names = ["policy.pt", "RESULTS.json", "COMPARISON.md", "heldout-evaluation.json"]
             file_names.extend(sorted(path.name for path in directory.glob("heldout-replication-*.json")))
             for file_name in file_names:
                 source = directory / file_name
@@ -59,7 +60,9 @@ def main():
                         if extra_manifest.is_file() and extra_name not in included:
                             archive.write(extra_manifest, extra_name)
                             included.append(extra_name)
-        for dagger_name in ("b601-dagger-v8-overhead-40", "b601-dagger-v11-yaw-40"):
+        for dagger_name in ("b601-dagger-v8-overhead-40", "b601-dagger-v11-yaw-40",
+                            "b601-dagger-v17-intervention-fixed-pilot-10",
+                            "b601-dagger-v17-intervention-fixed-40"):
             dagger_manifest = args.artifacts / dagger_name / "manifest.json"
             manifest_name = f"datasets/{dagger_name}/manifest.json"
             if dagger_manifest.is_file() and manifest_name not in included:
@@ -82,6 +85,10 @@ def main():
             "V11 placed 72/360 on the same seeds. V16 had 49 wins, 17 losses, and 54 ties (p=0.00010).\n"
             "V17 adds 40 V16-state correction episodes; it placed 125/360 cubes and completed 5/120 sorts.\n"
             "V16 completed 1/120 sorts. Their placement comparison is uncertain (47 wins, 40 losses, 33 ties; p=0.520).\n"
+            "V18 uses 50 intervention-guided DAgger episodes; 9 completed all three placements.\n"
+            "Across the same 120 held-out seeds, V18 placed 131/360 cubes and completed 6/120 sorts.\n"
+            "V17 placed 125/360 cubes and completed 5/120 sorts. The V18 gain is uncertain\n"
+            "(41 wins, 35 losses, 44 ties; p=0.567). V18 is the best observed count to date.\n"
             "All results are from simulation; full sorting remains rare. The correction manifests are included.\n"
             "The JSON reports contain seed-level outcomes, model size, and validation measures.\n"
             "The manifests describe generated training data; image arrays are not included. Recreate data\n"

@@ -48,6 +48,8 @@ def main():
             question = "Do 100 fresh teacher episodes improve policy generalization?"
         elif version_number == "17":
             question = "Do teacher corrections from V16 policy states improve the expanded-data model?"
+        elif version_number == "18":
+            question = "Can error-triggered teacher takeovers make DAgger data more useful?"
         paired_text = ("matched held-out seeds" if len(runs) == 1 else
                        f"{len(runs)} paired held-out seed groups")
         evidence = (f"{trials} trials, {paired_text}; training used {version['training_samples']:,} samples "
@@ -103,6 +105,22 @@ def main():
                        "V16 placed 109/360 and completed 1/120. V17 had more placements in 47 trials, fewer in 40, "
                        "and tied in 33 (exact paired sign test p = 0.520). V17 has the best observed count, but its "
                        "gain over V16 is not conclusive.")
+        elif version_number == "18":
+            comparison = version["comparison_to_v17"]
+            data = version["dagger_data"]
+            colors = comparison["by_object"]
+            detail += (f" V18 adds {data['training_samples']} intervention-guided correction samples from "
+                       f"{data['episodes']} episodes, including {data['successful_episodes']} complete sorts. "
+                       f"Across 120 matched seeds, V18 placed {comparison['candidate_cubes']}/360 cubes and "
+                       f"completed {comparison['candidate_full_sorts']}/120 full sorts. V17 placed "
+                       f"{comparison['reference_cubes']}/360 cubes and completed "
+                       f"{comparison['reference_full_sorts']}/120. V18 had {comparison['wins']} wins, "
+                       f"{comparison['losses']} losses, and {comparison['ties']} ties "
+                       f"(exact paired sign test p = {comparison['exact_sign_test_two_sided_p']:.3f}). "
+                       f"By color, green placements rose from {colors['green cube']['reference']} to "
+                       f"{colors['green cube']['candidate']}, while blue placements fell from "
+                       f"{colors['blue cube']['reference']} to {colors['blue cube']['candidate']}. "
+                       "This is the highest observed count, but the gain over V17 is not conclusive.")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -153,6 +171,12 @@ def main():
             "scene": "Held-out B601-RS simulation trial from seed group 624. V17 completes all three placements. Across 120 matched seeds, it placed 125/360 cubes and completed 5/120 full sorts. V16 placed 109/360 cubes and completed 1/120 full sorts, but the paired placement comparison is inconclusive (p = 0.520). The large view is overhead; the inset is a synchronized oblique camera. 1280 × 768, 10 fps.",
             "videos": [{"name": "V17 DAgger candidate", "outcome": "SUCCESS",
                         "file": "media/b601-rs-bc-v17-seed-624003-dual.mp4"}],
+        },
+        {
+            "title": "Learned V18 intervention-guided DAgger · seed 626006",
+            "scene": "Held-out B601-RS simulation trial from seed group 626. V18 completes all three placements. Across 120 matched seeds, it placed 131/360 cubes and completed 6/120 full sorts. V17 placed 125/360 cubes and completed 5/120. The paired comparison is uncertain (41 wins, 35 losses, 44 ties; p = 0.567). The overhead view includes a synchronized oblique camera inset. 1280 × 768, 10 fps.",
+            "videos": [{"name": "V18 full-sort policy", "outcome": "SUCCESS",
+                        "file": "media/b601-rs-bc-v18-seed-626006-dual.mp4"}],
         },
     ]
     trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}
