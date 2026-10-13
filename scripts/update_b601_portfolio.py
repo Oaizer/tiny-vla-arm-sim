@@ -40,6 +40,8 @@ def main():
             question = "Can teacher corrections on V11-visited states improve grasping?"
         elif version_number == "13":
             question = "Does filtering to successful teacher sorts improve the learned policy?"
+        elif version_number == "14":
+            question = "Does extra training weight on grasp phases improve object placements?"
         paired_text = ("matched held-out seeds" if len(runs) == 1 else
                        f"{len(runs)} paired held-out seed groups")
         evidence = (f"{trials} trials, {paired_text}; training used {version['training_samples']:,} samples "
@@ -74,6 +76,11 @@ def main():
             detail += (" Training only on 56 successful demonstration episodes lowered validation waypoint error, "
                        "but placed just 4/108 cubes across the same 36 paired seeds. V11 placed 27/108. "
                        "The lower waypoint error did not predict task success.")
+        elif version_number == "14":
+            detail += (" Training multiplied descend, close, and lift waypoint loss by 3. On the same 36 held-out "
+                       "seeds, V14 placed 13/108 cubes and V11 placed 27/108; neither completed a full sort. "
+                       "V14 had more placements in 4 trials, fewer in 13, and tied in 19 (exact paired sign test "
+                       "p = 0.049). The grasp-phase weighting reduced task performance, so V11 remains the lead policy.")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -86,7 +93,7 @@ def main():
             "status": "warn" if policy_sorts == 0 else "good",
             "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
             "data": "b601-bc-results.json",
-            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v3/b601-policy-models-v3.zip",
+            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip",
         }
         if iteration_id in existing:
             page["iterations"][existing[iteration_id]] = item
@@ -109,14 +116,16 @@ def main():
         },
         {
             "title": "Learned V11 policy · seed 623004",
-            "scene": "Held-out B601-RS simulation example using the corrected world-yaw estimate. V11 places two cubes and misses the third. Across 36 paired seeds it placed 27/108 cubes, compared with V9's 14/108. Neither completed a full sort. The paired result is still uncertain. 1280 × 768, 10 fps.",
+            "scene": "Held-out B601-RS simulation example using the corrected world-yaw estimate. The large view is overhead; the inset is a synchronized oblique camera. V11 places two cubes and misses the third. Across 36 paired seeds it placed 27/108 cubes, compared with V9's 14/108. Neither completed a full sort. The paired result is still uncertain. 1280 × 768, 10 fps.",
             "videos": [{"name": "V11 yaw-corrected policy", "outcome": "PARTIAL",
-                        "file": "media/b601-rs-bc-v11-seed-623004.mp4"}],
+                        "file": "media/b601-rs-bc-v11-seed-623004-dual.mp4"}],
         },
     ]
-    trial_titles = {trial["title"] for trial in page["trials"]}
+    trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}
     for trial in videos:
-        if trial["title"] not in trial_titles:
+        if trial["title"] in trial_titles:
+            page["trials"][trial_titles[trial["title"]]] = trial
+        else:
             page["trials"].append(trial)
     page["updated"] = date.today().isoformat()
     ITERATIONS.write_text(json.dumps(page, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

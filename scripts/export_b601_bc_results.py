@@ -21,6 +21,7 @@ RUNS = [
     ("b601-bc-v11-overhead-visual-yaw", "BC V11", "Correct overhead image yaw handedness", "b601-bc-v11-overhead-visual-yaw/heldout-evaluation.json"),
     ("b601-bc-v12-overhead-visual-dagger", "BC V12", "Add corrections from V11-visited states", "b601-bc-v12-overhead-visual-dagger/heldout-evaluation.json"),
     ("b601-bc-v13-overhead-visual-success-only", "BC V13", "Train on successful teacher episodes only", "b601-bc-v13-overhead-visual-success-only/heldout-evaluation.json"),
+    ("b601-bc-v14-overhead-visual-grasp-weighted", "BC V14", "Weight grasp-phase waypoint errors 3×", "b601-bc-v14-overhead-visual-grasp-weighted/heldout-evaluation.json"),
 ]
 
 
@@ -50,7 +51,8 @@ def main():
         replications = []
         if run_name in {"b601-bc-v7-overhead-cartesian", "b601-bc-v9-overhead-visual-targets",
                         "b601-bc-v10-overhead-visual-dagger", "b601-bc-v11-overhead-visual-yaw",
-                        "b601-bc-v12-overhead-visual-dagger", "b601-bc-v13-overhead-visual-success-only"}:
+                        "b601-bc-v12-overhead-visual-dagger", "b601-bc-v13-overhead-visual-success-only",
+                        "b601-bc-v14-overhead-visual-grasp-weighted"}:
             for replication in sorted(directory.glob("heldout-replication-*.json")):
                 replications.append(read_json(replication))
         row = {
@@ -61,6 +63,9 @@ def main():
             "camera_view": dataset_manifest.get("camera_view", "oblique"),
             "image_size": dataset_manifest.get("image_size", 96),
             "visual_target_features": report.get("visual_target_features", False),
+            "grasp_phase_weight": report.get("grasp_phase_weight", 1.0),
+            "checkpoint_selection_metric": report.get("checkpoint_selection_metric"),
+            "validation_weighted_smooth_l1": report.get("validation_weighted_smooth_l1"),
             "training_samples": report["training_samples"],
             "validation_samples": report["validation_samples"],
             "training_episodes": report["training_episodes"],
