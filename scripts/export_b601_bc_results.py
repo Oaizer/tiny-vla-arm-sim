@@ -22,6 +22,8 @@ RUNS = [
     ("b601-bc-v12-overhead-visual-dagger", "BC V12", "Add corrections from V11-visited states", "b601-bc-v12-overhead-visual-dagger/heldout-evaluation.json"),
     ("b601-bc-v13-overhead-visual-success-only", "BC V13", "Train on successful teacher episodes only", "b601-bc-v13-overhead-visual-success-only/heldout-evaluation.json"),
     ("b601-bc-v14-overhead-visual-grasp-weighted", "BC V14", "Weight grasp-phase waypoint errors 3×", "b601-bc-v14-overhead-visual-grasp-weighted/heldout-evaluation.json"),
+    ("b601-bc-v15-overhead-visual-delivery-weighted", "BC V15", "Weight carry, place, and release errors 3×", "b601-bc-v15-overhead-visual-delivery-weighted/heldout-evaluation.json"),
+    ("b601-bc-v16-overhead-visual-more-demos", "BC V16", "Add 100 fresh teacher demonstration episodes", "b601-bc-v16-overhead-visual-more-demos/heldout-evaluation.json"),
 ]
 
 
@@ -52,7 +54,9 @@ def main():
         if run_name in {"b601-bc-v7-overhead-cartesian", "b601-bc-v9-overhead-visual-targets",
                         "b601-bc-v10-overhead-visual-dagger", "b601-bc-v11-overhead-visual-yaw",
                         "b601-bc-v12-overhead-visual-dagger", "b601-bc-v13-overhead-visual-success-only",
-                        "b601-bc-v14-overhead-visual-grasp-weighted"}:
+                        "b601-bc-v14-overhead-visual-grasp-weighted",
+                        "b601-bc-v15-overhead-visual-delivery-weighted",
+                        "b601-bc-v16-overhead-visual-more-demos"}:
             for replication in sorted(directory.glob("heldout-replication-*.json")):
                 replications.append(read_json(replication))
         row = {
@@ -64,6 +68,7 @@ def main():
             "image_size": dataset_manifest.get("image_size", 96),
             "visual_target_features": report.get("visual_target_features", False),
             "grasp_phase_weight": report.get("grasp_phase_weight", 1.0),
+            "delivery_phase_weight": report.get("delivery_phase_weight", 1.0),
             "checkpoint_selection_metric": report.get("checkpoint_selection_metric"),
             "validation_weighted_smooth_l1": report.get("validation_weighted_smooth_l1"),
             "training_samples": report["training_samples"],
@@ -77,6 +82,21 @@ def main():
             "validation_waypoint_metrics": report["validation_waypoint_metrics"],
             "runs": [heldout, *replications],
         }
+        if report.get("extra_training_dataset"):
+            extra_path = Path(report["extra_training_dataset"])
+            if not extra_path.is_absolute():
+                extra_path = ROOT / extra_path
+            extra_manifest_path = extra_path / "manifest.json"
+            if extra_manifest_path.is_file():
+                extra_manifest = read_json(extra_manifest_path)
+                row["extra_training_data"] = {
+                    "dataset": str(report["extra_training_dataset"]),
+                    "episodes": extra_manifest["episode_count"],
+                    "successful_episodes": extra_manifest["successful_episodes"],
+                    "samples": extra_manifest["total_waypoint_samples"],
+                    "training_samples": sum(ep["commands"] for ep in extra_manifest["episodes"]
+                                             if ep["split"] == "train"),
+                }
         dagger_dirs = {
             "b601-bc-v8-overhead-dagger": "b601-dagger-v8-overhead-40",
             "b601-bc-v10-overhead-visual-dagger": "b601-dagger-v8-overhead-40",

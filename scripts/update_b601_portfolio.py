@@ -42,6 +42,10 @@ def main():
             question = "Does filtering to successful teacher sorts improve the learned policy?"
         elif version_number == "14":
             question = "Does extra training weight on grasp phases improve object placements?"
+        elif version_number == "15":
+            question = "Does extra training weight on carry, place, and release phases improve sorting?"
+        elif version_number == "16":
+            question = "Do 100 fresh teacher episodes improve policy generalization?"
         paired_text = ("matched held-out seeds" if len(runs) == 1 else
                        f"{len(runs)} paired held-out seed groups")
         evidence = (f"{trials} trials, {paired_text}; training used {version['training_samples']:,} samples "
@@ -81,6 +85,17 @@ def main():
                        "seeds, V14 placed 13/108 cubes and V11 placed 27/108; neither completed a full sort. "
                        "V14 had more placements in 4 trials, fewer in 13, and tied in 19 (exact paired sign test "
                        "p = 0.049). The grasp-phase weighting reduced task performance, so V11 remains the lead policy.")
+        elif version_number == "15":
+            detail += (" Training multiplied carry, place, and release waypoint loss by 3. On the same 36 held-out "
+                       "seeds, V15 placed 5/108 cubes and V11 placed 27/108; neither completed a full sort. "
+                       "V15 had more placements in 3 trials, fewer in 19, and tied in 14 (exact paired sign test "
+                       "p = 0.00086). Delivery-phase weighting reduced task performance.")
+        elif version_number == "16":
+            detail += (" The model adds 80 training episodes from a fresh 100-episode set; its validation split "
+                       "remains unchanged. Across 72 matched held-out seeds, V16 placed 66/216 cubes and completed "
+                       "1/72 full sorts. V11 placed 45/216 cubes and completed 0/72 full sorts. V16 had more "
+                       "placements in 31 trials, fewer in 13, and tied in 28 (exact paired sign test p = 0.0096). "
+                       "This is a measured gain in simulation, with one full-sort success so far.")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -93,7 +108,7 @@ def main():
             "status": "warn" if policy_sorts == 0 else "good",
             "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
             "data": "b601-bc-results.json",
-            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip",
+            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip",
         }
         if iteration_id in existing:
             page["iterations"][existing[iteration_id]] = item
@@ -119,6 +134,12 @@ def main():
             "scene": "Held-out B601-RS simulation example using the corrected world-yaw estimate. The large view is overhead; the inset is a synchronized oblique camera. V11 places two cubes and misses the third. Across 36 paired seeds it placed 27/108 cubes, compared with V9's 14/108. Neither completed a full sort. The paired result is still uncertain. 1280 × 768, 10 fps.",
             "videos": [{"name": "V11 yaw-corrected policy", "outcome": "PARTIAL",
                         "file": "media/b601-rs-bc-v11-seed-623004-dual.mp4"}],
+        },
+        {
+            "title": "Learned V16 expanded data · seed 625004",
+            "scene": "Held-out B601-RS simulation trial from seed group 625. V16 completes the full three-cube sort. The large view is overhead and the inset is a synchronized oblique camera. Across 72 matched seeds, V16 placed 66/216 cubes and completed 1/72 full sorts; V11 placed 45/216 and completed none. 1280 × 768, 10 fps.",
+            "videos": [{"name": "V16 full-sort policy", "outcome": "SUCCESS",
+                        "file": "media/b601-rs-bc-v16-seed-625004-dual.mp4"}],
         },
     ]
     trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}

@@ -36,9 +36,11 @@ def main():
                         help="add target cube and pad centers read from camera color pixels")
     parser.add_argument("--grasp-phase-weight", type=float, default=1.0,
                         help="relative loss weight for descend, close, and lift phases")
+    parser.add_argument("--delivery-phase-weight", type=float, default=1.0,
+                        help="relative loss weight for carry, place, and release phases")
     args = parser.parse_args()
-    if args.epochs < 1 or args.batch_size < 1 or args.grasp_phase_weight <= 0:
-        parser.error("epochs, batch size, and grasp-phase weight must be positive")
+    if args.epochs < 1 or args.batch_size < 1 or args.grasp_phase_weight <= 0 or args.delivery_phase_weight <= 0:
+        parser.error("epochs, batch size, and phase weights must be positive")
     if args.output.exists():
         parser.error(f"output already exists: {args.output}")
     args.output.mkdir(parents=True)
@@ -76,6 +78,7 @@ def main():
     loss_function = nn.SmoothL1Loss(reduction="none")
     phase_weights = torch.ones(8, dtype=torch.float32, device=device)
     phase_weights[1:4] = args.grasp_phase_weight
+    phase_weights[4:7] = args.delivery_phase_weight
     phase_weights /= phase_weights.mean()
     best_validation = float("inf")
     history = []
@@ -138,6 +141,7 @@ def main():
                         "visual_feature_dim": visual_feature_dim,
                         "visual_yaw_convention": "world" if visual_feature_dim else None,
                         "grasp_phase_weight": args.grasp_phase_weight,
+                        "delivery_phase_weight": args.delivery_phase_weight,
                         "camera_view": dataset_manifest.get("camera_view", "oblique"),
                         "image_size": image_size,
                         "vocabulary": {"<pad>": 0, **VOCAB}},
@@ -180,7 +184,8 @@ def main():
         "visual_target_features": args.visual_target_features,
         "visual_yaw_convention": "world" if args.visual_target_features else None,
         "grasp_phase_weight": args.grasp_phase_weight,
-        "checkpoint_selection_metric": "phase-weighted validation Smooth L1; phases 1-3 are descend, close, and lift",
+        "delivery_phase_weight": args.delivery_phase_weight,
+        "checkpoint_selection_metric": "phase-weighted validation Smooth L1; phases 1-3 are grasp, 4-6 are carry, place, and release",
         "task": "three-cube open-table color sorting waypoint imitation",
         "dataset": str(args.dataset),
         "training_samples": int(train[0].shape[0]),

@@ -314,7 +314,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v1-successful-only",
@@ -328,7 +328,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v2",
@@ -342,7 +342,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v2-successful-only",
@@ -356,7 +356,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v3",
@@ -370,7 +370,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v4",
@@ -384,7 +384,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v5",
@@ -398,7 +398,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v5b",
@@ -412,7 +412,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v6",
@@ -426,7 +426,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v7",
@@ -440,7 +440,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v8",
@@ -454,7 +454,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v9",
@@ -468,7 +468,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v10",
@@ -482,21 +482,21 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v11",
       "title": "BC V11 · Correct overhead image yaw handedness",
       "kind": "B601-RS learned policy",
       "question": "Does correcting the overhead camera's yaw direction improve face-aligned grasps?",
-      "evidence": "36 trials, 3 paired held-out seed groups; training used 2,672 samples from 80 episodes.",
-      "measure": "Policy 0/36 full sorts; 27/108 cubes. Teacher 21/36 sorts; 90/108 cubes.",
+      "evidence": "72 trials, 6 paired held-out seed groups; training used 2,672 samples from 80 episodes.",
+      "measure": "Policy 0/72 full sorts; 45/216 cubes. Teacher 47/72 sorts; 186/216 cubes.",
       "detail": "Correct overhead image yaw handedness. The selected checkpoint is epoch 39 with 427,798 parameters and 1.91 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success. The overhead image-angle feature previously reversed world yaw. After correcting it, V11 placed 27/108 cubes across 36 paired seeds; V9 placed 14/108 on those same seeds. Neither completed a full sort. The paired trial sign test is promising but not conclusive (15 wins, 6 losses, 15 ties; p = 0.078).",
-      "result": "27/108 cubes; 0/36 full sorts",
+      "result": "45/216 cubes; 0/72 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v12",
@@ -510,7 +510,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v13-successful-only",
@@ -524,7 +524,7 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     },
     {
       "id": "b601-bc-v14",
@@ -538,7 +538,35 @@
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
-      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v4/b601-policy-models-v4.zip"
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
+    },
+    {
+      "id": "b601-bc-v15",
+      "title": "BC V15 · Weight carry, place, and release errors 3×",
+      "kind": "B601-RS learned policy",
+      "question": "Does extra training weight on carry, place, and release phases improve sorting?",
+      "evidence": "36 trials, 3 paired held-out seed groups; training used 2,672 samples from 80 episodes.",
+      "measure": "Policy 0/36 full sorts; 5/108 cubes. Teacher 21/36 sorts; 90/108 cubes.",
+      "detail": "Weight carry, place, and release errors 3×. The selected checkpoint is epoch 39 with 427,798 parameters and 3.56 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success. Training multiplied carry, place, and release waypoint loss by 3. On the same 36 held-out seeds, V15 placed 5/108 cubes and V11 placed 27/108; neither completed a full sort. V15 had more placements in 3 trials, fewer in 19, and tied in 14 (exact paired sign test p = 0.00086). Delivery-phase weighting reduced task performance.",
+      "result": "5/108 cubes; 0/36 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
+    },
+    {
+      "id": "b601-bc-v16",
+      "title": "BC V16 · Add 100 fresh teacher demonstration episodes",
+      "kind": "B601-RS learned policy",
+      "question": "Do 100 fresh teacher episodes improve policy generalization?",
+      "evidence": "72 trials, 6 paired held-out seed groups; training used 5,424 samples from 160 episodes.",
+      "measure": "Policy 1/72 full sorts; 66/216 cubes. Teacher 47/72 sorts; 186/216 cubes.",
+      "detail": "Add 100 fresh teacher demonstration episodes. The selected checkpoint is epoch 40 with 427,798 parameters and 3.24 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success. The model adds 80 training episodes from a fresh 100-episode set; its validation split remains unchanged. Across 72 matched held-out seeds, V16 placed 66/216 cubes and completed 1/72 full sorts. V11 placed 45/216 cubes and completed 0/72 full sorts. V16 had more placements in 31 trials, fewer in 13, and tied in 28 (exact paired sign test p = 0.0096). This is a measured gain in simulation, with one full-sort success so far.",
+      "result": "66/216 cubes; 1/72 full sorts",
+      "status": "good",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip"
     }
   ],
   "trials": [
@@ -831,6 +859,17 @@
           "name": "V11 yaw-corrected policy",
           "outcome": "PARTIAL",
           "file": "media/b601-rs-bc-v11-seed-623004-dual.mp4"
+        }
+      ]
+    },
+    {
+      "title": "Learned V16 expanded data · seed 625004",
+      "scene": "Held-out B601-RS simulation trial from seed group 625. V16 completes the full three-cube sort. The large view is overhead and the inset is a synchronized oblique camera. Across 72 matched seeds, V16 placed 66/216 cubes and completed 1/72 full sorts; V11 placed 45/216 and completed none. 1280 × 768, 10 fps.",
+      "videos": [
+        {
+          "name": "V16 full-sort policy",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-bc-v16-seed-625004-dual.mp4"
         }
       ]
     }
