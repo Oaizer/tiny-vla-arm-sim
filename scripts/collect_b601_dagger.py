@@ -13,11 +13,12 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from demo_b601_sort import OBJECTS, OBJECT_TO_PAD, PAD_XY, SLOT_SETS, SUCCESS_TOLERANCE_M, randomize_scene  # noqa: E402
 from tinyvla.b601_bc import (TinyB601Policy, denormalize_actions, denormalize_cartesian_actions,
-                             encode_instruction, encode_proprioception)  # noqa: E402
+                             encode_instruction, encode_proprioception,
+                             encode_visual_targets)  # noqa: E402
 from tinyvla.sim_b601 import B601Sim, LIMITS, pb  # noqa: E402
 
 
-def collect_episode(model, sim, seed, action_mode="joint"):
+def collect_episode(model, sim, seed, action_mode="joint", visual_yaw_convention="legacy"):
     sim.reset(seed)
     _, rng = randomize_scene(sim, seed, SLOT_SETS["v7"], min_target_distance=.075)
     order = [OBJECTS[index] for index in rng.permutation(len(OBJECTS))]
@@ -36,11 +37,15 @@ def collect_episode(model, sim, seed, action_mode="joint"):
             target = sim.teacher_waypoint(name, pad, phase)
             proprio = encode_proprioception(joint_position, joint_velocity, gripper)
             tokens = encode_instruction(sim.current_instruction)
+            visual = (torch.from_numpy(encode_visual_targets(
+                image[None], tokens[None], legacy_image_yaw=visual_yaw_convention == "legacy"))
+                if model.visual_feature_dim else None)
             with torch.no_grad():
                 prediction = model(torch.from_numpy(image).permute(2, 0, 1).unsqueeze(0).float() / 255,
                                     torch.from_numpy(proprio).unsqueeze(0),
                                     torch.from_numpy(tokens).unsqueeze(0),
-                                    torch.tensor([phase], dtype=torch.long)).squeeze(0).numpy()
+                                    torch.tensor([phase], dtype=torch.long),
+                                    visual).squeeze(0).numpy()
             if action_mode == "cartesian":
                 action = denormalize_cartesian_actions(prediction)
             else:
@@ -96,7 +101,8 @@ def main():
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=True)
     model = TinyB601Policy(spatial_size=checkpoint["spatial_size"],
                            phase_conditioned=checkpoint.get("phase_conditioned", False),
-                           action_dim=6 if checkpoint.get("action_mode") == "cartesian" else 8)
+                           action_dim=6 if checkpoint.get("action_mode") == "cartesian" else 8,
+                           visual_feature_dim=int(checkpoint.get("visual_feature_dim", 0)))
     model.load_state_dict(checkpoint["state_dict"])
     model.eval()
     image_size = int(checkpoint.get("image_size", 192))
@@ -106,7 +112,9 @@ def main():
     episodes = []
     try:
         for seed in range(args.seed_start, args.seed_start + args.episodes):
-            episode, arrays = collect_episode(model, sim, seed, action_mode)
+            episode, arrays = collect_episode(
+                model, sim, seed, action_mode,
+                visual_yaw_convention=checkpoint.get("visual_yaw_convention", "legacy"))
             np.savez_compressed(args.output / episode["file"], **arrays)
             episodes.append(episode)
             print(json.dumps({"seed": seed, "success": episode["success"],
@@ -116,6 +124,8 @@ def main():
     manifest = {"schema_version": 2, "robot": "Seeed reBot B601-RS URDF in PyBullet",
                 "task": "three-cube color sorting on open table",
                 "image_size": image_size, "camera_view": checkpoint.get("camera_view", "oblique"),
+                "visual_yaw_convention": checkpoint.get("visual_yaw_convention"),
+                "source_checkpoint": str(args.checkpoint),
                 "action": "scripted teacher waypoint labels conditioned on policy-visited state and phase",
                 "phase_labels": ["approach", "descend", "close", "lift", "carry", "place", "release", "retreat"],
                 "privileged_inputs_used_for_labels_only": ["exact simulator object poses", "simulator pad poses"],
