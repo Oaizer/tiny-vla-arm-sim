@@ -34,6 +34,8 @@ def main():
             question = "Can camera-derived target features improve cube placement?"
         elif version_number == "10":
             question = "Do camera-derived targets and DAgger corrections work better together?"
+        elif version_number == "11":
+            question = "Does correcting the overhead camera's yaw direction improve face-aligned grasps?"
         paired_text = "matched held-out seeds" if len(runs) == 1 else "two paired held-out seed groups"
         evidence = (f"{trials} trials, {paired_text}; training used {version['training_samples']:,} samples "
                     f"from {version['training_episodes']} episodes.")
@@ -53,6 +55,11 @@ def main():
             detail += (" Combining the visual cues with DAgger did not improve V9 overall: both placed "
                        "8/72 cubes and completed 0/24 full sorts. On the fresh seed group, V10 placed "
                        "3/36 cubes and V9 placed 6/36.")
+        elif version_number == "11":
+            detail += (" The overhead image-angle feature previously reversed world yaw. After correcting it, "
+                       "V11 placed 27/108 cubes across 36 paired seeds; V9 placed 14/108 on those same seeds. "
+                       "Neither completed a full sort. The paired trial sign test is promising but not conclusive "
+                       "(15 wins, 6 losses, 15 ties; p = 0.078).")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -65,7 +72,7 @@ def main():
             "status": "warn" if policy_sorts == 0 else "good",
             "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
             "data": "b601-bc-results.json",
-            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip",
+            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v2/b601-policy-models-v2.zip",
         }
         if iteration_id in existing:
             page["iterations"][existing[iteration_id]] = item
@@ -85,6 +92,12 @@ def main():
             "scene": "Held-out B601-RS simulation example. The visual-target policy places two cubes and misses the third. The full paired test scored 8/72 cubes and 0/24 complete sorts. This selected clip is one example, not the whole result. 1280 × 768, 10 fps.",
             "videos": [{"name": "V9 visual-target policy", "outcome": "PARTIAL",
                         "file": "media/b601-rs-bc-v9-seed-622009.mp4"}],
+        },
+        {
+            "title": "Learned V11 policy · seed 623004",
+            "scene": "Held-out B601-RS simulation example using the corrected world-yaw estimate. V11 places two cubes and misses the third. Across 36 paired seeds it placed 27/108 cubes, compared with V9's 14/108. Neither completed a full sort. The paired result is still uncertain. 1280 × 768, 10 fps.",
+            "videos": [{"name": "V11 yaw-corrected policy", "outcome": "PARTIAL",
+                        "file": "media/b601-rs-bc-v11-seed-623004.mp4"}],
         },
     ]
     trial_titles = {trial["title"] for trial in page["trials"]}

@@ -166,6 +166,7 @@ The same 12 held-out seeds (621000–621011) were used for each policy test. The
 | BC V8 | Add 40 DAgger correction episodes | 0/12 | 0/36 | 5/12 |
 | BC V9 | Add image-derived cube and pad targets | 0/12 | 2/36 original; 6/36 fresh | 5/12 |
 | BC V10 | Combine image targets with DAgger corrections | 0/12 | 5/36 original; 3/36 fresh | 5/12 |
+| BC V11 | Correct camera yaw handedness | 0/12 | 7/36 original; 10/36 + 10/36 fresh | 5/12 |
 
 The 192 × 192 model had 425,880 parameters and a 0.58–0.69 ms CPU forward pass. V3 had 426,904 parameters and a 0.74 ms CPU forward pass. V4 stayed at 426,904 parameters and reached 0.69 ms per forward pass. These values measure model inference only, not camera capture or arm movement. Waypoint error did not predict task success, so none of these policies replaces the scripted teacher in the portfolio's best-result summary.
 
@@ -177,11 +178,15 @@ The 384 × 384 overhead runs use Cartesian position, wrist yaw, and finger width
 
 V9 adds eight values computed from the camera image and instruction: the requested cube center, its square orientation, the named pad center, and detection flags. It does not read simulator object poses. On the original seeds, V9 placed 2/36 cubes, compared with 1/36 for V7. On a fresh paired set of 12 seeds, V9 placed 6/36 cubes and V7 placed 0/36. Neither policy completed a full sort in either group. Across 24 matched seeds, that is 8/72 placements for V9 and 1/72 for V7, with 0/24 full sorts for each. This is an early object-level gain. The sample is small, and cubes from the same trial can share failure causes.
 
-V10 combines those image features with the V8 correction data. It placed 5/36 cubes on the original seeds and 3/36 on the fresh group. V9 placed 2/36 and 6/36 on those groups. Both placed 8/72 cubes across 24 paired seeds and completed 0/24 full sorts. V10 did not improve the total placement count, so V9 remains the best checkpoint to date. Adding DAgger did not provide a reliable gain.
+V10 combines those image features with the V8 correction data. It placed 5/36 cubes on the original seeds and 3/36 on the fresh group. V9 placed 2/36 and 6/36 on those groups. Both placed 8/72 cubes across 24 paired seeds and completed 0/24 full sorts. V10 did not improve the total placement count.
 
-The separate teacher run on seed 607000 shows face-aligned grasps on all three cubes. It is a scripted simulator-state teacher, not a learned-policy result. The V9 learned-policy example on seed 622009 places two cubes and misses the third. Both clips use 1280 × 768 video. The page links to [all seed-level policy records](../portfolio/b601-bc-results.json).
+An orientation audit then found that the overhead camera's vertical axis reverses the image angle. V9 and V10 encoded a +20° world yaw as about −20°. V11 conjugates the image square's fourth moment so the detected face angle matches the world angle modulo 90°. A PyBullet camera test checks five rotations from −35° to +35° and requires less than 3° error. Historical checkpoints retain their original feature convention for fair reruns.
 
-Reproduce V8 and V9 from the project root. DAgger validation remains separate from the original demonstration validation set:
+V11 changes only that yaw feature and uses the same 80-episode demonstration set and training schedule as V9. On the original 12 seeds it placed 7/36 cubes, followed by 10/36 and 10/36 on two fresh paired sets. V9 placed 2/36, 6/36, and 6/36 on those same seed groups. Across 36 matched trials, V11 placed 27/108 cubes and V9 placed 14/108; neither completed a full sort. V11 had more placements in 15 trials, fewer in 6, and tied in 15. An exact sign test gives p = 0.078, so this is a promising result that needs more trials. The angle correction improves object placements in these tests, but the learned sorter is not solved.
+
+The separate teacher run on seed 607000 shows face-aligned grasps on all three cubes. It is a scripted simulator-state teacher, not a learned-policy result. The V9 clip on seed 622009 and V11 clip on seed 623004 each place two cubes and miss the third. These clips use 1280 × 768 video. The page links to [all seed-level policy records](../portfolio/b601-bc-results.json).
+
+Reproduce V8 through V11 from the project root. DAgger validation remains separate from the original demonstration validation set. V11's yaw convention is checked by the camera test in `tests/test_b601_bc.py`:
 
 ```bash
 PYTHONPATH=src python scripts/audit_b601_demos.py artifacts/b601-dagger-v8-overhead-40
@@ -189,6 +194,10 @@ PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7
 PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v8-overhead-dagger/policy.pt --trials 12 --seed-start 621000 --teacher-results artifacts/b601-bc-v7-overhead-cartesian/heldout-evaluation.json --output artifacts/b601-bc-v8-overhead-dagger/heldout-evaluation.json
 PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7-overhead384 --output artifacts/b601-bc-v9-overhead-visual-targets --action-mode cartesian --spatial-size 8 --epochs 40 --seed 20261014 --visual-target-features
 PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7-overhead384 --extra-training-dataset artifacts/b601-dagger-v8-overhead-40 --output artifacts/b601-bc-v10-overhead-visual-dagger --action-mode cartesian --spatial-size 8 --epochs 50 --seed 20261015 --visual-target-features
+PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7-overhead384 --output artifacts/b601-bc-v11-overhead-visual-yaw --action-mode cartesian --spatial-size 8 --epochs 40 --seed 20261016 --visual-target-features
+PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v11-overhead-visual-yaw/policy.pt --trials 12 --seed-start 621000 --teacher-results artifacts/b601-bc-v7-overhead-cartesian/heldout-evaluation.json --output artifacts/b601-bc-v11-overhead-visual-yaw/heldout-evaluation.json
+PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v11-overhead-visual-yaw/policy.pt --trials 12 --seed-start 622000 --teacher-results artifacts/b601-bc-v7-overhead-cartesian/heldout-replication-622000.json --output artifacts/b601-bc-v11-overhead-visual-yaw/heldout-replication-622000.json
+PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v11-overhead-visual-yaw/policy.pt --trials 12 --seed-start 623000 --teacher-results artifacts/b601-bc-v9-overhead-visual-targets/heldout-replication-623000.json --output artifacts/b601-bc-v11-overhead-visual-yaw/heldout-replication-623000.json
 ```
 
 The exporter rebuilds the compact portfolio data from the ignored local checkpoints and trial records:

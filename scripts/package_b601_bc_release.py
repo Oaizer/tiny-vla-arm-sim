@@ -11,20 +11,22 @@ VERSION_DIRS = [
     "b601-bc-v5-384", "b601-bc-v5b-384-grid8", "b601-bc-v6-cartesian-canonical",
     "b601-bc-v7-overhead-cartesian", "b601-bc-v8-overhead-dagger",
     "b601-bc-v9-overhead-visual-targets", "b601-bc-v10-overhead-visual-dagger",
+    "b601-bc-v11-overhead-visual-yaw",
 ]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", type=Path, default=ROOT / "artifacts")
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v1.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v2.zip")
     args = parser.parse_args()
     included = []
     with zipfile.ZipFile(args.output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
         for name in VERSION_DIRS:
             directory = args.artifacts / name
-            for file_name in ("policy.pt", "RESULTS.json", "heldout-evaluation.json",
-                              "heldout-replication-622000.json"):
+            file_names = ["policy.pt", "RESULTS.json", "heldout-evaluation.json"]
+            file_names.extend(sorted(path.name for path in directory.glob("heldout-replication-*.json")))
+            for file_name in file_names:
                 source = directory / file_name
                 if source.is_file():
                     archive.write(source, f"models/{name}/{file_name}")
@@ -53,8 +55,9 @@ def main():
             "\n"
             "All checkpoints and evaluations in this bundle use the Seeed reBot B601-RS URDF in PyBullet.\n"
             "No physical arm was used. The learned policies have not completed a full three-cube sort.\n"
-            "V9 is the best learned policy by held-out cube placements: 8/72 across 24 paired seeds.\n"
-            "V10 combines the same image features with DAgger labels and also placed 8/72 cubes.\n"
+            "V11 corrects the overhead image-yaw direction. Across 36 paired seeds it placed 27/108 cubes.\n"
+            "V9 placed 14/108 cubes on those same seeds. Neither policy completed a full sort.\n"
+            "The paired seed sign test is not conclusive (15 wins, 6 losses, 15 ties; p=0.078).\n"
             "The JSON reports contain seed-level outcomes, model size, and validation measures.\n"
             "The manifests describe generated training data; image arrays are not included. Recreate data\n"
             "with scripts/collect_b601_demos.py and scripts/collect_b601_dagger.py in the source repository.\n"

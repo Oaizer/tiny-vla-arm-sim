@@ -18,7 +18,7 @@ from tinyvla.b601_bc import (TinyB601Policy, denormalize_actions, encode_instruc
 from tinyvla.sim_b601 import B601Sim, LIMITS, pb  # noqa: E402
 
 
-def policy_trial(model, sim, seed, action_mode="joint"):
+def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True):
     sim.reset(seed)
     _, rng = randomize_scene(sim, seed, SLOT_SETS["v7"], min_target_distance=.075)
     order = [OBJECTS[index] for index in rng.permutation(len(OBJECTS))]
@@ -38,7 +38,9 @@ def policy_trial(model, sim, seed, action_mode="joint"):
             instruction_tokens = encode_instruction(sim.current_instruction)
             token_tensor = torch.from_numpy(instruction_tokens).unsqueeze(0)
             visual_features = (torch.from_numpy(encode_visual_targets(
-                image[None], instruction_tokens[None])) if model.visual_feature_dim else None)
+                image[None], instruction_tokens[None],
+                legacy_image_yaw=legacy_image_yaw))
+                if model.visual_feature_dim else None)
             with torch.no_grad():
                 phase_tensor = torch.tensor([phase], dtype=torch.long)
                 normalized_action = model(image_tensor, proprio_tensor, token_tensor,
@@ -109,7 +111,9 @@ def main():
     try:
         for index in range(args.trials):
             seed = args.seed_start + index
-            learned_result = policy_trial(model, sim, seed, action_mode)
+            learned_result = policy_trial(
+                model, sim, seed, action_mode,
+                legacy_image_yaw=checkpoint.get("visual_yaw_convention", "legacy") == "legacy")
             learned.append(learned_result)
             if seed in teacher_by_seed:
                 teacher_result = teacher_by_seed[seed]

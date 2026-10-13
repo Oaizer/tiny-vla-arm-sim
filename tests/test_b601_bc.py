@@ -8,6 +8,7 @@ from tinyvla.b601_bc import (TinyB601Policy, denormalize_actions, encode_instruc
                              normalize_actions, denormalize_cartesian_actions,
                              normalize_cartesian_actions, joint_targets_to_cartesian,
                              encode_visual_targets)
+from tinyvla.sim_b601 import B601Sim, pb
 
 
 class B601BehaviorCloningContracts(unittest.TestCase):
@@ -65,6 +66,27 @@ class B601BehaviorCloningContracts(unittest.TestCase):
         green_tokens = encode_instruction("sort the green cube onto the cyan pad")[None]
         green_features = encode_visual_targets(green_scene, green_tokens)
         self.assertAlmostEqual(float(green_features[0, 4]), 2 * 24.5 / 31 - 1, places=5)
+
+    def test_overhead_visual_square_yaw_matches_world_yaw(self):
+        sim = B601Sim(size=384, observation_size=384, camera_view="overhead")
+        try:
+            sim.reset(1)
+            tokens = encode_instruction("sort the red cube onto the yellow pad")
+            for degrees in (-35, -20, 0, 20, 35):
+                quat = pb.getQuaternionFromEuler([0, 0, np.deg2rad(degrees)])
+                pb.resetBasePositionAndOrientation(sim.objects["red cube"], [.24, -.16, .125], quat)
+                features = encode_visual_targets(sim.image(384)[None], tokens[None])[0]
+                measured = np.arctan2(features[2], features[3]) / 4
+                error = (measured - np.deg2rad(degrees) + np.pi / 4) % (np.pi / 2) - np.pi / 4
+                self.assertLess(abs(float(error)), np.deg2rad(3), f"wrong yaw at {degrees} degrees")
+                legacy = encode_visual_targets(sim.image(384)[None], tokens[None],
+                                                legacy_image_yaw=True)[0]
+                legacy_measured = np.arctan2(legacy[2], legacy[3]) / 4
+                legacy_error = (legacy_measured + np.deg2rad(degrees) + np.pi / 4) % (np.pi / 2) - np.pi / 4
+                self.assertLess(abs(float(legacy_error)), np.deg2rad(3),
+                                f"legacy yaw convention changed at {degrees} degrees")
+        finally:
+            sim.close()
 
     def test_visual_feature_policy_keeps_compact_output_shape(self):
         model = TinyB601Policy(spatial_size=4, action_dim=6, visual_feature_dim=8)

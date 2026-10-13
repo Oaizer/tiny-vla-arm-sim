@@ -28,7 +28,7 @@ def encode_instruction(text: str) -> np.ndarray:
     return np.asarray(tokens + [PAD_TOKEN] * (TEXT_LENGTH - len(tokens)), dtype=np.int64)
 
 
-def encode_visual_targets(images: np.ndarray, tokens: np.ndarray) -> np.ndarray:
+def encode_visual_targets(images: np.ndarray, tokens: np.ndarray, *, legacy_image_yaw=False) -> np.ndarray:
     """Read target cube and pad centers from color pixels; no simulator poses are used."""
     images = np.asarray(images, dtype=np.uint8)
     tokens = np.asarray(tokens)
@@ -71,7 +71,12 @@ def encode_visual_targets(images: np.ndarray, tokens: np.ndarray) -> np.ndarray:
             dx = xx[object_mask] - object_x
             dy = yy[object_mask] - object_y
             z = dx + 1j * dy
-            moment = -np.mean(z ** 4)
+            # The overhead image's Y axis points down, opposite to world Y.
+            # Conjugation reverses that image rotation while retaining the
+            # square's 90-degree symmetry and its face-aligned zero angle.
+            # Keep the old convention available for faithful V9/V10 reruns.
+            moment = (-np.mean(z ** 4) if legacy_image_yaw
+                      else -np.mean(np.conj(z) ** 4))
             magnitude = abs(moment)
             if magnitude > 1e-8:
                 orientation = moment / magnitude

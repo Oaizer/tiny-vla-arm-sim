@@ -18,6 +18,7 @@ RUNS = [
     ("b601-bc-v8-overhead-dagger", "BC V8", "Add 40 episodes of DAgger corrections", "b601-bc-v8-overhead-dagger/heldout-evaluation.json"),
     ("b601-bc-v9-overhead-visual-targets", "BC V9", "Add camera-derived cube and pad coordinates", "b601-bc-v9-overhead-visual-targets/heldout-evaluation.json"),
     ("b601-bc-v10-overhead-visual-dagger", "BC V10", "Combine camera-derived targets with DAgger", "b601-bc-v10-overhead-visual-dagger/heldout-evaluation.json"),
+    ("b601-bc-v11-overhead-visual-yaw", "BC V11", "Correct overhead image yaw handedness", "b601-bc-v11-overhead-visual-yaw/heldout-evaluation.json"),
 ]
 
 
@@ -46,9 +47,8 @@ def main():
         heldout = read_json(eval_path)
         replications = []
         if run_name in {"b601-bc-v7-overhead-cartesian", "b601-bc-v9-overhead-visual-targets",
-                        "b601-bc-v10-overhead-visual-dagger"}:
-            replication = directory / "heldout-replication-622000.json"
-            if replication.is_file():
+                        "b601-bc-v10-overhead-visual-dagger", "b601-bc-v11-overhead-visual-yaw"}:
+            for replication in sorted(directory.glob("heldout-replication-*.json")):
                 replications.append(read_json(replication))
         row = {
             "id": run_name,

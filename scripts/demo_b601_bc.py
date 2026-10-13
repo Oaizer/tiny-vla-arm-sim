@@ -24,6 +24,7 @@ def main():
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--frame-stride", type=int, default=24)
+    parser.add_argument("--label", default="learned policy", help="short label shown in the video")
     args = parser.parse_args()
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=True)
     action_mode = checkpoint.get("action_mode", "joint")
@@ -58,7 +59,9 @@ def main():
                 image_tensor = torch.from_numpy(image).permute(2, 0, 1).unsqueeze(0).float() / 255
                 state_tensor = torch.from_numpy(proprio).unsqueeze(0)
                 token_tensor = torch.from_numpy(instruction).unsqueeze(0)
-                visual_tensor = (torch.from_numpy(encode_visual_targets(image[None], instruction[None]))
+                visual_tensor = (torch.from_numpy(encode_visual_targets(
+                    image[None], instruction[None],
+                    legacy_image_yaw=checkpoint.get("visual_yaw_convention", "legacy") == "legacy"))
                                  if model.visual_feature_dim else None)
                 with torch.no_grad():
                     prediction = model(image_tensor, state_tensor, token_tensor,
@@ -92,7 +95,7 @@ def main():
                 canvas = Image.new("RGB", (frame.shape[1], frame.shape[0] + 48), (20, 24, 27))
                 canvas.paste(Image.fromarray(frame), (0, 48))
                 draw = ImageDraw.Draw(canvas)
-                draw.text((6, 5), "Seeed reBot B601-RS | learned V9 policy | simulation", fill=(245, 245, 238))
+                draw.text((6, 5), f"Seeed reBot B601-RS | {args.label} | simulation", fill=(245, 245, 238))
                 draw.text((6, 22), f"seed {args.seed} | {success_count}/3 cubes placed", fill=(190, 220, 190))
                 writer.append_data(np.asarray(canvas))
         print({"seed": args.seed, "objects_placed": success_count, "records": records,
