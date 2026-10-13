@@ -94,16 +94,15 @@ def main():
                        "p = 0.00086). Delivery-phase weighting reduced task performance.")
         elif version_number == "16":
             detail += (" The model adds 80 training episodes from a fresh 100-episode set; its validation split "
-                       "remains unchanged. Across 72 matched held-out seeds, V16 placed 66/216 cubes and completed "
-                       "1/72 full sorts. V11 placed 45/216 cubes and completed 0/72 full sorts. V16 had more "
-                       "placements in 31 trials, fewer in 13, and tied in 28 (exact paired sign test p = 0.0096). "
-                       "This is a measured gain in simulation, with one full-sort success so far.")
+                       "remains unchanged. Across 120 matched held-out seeds, V16 placed 109/360 cubes and completed "
+                       "1/120 full sorts. V11 placed 72/360 cubes and completed none. V16 had more placements in "
+                       "49 trials, fewer in 17, and tied in 54 (exact paired sign test p = 0.00010).")
         elif version_number == "17":
             detail += (" V17 adds 768 teacher corrections from 40 V16-visited episodes to the V16 training data. "
-                       "Across the same 72 held-out seeds, V17 placed 67/216 cubes and completed 3/72 full sorts; "
-                       "V16 placed 66/216 cubes and completed 1/72. V17 had more placements in 22 trials, fewer in "
-                       "27, and tied in 23 (exact paired sign test p = 0.568). The extra corrections did not show "
-                       "a reliable placement gain, so V16 remains the lead policy.")
+                       "Across 120 matched held-out seeds, V17 placed 125/360 cubes and completed 5/120 full sorts; "
+                       "V16 placed 109/360 and completed 1/120. V17 had more placements in 47 trials, fewer in 40, "
+                       "and tied in 33 (exact paired sign test p = 0.520). V17 has the best observed count, but its "
+                       "gain over V16 is not conclusive.")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -116,7 +115,7 @@ def main():
             "status": "warn" if policy_sorts == 0 else "good",
             "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
             "data": "b601-bc-results.json",
-            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v6/b601-policy-models-v6.zip",
+            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v7/b601-policy-models-v7.zip",
         }
         if iteration_id in existing:
             page["iterations"][existing[iteration_id]] = item
@@ -145,13 +144,13 @@ def main():
         },
         {
             "title": "Learned V16 expanded data · seed 625004",
-            "scene": "Held-out B601-RS simulation trial from seed group 625. V16 completes the full three-cube sort. The large view is overhead and the inset is a synchronized oblique camera. Across 72 matched seeds, V16 placed 66/216 cubes and completed 1/72 full sorts; V11 placed 45/216 and completed none. 1280 × 768, 10 fps.",
+            "scene": "Held-out B601-RS simulation trial from seed group 625. V16 completes the full three-cube sort. The large view is overhead and the inset is a synchronized oblique camera. Across 120 matched seeds, V16 placed 109/360 cubes and completed 1/120 full sorts; V11 placed 72/360 and completed none. 1280 × 768, 10 fps.",
             "videos": [{"name": "V16 full-sort policy", "outcome": "SUCCESS",
                         "file": "media/b601-rs-bc-v16-seed-625004-dual.mp4"}],
         },
         {
             "title": "Learned V17 DAgger candidate · seed 624003",
-            "scene": "Held-out B601-RS simulation trial from seed group 624. V17 completes all three placements. V17 added teacher corrections from V16-visited states, but did not show a reliable placement gain over V16 across 72 matched seeds. The large view is overhead; the inset is a synchronized oblique camera. 1280 × 768, 10 fps.",
+            "scene": "Held-out B601-RS simulation trial from seed group 624. V17 completes all three placements. Across 120 matched seeds, it placed 125/360 cubes and completed 5/120 full sorts. V16 placed 109/360 cubes and completed 1/120 full sorts, but the paired placement comparison is inconclusive (p = 0.520). The large view is overhead; the inset is a synchronized oblique camera. 1280 × 768, 10 fps.",
             "videos": [{"name": "V17 DAgger candidate", "outcome": "SUCCESS",
                         "file": "media/b601-rs-bc-v17-seed-624003-dual.mp4"}],
         },

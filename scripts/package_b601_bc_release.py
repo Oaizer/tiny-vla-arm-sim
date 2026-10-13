@@ -23,7 +23,7 @@ VERSION_DIRS = [
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", type=Path, default=ROOT / "artifacts")
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v6.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v7.zip")
     args = parser.parse_args()
     included = []
     with zipfile.ZipFile(args.output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
@@ -78,12 +78,11 @@ def main():
             "V9 placed 14/108, V12 placed 23/108, and V13 placed 4/108 on those same seeds.\n"
             "V14 weighted grasp phases 3x and placed 13/108, below V11's 27/108.\n"
             "V15 weighted carry/place/release phases 3x and placed 5/108, below V11's 27/108.\n"
-            "V16 adds 100 fresh teacher episodes and placed 66/216 cubes across 72 paired seeds.\n"
-            "V11 placed 45/216 cubes on the same seeds. V16 completed one full sort; V11 completed none.\n"
-            "V16 had 31 wins, 13 losses, and 28 ties (exact paired sign test p=0.0096).\n"
-            "The V16 result is a simulation gain; full sorting remains rare. The V12 correction manifest is included.\n"
-            "V17 adds 40 V16-state correction episodes and completed 3/72 sorts. Placements did not improve\n"
-            "reliably over V16 (22 wins, 27 losses, 23 ties; exact paired sign test p=0.568).\n"
+            "V16 adds 100 fresh teacher episodes and placed 109/360 cubes across 120 paired seeds.\n"
+            "V11 placed 72/360 on the same seeds. V16 had 49 wins, 17 losses, and 54 ties (p=0.00010).\n"
+            "V17 adds 40 V16-state correction episodes; it placed 125/360 cubes and completed 5/120 sorts.\n"
+            "V16 completed 1/120 sorts. Their placement comparison is uncertain (47 wins, 40 losses, 33 ties; p=0.520).\n"
+            "All results are from simulation; full sorting remains rare. The correction manifests are included.\n"
             "The JSON reports contain seed-level outcomes, model size, and validation measures.\n"
             "The manifests describe generated training data; image arrays are not included. Recreate data\n"
             "with scripts/collect_b601_demos.py and scripts/collect_b601_dagger.py in the source repository.\n"

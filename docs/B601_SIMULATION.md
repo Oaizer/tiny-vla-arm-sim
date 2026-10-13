@@ -166,13 +166,13 @@ The same 12 held-out seeds (621000–621011) were used for each policy test. The
 | BC V8 | Add 40 DAgger correction episodes | 0/12 | 0/36 | 5/12 |
 | BC V9 | Add image-derived cube and pad targets | 0/12 | 2/36 original; 6/36 fresh | 5/12 |
 | BC V10 | Combine image targets with DAgger corrections | 0/12 | 5/36 original; 3/36 fresh | 5/12 |
-| BC V11 | Correct camera yaw handedness | 0/72 | 7/36 + 10/36 + 10/36 + 8/36 + 6/36 + 4/36 | 47/72 |
+| BC V11 | Correct camera yaw handedness | 0/120 | 7/36 + 10/36 + 10/36 + 8/36 + 6/36 + 4/36 + 5/36 + 8/36 + 7/36 + 7/36 | 80/120 |
 | BC V12 | Add corrections from V11-visited states | 0/12 | 10/36 original; 10/36 + 3/36 fresh | 5/12 |
 | BC V13 | Train on successful teacher episodes only | 0/12 | 2/36 original; 2/36 + 0/36 fresh | 5/12 |
 | BC V14 | Weight descend, close, and lift errors 3× | 0/36 | 13/108 | 21/36 |
 | BC V15 | Weight carry, place, and release errors 3× | 0/36 | 5/108 | 21/36 |
-| BC V16 | Add 100 fresh teacher episodes | 1/72 | 9/36 + 10/36 + 15/36 + 8/36 + 13/36 + 11/36 | 47/72 |
-| BC V17 | Add teacher corrections from V16 states | 3/72 | 67/216 | 47/72 |
+| BC V16 | Add 100 fresh teacher episodes | 1/120 | 9/36 + 10/36 + 15/36 + 8/36 + 13/36 + 11/36 + 9/36 + 8/36 + 13/36 + 13/36 | 80/120 |
+| BC V17 | Add teacher corrections from V16 states | 5/120 | 125/360 | 80/120 |
 
 The 192 × 192 model had 425,880 parameters and a 0.58–0.69 ms CPU forward pass. V3 had 426,904 parameters and a 0.74 ms CPU forward pass. V4 stayed at 426,904 parameters and reached 0.69 ms per forward pass. These values measure model inference only, not camera capture or arm movement. Waypoint error did not predict task success, so none of these policies replaces the scripted teacher in the portfolio's best-result summary.
 
@@ -198,9 +198,9 @@ V14 kept the V9 demonstration set and multiplied waypoint loss in the descend, c
 
 V15 shifted the 3× weight to carry, place, and release. It placed 5/108 cubes on the same 36 seeds, compared with V11's 27/108. V15 had more placements in 3 trials, fewer in 19, and tied in 14 (exact paired sign test p = 0.00086). This weighting made delivery outcomes worse.
 
-V16 tests data volume instead of loss weighting. We collected 100 fresh teacher episodes with new randomized seeds; 75 episodes were complete sorts and the set contained 3,448 waypoint labels. V16 used the 80 training episodes from that set with the original 80 training episodes. The original 20-episode validation split stayed unchanged. The model has 5,424 training samples and the same 427,798 parameters as V11. Across 72 matched held-out seeds, V16 placed 66/216 cubes and completed one full sort. V11 placed 45/216 cubes and completed none. V16 had more placements in 31 trials, fewer in 13, and tied in 28 (exact paired sign test p = 0.0096). This supports the larger dataset for object placements. Full sorting remains rare, so the policy is still an experimental simulator result.
+V16 tests data volume instead of loss weighting. We collected 100 fresh teacher episodes with new randomized seeds; 75 episodes were complete sorts and the set contained 3,448 waypoint labels. V16 used the 80 training episodes from that set with the original 80 training episodes. The original 20-episode validation split stayed unchanged. The model has 5,424 training samples and the same 427,798 parameters as V11. Across 120 matched held-out seeds, V16 placed 109/360 cubes and completed one full sort. V11 placed 72/360 cubes and completed none. V16 had more placements in 49 trials, fewer in 17, and tied in 54 (exact paired sign test p = 0.00010). This supports the larger dataset for object placements. Full sorting remains rare, so the policy is still an experimental simulator result.
 
-V17 adds 40 DAgger episodes collected from V16 policy states. The teacher labeled 960 waypoints, with 768 entering training. Across the same 72 seeds, V17 placed 67/216 cubes and completed 3/72 full sorts. V16 placed 66/216 cubes and completed 1/72. The paired placement result was 22 wins, 27 losses, and 23 ties (exact sign test p = 0.568). The extra correction data did not show a reliable placement gain. V16 remains the lead policy; V17 demonstrates that three full sorts occurred in its test set, but the count is still small.
+V17 adds 40 DAgger episodes collected from V16 policy states. The teacher labeled 960 waypoints, with 768 entering training. Across 120 matched seeds, V17 placed 125/360 cubes and completed 5/120 full sorts. V16 placed 109/360 cubes and completed 1/120. The paired placement result was 47 wins, 40 losses, and 33 ties (exact sign test p = 0.520). The added corrections do not show a reliable placement gain over V16, though V17 has the best observed counts. Both results are simulation evidence, and full sorts remain uncommon.
 
 The separate teacher run on seed 607000 shows face-aligned grasps on all three cubes. It is a scripted simulator-state teacher, not a learned-policy result. The V9 clip on seed 622009 and V11 clip on seed 623004 each place two cubes and miss the third. These clips use 1280 × 768 video. The page links to [all seed-level policy records](../portfolio/b601-bc-results.json).
 
