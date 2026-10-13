@@ -45,7 +45,8 @@ def main():
         dataset_manifest = read_json(dataset_manifest_path) if dataset_manifest_path.is_file() else {}
         heldout = read_json(eval_path)
         replications = []
-        if run_name in {"b601-bc-v7-overhead-cartesian", "b601-bc-v9-overhead-visual-targets"}:
+        if run_name in {"b601-bc-v7-overhead-cartesian", "b601-bc-v9-overhead-visual-targets",
+                        "b601-bc-v10-overhead-visual-dagger"}:
             replication = directory / "heldout-replication-622000.json"
             if replication.is_file():
                 replications.append(read_json(replication))
@@ -68,7 +69,7 @@ def main():
             "validation_waypoint_metrics": report["validation_waypoint_metrics"],
             "runs": [heldout, *replications],
         }
-        if run_name == "b601-bc-v8-overhead-dagger":
+        if run_name in {"b601-bc-v8-overhead-dagger", "b601-bc-v10-overhead-visual-dagger"}:
             dagger_manifest = read_json(args.artifacts / "b601-dagger-v8-overhead-40" / "manifest.json")
             row["dagger_data"] = {
                 "episodes": dagger_manifest["episode_count"],

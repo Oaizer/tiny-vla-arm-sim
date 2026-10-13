@@ -313,7 +313,8 @@
       "result": "0/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v1-successful-only",
@@ -326,7 +327,8 @@
       "result": "0/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v2",
@@ -339,7 +341,8 @@
       "result": "0/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v2-successful-only",
@@ -352,7 +355,8 @@
       "result": "1/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v3",
@@ -365,7 +369,8 @@
       "result": "0/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v4",
@@ -378,7 +383,8 @@
       "result": "0/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v5",
@@ -391,7 +397,8 @@
       "result": "0/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v5b",
@@ -404,7 +411,8 @@
       "result": "0/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v6",
@@ -417,7 +425,8 @@
       "result": "0/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v7",
@@ -430,7 +439,8 @@
       "result": "1/72 cubes; 0/24 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v8",
@@ -443,7 +453,8 @@
       "result": "0/36 cubes; 0/12 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     },
     {
       "id": "b601-bc-v9",
@@ -456,7 +467,22 @@
       "result": "8/72 cubes; 0/24 full sorts",
       "status": "warn",
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
-      "data": "b601-bc-results.json"
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
+    },
+    {
+      "id": "b601-bc-v10",
+      "title": "BC V10 · Combine camera-derived targets with DAgger",
+      "kind": "B601-RS learned policy",
+      "question": "Do camera-derived targets and DAgger corrections work better together?",
+      "evidence": "24 trials, two paired held-out seed groups; training used 3,440 samples from 112 episodes.",
+      "measure": "Policy 0/24 full sorts; 8/72 cubes. Teacher 13/24 sorts; 58/72 cubes.",
+      "detail": "Combine camera-derived targets with DAgger. The selected checkpoint is epoch 28 with 427,798 parameters and 1.48 ms CPU inference per action. Waypoint scores are in the data file; they do not replace task success. The correction set had 40 episodes and 0 complete teacher-guided sorts; 768 correction samples entered training. Combining the visual cues with DAgger did not improve V9 overall: both placed 8/72 cubes and completed 0/24 full sorts. On the fresh seed group, V10 placed 3/36 cubes and V9 placed 6/36.",
+      "result": "8/72 cubes; 0/24 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
+      "data": "b601-bc-results.json",
+      "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip"
     }
   ],
   "trials": [

@@ -49,6 +49,10 @@ def main():
                        f"{data['training_samples']} correction samples entered training.")
         if version_number == "9":
             detail += " This is an early object-level gain; neither V7 nor V9 completed a full sort in these 24 trials."
+        elif version_number == "10":
+            detail += (" Combining the visual cues with DAgger did not improve V9 overall: both placed "
+                       "8/72 cubes and completed 0/24 full sorts. On the fresh seed group, V10 placed "
+                       "3/36 cubes and V9 placed 6/36.")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -61,6 +65,7 @@ def main():
             "status": "warn" if policy_sorts == 0 else "good",
             "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
             "data": "b601-bc-results.json",
+            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v1/b601-policy-models-v1.zip",
         }
         if iteration_id in existing:
             page["iterations"][existing[iteration_id]] = item
