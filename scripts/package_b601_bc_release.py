@@ -16,13 +16,14 @@ VERSION_DIRS = [
     "b601-bc-v14-overhead-visual-grasp-weighted",
     "b601-bc-v15-overhead-visual-delivery-weighted",
     "b601-bc-v16-overhead-visual-more-demos",
+    "b601-bc-v17-overhead-visual-more-demos-dagger",
 ]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", type=Path, default=ROOT / "artifacts")
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v5.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v6.zip")
     args = parser.parse_args()
     included = []
     with zipfile.ZipFile(args.output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
@@ -48,14 +49,16 @@ def main():
                     included.append(manifest_name)
                 extra_dataset = report.get("extra_training_dataset")
                 if extra_dataset:
-                    extra_path = Path(extra_dataset)
-                    if not extra_path.is_absolute():
-                        extra_path = ROOT / extra_path
-                    extra_manifest = extra_path / "manifest.json"
-                    extra_name = f"datasets/{extra_path.name}/manifest.json"
-                    if extra_manifest.is_file() and extra_name not in included:
-                        archive.write(extra_manifest, extra_name)
-                        included.append(extra_name)
+                    extra_datasets = extra_dataset if isinstance(extra_dataset, list) else [extra_dataset]
+                    for extra_dataset_name in extra_datasets:
+                        extra_path = Path(extra_dataset_name)
+                        if not extra_path.is_absolute():
+                            extra_path = ROOT / extra_path
+                        extra_manifest = extra_path / "manifest.json"
+                        extra_name = f"datasets/{extra_path.name}/manifest.json"
+                        if extra_manifest.is_file() and extra_name not in included:
+                            archive.write(extra_manifest, extra_name)
+                            included.append(extra_name)
         for dagger_name in ("b601-dagger-v8-overhead-40", "b601-dagger-v11-yaw-40"):
             dagger_manifest = args.artifacts / dagger_name / "manifest.json"
             manifest_name = f"datasets/{dagger_name}/manifest.json"
@@ -79,6 +82,8 @@ def main():
             "V11 placed 45/216 cubes on the same seeds. V16 completed one full sort; V11 completed none.\n"
             "V16 had 31 wins, 13 losses, and 28 ties (exact paired sign test p=0.0096).\n"
             "The V16 result is a simulation gain; full sorting remains rare. The V12 correction manifest is included.\n"
+            "V17 adds 40 V16-state correction episodes and completed 3/72 sorts. Placements did not improve\n"
+            "reliably over V16 (22 wins, 27 losses, 23 ties; exact paired sign test p=0.568).\n"
             "The JSON reports contain seed-level outcomes, model size, and validation measures.\n"
             "The manifests describe generated training data; image arrays are not included. Recreate data\n"
             "with scripts/collect_b601_demos.py and scripts/collect_b601_dagger.py in the source repository.\n"

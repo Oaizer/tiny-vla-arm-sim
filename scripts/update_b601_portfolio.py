@@ -46,6 +46,8 @@ def main():
             question = "Does extra training weight on carry, place, and release phases improve sorting?"
         elif version_number == "16":
             question = "Do 100 fresh teacher episodes improve policy generalization?"
+        elif version_number == "17":
+            question = "Do teacher corrections from V16 policy states improve the expanded-data model?"
         paired_text = ("matched held-out seeds" if len(runs) == 1 else
                        f"{len(runs)} paired held-out seed groups")
         evidence = (f"{trials} trials, {paired_text}; training used {version['training_samples']:,} samples "
@@ -96,6 +98,12 @@ def main():
                        "1/72 full sorts. V11 placed 45/216 cubes and completed 0/72 full sorts. V16 had more "
                        "placements in 31 trials, fewer in 13, and tied in 28 (exact paired sign test p = 0.0096). "
                        "This is a measured gain in simulation, with one full-sort success so far.")
+        elif version_number == "17":
+            detail += (" V17 adds 768 teacher corrections from 40 V16-visited episodes to the V16 training data. "
+                       "Across the same 72 held-out seeds, V17 placed 67/216 cubes and completed 3/72 full sorts; "
+                       "V16 placed 66/216 cubes and completed 1/72. V17 had more placements in 22 trials, fewer in "
+                       "27, and tied in 23 (exact paired sign test p = 0.568). The extra corrections did not show "
+                       "a reliable placement gain, so V16 remains the lead policy.")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -108,7 +116,7 @@ def main():
             "status": "warn" if policy_sorts == 0 else "good",
             "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
             "data": "b601-bc-results.json",
-            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v5/b601-policy-models-v5.zip",
+            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v6/b601-policy-models-v6.zip",
         }
         if iteration_id in existing:
             page["iterations"][existing[iteration_id]] = item
@@ -140,6 +148,12 @@ def main():
             "scene": "Held-out B601-RS simulation trial from seed group 625. V16 completes the full three-cube sort. The large view is overhead and the inset is a synchronized oblique camera. Across 72 matched seeds, V16 placed 66/216 cubes and completed 1/72 full sorts; V11 placed 45/216 and completed none. 1280 × 768, 10 fps.",
             "videos": [{"name": "V16 full-sort policy", "outcome": "SUCCESS",
                         "file": "media/b601-rs-bc-v16-seed-625004-dual.mp4"}],
+        },
+        {
+            "title": "Learned V17 DAgger candidate · seed 624003",
+            "scene": "Held-out B601-RS simulation trial from seed group 624. V17 completes all three placements. V17 added teacher corrections from V16-visited states, but did not show a reliable placement gain over V16 across 72 matched seeds. The large view is overhead; the inset is a synchronized oblique camera. 1280 × 768, 10 fps.",
+            "videos": [{"name": "V17 DAgger candidate", "outcome": "SUCCESS",
+                        "file": "media/b601-rs-bc-v17-seed-624003-dual.mp4"}],
         },
     ]
     trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}

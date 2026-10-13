@@ -24,6 +24,7 @@ RUNS = [
     ("b601-bc-v14-overhead-visual-grasp-weighted", "BC V14", "Weight grasp-phase waypoint errors 3×", "b601-bc-v14-overhead-visual-grasp-weighted/heldout-evaluation.json"),
     ("b601-bc-v15-overhead-visual-delivery-weighted", "BC V15", "Weight carry, place, and release errors 3×", "b601-bc-v15-overhead-visual-delivery-weighted/heldout-evaluation.json"),
     ("b601-bc-v16-overhead-visual-more-demos", "BC V16", "Add 100 fresh teacher demonstration episodes", "b601-bc-v16-overhead-visual-more-demos/heldout-evaluation.json"),
+    ("b601-bc-v17-overhead-visual-more-demos-dagger", "BC V17", "Add V16-state teacher corrections", "b601-bc-v17-overhead-visual-more-demos-dagger/heldout-evaluation.json"),
 ]
 
 
@@ -56,7 +57,8 @@ def main():
                         "b601-bc-v12-overhead-visual-dagger", "b601-bc-v13-overhead-visual-success-only",
                         "b601-bc-v14-overhead-visual-grasp-weighted",
                         "b601-bc-v15-overhead-visual-delivery-weighted",
-                        "b601-bc-v16-overhead-visual-more-demos"}:
+                        "b601-bc-v16-overhead-visual-more-demos",
+                        "b601-bc-v17-overhead-visual-more-demos-dagger"}:
             for replication in sorted(directory.glob("heldout-replication-*.json")):
                 replications.append(read_json(replication))
         row = {
@@ -83,20 +85,27 @@ def main():
             "runs": [heldout, *replications],
         }
         if report.get("extra_training_dataset"):
-            extra_path = Path(report["extra_training_dataset"])
-            if not extra_path.is_absolute():
-                extra_path = ROOT / extra_path
-            extra_manifest_path = extra_path / "manifest.json"
-            if extra_manifest_path.is_file():
-                extra_manifest = read_json(extra_manifest_path)
-                row["extra_training_data"] = {
-                    "dataset": str(report["extra_training_dataset"]),
-                    "episodes": extra_manifest["episode_count"],
-                    "successful_episodes": extra_manifest["successful_episodes"],
-                    "samples": extra_manifest["total_waypoint_samples"],
-                    "training_samples": sum(ep["commands"] for ep in extra_manifest["episodes"]
-                                             if ep["split"] == "train"),
-                }
+            extra_names = report["extra_training_dataset"]
+            if isinstance(extra_names, str):
+                extra_names = [extra_names]
+            extra_data = []
+            for extra_name in extra_names:
+                extra_path = Path(extra_name)
+                if not extra_path.is_absolute():
+                    extra_path = ROOT / extra_path
+                extra_manifest_path = extra_path / "manifest.json"
+                if extra_manifest_path.is_file():
+                    extra_manifest = read_json(extra_manifest_path)
+                    extra_data.append({
+                        "dataset": str(extra_name),
+                        "episodes": extra_manifest["episode_count"],
+                        "successful_episodes": extra_manifest["successful_episodes"],
+                        "samples": extra_manifest["total_waypoint_samples"],
+                        "training_samples": sum(ep["commands"] for ep in extra_manifest["episodes"]
+                                                 if ep["split"] == "train"),
+                    })
+            if extra_data:
+                row["extra_training_data"] = extra_data[0] if len(extra_data) == 1 else extra_data
         dagger_dirs = {
             "b601-bc-v8-overhead-dagger": "b601-dagger-v8-overhead-40",
             "b601-bc-v10-overhead-visual-dagger": "b601-dagger-v8-overhead-40",

@@ -30,8 +30,8 @@ def main():
                         help="predict joint targets or TCP xyz, wrist yaw, and gripper width")
     parser.add_argument("--successful-only", action="store_true",
                         help="train only on episodes where the teacher completed all three placements")
-    parser.add_argument("--extra-training-dataset", type=Path,
-                        help="append this dataset's training split and keep validation from the primary dataset")
+    parser.add_argument("--extra-training-dataset", type=Path, action="append", default=[],
+                        help="append a dataset's training split; repeat to add more than one dataset")
     parser.add_argument("--visual-target-features", action="store_true",
                         help="add target cube and pad centers read from camera color pixels")
     parser.add_argument("--grasp-phase-weight", type=float, default=1.0,
@@ -55,14 +55,16 @@ def main():
                 if not args.successful_only or episode["success"]]
     training_arrays = dataset["train"]
     extra_training_episodes = 0
-    if args.extra_training_dataset:
-        extra_manifest = json.loads((args.extra_training_dataset / "manifest.json").read_text(encoding="utf-8"))
+    extra_training_datasets = []
+    for extra_dataset_path in args.extra_training_dataset:
+        extra_manifest = json.loads((extra_dataset_path / "manifest.json").read_text(encoding="utf-8"))
         if int(extra_manifest.get("image_size", image_size)) != image_size:
             parser.error("extra training dataset image size must match the primary dataset")
-        extra = load_samples(args.extra_training_dataset, action_mode=args.action_mode)
+        extra = load_samples(extra_dataset_path, action_mode=args.action_mode)
         training_arrays = tuple(np.concatenate((training_arrays[index], extra["train"][index]), axis=0)
                                 for index in range(len(training_arrays)))
-        extra_training_episodes = sum(episode["split"] == "train" for episode in extra_manifest["episodes"])
+        extra_training_episodes += sum(episode["split"] == "train" for episode in extra_manifest["episodes"])
+        extra_training_datasets.append(str(extra_dataset_path))
     train = tensors(training_arrays, device)
     validation = tensors(dataset["validation"], device)
     train_visual = (torch.from_numpy(encode_visual_targets(training_arrays[0], training_arrays[2])).to(device)
@@ -191,7 +193,9 @@ def main():
         "training_samples": int(train[0].shape[0]),
         "validation_samples": int(validation[0].shape[0]),
         "training_episodes": sum(episode["split"] == "train" for episode in retained) + extra_training_episodes,
-        "extra_training_dataset": str(args.extra_training_dataset) if args.extra_training_dataset else None,
+        "extra_training_dataset": (None if not extra_training_datasets else
+                                   extra_training_datasets[0] if len(extra_training_datasets) == 1 else
+                                   extra_training_datasets),
         "validation_episodes": sum(episode["split"] == "validation" for episode in retained),
         "dataset_teacher_successful_episodes": dataset_manifest["successful_episodes"],
         "dataset_teacher_success_rate": dataset_manifest["successful_episodes"] / dataset_manifest["episode_count"],

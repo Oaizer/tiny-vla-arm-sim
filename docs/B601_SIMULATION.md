@@ -172,6 +172,7 @@ The same 12 held-out seeds (621000–621011) were used for each policy test. The
 | BC V14 | Weight descend, close, and lift errors 3× | 0/36 | 13/108 | 21/36 |
 | BC V15 | Weight carry, place, and release errors 3× | 0/36 | 5/108 | 21/36 |
 | BC V16 | Add 100 fresh teacher episodes | 1/72 | 9/36 + 10/36 + 15/36 + 8/36 + 13/36 + 11/36 | 47/72 |
+| BC V17 | Add teacher corrections from V16 states | 3/72 | 67/216 | 47/72 |
 
 The 192 × 192 model had 425,880 parameters and a 0.58–0.69 ms CPU forward pass. V3 had 426,904 parameters and a 0.74 ms CPU forward pass. V4 stayed at 426,904 parameters and reached 0.69 ms per forward pass. These values measure model inference only, not camera capture or arm movement. Waypoint error did not predict task success, so none of these policies replaces the scripted teacher in the portfolio's best-result summary.
 
@@ -199,6 +200,8 @@ V15 shifted the 3× weight to carry, place, and release. It placed 5/108 cubes o
 
 V16 tests data volume instead of loss weighting. We collected 100 fresh teacher episodes with new randomized seeds; 75 episodes were complete sorts and the set contained 3,448 waypoint labels. V16 used the 80 training episodes from that set with the original 80 training episodes. The original 20-episode validation split stayed unchanged. The model has 5,424 training samples and the same 427,798 parameters as V11. Across 72 matched held-out seeds, V16 placed 66/216 cubes and completed one full sort. V11 placed 45/216 cubes and completed none. V16 had more placements in 31 trials, fewer in 13, and tied in 28 (exact paired sign test p = 0.0096). This supports the larger dataset for object placements. Full sorting remains rare, so the policy is still an experimental simulator result.
 
+V17 adds 40 DAgger episodes collected from V16 policy states. The teacher labeled 960 waypoints, with 768 entering training. Across the same 72 seeds, V17 placed 67/216 cubes and completed 3/72 full sorts. V16 placed 66/216 cubes and completed 1/72. The paired placement result was 22 wins, 27 losses, and 23 ties (exact sign test p = 0.568). The extra correction data did not show a reliable placement gain. V16 remains the lead policy; V17 demonstrates that three full sorts occurred in its test set, but the count is still small.
+
 The separate teacher run on seed 607000 shows face-aligned grasps on all three cubes. It is a scripted simulator-state teacher, not a learned-policy result. The V9 clip on seed 622009 and V11 clip on seed 623004 each place two cubes and miss the third. These clips use 1280 × 768 video. The page links to [all seed-level policy records](../portfolio/b601-bc-results.json).
 
 Reproduce V8 through V13 from the project root. DAgger validation remains separate from the original demonstration validation set. V11's yaw convention is checked by the camera test in `tests/test_b601_bc.py`:
@@ -222,6 +225,8 @@ PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7
 PYTHONPATH=src:scripts python scripts/collect_b601_demos.py --episodes 100 --seed-start 680000 --workers 4 --image-size 384 --camera-view overhead --output artifacts/b601-demos-v15-overhead384-extra
 PYTHONPATH=src python scripts/audit_b601_demos.py artifacts/b601-demos-v15-overhead384-extra
 PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7-overhead384 --extra-training-dataset artifacts/b601-demos-v15-overhead384-extra --output artifacts/b601-bc-v16-overhead-visual-more-demos --action-mode cartesian --spatial-size 8 --epochs 40 --seed 20261021 --visual-target-features
+PYTHONPATH=src python scripts/collect_b601_dagger.py --checkpoint artifacts/b601-bc-v16-overhead-visual-more-demos/policy.pt --episodes 40 --seed-start 700000 --output artifacts/b601-dagger-v16-expanded-40
+PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7-overhead384 --extra-training-dataset artifacts/b601-demos-v15-overhead384-extra --extra-training-dataset artifacts/b601-dagger-v16-expanded-40 --output artifacts/b601-bc-v17-overhead-visual-more-demos-dagger --action-mode cartesian --spatial-size 8 --epochs 40 --seed 20261022 --visual-target-features
 ```
 
 The exporter rebuilds the compact portfolio data from the ignored local checkpoints and trial records:
