@@ -36,7 +36,12 @@ def main():
             question = "Do camera-derived targets and DAgger corrections work better together?"
         elif version_number == "11":
             question = "Does correcting the overhead camera's yaw direction improve face-aligned grasps?"
-        paired_text = "matched held-out seeds" if len(runs) == 1 else "two paired held-out seed groups"
+        elif version_number == "12":
+            question = "Can teacher corrections on V11-visited states improve grasping?"
+        elif version_number == "13":
+            question = "Does filtering to successful teacher sorts improve the learned policy?"
+        paired_text = ("matched held-out seeds" if len(runs) == 1 else
+                       f"{len(runs)} paired held-out seed groups")
         evidence = (f"{trials} trials, {paired_text}; training used {version['training_samples']:,} samples "
                     f"from {version['training_episodes']} episodes.")
         measure = (f"Policy {policy_sorts}/{trials} full sorts; {policy_objects}/{objects_attempted} cubes. "
@@ -60,6 +65,15 @@ def main():
                        "V11 placed 27/108 cubes across 36 paired seeds; V9 placed 14/108 on those same seeds. "
                        "Neither completed a full sort. The paired trial sign test is promising but not conclusive "
                        "(15 wins, 6 losses, 15 ties; p = 0.078).")
+        elif version_number == "12":
+            detail += (" V12 added 768 teacher corrections from 40 V11-visited episodes. It placed 23/108 cubes "
+                       "across the same 36 paired seeds, compared with V11's 27/108. Neither completed a full sort; "
+                       "there were 11 V12-favored trials, 11 V11-favored trials, and 14 ties. DAgger did not improve "
+                       "the result.")
+        elif version_number == "13":
+            detail += (" Training only on 56 successful demonstration episodes lowered validation waypoint error, "
+                       "but placed just 4/108 cubes across the same 36 paired seeds. V11 placed 27/108. "
+                       "The lower waypoint error did not predict task success.")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -72,7 +86,7 @@ def main():
             "status": "warn" if policy_sorts == 0 else "good",
             "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
             "data": "b601-bc-results.json",
-            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v2/b601-policy-models-v2.zip",
+            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v3/b601-policy-models-v3.zip",
         }
         if iteration_id in existing:
             page["iterations"][existing[iteration_id]] = item

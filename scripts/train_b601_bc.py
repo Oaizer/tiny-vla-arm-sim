@@ -34,9 +34,11 @@ def main():
                         help="append this dataset's training split and keep validation from the primary dataset")
     parser.add_argument("--visual-target-features", action="store_true",
                         help="add target cube and pad centers read from camera color pixels")
+    parser.add_argument("--grasp-phase-weight", type=float, default=1.0,
+                        help="relative loss weight for descend, close, and lift phases")
     args = parser.parse_args()
-    if args.epochs < 1 or args.batch_size < 1:
-        parser.error("epochs and batch size must be positive")
+    if args.epochs < 1 or args.batch_size < 1 or args.grasp_phase_weight <= 0:
+        parser.error("epochs, batch size, and grasp-phase weight must be positive")
     if args.output.exists():
         parser.error(f"output already exists: {args.output}")
     args.output.mkdir(parents=True)
@@ -71,7 +73,10 @@ def main():
     model = TinyB601Policy(spatial_size=args.spatial_size, action_dim=action_dim,
                            visual_feature_dim=visual_feature_dim).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=1e-4)
-    loss_function = nn.SmoothL1Loss()
+    loss_function = nn.SmoothL1Loss(reduction="none")
+    phase_weights = torch.ones(8, dtype=torch.float32, device=device)
+    phase_weights[1:4] = args.grasp_phase_weight
+    phase_weights /= phase_weights.mean()
     best_validation = float("inf")
     history = []
     started = time.perf_counter()
@@ -84,7 +89,8 @@ def main():
             prediction = model(train[0][indices].float() / 255,
                                train[1][indices], train[2][indices], train[3][indices],
                                train_visual[indices] if train_visual is not None else None)
-            loss = loss_function(prediction, train[4][indices])
+            per_sample = loss_function(prediction, train[4][indices]).mean(dim=1)
+            loss = (per_sample * phase_weights[train[3][indices]]).mean()
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             optimizer.step()
@@ -100,10 +106,14 @@ def main():
                                    validation[3][start:stop],
                                    validation_visual[start:stop] if validation_visual is not None else None)
                 validation_predictions.append(prediction.cpu().numpy())
-                validation_losses.append((float(loss_function(prediction, validation[4][start:stop])),
-                                          prediction.shape[0]))
-        validation_loss = sum(loss * count for loss, count in validation_losses) / sum(
-            count for _, count in validation_losses)
+                per_sample = loss_function(prediction, validation[4][start:stop]).mean(dim=1)
+                weights = phase_weights[validation[3][start:stop]]
+                validation_losses.append((float(per_sample.mean()),
+                                          float((per_sample * weights).mean()), prediction.shape[0]))
+        validation_loss = sum(loss * count for loss, _, count in validation_losses) / sum(
+            count for _, _, count in validation_losses)
+        selection_loss = sum(loss * count for _, loss, count in validation_losses) / sum(
+            count for _, _, count in validation_losses)
         if args.action_mode == "cartesian":
             predicted = denormalize_cartesian_actions(np.concatenate(validation_predictions))
             expected = denormalize_cartesian_actions(validation[4].cpu().numpy())
@@ -114,18 +124,20 @@ def main():
                        "gripper_width_mae_m": float(error[:, 4].mean())}
         else:
             metrics = regression_metrics(np.concatenate(validation_predictions), validation[4].cpu().numpy())
-        row = {"epoch": epoch + 1, "train_smooth_l1": float(np.mean(train_losses)),
-               "validation_smooth_l1": validation_loss, **metrics}
+        row = {"epoch": epoch + 1, "train_weighted_smooth_l1": float(np.mean(train_losses)),
+               "validation_smooth_l1": validation_loss,
+               "validation_weighted_smooth_l1": selection_loss, **metrics}
         history.append(row)
         print(json.dumps(row), flush=True)
-        if validation_loss < best_validation:
-            best_validation = validation_loss
+        if selection_loss < best_validation:
+            best_validation = selection_loss
             torch.save({"state_dict": model.state_dict(), "epoch": epoch + 1,
                         "spatial_size": args.spatial_size,
                         "phase_conditioned": True,
                         "action_mode": args.action_mode,
                         "visual_feature_dim": visual_feature_dim,
                         "visual_yaw_convention": "world" if visual_feature_dim else None,
+                        "grasp_phase_weight": args.grasp_phase_weight,
                         "camera_view": dataset_manifest.get("camera_view", "oblique"),
                         "image_size": image_size,
                         "vocabulary": {"<pad>": 0, **VOCAB}},
@@ -167,6 +179,8 @@ def main():
         "action_mode": args.action_mode,
         "visual_target_features": args.visual_target_features,
         "visual_yaw_convention": "world" if args.visual_target_features else None,
+        "grasp_phase_weight": args.grasp_phase_weight,
+        "checkpoint_selection_metric": "phase-weighted validation Smooth L1; phases 1-3 are descend, close, and lift",
         "task": "three-cube open-table color sorting waypoint imitation",
         "dataset": str(args.dataset),
         "training_samples": int(train[0].shape[0]),

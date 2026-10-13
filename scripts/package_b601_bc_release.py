@@ -12,13 +12,14 @@ VERSION_DIRS = [
     "b601-bc-v7-overhead-cartesian", "b601-bc-v8-overhead-dagger",
     "b601-bc-v9-overhead-visual-targets", "b601-bc-v10-overhead-visual-dagger",
     "b601-bc-v11-overhead-visual-yaw",
+    "b601-bc-v12-overhead-visual-dagger", "b601-bc-v13-overhead-visual-success-only",
 ]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", type=Path, default=ROOT / "artifacts")
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v2.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v3.zip")
     args = parser.parse_args()
     included = []
     with zipfile.ZipFile(args.output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
@@ -42,10 +43,11 @@ def main():
                 if manifest.is_file() and manifest_name not in included:
                     archive.write(manifest, manifest_name)
                     included.append(manifest_name)
-        dagger_manifest = args.artifacts / "b601-dagger-v8-overhead-40" / "manifest.json"
-        if dagger_manifest.is_file():
-            archive.write(dagger_manifest, "datasets/b601-dagger-v8-overhead-40/manifest.json")
-            included.append("datasets/b601-dagger-v8-overhead-40/manifest.json")
+        for dagger_name in ("b601-dagger-v8-overhead-40", "b601-dagger-v11-yaw-40"):
+            dagger_manifest = args.artifacts / dagger_name / "manifest.json"
+            if dagger_manifest.is_file():
+                archive.write(dagger_manifest, f"datasets/{dagger_name}/manifest.json")
+                included.append(f"datasets/{dagger_name}/manifest.json")
         portfolio_results = ROOT / "portfolio" / "b601-bc-results.json"
         if portfolio_results.is_file():
             archive.write(portfolio_results, "b601-bc-results.json")
@@ -56,7 +58,8 @@ def main():
             "All checkpoints and evaluations in this bundle use the Seeed reBot B601-RS URDF in PyBullet.\n"
             "No physical arm was used. The learned policies have not completed a full three-cube sort.\n"
             "V11 corrects the overhead image-yaw direction. Across 36 paired seeds it placed 27/108 cubes.\n"
-            "V9 placed 14/108 cubes on those same seeds. Neither policy completed a full sort.\n"
+            "V9 placed 14/108, V12 placed 23/108, and V13 placed 4/108 on those same seeds.\n"
+            "No learned policy completed a full sort. The V12 correction manifest is included.\n"
             "The paired seed sign test is not conclusive (15 wins, 6 losses, 15 ties; p=0.078).\n"
             "The JSON reports contain seed-level outcomes, model size, and validation measures.\n"
             "The manifests describe generated training data; image arrays are not included. Recreate data\n"

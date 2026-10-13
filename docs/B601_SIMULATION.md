@@ -167,6 +167,8 @@ The same 12 held-out seeds (621000–621011) were used for each policy test. The
 | BC V9 | Add image-derived cube and pad targets | 0/12 | 2/36 original; 6/36 fresh | 5/12 |
 | BC V10 | Combine image targets with DAgger corrections | 0/12 | 5/36 original; 3/36 fresh | 5/12 |
 | BC V11 | Correct camera yaw handedness | 0/12 | 7/36 original; 10/36 + 10/36 fresh | 5/12 |
+| BC V12 | Add corrections from V11-visited states | 0/12 | 10/36 original; 10/36 + 3/36 fresh | 5/12 |
+| BC V13 | Train on successful teacher episodes only | 0/12 | 2/36 original; 2/36 + 0/36 fresh | 5/12 |
 
 The 192 × 192 model had 425,880 parameters and a 0.58–0.69 ms CPU forward pass. V3 had 426,904 parameters and a 0.74 ms CPU forward pass. V4 stayed at 426,904 parameters and reached 0.69 ms per forward pass. These values measure model inference only, not camera capture or arm movement. Waypoint error did not predict task success, so none of these policies replaces the scripted teacher in the portfolio's best-result summary.
 
@@ -184,9 +186,13 @@ An orientation audit then found that the overhead camera's vertical axis reverse
 
 V11 changes only that yaw feature and uses the same 80-episode demonstration set and training schedule as V9. On the original 12 seeds it placed 7/36 cubes, followed by 10/36 and 10/36 on two fresh paired sets. V9 placed 2/36, 6/36, and 6/36 on those same seed groups. Across 36 matched trials, V11 placed 27/108 cubes and V9 placed 14/108; neither completed a full sort. V11 had more placements in 15 trials, fewer in 6, and tied in 15. An exact sign test gives p = 0.078, so this is a promising result that needs more trials. The angle correction improves object placements in these tests, but the learned sorter is not solved.
 
+V12 collected 40 DAgger episodes from V11, with 960 teacher labels and 768 labels used for training. None of the V11 episodes completed a full sort. V12 placed 10/36, 10/36, and 3/36 cubes on the three matched cohorts, for 23/108 total. V11 placed 27/108 on those same seeds. V12 and V11 each placed more cubes on 11 trials, with 14 ties, so the corrections did not produce a task gain.
+
+V13 kept only teacher-successful demonstration episodes: 56 train episodes and 14 validation episodes. Its waypoint loss was lower, but it placed 2/36, 2/36, and 0/36 cubes on the same cohorts. The 4/108 total was far below V11's 27/108. This shows why waypoint loss alone is not a useful checkpoint selection measure for this task.
+
 The separate teacher run on seed 607000 shows face-aligned grasps on all three cubes. It is a scripted simulator-state teacher, not a learned-policy result. The V9 clip on seed 622009 and V11 clip on seed 623004 each place two cubes and miss the third. These clips use 1280 × 768 video. The page links to [all seed-level policy records](../portfolio/b601-bc-results.json).
 
-Reproduce V8 through V11 from the project root. DAgger validation remains separate from the original demonstration validation set. V11's yaw convention is checked by the camera test in `tests/test_b601_bc.py`:
+Reproduce V8 through V13 from the project root. DAgger validation remains separate from the original demonstration validation set. V11's yaw convention is checked by the camera test in `tests/test_b601_bc.py`:
 
 ```bash
 PYTHONPATH=src python scripts/audit_b601_demos.py artifacts/b601-dagger-v8-overhead-40
@@ -198,6 +204,10 @@ PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7
 PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v11-overhead-visual-yaw/policy.pt --trials 12 --seed-start 621000 --teacher-results artifacts/b601-bc-v7-overhead-cartesian/heldout-evaluation.json --output artifacts/b601-bc-v11-overhead-visual-yaw/heldout-evaluation.json
 PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v11-overhead-visual-yaw/policy.pt --trials 12 --seed-start 622000 --teacher-results artifacts/b601-bc-v7-overhead-cartesian/heldout-replication-622000.json --output artifacts/b601-bc-v11-overhead-visual-yaw/heldout-replication-622000.json
 PYTHONPATH=src:scripts python scripts/evaluate_b601_bc.py --checkpoint artifacts/b601-bc-v11-overhead-visual-yaw/policy.pt --trials 12 --seed-start 623000 --teacher-results artifacts/b601-bc-v9-overhead-visual-targets/heldout-replication-623000.json --output artifacts/b601-bc-v11-overhead-visual-yaw/heldout-replication-623000.json
+PYTHONPATH=src:scripts python scripts/collect_b601_dagger.py --checkpoint artifacts/b601-bc-v11-overhead-visual-yaw/policy.pt --episodes 40 --seed-start 660000 --output artifacts/b601-dagger-v11-yaw-40
+PYTHONPATH=src python scripts/audit_b601_demos.py artifacts/b601-dagger-v11-yaw-40
+PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7-overhead384 --extra-training-dataset artifacts/b601-dagger-v11-yaw-40 --output artifacts/b601-bc-v12-overhead-visual-dagger --action-mode cartesian --spatial-size 8 --epochs 50 --seed 20261017 --visual-target-features
+PYTHONPATH=src python scripts/train_b601_bc.py --dataset artifacts/b601-demos-v7-overhead384 --output artifacts/b601-bc-v13-overhead-visual-success-only --action-mode cartesian --spatial-size 8 --epochs 40 --seed 20261018 --visual-target-features --successful-only
 ```
 
 The exporter rebuilds the compact portfolio data from the ignored local checkpoints and trial records:

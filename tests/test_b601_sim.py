@@ -5,6 +5,19 @@ from tinyvla.sim_b601 import B601Sim, LIMITS, pb
 
 
 class B601SimulationContracts(unittest.TestCase):
+    def test_image_supports_a_second_camera_view(self):
+        sim = B601Sim(size=128, observation_size=128, camera_view="overhead")
+        try:
+            sim.reset(4)
+            overhead = sim.image(96)
+            side_view = pb.computeViewMatrix([.91, -1.05, .92], [.34, 0, .11], [0, 0, 1])
+            side = sim.image(96, view_override=side_view)
+            self.assertEqual(overhead.shape, (96, 96, 3))
+            self.assertEqual(side.shape, (96, 96, 3))
+            self.assertFalse((overhead == side).all())
+        finally:
+            sim.close()
+
     def test_dataset_observer_records_only_camera_proprioception_and_waypoint(self):
         sim = B601Sim(size=128, observation_size=128)
         try:

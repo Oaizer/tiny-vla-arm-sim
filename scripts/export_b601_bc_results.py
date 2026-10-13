@@ -19,6 +19,8 @@ RUNS = [
     ("b601-bc-v9-overhead-visual-targets", "BC V9", "Add camera-derived cube and pad coordinates", "b601-bc-v9-overhead-visual-targets/heldout-evaluation.json"),
     ("b601-bc-v10-overhead-visual-dagger", "BC V10", "Combine camera-derived targets with DAgger", "b601-bc-v10-overhead-visual-dagger/heldout-evaluation.json"),
     ("b601-bc-v11-overhead-visual-yaw", "BC V11", "Correct overhead image yaw handedness", "b601-bc-v11-overhead-visual-yaw/heldout-evaluation.json"),
+    ("b601-bc-v12-overhead-visual-dagger", "BC V12", "Add corrections from V11-visited states", "b601-bc-v12-overhead-visual-dagger/heldout-evaluation.json"),
+    ("b601-bc-v13-overhead-visual-success-only", "BC V13", "Train on successful teacher episodes only", "b601-bc-v13-overhead-visual-success-only/heldout-evaluation.json"),
 ]
 
 
@@ -47,7 +49,8 @@ def main():
         heldout = read_json(eval_path)
         replications = []
         if run_name in {"b601-bc-v7-overhead-cartesian", "b601-bc-v9-overhead-visual-targets",
-                        "b601-bc-v10-overhead-visual-dagger", "b601-bc-v11-overhead-visual-yaw"}:
+                        "b601-bc-v10-overhead-visual-dagger", "b601-bc-v11-overhead-visual-yaw",
+                        "b601-bc-v12-overhead-visual-dagger", "b601-bc-v13-overhead-visual-success-only"}:
             for replication in sorted(directory.glob("heldout-replication-*.json")):
                 replications.append(read_json(replication))
         row = {
@@ -69,8 +72,13 @@ def main():
             "validation_waypoint_metrics": report["validation_waypoint_metrics"],
             "runs": [heldout, *replications],
         }
-        if run_name in {"b601-bc-v8-overhead-dagger", "b601-bc-v10-overhead-visual-dagger"}:
-            dagger_manifest = read_json(args.artifacts / "b601-dagger-v8-overhead-40" / "manifest.json")
+        dagger_dirs = {
+            "b601-bc-v8-overhead-dagger": "b601-dagger-v8-overhead-40",
+            "b601-bc-v10-overhead-visual-dagger": "b601-dagger-v8-overhead-40",
+            "b601-bc-v12-overhead-visual-dagger": "b601-dagger-v11-yaw-40",
+        }
+        if run_name in dagger_dirs:
+            dagger_manifest = read_json(args.artifacts / dagger_dirs[run_name] / "manifest.json")
             row["dagger_data"] = {
                 "episodes": dagger_manifest["episode_count"],
                 "successful_episodes": dagger_manifest["successful_episodes"],

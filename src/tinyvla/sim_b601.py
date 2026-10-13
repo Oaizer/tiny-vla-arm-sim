@@ -97,14 +97,15 @@ class B601Sim:
             self.pads[color] = pb.createMultiBody(0,-1,vis,[x,(-.16,.0,.16)[("yellow","purple","cyan").index(color)],.102])
         for _ in range(12): pb.stepSimulation()
 
-    def image(self, size=None):
+    def image(self, size=None, view_override=None):
         resolution = self.size if size is None else size
         if isinstance(resolution, int):
             width = height = resolution
         else:
             width, height = (int(value) for value in resolution)
         projection = pb.computeProjectionMatrixFOV(42, width / height, .03, 3)
-        image = pb.getCameraImage(width, height, self.view, projection,
+        view_matrix = self.view if view_override is None else view_override
+        image = pb.getCameraImage(width, height, view_matrix, projection,
                                   renderer=pb.ER_TINY_RENDERER, shadow=1)
         return np.asarray(image[2], np.uint8).reshape(height, width, 4)[:, :, :3].copy()
 

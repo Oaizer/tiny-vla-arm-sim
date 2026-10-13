@@ -18,6 +18,26 @@ from tinyvla.b601_bc import (TinyB601Policy, denormalize_cartesian_actions, deno
 from tinyvla.sim_b601 import B601Sim, LIMITS, pb  # noqa: E402
 
 
+class DualViewFrames(list):
+    """Keep the overhead image and add a synchronized oblique camera inset."""
+    def __init__(self, sim, side_view):
+        super().__init__()
+        self.sim = sim
+        self.side_view = side_view
+
+    def append(self, overhead):
+        canvas = Image.fromarray(overhead)
+        side = Image.fromarray(self.sim.image((480, 270), view_override=self.side_view))
+        left, top = canvas.width - side.width - 24, canvas.height - side.height - 24
+        canvas.paste(side, (left, top))
+        draw = ImageDraw.Draw(canvas)
+        draw.rectangle((left - 3, top - 3, left + side.width + 2, top + side.height + 2),
+                       outline=(245, 245, 238), width=3)
+        draw.text((left + 8, top + 8), "OBLIQUE CAMERA", fill=(245, 245, 238),
+                  stroke_width=2, stroke_fill=(20, 24, 27))
+        super().append(np.asarray(canvas))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", type=Path, required=True)
@@ -25,6 +45,8 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--frame-stride", type=int, default=24)
     parser.add_argument("--label", default="learned policy", help="short label shown in the video")
+    parser.add_argument("--dual-view", action="store_true",
+                        help="add a synchronized oblique camera inset to the overhead view")
     args = parser.parse_args()
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=True)
     action_mode = checkpoint.get("action_mode", "joint")
@@ -43,6 +65,9 @@ def main():
     records = []
     try:
         sim.reset(args.seed)
+        if args.dual_view:
+            side_view = pb.computeViewMatrix([.91, -1.05, .92], [.34, 0, .11], [0, 0, 1])
+            frames = DualViewFrames(sim, side_view)
         _, rng = randomize_scene(sim, args.seed, SLOT_SETS["v7"], min_target_distance=.075)
         order = [OBJECTS[index] for index in rng.permutation(len(OBJECTS))]
         frames.append(sim.image(sim.size))
