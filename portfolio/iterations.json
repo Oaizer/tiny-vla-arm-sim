@@ -1,6 +1,6 @@
 {
   "title": "TinyVLA — simulation record",
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
   "iterations": [
     {
       "id": "v1",
@@ -622,6 +622,19 @@
       "status": "warn",
       "source": "../docs/B601_V20_PROTOCOL.md",
       "data": "b601-grasp-height-pilot.json"
+    },
+    {
+      "id": "b601-bc-v20",
+      "title": "BC V20 · Higher teacher pick height",
+      "kind": "B601-RS learned policy",
+      "question": "Does training on a higher grasp waypoint improve the learned policy's contact and placement results?",
+      "evidence": "120 matched held-out simulation scenes; 5,440 training samples from 200 train episodes; contact audit enabled.",
+      "measure": "V20: 131/360 cubes; 8/120 sorts. V19: 165/360 cubes; 16/120 sorts.",
+      "detail": "V20 had 30 wins, 46 losses, and 44 ties by scene (exact paired sign test p = 0.085). Its observed count was lower by 34 cubes; this test does not show a clear difference at the 0.05 level. Mean contact-to-corner score improved from 0.594 to 0.537, but mean wrist-to-face yaw error rose from 14.20° to 16.06°. No-contact objects rose from 49 to 62. Most contacts remained near the top or bottom rim. The V20 set also used fewer training samples than V19, so this is not a clean test of grasp height alone. The teacher pilot did not translate into a learned-policy improvement. Next, hold the V19 data and grasp height fixed while testing extra yaw loss on grasp waypoints.",
+      "result": "131/360 cubes; 8/120 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_V20_RESULTS.md",
+      "data": "b601-v20-evaluation.json"
     }
   ],
   "trials": [
@@ -974,6 +987,22 @@
           "name": "V18 matched policy",
           "outcome": "FAILED",
           "file": "media/b601-rs-bc-v18-confirmation-seed-644004-dual.mp4"
+        }
+      ]
+    },
+    {
+      "title": "Matched V19 and V20 grasp · seed 661001",
+      "scene": "Same held-out B601-RS simulation scene. V19 places all three cubes; V20 places one. Across the full matched set, V19 placed 165/360 cubes and completed 16/120 sorts; V20 placed 131/360 and completed 8/120. V20 had 30 wins, 46 losses, and 44 ties (p = 0.085), so the lower count is not conclusive at the 0.05 level. Both clips use the overhead view with synchronized oblique inset. 1280 × 768, 10 fps.",
+      "videos": [
+        {
+          "name": "V19 · 3/3 placements",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-v19-v20-matched-seed-661001-v19.mp4"
+        },
+        {
+          "name": "V20 · 1/3 placements",
+          "outcome": "PARTIAL",
+          "file": "media/b601-rs-v19-v20-matched-seed-661001-v20.mp4"
         }
       ]
     }

@@ -212,6 +212,10 @@ V19 tests a 1.5× loss weight for blue-cube instructions, using the same data, m
 
 The pre-registered confirmation test kept both checkpoints fixed and used another 120 fresh matched seeds. V19 placed 145/360 cubes, compared with V18's 124/360; both completed 9/120 sorts. V19 had more placements in 49 trials, fewer in 34, and tied in 37 (p = 0.124). The direction matches the first test, but this result is also inconclusive. By color, V19/V18 placements were red 46/52, blue 57/39, and green 42/33. See the [confirmation protocol](B601_V19_CONFIRMATION_PROTOCOL.md) and [full result](../artifacts/b601-bc-v19-blue-weight/CONFIRMATION.md).
 
+V20 raised the teacher pick height to 0.10 m. On 120 fresh matched seeds, V20 placed 131/360 cubes and completed 8/120 sorts. V19 placed 165/360 and completed 16/120 on the same scenes. V20 had more placements in 30 trials, fewer in 46, and tied in 44 (p = 0.085), so the observed drop is not conclusive. V20's contacts were closer to face centers on average, but its mean wrist-to-face yaw error and count of objects without finger contact were higher. The data set also differed in size and content from V19's, so this was not a clean test of pick height alone. See the [V20 results](B601_V20_RESULTS.md) and [portfolio comparison data](../portfolio/b601-v20-evaluation.json).
+
+V21 will hold V19's training data and pick height fixed and add a 3× loss weight to wrist yaw on the grasp waypoints. See the [V21 protocol](B601_V21_PROTOCOL.md).
+
 The separate teacher run on seed 607000 shows face-aligned grasps on all three cubes. It is a scripted simulator-state teacher, not a learned-policy result. The V9 clip on seed 622009 and V11 clip on seed 623004 each place two cubes and miss the third. These clips use 1280 × 768 video. The page links to [all seed-level policy records](../portfolio/b601-bc-results.json).
 
 Reproduce V8 through V13 from the project root. DAgger validation remains separate from the original demonstration validation set. V11's yaw convention is checked by the camera test in `tests/test_b601_bc.py`:

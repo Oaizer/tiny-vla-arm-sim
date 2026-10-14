@@ -198,6 +198,46 @@ def main():
             existing[item["id"]] = len(page["iterations"])
             page["iterations"].append(item)
 
+    v20_path = ROOT / "portfolio" / "b601-v20-evaluation.json"
+    if v20_path.is_file():
+        result = json.loads(v20_path.read_text(encoding="utf-8"))
+        v19, v20 = result["v19"], result["v20"]
+        paired = result["paired_placements_v20_vs_v19"]
+        yaw19 = v19["contact_audit"]["mean_face_yaw_error_deg"]
+        yaw20 = v20["contact_audit"]["mean_face_yaw_error_deg"]
+        corner19 = v19["contact_audit"]["mean_corner_proximity"]
+        corner20 = v20["contact_audit"]["mean_corner_proximity"]
+        no_contact19 = v19["contact_audit"]["objects_with_no_finger_contact"]
+        no_contact20 = v20["contact_audit"]["objects_with_no_finger_contact"]
+        item = {
+            "id": "b601-bc-v20",
+            "title": "BC V20 · Higher teacher pick height",
+            "kind": "B601-RS learned policy",
+            "question": "Does training on a higher grasp waypoint improve the learned policy's contact and placement results?",
+            "evidence": "120 matched held-out simulation scenes; 5,440 training samples from 200 train episodes; contact audit enabled.",
+            "measure": (f"V20: {v20['cubes_placed']}/360 cubes; {v20['full_sorts']}/120 sorts. "
+                        f"V19: {v19['cubes_placed']}/360 cubes; {v19['full_sorts']}/120 sorts."),
+            "detail": (f"V20 had {paired['wins']} wins, {paired['losses']} losses, and {paired['ties']} ties "
+                       f"by scene (exact paired sign test p = {paired['exact_sign_test_two_sided_p']:.3f}). "
+                       f"Its observed count was lower by {abs(paired['difference_cubes'])} cubes; this test "
+                       "does not show a clear difference at the 0.05 level. Mean contact-to-corner score "
+                       f"improved from {corner19:.3f} to {corner20:.3f}, but mean wrist-to-face yaw error "
+                       f"rose from {yaw19:.2f}° to {yaw20:.2f}°. No-contact objects rose from "
+                       f"{no_contact19} to {no_contact20}. Most contacts remained near the top or bottom rim. "
+                       "The V20 set also used fewer training samples than V19, so this is not a clean test of "
+                       "grasp height alone. The teacher pilot did not translate into a learned-policy improvement. Next, hold the "
+                       "V19 data and grasp height fixed while testing extra yaw loss on grasp waypoints."),
+            "result": f"{v20['cubes_placed']}/360 cubes; {v20['full_sorts']}/120 full sorts",
+            "status": "warn",
+            "source": "../docs/B601_V20_RESULTS.md",
+            "data": "b601-v20-evaluation.json",
+        }
+        if item["id"] in existing:
+            page["iterations"][existing[item["id"]]] = item
+        else:
+            existing[item["id"]] = len(page["iterations"])
+            page["iterations"].append(item)
+
     videos = [
         {
             "title": "Face-aligned teacher · overhead view · seed 607000",
@@ -242,6 +282,14 @@ def main():
                         "file": "media/b601-rs-bc-v19-confirmation-seed-644004-dual.mp4"},
                        {"name": "V18 matched policy", "outcome": "FAILED",
                         "file": "media/b601-rs-bc-v18-confirmation-seed-644004-dual.mp4"}],
+        },
+        {
+            "title": "Matched V19 and V20 grasp · seed 661001",
+            "scene": "Same held-out B601-RS simulation scene. V19 places all three cubes; V20 places one. Across the full matched set, V19 placed 165/360 cubes and completed 16/120 sorts; V20 placed 131/360 and completed 8/120. V20 had 30 wins, 46 losses, and 44 ties (p = 0.085), so the lower count is not conclusive at the 0.05 level. Both clips use the overhead view with synchronized oblique inset. 1280 × 768, 10 fps.",
+            "videos": [{"name": "V19 · 3/3 placements", "outcome": "SUCCESS",
+                        "file": "media/b601-rs-v19-v20-matched-seed-661001-v19.mp4"},
+                       {"name": "V20 · 1/3 placements", "outcome": "PARTIAL",
+                        "file": "media/b601-rs-v19-v20-matched-seed-661001-v20.mp4"}],
         },
     ]
     trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}

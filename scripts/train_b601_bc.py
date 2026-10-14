@@ -40,10 +40,15 @@ def main():
                         help="relative loss weight for carry, place, and release phases")
     parser.add_argument("--blue-cube-weight", type=float, default=1.0,
                         help="relative training loss weight for samples that sort the blue cube")
+    parser.add_argument("--grasp-yaw-weight", type=float, default=1.0,
+                        help="relative loss weight for wrist yaw on descend, close, and lift waypoints")
     args = parser.parse_args()
     if (args.epochs < 1 or args.batch_size < 1 or args.grasp_phase_weight <= 0 or
-            args.delivery_phase_weight <= 0 or args.blue_cube_weight <= 0):
+            args.delivery_phase_weight <= 0 or args.blue_cube_weight <= 0 or
+            args.grasp_yaw_weight <= 0):
         parser.error("epochs, batch size, and all loss weights must be positive")
+    if args.action_mode != "cartesian" and args.grasp_yaw_weight != 1.0:
+        parser.error("--grasp-yaw-weight requires --action-mode cartesian")
     if args.output.exists():
         parser.error(f"output already exists: {args.output}")
     args.output.mkdir(parents=True)
@@ -99,7 +104,15 @@ def main():
             prediction = model(train[0][indices].float() / 255,
                                train[1][indices], train[2][indices], train[3][indices],
                                train_visual[indices] if train_visual is not None else None)
-            per_sample = loss_function(prediction, train[4][indices]).mean(dim=1)
+            action_loss = loss_function(prediction, train[4][indices])
+            if args.action_mode == "cartesian" and args.grasp_yaw_weight != 1.0:
+                grasp_phase = (train[3][indices] >= 1) & (train[3][indices] <= 3)
+                yaw_weights = torch.where(
+                    grasp_phase, args.grasp_yaw_weight, 1.0).to(device=device, dtype=prediction.dtype)
+                action_weights = torch.ones_like(prediction)
+                action_weights[:, 3:5] = yaw_weights[:, None]
+                action_loss = action_loss * action_weights
+            per_sample = action_loss.mean(dim=1)
             loss = (per_sample * phase_weights[train[3][indices]] * color_weights[indices]).mean()
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
@@ -150,6 +163,7 @@ def main():
                         "grasp_phase_weight": args.grasp_phase_weight,
                         "delivery_phase_weight": args.delivery_phase_weight,
                         "blue_cube_weight": args.blue_cube_weight,
+                        "grasp_yaw_weight": args.grasp_yaw_weight,
                         "camera_view": dataset_manifest.get("camera_view", "oblique"),
                         "image_size": image_size,
                         "vocabulary": {"<pad>": 0, **VOCAB}},
@@ -194,6 +208,7 @@ def main():
         "grasp_phase_weight": args.grasp_phase_weight,
         "delivery_phase_weight": args.delivery_phase_weight,
         "blue_cube_weight": args.blue_cube_weight,
+        "grasp_yaw_weight": args.grasp_yaw_weight,
         "checkpoint_selection_metric": "phase-weighted validation Smooth L1; phases 1-3 are grasp, 4-6 are carry, place, and release",
         "task": "three-cube open-table color sorting waypoint imitation",
         "dataset": str(args.dataset),
