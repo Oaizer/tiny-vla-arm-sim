@@ -609,6 +609,19 @@
       "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
       "data": "b601-bc-results.json",
       "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v10/b601-policy-models-v10.zip"
+    },
+    {
+      "id": "b601-grasp-height-pilot",
+      "title": "Teacher grasp height · 12-scene pilot",
+      "kind": "B601-RS teacher waypoint pilot",
+      "question": "Does a higher pick waypoint improve stable grasps and placements?",
+      "evidence": "12 matched simulation scenes; one pick attempt per cube; face-aligned wrist yaw.",
+      "measure": "0.10 m: 33/36 cubes and 9/12 sorts. 0.08 m: 23/36 cubes and 2/12 sorts.",
+      "detail": "The 0.10 m waypoint had 7 wins, 0 losses, and 5 ties by seed (exact p = 0.0156). It improved pilot task outcomes. Mean corner proximity changed from 0.469 to 0.444; most contacts still landed near the top or bottom rim. This is pilot evidence, not a learned-policy result.",
+      "result": "33/36 cubes; 9/12 full sorts",
+      "status": "warn",
+      "source": "../docs/B601_V20_PROTOCOL.md",
+      "data": "b601-grasp-height-pilot.json"
     }
   ],
   "trials": [

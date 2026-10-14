@@ -167,6 +167,37 @@ def main():
             existing[iteration_id] = len(page["iterations"])
             page["iterations"].append(item)
 
+    grasp_pilot_path = ROOT / "portfolio" / "b601-grasp-height-pilot.json"
+    if grasp_pilot_path.is_file():
+        pilot = json.loads(grasp_pilot_path.read_text(encoding="utf-8"))
+        baseline = pilot["summaries"]["0.08"]
+        raised = pilot["summaries"]["0.1"]
+        comparison = pilot["paired_vs_0.08m"]["0.1"]
+        item = {
+            "id": "b601-grasp-height-pilot",
+            "title": "Teacher grasp height · 12-scene pilot",
+            "kind": "B601-RS teacher waypoint pilot",
+            "question": "Does a higher pick waypoint improve stable grasps and placements?",
+            "evidence": "12 matched simulation scenes; one pick attempt per cube; face-aligned wrist yaw.",
+            "measure": (f"0.10 m: {raised['objects_placed']}/36 cubes and {raised['full_sorts']}/12 sorts. "
+                        f"0.08 m: {baseline['objects_placed']}/36 cubes and {baseline['full_sorts']}/12 sorts."),
+            "detail": (f"The 0.10 m waypoint had {comparison['wins']} wins, {comparison['losses']} losses, "
+                       f"and {comparison['ties']} ties by seed (exact p = "
+                       f"{comparison['exact_sign_test_two_sided_p']:.4f}). It improved pilot task outcomes. "
+                       f"Mean corner proximity changed from {baseline['mean_corner_proximity']:.3f} to "
+                       f"{raised['mean_corner_proximity']:.3f}; most contacts still landed near the top or "
+                       "bottom rim. This is pilot evidence, not a learned-policy result."),
+            "result": f"{raised['objects_placed']}/36 cubes; {raised['full_sorts']}/12 full sorts",
+            "status": "warn",
+            "source": "../docs/B601_V20_PROTOCOL.md",
+            "data": "b601-grasp-height-pilot.json",
+        }
+        if item["id"] in existing:
+            page["iterations"][existing[item["id"]]] = item
+        else:
+            existing[item["id"]] = len(page["iterations"])
+            page["iterations"].append(item)
+
     videos = [
         {
             "title": "Face-aligned teacher · overhead view · seed 607000",

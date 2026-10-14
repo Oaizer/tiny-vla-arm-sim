@@ -26,23 +26,26 @@ ACTION_LIMITS = np.asarray([
 ], dtype=np.float32)
 
 _WORKER_SIM = None
+_WORKER_GRASP_HEIGHT = .08
 
 
-def _initialize_worker(image_size, camera_view):
-    global _WORKER_SIM
+def _initialize_worker(image_size, camera_view, grasp_height):
+    global _WORKER_SIM, _WORKER_GRASP_HEIGHT
     image_size = int(image_size)
+    _WORKER_GRASP_HEIGHT = float(grasp_height)
     _WORKER_SIM = B601Sim(size=image_size, observation_size=image_size, camera_view=camera_view)
 
 
 def _collect_to_disk(seed: int, output_dir: str) -> dict:
-    episode, arrays = collect_episode(_WORKER_SIM, seed, SLOT_SETS["v7"])
+    episode, arrays = collect_episode(_WORKER_SIM, seed, SLOT_SETS["v7"], _WORKER_GRASP_HEIGHT)
     filename = f"episode-{seed}.npz"
     np.savez_compressed(Path(output_dir) / filename, **arrays)
     episode["file"] = filename
     return episode
 
 
-def collect_episode(sim: B601Sim, seed: int, slots: np.ndarray) -> tuple[dict, dict]:
+def collect_episode(sim: B601Sim, seed: int, slots: np.ndarray,
+                    grasp_height: float = .08) -> tuple[dict, dict]:
     samples: list[dict] = []
 
     def record(observation, action):
@@ -52,7 +55,8 @@ def collect_episode(sim: B601Sim, seed: int, slots: np.ndarray) -> tuple[dict, d
     sim.command_observer = record
     sim.align_gripper_to_object = True
     result, _ = run_trial(sim, seed, slots, .14, .20, return_to_home=True,
-                          check_grasp_before_transfer=False, capture=False)
+                          check_grasp_before_transfer=False, capture=False,
+                          grasp_height=grasp_height)
     sim.command_observer = None
     if not samples:
         raise RuntimeError(f"Teacher produced no samples for seed {seed}")
@@ -63,6 +67,7 @@ def collect_episode(sim: B601Sim, seed: int, slots: np.ndarray) -> tuple[dict, d
         "objects_attempted": len(result["objects"]),
         "commands": len(samples),
         "teacher": "B601-RS simulator-state waypoint teacher; labels are commanded joint and finger positions",
+        "grasp_height_m": float(grasp_height),
         "split": "validation" if seed % 5 == 0 else "train",
         "instruction_per_sample": [sample["instruction"] for sample in samples],
     }
@@ -89,8 +94,10 @@ def main():
     parser.add_argument("--image-size", type=int, default=192,
                         help="square observation image size in pixels (default: 192)")
     parser.add_argument("--camera-view", choices=("oblique", "overhead"), default="oblique")
+    parser.add_argument("--grasp-height", type=float, default=.08,
+                        help="TCP height for pick descend and close waypoints, in metres")
     args = parser.parse_args()
-    if args.episodes < 1 or args.workers < 1 or args.image_size < 64:
+    if args.episodes < 1 or args.workers < 1 or args.image_size < 64 or args.grasp_height <= 0:
         parser.error("episodes and workers must be positive; image-size must be at least 64")
     out = args.output.resolve()
     if out.exists() and any(out.iterdir()):
@@ -103,7 +110,7 @@ def main():
         try:
             for seed in seeds:
                 sim.reset(seed)
-                episode, arrays = collect_episode(sim, seed, SLOT_SETS["v7"])
+                episode, arrays = collect_episode(sim, seed, SLOT_SETS["v7"], args.grasp_height)
                 filename = f"episode-{seed}.npz"
                 np.savez_compressed(out / filename, **arrays)
                 episode["file"] = filename
@@ -115,7 +122,8 @@ def main():
             sim.close()
     else:
         with ProcessPoolExecutor(max_workers=args.workers, initializer=_initialize_worker,
-                                 initargs=(args.image_size, args.camera_view)) as pool:
+                                 initargs=(args.image_size, args.camera_view,
+                                           args.grasp_height)) as pool:
             for episode in pool.map(_collect_to_disk, seeds, [str(out)] * args.episodes, chunksize=1):
                 metadata.append(episode)
                 print(json.dumps({"seed": episode["seed"], "success": episode["success"],
@@ -133,6 +141,7 @@ def main():
         "action": "next six-joint position target plus two gripper joint position targets",
         "action_label_clipping": "labels are clipped to the B601-RS URDF joint limits",
         "grasp_alignment": "scripted teacher rotates the wrist to align finger travel with the cube's randomized yaw",
+        "grasp_height_m": args.grasp_height,
         "privileged_inputs_used_for_labels_only": ["exact simulator object poses", "simulator pad poses"],
         "episode_split": "validation when seed modulo 5 is zero; otherwise train",
         "episodes": metadata,

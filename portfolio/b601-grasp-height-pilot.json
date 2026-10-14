@@ -1,0 +1,5460 @@
+{
+  "protocol": "Matched B601-RS teacher scenes; only pick descend/close TCP height changes. Face yaw alignment is enabled. One attempt per object.",
+  "seed_range": [
+    651000,
+    651011
+  ],
+  "summaries": {
+    "0.08": {
+      "seeds": 12,
+      "objects_attempted": 36,
+      "objects_grasped": 34,
+      "objects_placed": 23,
+      "full_sorts": 2,
+      "by_color": {
+        "red cube": 8,
+        "blue cube": 6,
+        "green cube": 9
+      },
+      "mean_corner_proximity": 0.4688333333333333,
+      "contact_points_near_top_or_bottom": 86,
+      "contact_points": 90
+    },
+    "0.09": {
+      "seeds": 12,
+      "objects_attempted": 36,
+      "objects_grasped": 36,
+      "objects_placed": 25,
+      "full_sorts": 3,
+      "by_color": {
+        "red cube": 8,
+        "blue cube": 7,
+        "green cube": 10
+      },
+      "mean_corner_proximity": 0.5008611111111111,
+      "contact_points_near_top_or_bottom": 76,
+      "contact_points": 80
+    },
+    "0.1": {
+      "seeds": 12,
+      "objects_attempted": 36,
+      "objects_grasped": 35,
+      "objects_placed": 33,
+      "full_sorts": 9,
+      "by_color": {
+        "red cube": 10,
+        "blue cube": 11,
+        "green cube": 12
+      },
+      "mean_corner_proximity": 0.4438285714285714,
+      "contact_points_near_top_or_bottom": 97,
+      "contact_points": 103
+    }
+  },
+  "paired_vs_0.08m": {
+    "0.09": {
+      "wins": 3,
+      "losses": 2,
+      "ties": 7,
+      "exact_sign_test_two_sided_p": 1.0
+    },
+    "0.1": {
+      "wins": 7,
+      "losses": 0,
+      "ties": 5,
+      "exact_sign_test_two_sided_p": 0.015625
+    }
+  },
+  "runs": [
+    {
+      "seed": 651000,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00388,
+          "final_position_m": [
+            0.3376,
+            0.00306,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 7.42,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.552,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02095,
+                  0.01946,
+                  0.01909
+                ],
+                "corner_proximity": 0.927,
+                "normal_force_n": 522.55
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02048,
+                  -0.00372,
+                  0.01991
+                ],
+                "corner_proximity": 0.177,
+                "normal_force_n": 287.877
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": false,
+          "placed": false,
+          "distance_m": 0.23816,
+          "final_position_m": [
+            0.30491,
+            0.07556,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.22,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.443,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00856,
+                  0.02088,
+                  0.01917
+                ],
+                "corner_proximity": 0.408,
+                "normal_force_n": 32.44
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.01003,
+                  -0.01757,
+                  0.01987
+                ],
+                "corner_proximity": 0.478,
+                "normal_force_n": 108.503
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.03069,
+          "final_position_m": [
+            0.33156,
+            0.1895,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.84,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.371,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.0207,
+                  0.00369,
+                  0.01953
+                ],
+                "corner_proximity": 0.176,
+                "normal_force_n": 343.795
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02066,
+                  0.00064,
+                  0.01956
+                ],
+                "corner_proximity": 0.03,
+                "normal_force_n": 77.591
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02061,
+                  -0.01903,
+                  0.01965
+                ],
+                "corner_proximity": 0.906,
+                "normal_force_n": 353.006
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 2,
+      "placed": 2
+    },
+    {
+      "seed": 651000,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00509,
+          "final_position_m": [
+            0.33591,
+            0.00303,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 9.38,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.572,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02095,
+                  0.01934,
+                  0.01906
+                ],
+                "corner_proximity": 0.921,
+                "normal_force_n": 528.923
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02045,
+                  -0.00468,
+                  0.01992
+                ],
+                "corner_proximity": 0.223,
+                "normal_force_n": 275.103
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00625,
+          "final_position_m": [
+            0.33409,
+            -0.15798,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.38,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.508,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00533,
+                  0.02039,
+                  0.01989
+                ],
+                "corner_proximity": 0.254,
+                "normal_force_n": 267.476
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.016,
+                  -0.02102,
+                  0.019
+                ],
+                "corner_proximity": 0.762,
+                "normal_force_n": 538.341
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.03015,
+          "final_position_m": [
+            0.3403,
+            0.19015,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 2.55,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.511,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02071,
+                  0.00463,
+                  0.01959
+                ],
+                "corner_proximity": 0.221,
+                "normal_force_n": 432.604
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.0207,
+                  -0.0168,
+                  0.01969
+                ],
+                "corner_proximity": 0.8,
+                "normal_force_n": 396.217
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651000,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00619,
+          "final_position_m": [
+            0.33477,
+            0.00331,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.33,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.413,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02085,
+                  0.01444,
+                  0.01909
+                ],
+                "corner_proximity": 0.688,
+                "normal_force_n": 494.652
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02062,
+                  -0.00499,
+                  0.01988
+                ],
+                "corner_proximity": 0.238,
+                "normal_force_n": 374.352
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02063,
+                  -0.00658,
+                  0.01987
+                ],
+                "corner_proximity": 0.314,
+                "normal_force_n": 0.499
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.18604,
+          "final_position_m": [
+            0.31855,
+            0.0248,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.82,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.247,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00059,
+                  0.0202,
+                  0.01993
+                ],
+                "corner_proximity": 0.028,
+                "normal_force_n": 355.372
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.00813,
+                  -0.02124,
+                  0.01906
+                ],
+                "corner_proximity": 0.387,
+                "normal_force_n": 502.571
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.00684,
+                  -0.02124,
+                  0.01905
+                ],
+                "corner_proximity": 0.326,
+                "normal_force_n": 8.768
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01655,
+          "final_position_m": [
+            0.33519,
+            0.14416,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.18,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.424,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02058,
+                  0.00516,
+                  0.01979
+                ],
+                "corner_proximity": 0.246,
+                "normal_force_n": 258.134
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02039,
+                  0.00713,
+                  0.0199
+                ],
+                "corner_proximity": 0.34,
+                "normal_force_n": 3.339
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02101,
+                  -0.01443,
+                  0.01901
+                ],
+                "corner_proximity": 0.687,
+                "normal_force_n": 546.761
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651001,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.03911,
+          "final_position_m": [
+            0.3784,
+            -0.1526,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.64,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.313,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02045,
+                  0.0188,
+                  0.01958
+                ],
+                "corner_proximity": 0.895,
+                "normal_force_n": 305.633
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02075,
+                  -0.00064,
+                  0.01941
+                ],
+                "corner_proximity": 0.031,
+                "normal_force_n": 419.068
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02074,
+                  0.00026,
+                  0.0194
+                ],
+                "corner_proximity": 0.012,
+                "normal_force_n": 5.833
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02364,
+          "final_position_m": [
+            0.34557,
+            0.02298,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.24,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.341,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02088,
+                  -7e-05,
+                  0.01903
+                ],
+                "corner_proximity": 0.004,
+                "normal_force_n": 355.637
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02085,
+                  0.00092,
+                  0.01905
+                ],
+                "corner_proximity": 0.044,
+                "normal_force_n": 20.29
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02045,
+                  0.02055,
+                  0.01932
+                ],
+                "corner_proximity": 0.974,
+                "normal_force_n": 464.328
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.04115,
+          "final_position_m": [
+            0.38101,
+            0.16344,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 2.36,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.972,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02082,
+                  0.02056,
+                  0.00297
+                ],
+                "corner_proximity": 0.979,
+                "normal_force_n": 417.981
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02027,
+                  -0.02097,
+                  -0.01201
+                ],
+                "corner_proximity": 0.965,
+                "normal_force_n": 507.898
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 1
+    },
+    {
+      "seed": 651001,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.62611,
+          "final_position_m": [
+            -0.27445,
+            -0.28023,
+            0.02099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 2.26,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.376,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02064,
+                  0.01755,
+                  0.01968
+                ],
+                "corner_proximity": 0.836,
+                "normal_force_n": 353.176
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02072,
+                  -0.0046,
+                  0.01959
+                ],
+                "corner_proximity": 0.219,
+                "normal_force_n": 410.786
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02071,
+                  -0.00154,
+                  0.01959
+                ],
+                "corner_proximity": 0.073,
+                "normal_force_n": 33.3
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02978,
+          "final_position_m": [
+            0.36287,
+            0.01907,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.15,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.395,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02068,
+                  -0.00422,
+                  0.01961
+                ],
+                "corner_proximity": 0.201,
+                "normal_force_n": 383.274
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02066,
+                  -0.00114,
+                  0.01964
+                ],
+                "corner_proximity": 0.054,
+                "normal_force_n": 51.36
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02066,
+                  0.01955,
+                  0.01972
+                ],
+                "corner_proximity": 0.931,
+                "normal_force_n": 343.891
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.04214,
+          "final_position_m": [
+            0.3401,
+            0.20214,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.93,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.457,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00448,
+                  0.02076,
+                  0.01951
+                ],
+                "corner_proximity": 0.213,
+                "normal_force_n": 417.002
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01473,
+                  -0.02072,
+                  0.01966
+                ],
+                "corner_proximity": 0.702,
+                "normal_force_n": 443.694
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 1
+    },
+    {
+      "seed": 651001,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00335,
+          "final_position_m": [
+            0.33671,
+            -0.16065,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.1,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.423,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.0144,
+                  0.01901
+                ],
+                "corner_proximity": 0.686,
+                "normal_force_n": 546.136
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02048,
+                  -0.00514,
+                  0.01986
+                ],
+                "corner_proximity": 0.245,
+                "normal_force_n": 260.537
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02038,
+                  -0.0071,
+                  0.0199
+                ],
+                "corner_proximity": 0.338,
+                "normal_force_n": 1.513
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00702,
+          "final_position_m": [
+            0.3353,
+            -0.00522,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.47,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.429,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02043,
+                  -0.00523,
+                  0.01989
+                ],
+                "corner_proximity": 0.249,
+                "normal_force_n": 258.741
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02038,
+                  -0.00718,
+                  0.0199
+                ],
+                "corner_proximity": 0.342,
+                "normal_force_n": 1.061
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.01461,
+                  0.01901
+                ],
+                "corner_proximity": 0.696,
+                "normal_force_n": 546.814
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01617,
+          "final_position_m": [
+            0.32928,
+            0.1479,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.04,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.42,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00523,
+                  0.02057,
+                  0.0198
+                ],
+                "corner_proximity": 0.249,
+                "normal_force_n": 257.418
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00704,
+                  0.02038,
+                  0.01991
+                ],
+                "corner_proximity": 0.335,
+                "normal_force_n": 3.808
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01421,
+                  -0.02101,
+                  0.01901
+                ],
+                "corner_proximity": 0.677,
+                "normal_force_n": 547.23
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651002,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02278,
+          "final_position_m": [
+            0.33069,
+            -0.13921,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 8.37,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.569,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02049,
+                  0.0038,
+                  0.0199
+                ],
+                "corner_proximity": 0.181,
+                "normal_force_n": 311.18
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02094,
+                  -0.02008,
+                  0.01908
+                ],
+                "corner_proximity": 0.956,
+                "normal_force_n": 530.512
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00949,
+          "final_position_m": [
+            0.33051,
+            0.16017,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 9.63,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.573,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02046,
+                  0.00385,
+                  0.01992
+                ],
+                "corner_proximity": 0.183,
+                "normal_force_n": 277.688
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02094,
+                  -0.0202,
+                  0.01899
+                ],
+                "corner_proximity": 0.962,
+                "normal_force_n": 567.593
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": false,
+          "placed": false,
+          "distance_m": 0.20362,
+          "final_position_m": [
+            0.34606,
+            -0.20353,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 41.27,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7
+            ],
+            "mean_corner_proximity": 0.559,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02085,
+                  -0.02,
+                  0.01961
+                ],
+                "corner_proximity": 0.952,
+                "normal_force_n": 1.04
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02085,
+                  -0.00349,
+                  0.01958
+                ],
+                "corner_proximity": 0.166,
+                "normal_force_n": 7.284
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 2,
+      "placed": 2
+    },
+    {
+      "seed": 651002,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02751,
+          "final_position_m": [
+            0.33608,
+            -0.13277,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 10.13,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.587,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02047,
+                  0.00469,
+                  0.01991
+                ],
+                "corner_proximity": 0.224,
+                "normal_force_n": 279.35
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02094,
+                  -0.01993,
+                  0.01906
+                ],
+                "corner_proximity": 0.949,
+                "normal_force_n": 523.084
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01536,
+          "final_position_m": [
+            0.32467,
+            0.161,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 10.7,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.59,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02045,
+                  0.00457,
+                  0.01992
+                ],
+                "corner_proximity": 0.217,
+                "normal_force_n": 269.277
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02094,
+                  -0.02021,
+                  0.01899
+                ],
+                "corner_proximity": 0.962,
+                "normal_force_n": 568.444
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.04025,
+          "final_position_m": [
+            0.31396,
+            0.0307,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.17,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.287,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02082,
+                  -0.00804,
+                  0.01958
+                ],
+                "corner_proximity": 0.383,
+                "normal_force_n": 443.866
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02078,
+                  0.00427,
+                  0.02011
+                ],
+                "corner_proximity": 0.203,
+                "normal_force_n": 441.305
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02076,
+                  0.00576,
+                  0.02012
+                ],
+                "corner_proximity": 0.274,
+                "normal_force_n": 0.481
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651002,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.034,
+          "final_position_m": [
+            0.32859,
+            -0.12797,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.34,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.412,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02054,
+                  0.00503,
+                  0.01989
+                ],
+                "corner_proximity": 0.239,
+                "normal_force_n": 333.152
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02058,
+                  0.00657,
+                  0.01986
+                ],
+                "corner_proximity": 0.313,
+                "normal_force_n": 0.215
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02091,
+                  -0.01438,
+                  0.01906
+                ],
+                "corner_proximity": 0.685,
+                "normal_force_n": 514.987
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01481,
+          "final_position_m": [
+            0.32522,
+            0.15902,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.8,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.474,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02059,
+                  0.00535,
+                  0.01987
+                ],
+                "corner_proximity": 0.255,
+                "normal_force_n": 365.318
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02087,
+                  -0.01455,
+                  0.01908
+                ],
+                "corner_proximity": 0.693,
+                "normal_force_n": 496.742
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.0201,
+          "final_position_m": [
+            0.32633,
+            0.01474,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.77,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.338,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02074,
+                  -0.00747,
+                  0.01978
+                ],
+                "corner_proximity": 0.356,
+                "normal_force_n": 456.832
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02087,
+                  0.00759,
+                  0.01961
+                ],
+                "corner_proximity": 0.361,
+                "normal_force_n": 419.296
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02086,
+                  0.00624,
+                  0.01963
+                ],
+                "corner_proximity": 0.297,
+                "normal_force_n": 17.108
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651003,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01667,
+          "final_position_m": [
+            0.32377,
+            -0.15619,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.88,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.4,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00356,
+                  0.02062,
+                  0.01986
+                ],
+                "corner_proximity": 0.17,
+                "normal_force_n": 364.713
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00133,
+                  0.02056,
+                  0.01991
+                ],
+                "corner_proximity": 0.064,
+                "normal_force_n": 52.297
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02031,
+                  -0.02098,
+                  0.01894
+                ],
+                "corner_proximity": 0.967,
+                "normal_force_n": 518.02
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.04205,
+          "final_position_m": [
+            0.31395,
+            0.03302,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.81,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.581,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02006,
+                  -0.02117,
+                  0.01878
+                ],
+                "corner_proximity": 0.955,
+                "normal_force_n": 550.719
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00432,
+                  0.02034,
+                  0.01983
+                ],
+                "corner_proximity": 0.206,
+                "normal_force_n": 362.069
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01373,
+          "final_position_m": [
+            0.32679,
+            0.15627,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.9,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.452,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02053,
+                  -0.00553,
+                  0.01985
+                ],
+                "corner_proximity": 0.264,
+                "normal_force_n": 331.028
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02097,
+                  0.01342,
+                  0.01923
+                ],
+                "corner_proximity": 0.639,
+                "normal_force_n": 480.371
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651003,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02476,
+          "final_position_m": [
+            0.31537,
+            -0.1625,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.0,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.531,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.0044,
+                  0.02039,
+                  0.02015
+                ],
+                "corner_proximity": 0.209,
+                "normal_force_n": 413.916
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01792,
+                  -0.02108,
+                  0.01937
+                ],
+                "corner_proximity": 0.853,
+                "normal_force_n": 462.979
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.04079,
+          "final_position_m": [
+            0.31983,
+            0.03545,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 4.73,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.537,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01799,
+                  -0.02093,
+                  0.01899
+                ],
+                "corner_proximity": 0.857,
+                "normal_force_n": 528.467
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00456,
+                  0.02047,
+                  0.0199
+                ],
+                "corner_proximity": 0.217,
+                "normal_force_n": 291.948
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01684,
+          "final_position_m": [
+            0.32528,
+            0.15183,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.09,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.484,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02046,
+                  -0.0055,
+                  0.01987
+                ],
+                "corner_proximity": 0.262,
+                "normal_force_n": 297.009
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02099,
+                  0.01482,
+                  0.01912
+                ],
+                "corner_proximity": 0.706,
+                "normal_force_n": 510.401
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651003,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00875,
+          "final_position_m": [
+            0.33419,
+            -0.15345,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.97,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.442,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01583,
+                  -0.02094,
+                  0.01906
+                ],
+                "corner_proximity": 0.754,
+                "normal_force_n": 531.432
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00516,
+                  0.02049,
+                  0.0199
+                ],
+                "corner_proximity": 0.246,
+                "normal_force_n": 283.46
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00682,
+                  0.02047,
+                  0.01992
+                ],
+                "corner_proximity": 0.325,
+                "normal_force_n": 0.29
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01973,
+          "final_position_m": [
+            0.32466,
+            0.01241,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.71,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.346,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.00826,
+                  -0.02075,
+                  0.01964
+                ],
+                "corner_proximity": 0.393,
+                "normal_force_n": 459.899
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00744,
+                  0.02086,
+                  0.01949
+                ],
+                "corner_proximity": 0.354,
+                "normal_force_n": 411.836
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00609,
+                  0.02086,
+                  0.01949
+                ],
+                "corner_proximity": 0.29,
+                "normal_force_n": 18.945
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01855,
+          "final_position_m": [
+            0.32712,
+            0.14665,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.76,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.421,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02038,
+                  -0.00533,
+                  0.0199
+                ],
+                "corner_proximity": 0.254,
+                "normal_force_n": 259.563
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02057,
+                  -0.00645,
+                  0.0198
+                ],
+                "corner_proximity": 0.307,
+                "normal_force_n": 0.0
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.01473,
+                  0.01901
+                ],
+                "corner_proximity": 0.701,
+                "normal_force_n": 546.211
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651004,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00897,
+          "final_position_m": [
+            0.33231,
+            0.1554,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 4.13,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.577,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02018,
+                  -0.02096,
+                  0.01896
+                ],
+                "corner_proximity": 0.961,
+                "normal_force_n": 578.775
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00402,
+                  0.02042,
+                  0.01992
+                ],
+                "corner_proximity": 0.192,
+                "normal_force_n": 261.644
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00543,
+          "final_position_m": [
+            0.33505,
+            -0.15777,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 4.88,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.573,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.0202,
+                  -0.02094,
+                  0.01898
+                ],
+                "corner_proximity": 0.962,
+                "normal_force_n": 569.84
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00385,
+                  0.02045,
+                  0.01992
+                ],
+                "corner_proximity": 0.183,
+                "normal_force_n": 270.93
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01452,
+          "final_position_m": [
+            0.35175,
+            -0.00853,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 2.73,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.513,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.0041,
+                  0.02037,
+                  0.01992
+                ],
+                "corner_proximity": 0.195,
+                "normal_force_n": 247.502
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01745,
+                  -0.02101,
+                  0.01901
+                ],
+                "corner_proximity": 0.831,
+                "normal_force_n": 557.334
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651004,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00879,
+          "final_position_m": [
+            0.3327,
+            0.1551,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.26,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.462,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02011,
+                  -0.02095,
+                  0.01899
+                ],
+                "corner_proximity": 0.957,
+                "normal_force_n": 556.05
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00462,
+                  0.02043,
+                  0.01992
+                ],
+                "corner_proximity": 0.22,
+                "normal_force_n": 265.255
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00439,
+                  0.02004,
+                  0.01903
+                ],
+                "corner_proximity": 0.209,
+                "normal_force_n": 0.018
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00573,
+          "final_position_m": [
+            0.33481,
+            -0.15757,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.65,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.593,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02022,
+                  -0.02094,
+                  0.01895
+                ],
+                "corner_proximity": 0.963,
+                "normal_force_n": 574.44
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00468,
+                  0.02044,
+                  0.01992
+                ],
+                "corner_proximity": 0.223,
+                "normal_force_n": 263.997
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00176,
+          "final_position_m": [
+            0.33842,
+            -0.00078,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.26,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.509,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00483,
+                  0.02037,
+                  0.01991
+                ],
+                "corner_proximity": 0.23,
+                "normal_force_n": 249.946
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01653,
+                  -0.02101,
+                  0.019
+                ],
+                "corner_proximity": 0.787,
+                "normal_force_n": 553.147
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651004,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00606,
+          "final_position_m": [
+            0.33452,
+            0.1626,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.4,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.348,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01005,
+                  -0.02098,
+                  0.01934
+                ],
+                "corner_proximity": 0.479,
+                "normal_force_n": 486.827
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00511,
+                  0.02056,
+                  0.01983
+                ],
+                "corner_proximity": 0.243,
+                "normal_force_n": 362.924
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00676,
+                  0.02051,
+                  0.01987
+                ],
+                "corner_proximity": 0.322,
+                "normal_force_n": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00763,
+          "final_position_m": [
+            0.33238,
+            -0.15966,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.33,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.39,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01122,
+                  -0.02082,
+                  0.0193
+                ],
+                "corner_proximity": 0.534,
+                "normal_force_n": 481.799
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00514,
+                  0.0207,
+                  0.01987
+                ],
+                "corner_proximity": 0.245,
+                "normal_force_n": 391.969
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00155,
+          "final_position_m": [
+            0.33849,
+            -0.00032,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.31,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.434,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00547,
+                  0.02042,
+                  0.01989
+                ],
+                "corner_proximity": 0.261,
+                "normal_force_n": 256.904
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00727,
+                  0.02038,
+                  0.01991
+                ],
+                "corner_proximity": 0.346,
+                "normal_force_n": 0.905
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01459,
+                  -0.02101,
+                  0.019
+                ],
+                "corner_proximity": 0.695,
+                "normal_force_n": 547.677
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651005,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01815,
+          "final_position_m": [
+            0.34019,
+            0.17815,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.57,
+            "contact_count": 5,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.32,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02076,
+                  0.01364,
+                  0.01951
+                ],
+                "corner_proximity": 0.649,
+                "normal_force_n": 472.005
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02073,
+                  0.01509,
+                  0.01952
+                ],
+                "corner_proximity": 0.719,
+                "normal_force_n": 0.028
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02064,
+                  -0.00334,
+                  0.01957
+                ],
+                "corner_proximity": 0.159,
+                "normal_force_n": 236.171
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02063,
+                  -0.00131,
+                  0.01956
+                ],
+                "corner_proximity": 0.063,
+                "normal_force_n": 104.5
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02063,
+                  -0.00021,
+                  0.01956
+                ],
+                "corner_proximity": 0.01,
+                "normal_force_n": 30.23
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.08243,
+          "final_position_m": [
+            0.42127,
+            0.01379,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 6.29,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.536,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02036,
+                  -0.00507,
+                  0.01991
+                ],
+                "corner_proximity": 0.242,
+                "normal_force_n": 248.0
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.01743,
+                  0.019
+                ],
+                "corner_proximity": 0.83,
+                "normal_force_n": 552.408
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00977,
+          "final_position_m": [
+            0.3317,
+            -0.16516,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.45,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.97,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02052,
+                  0.02084,
+                  0.00339
+                ],
+                "corner_proximity": 0.977,
+                "normal_force_n": 394.795
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02099,
+                  0.02021,
+                  -0.01265
+                ],
+                "corner_proximity": 0.963,
+                "normal_force_n": 504.003
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651005,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02785,
+          "final_position_m": [
+            0.34371,
+            0.1876,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.87,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.395,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02047,
+                  0.01915,
+                  0.01968
+                ],
+                "corner_proximity": 0.912,
+                "normal_force_n": 306.224
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02079,
+                  -0.00442,
+                  0.01947
+                ],
+                "corner_proximity": 0.21,
+                "normal_force_n": 367.753
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02077,
+                  -0.00133,
+                  0.01947
+                ],
+                "corner_proximity": 0.063,
+                "normal_force_n": 76.021
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.0389,
+          "final_position_m": [
+            0.36939,
+            0.02548,
+            0.12185
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 6.74,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.524,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02037,
+                  -0.00546,
+                  0.01991
+                ],
+                "corner_proximity": 0.26,
+                "normal_force_n": 250.393
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.01656,
+                  0.019
+                ],
+                "corner_proximity": 0.789,
+                "normal_force_n": 550.131
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02324,
+          "final_position_m": [
+            0.34516,
+            -0.13734,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.28,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.96,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02001,
+                  0.02099,
+                  0.00253
+                ],
+                "corner_proximity": 0.953,
+                "normal_force_n": 386.291
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02095,
+                  -0.02034,
+                  -0.00837
+                ],
+                "corner_proximity": 0.968,
+                "normal_force_n": 432.395
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651005,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01639,
+          "final_position_m": [
+            0.32945,
+            0.14746,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.5,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.431,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.021,
+                  0.01457,
+                  0.01901
+                ],
+                "corner_proximity": 0.694,
+                "normal_force_n": 545.8
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02045,
+                  -0.00535,
+                  0.01988
+                ],
+                "corner_proximity": 0.255,
+                "normal_force_n": 260.153
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02039,
+                  -0.00721,
+                  0.0199
+                ],
+                "corner_proximity": 0.343,
+                "normal_force_n": 1.04
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.04023,
+          "final_position_m": [
+            0.3594,
+            0.03524,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 4.97,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.423,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02059,
+                  -0.00518,
+                  0.01978
+                ],
+                "corner_proximity": 0.247,
+                "normal_force_n": 254.887
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02038,
+                  -0.00716,
+                  0.01991
+                ],
+                "corner_proximity": 0.341,
+                "normal_force_n": 3.231
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.01428,
+                  0.01901
+                ],
+                "corner_proximity": 0.68,
+                "normal_force_n": 548.28
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00454,
+          "final_position_m": [
+            0.336,
+            -0.15786,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 9.27,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.969,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02091,
+                  0.02047,
+                  0.00755
+                ],
+                "corner_proximity": 0.975,
+                "normal_force_n": 252.623
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02088,
+                  0.02054,
+                  0.00569
+                ],
+                "corner_proximity": 0.978,
+                "normal_force_n": 23.987
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02,
+                  -0.02092,
+                  -0.01913
+                ],
+                "corner_proximity": 0.953,
+                "normal_force_n": 540.16
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651006,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02061,
+          "final_position_m": [
+            0.31963,
+            -0.15686,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.67,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.321,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.0208,
+                  -0.0157,
+                  0.01949
+                ],
+                "corner_proximity": 0.748,
+                "normal_force_n": 440.484
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02066,
+                  0.00335,
+                  0.01955
+                ],
+                "corner_proximity": 0.16,
+                "normal_force_n": 365.033
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02064,
+                  0.00114,
+                  0.01957
+                ],
+                "corner_proximity": 0.054,
+                "normal_force_n": 39.829
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.24252,
+          "final_position_m": [
+            0.12525,
+            -0.11269,
+            0.01999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.24,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.337,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02058,
+                  -0.00344,
+                  0.01954
+                ],
+                "corner_proximity": 0.164,
+                "normal_force_n": 362.643
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02052,
+                  -0.00037,
+                  0.01965
+                ],
+                "corner_proximity": 0.018,
+                "normal_force_n": 52.906
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02082,
+                  0.01739,
+                  0.01988
+                ],
+                "corner_proximity": 0.828,
+                "normal_force_n": 393.298
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02395,
+          "final_position_m": [
+            0.34561,
+            0.18328,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.79,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.304,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02076,
+                  0.00842,
+                  0.01965
+                ],
+                "corner_proximity": 0.401,
+                "normal_force_n": 510.661
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02085,
+                  -0.00434,
+                  0.01955
+                ],
+                "corner_proximity": 0.207,
+                "normal_force_n": 413.757
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651006,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02408,
+          "final_position_m": [
+            0.34464,
+            -0.13637,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 9.12,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.587,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02106,
+                  -0.01999,
+                  0.01936
+                ],
+                "corner_proximity": 0.952,
+                "normal_force_n": 461.021
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02037,
+                  0.00465,
+                  0.02021
+                ],
+                "corner_proximity": 0.222,
+                "normal_force_n": 410.36
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.03923,
+          "final_position_m": [
+            0.36859,
+            0.02686,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.84,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.435,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02076,
+                  -0.00433,
+                  0.0195
+                ],
+                "corner_proximity": 0.206,
+                "normal_force_n": 412.329
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02073,
+                  0.01394,
+                  0.01967
+                ],
+                "corner_proximity": 0.664,
+                "normal_force_n": 457.857
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02119,
+          "final_position_m": [
+            0.35581,
+            0.1741,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.75,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.317,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02078,
+                  0.00817,
+                  0.01965
+                ],
+                "corner_proximity": 0.389,
+                "normal_force_n": 507.945
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02084,
+                  -0.00514,
+                  0.01953
+                ],
+                "corner_proximity": 0.245,
+                "normal_force_n": 414.96
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651006,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00755,
+          "final_position_m": [
+            0.33445,
+            -0.15488,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 6.76,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.438,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02094,
+                  -0.01584,
+                  0.01905
+                ],
+                "corner_proximity": 0.754,
+                "normal_force_n": 533.376
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02047,
+                  0.00518,
+                  0.01991
+                ],
+                "corner_proximity": 0.247,
+                "normal_force_n": 281.897
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02058,
+                  0.00657,
+                  0.01985
+                ],
+                "corner_proximity": 0.313,
+                "normal_force_n": 0.128
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00513,
+          "final_position_m": [
+            0.34038,
+            0.00512,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.5,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.431,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02043,
+                  -0.00528,
+                  0.01988
+                ],
+                "corner_proximity": 0.252,
+                "normal_force_n": 257.987
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02038,
+                  -0.00724,
+                  0.01991
+                ],
+                "corner_proximity": 0.345,
+                "normal_force_n": 0.953
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.0146,
+                  0.01901
+                ],
+                "corner_proximity": 0.695,
+                "normal_force_n": 547.424
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.0141,
+          "final_position_m": [
+            0.33307,
+            0.14772,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 4.99,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.421,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.0143,
+                  0.01901
+                ],
+                "corner_proximity": 0.681,
+                "normal_force_n": 546.219
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02057,
+                  -0.00512,
+                  0.0198
+                ],
+                "corner_proximity": 0.244,
+                "normal_force_n": 259.406
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02039,
+                  -0.00709,
+                  0.0199
+                ],
+                "corner_proximity": 0.338,
+                "normal_force_n": 3.618
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651007,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.03851,
+          "final_position_m": [
+            0.3186,
+            -0.12799,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 4.58,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.577,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00401,
+                  0.02043,
+                  0.01993
+                ],
+                "corner_proximity": 0.191,
+                "normal_force_n": 261.657
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02019,
+                  -0.02095,
+                  0.01896
+                ],
+                "corner_proximity": 0.962,
+                "normal_force_n": 578.557
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00613,
+          "final_position_m": [
+            0.33518,
+            -0.00379,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 2.17,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.501,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00402,
+                  0.02038,
+                  0.01991
+                ],
+                "corner_proximity": 0.191,
+                "normal_force_n": 255.881
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01702,
+                  -0.021,
+                  0.01902
+                ],
+                "corner_proximity": 0.81,
+                "normal_force_n": 552.373
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01251,
+          "final_position_m": [
+            0.35146,
+            0.155,
+            0.1286
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 2.14,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.435,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.0038,
+                  0.02042,
+                  0.01965
+                ],
+                "corner_proximity": 0.181,
+                "normal_force_n": 367.015
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01448,
+                  -0.0211,
+                  0.01904
+                ],
+                "corner_proximity": 0.689,
+                "normal_force_n": 516.3
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651007,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.03569,
+          "final_position_m": [
+            0.31502,
+            -0.13451,
+            0.12675
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.49,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.593,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00477,
+                  0.02043,
+                  0.01993
+                ],
+                "corner_proximity": 0.227,
+                "normal_force_n": 263.343
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02011,
+                  -0.02096,
+                  0.01899
+                ],
+                "corner_proximity": 0.958,
+                "normal_force_n": 558.064
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00261,
+          "final_position_m": [
+            0.33798,
+            -0.00165,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.44,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.517,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00505,
+                  0.02037,
+                  0.01991
+                ],
+                "corner_proximity": 0.24,
+                "normal_force_n": 251.786
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01668,
+                  -0.02101,
+                  0.019
+                ],
+                "corner_proximity": 0.794,
+                "normal_force_n": 550.666
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.04031,
+          "final_position_m": [
+            0.31115,
+            0.18816,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 2.53,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.418,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00416,
+                  0.02045,
+                  0.01981
+                ],
+                "corner_proximity": 0.198,
+                "normal_force_n": 374.685
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01342,
+                  -0.02106,
+                  0.01899
+                ],
+                "corner_proximity": 0.639,
+                "normal_force_n": 516.85
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 1
+    },
+    {
+      "seed": 651007,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01604,
+          "final_position_m": [
+            0.34458,
+            -0.14463,
+            0.12645
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.75,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.369,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00511,
+                  0.02057,
+                  0.01983
+                ],
+                "corner_proximity": 0.244,
+                "normal_force_n": 356.999
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01039,
+                  -0.02097,
+                  0.01934
+                ],
+                "corner_proximity": 0.495,
+                "normal_force_n": 461.108
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.0066,
+          "final_position_m": [
+            0.33639,
+            -0.00552,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.3,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.431,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00537,
+                  0.02043,
+                  0.01988
+                ],
+                "corner_proximity": 0.256,
+                "normal_force_n": 256.434
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00717,
+                  0.02038,
+                  0.01991
+                ],
+                "corner_proximity": 0.341,
+                "normal_force_n": 1.207
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01461,
+                  -0.02101,
+                  0.019
+                ],
+                "corner_proximity": 0.696,
+                "normal_force_n": 548.132
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02179,
+          "final_position_m": [
+            0.31964,
+            0.16778,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.84,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.335,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.00758,
+                  -0.02075,
+                  0.01962
+                ],
+                "corner_proximity": 0.361,
+                "normal_force_n": 488.443
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00749,
+                  0.02079,
+                  0.01953
+                ],
+                "corner_proximity": 0.357,
+                "normal_force_n": 390.087
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00603,
+                  0.02086,
+                  0.01941
+                ],
+                "corner_proximity": 0.287,
+                "normal_force_n": 22.615
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651008,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.6852,
+          "final_position_m": [
+            -0.171,
+            -0.29648,
+            0.02099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.08,
+            "contact_count": 4,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.348,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02061,
+                  0.01319,
+                  0.01953
+                ],
+                "corner_proximity": 0.628,
+                "normal_force_n": 487.968
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02045,
+                  0.01478,
+                  0.01964
+                ],
+                "corner_proximity": 0.704,
+                "normal_force_n": 4.019
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02078,
+                  -3e-05,
+                  0.01944
+                ],
+                "corner_proximity": 0.002,
+                "normal_force_n": 296.55
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02078,
+                  -0.00125,
+                  0.01945
+                ],
+                "corner_proximity": 0.06,
+                "normal_force_n": 20.725
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02323,
+          "final_position_m": [
+            0.33696,
+            0.02303,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.51,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.408,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02079,
+                  -0.02029,
+                  0.01951
+                ],
+                "corner_proximity": 0.966,
+                "normal_force_n": 500.034
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.0208,
+                  0.00386,
+                  0.01956
+                ],
+                "corner_proximity": 0.184,
+                "normal_force_n": 310.048
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02074,
+                  0.00154,
+                  0.01963
+                ],
+                "corner_proximity": 0.073,
+                "normal_force_n": 65.297
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01059,
+          "final_position_m": [
+            0.33799,
+            -0.1496,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 6.43,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.595,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00488,
+                  0.02046,
+                  0.01992
+                ],
+                "corner_proximity": 0.232,
+                "normal_force_n": 270.803
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02012,
+                  -0.02095,
+                  0.01903
+                ],
+                "corner_proximity": 0.958,
+                "normal_force_n": 547.541
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651008,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01151,
+          "final_position_m": [
+            0.3352,
+            0.14953,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.94,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.433,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02068,
+                  0.01389,
+                  0.01947
+                ],
+                "corner_proximity": 0.662,
+                "normal_force_n": 431.045
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02077,
+                  -0.00431,
+                  0.01934
+                ],
+                "corner_proximity": 0.205,
+                "normal_force_n": 429.173
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01274,
+          "final_position_m": [
+            0.33416,
+            0.01132,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 7.87,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.585,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02095,
+                  -0.01978,
+                  0.01955
+                ],
+                "corner_proximity": 0.942,
+                "normal_force_n": 451.756
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02049,
+                  0.00478,
+                  0.02005
+                ],
+                "corner_proximity": 0.228,
+                "normal_force_n": 395.822
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.03142,
+          "final_position_m": [
+            0.314,
+            -0.14236,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.38,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.248,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -5e-05,
+                  0.02061,
+                  0.01975
+                ],
+                "corner_proximity": 0.002,
+                "normal_force_n": 319.303
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.00212,
+                  0.02069,
+                  0.01967
+                ],
+                "corner_proximity": 0.101,
+                "normal_force_n": 95.312
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01348,
+                  -0.02094,
+                  0.01952
+                ],
+                "corner_proximity": 0.642,
+                "normal_force_n": 433.745
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651008,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01691,
+          "final_position_m": [
+            0.33062,
+            0.14593,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.14,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.423,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.01444,
+                  0.01901
+                ],
+                "corner_proximity": 0.687,
+                "normal_force_n": 546.509
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02047,
+                  -0.00512,
+                  0.01986
+                ],
+                "corner_proximity": 0.244,
+                "normal_force_n": 259.901
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02039,
+                  -0.00708,
+                  0.0199
+                ],
+                "corner_proximity": 0.337,
+                "normal_force_n": 1.602
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.0027,
+          "final_position_m": [
+            0.33933,
+            0.00262,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 6.37,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.435,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02096,
+                  -0.01554,
+                  0.01904
+                ],
+                "corner_proximity": 0.74,
+                "normal_force_n": 537.806
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02045,
+                  0.00524,
+                  0.01991
+                ],
+                "corner_proximity": 0.25,
+                "normal_force_n": 277.92
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02057,
+                  0.00664,
+                  0.01985
+                ],
+                "corner_proximity": 0.316,
+                "normal_force_n": 0.056
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": false,
+          "placed": false,
+          "distance_m": 0.28073,
+          "final_position_m": [
+            0.35079,
+            -0.44052,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.44,
+            "contact_count": 0,
+            "contacting_fingers": [],
+            "mean_corner_proximity": null,
+            "contacts": []
+          }
+        }
+      ],
+      "grasped": 2,
+      "placed": 2
+    },
+    {
+      "seed": 651009,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01159,
+          "final_position_m": [
+            0.33315,
+            0.15065,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 2.75,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.512,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00419,
+                  0.02036,
+                  0.01992
+                ],
+                "corner_proximity": 0.2,
+                "normal_force_n": 248.045
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01732,
+                  -0.02101,
+                  0.019
+                ],
+                "corner_proximity": 0.825,
+                "normal_force_n": 556.739
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.41825,
+          "final_position_m": [
+            0.05999,
+            -0.31069,
+            0.01999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.06,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.338,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02063,
+                  0.0039,
+                  0.01951
+                ],
+                "corner_proximity": 0.186,
+                "normal_force_n": 368.946
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02058,
+                  0.00082,
+                  0.0196
+                ],
+                "corner_proximity": 0.039,
+                "normal_force_n": 57.694
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02076,
+                  -0.01658,
+                  0.01987
+                ],
+                "corner_proximity": 0.789,
+                "normal_force_n": 369.888
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.0314,
+          "final_position_m": [
+            0.32669,
+            -0.13156,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 10.27,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.479,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.0006,
+                  0.02069,
+                  0.01961
+                ],
+                "corner_proximity": 0.028,
+                "normal_force_n": 420.047
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01952,
+                  -0.02051,
+                  0.0198
+                ],
+                "corner_proximity": 0.929,
+                "normal_force_n": 309.02
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651009,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01249,
+          "final_position_m": [
+            0.33279,
+            0.14981,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.22,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.507,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00488,
+                  0.02037,
+                  0.01991
+                ],
+                "corner_proximity": 0.232,
+                "normal_force_n": 250.327
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01641,
+                  -0.02101,
+                  0.019
+                ],
+                "corner_proximity": 0.782,
+                "normal_force_n": 553.025
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.03585,
+          "final_position_m": [
+            0.30936,
+            0.01861,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.85,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.422,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02074,
+                  0.00472,
+                  0.01948
+                ],
+                "corner_proximity": 0.225,
+                "normal_force_n": 415.985
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02077,
+                  -0.01299,
+                  0.01965
+                ],
+                "corner_proximity": 0.619,
+                "normal_force_n": 460.093
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.03362,
+          "final_position_m": [
+            0.37058,
+            -0.14602,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 14.55,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.968,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02047,
+                  -0.02085,
+                  -0.00934
+                ],
+                "corner_proximity": 0.975,
+                "normal_force_n": 358.539
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02099,
+                  -0.0202,
+                  -0.01089
+                ],
+                "corner_proximity": 0.962,
+                "normal_force_n": 439.875
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651009,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01086,
+          "final_position_m": [
+            0.33419,
+            0.15082,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.18,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.429,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00539,
+                  0.02045,
+                  0.01987
+                ],
+                "corner_proximity": 0.256,
+                "normal_force_n": 257.389
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00718,
+                  0.02038,
+                  0.01991
+                ],
+                "corner_proximity": 0.342,
+                "normal_force_n": 1.19
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01445,
+                  -0.02101,
+                  0.01901
+                ],
+                "corner_proximity": 0.688,
+                "normal_force_n": 547.577
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01439,
+          "final_position_m": [
+            0.34597,
+            -0.01309,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.6,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.431,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02045,
+                  0.00529,
+                  0.01987
+                ],
+                "corner_proximity": 0.252,
+                "normal_force_n": 258.308
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02038,
+                  0.00725,
+                  0.0199
+                ],
+                "corner_proximity": 0.345,
+                "normal_force_n": 1.214
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02101,
+                  -0.01464,
+                  0.019
+                ],
+                "corner_proximity": 0.697,
+                "normal_force_n": 546.87
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01068,
+          "final_position_m": [
+            0.33097,
+            -0.1657,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 4.2,
+            "contact_count": 4,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.972,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02087,
+                  -0.02063,
+                  0.00766
+                ],
+                "corner_proximity": 0.982,
+                "normal_force_n": 347.303
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02067,
+                  -0.02083,
+                  0.00578
+                ],
+                "corner_proximity": 0.985,
+                "normal_force_n": 36.694
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02007,
+                  -0.02004,
+                  0.00578
+                ],
+                "corner_proximity": 0.954,
+                "normal_force_n": 1.123
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02084,
+                  -0.02027,
+                  -0.01217
+                ],
+                "corner_proximity": 0.965,
+                "normal_force_n": 481.006
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651010,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.03039,
+          "final_position_m": [
+            0.32414,
+            0.02592,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.16,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.349,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00038,
+                  0.02073,
+                  0.01961
+                ],
+                "corner_proximity": 0.018,
+                "normal_force_n": 407.269
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00124,
+                  0.02072,
+                  0.01962
+                ],
+                "corner_proximity": 0.059,
+                "normal_force_n": 0.0
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02038,
+                  -0.02076,
+                  0.01947
+                ],
+                "corner_proximity": 0.97,
+                "normal_force_n": 492.94
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02268,
+          "final_position_m": [
+            0.33568,
+            -0.13773,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 10.82,
+            "contact_count": 4,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.279,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01905,
+                  -0.02049,
+                  0.01959
+                ],
+                "corner_proximity": 0.907,
+                "normal_force_n": 320.396
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00353,
+                  0.02075,
+                  0.01942
+                ],
+                "corner_proximity": 0.168,
+                "normal_force_n": 309.689
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.0007,
+                  0.02072,
+                  0.01943
+                ],
+                "corner_proximity": 0.033,
+                "normal_force_n": 101.368
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.0002,
+                  0.02072,
+                  0.01942
+                ],
+                "corner_proximity": 0.01,
+                "normal_force_n": 11.567
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.0162,
+          "final_position_m": [
+            0.3279,
+            0.14922,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 4.11,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.483,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02048,
+                  -0.0059,
+                  0.01987
+                ],
+                "corner_proximity": 0.281,
+                "normal_force_n": 302.341
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02099,
+                  0.01439,
+                  0.01916
+                ],
+                "corner_proximity": 0.685,
+                "normal_force_n": 503.651
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651010,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.03236,
+          "final_position_m": [
+            0.32615,
+            0.02925,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.4,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.413,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00457,
+                  0.02056,
+                  0.01996
+                ],
+                "corner_proximity": 0.217,
+                "normal_force_n": 372.41
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00238,
+                  0.02055,
+                  0.01996
+                ],
+                "corner_proximity": 0.113,
+                "normal_force_n": 25.31
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01908,
+                  -0.0209,
+                  0.0195
+                ],
+                "corner_proximity": 0.909,
+                "normal_force_n": 452.664
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.55797,
+          "final_position_m": [
+            -0.03887,
+            -0.56961,
+            0.01999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 8.54,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.377,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01759,
+                  -0.02065,
+                  0.01965
+                ],
+                "corner_proximity": 0.838,
+                "normal_force_n": 365.791
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00459,
+                  0.02072,
+                  0.01958
+                ],
+                "corner_proximity": 0.219,
+                "normal_force_n": 410.995
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00156,
+                  0.02071,
+                  0.01957
+                ],
+                "corner_proximity": 0.074,
+                "normal_force_n": 28.814
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01718,
+          "final_position_m": [
+            0.32838,
+            0.14735,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.36,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.497,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02042,
+                  -0.00571,
+                  0.01989
+                ],
+                "corner_proximity": 0.272,
+                "normal_force_n": 270.467
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.021,
+                  0.01517,
+                  0.01908
+                ],
+                "corner_proximity": 0.723,
+                "normal_force_n": 533.253
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651010,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00383,
+          "final_position_m": [
+            0.33777,
+            0.00312,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.59,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.442,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01604,
+                  -0.02095,
+                  0.01905
+                ],
+                "corner_proximity": 0.764,
+                "normal_force_n": 534.941
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.0052,
+                  0.02046,
+                  0.01991
+                ],
+                "corner_proximity": 0.248,
+                "normal_force_n": 280.66
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.0066,
+                  0.02059,
+                  0.01984
+                ],
+                "corner_proximity": 0.314,
+                "normal_force_n": 0.062
+              }
+            ]
+          }
+        },
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00368,
+          "final_position_m": [
+            0.33656,
+            -0.16131,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.14,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.424,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01439,
+                  -0.02101,
+                  0.01901
+                ],
+                "corner_proximity": 0.685,
+                "normal_force_n": 545.841
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00519,
+                  0.02047,
+                  0.01986
+                ],
+                "corner_proximity": 0.247,
+                "normal_force_n": 260.726
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00714,
+                  0.02038,
+                  0.0199
+                ],
+                "corner_proximity": 0.34,
+                "normal_force_n": 1.541
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01828,
+          "final_position_m": [
+            0.32887,
+            0.14551,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 6.21,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.44,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02041,
+                  -0.00549,
+                  0.0199
+                ],
+                "corner_proximity": 0.262,
+                "normal_force_n": 257.762
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02039,
+                  -0.00731,
+                  0.01991
+                ],
+                "corner_proximity": 0.348,
+                "normal_force_n": 0.254
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.021,
+                  0.0149,
+                  0.019
+                ],
+                "corner_proximity": 0.71,
+                "normal_force_n": 546.769
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    },
+    {
+      "seed": 651011,
+      "grasp_height_m": 0.08,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.03812,
+          "final_position_m": [
+            0.3066,
+            -0.17838,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.62,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.356,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02068,
+                  -0.00324,
+                  0.01951
+                ],
+                "corner_proximity": 0.154,
+                "normal_force_n": 342.162
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02065,
+                  -0.00021,
+                  0.01954
+                ],
+                "corner_proximity": 0.01,
+                "normal_force_n": 79.446
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02064,
+                  0.01901,
+                  0.01961
+                ],
+                "corner_proximity": 0.905,
+                "normal_force_n": 356.212
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.0363,
+          "final_position_m": [
+            0.35286,
+            0.03395,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 1.31,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.317,
+            "contacts": [
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.00762,
+                  -0.02072,
+                  0.0197
+                ],
+                "corner_proximity": 0.363,
+                "normal_force_n": 509.062
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00567,
+                  0.02088,
+                  0.01951
+                ],
+                "corner_proximity": 0.27,
+                "normal_force_n": 414.99
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.31982,
+          "final_position_m": [
+            0.21697,
+            -0.13521,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.56,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.324,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02069,
+                  0.00388,
+                  0.01967
+                ],
+                "corner_proximity": 0.185,
+                "normal_force_n": 407.215
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02067,
+                  0.0008,
+                  0.01968
+                ],
+                "corner_proximity": 0.038,
+                "normal_force_n": 50.311
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02062,
+                  -0.0157,
+                  0.0199
+                ],
+                "corner_proximity": 0.748,
+                "normal_force_n": 299.782
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 0
+    },
+    {
+      "seed": 651011,
+      "grasp_height_m": 0.09,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": false,
+          "distance_m": 0.07882,
+          "final_position_m": [
+            0.34635,
+            -0.08143,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.11,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.539,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02065,
+                  -0.0044,
+                  0.01965
+                ],
+                "corner_proximity": 0.21,
+                "normal_force_n": 434.17
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02072,
+                  0.01823,
+                  0.01972
+                ],
+                "corner_proximity": 0.868,
+                "normal_force_n": 377.402
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00403,
+          "final_position_m": [
+            0.33678,
+            -0.00243,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 3.68,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.527,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00502,
+                  0.02033,
+                  0.01993
+                ],
+                "corner_proximity": 0.239,
+                "normal_force_n": 231.432
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01712,
+                  -0.021,
+                  0.01896
+                ],
+                "corner_proximity": 0.815,
+                "normal_force_n": 567.737
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.03261,
+          "final_position_m": [
+            0.32987,
+            0.19099,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 0.87,
+            "contact_count": 2,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.37,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02077,
+                  0.00478,
+                  0.01943
+                ],
+                "corner_proximity": 0.228,
+                "normal_force_n": 430.529
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02076,
+                  -0.01077,
+                  0.01966
+                ],
+                "corner_proximity": 0.513,
+                "normal_force_n": 441.287
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 2
+    },
+    {
+      "seed": 651011,
+      "grasp_height_m": 0.1,
+      "objects": [
+        {
+          "object": "red cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.01338,
+          "final_position_m": [
+            0.33103,
+            -0.15007,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.05,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.423,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02057,
+                  -0.00515,
+                  0.0198
+                ],
+                "corner_proximity": 0.245,
+                "normal_force_n": 257.454
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.02038,
+                  -0.00712,
+                  0.01991
+                ],
+                "corner_proximity": 0.339,
+                "normal_force_n": 3.638
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.02101,
+                  0.01436,
+                  0.01901
+                ],
+                "corner_proximity": 0.684,
+                "normal_force_n": 547.37
+              }
+            ]
+          }
+        },
+        {
+          "object": "blue cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.02087,
+          "final_position_m": [
+            0.35171,
+            0.01728,
+            0.12099
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 7.61,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.473,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00891,
+                  0.02079,
+                  0.01954
+                ],
+                "corner_proximity": 0.424,
+                "normal_force_n": 345.607
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  0.00683,
+                  0.02076,
+                  0.01957
+                ],
+                "corner_proximity": 0.325,
+                "normal_force_n": 68.844
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  -0.01404,
+                  -0.02077,
+                  0.01953
+                ],
+                "corner_proximity": 0.669,
+                "normal_force_n": 435.23
+              }
+            ]
+          }
+        },
+        {
+          "object": "green cube",
+          "grasped": true,
+          "placed": true,
+          "distance_m": 0.00553,
+          "final_position_m": [
+            0.33961,
+            0.15448,
+            0.11999
+          ],
+          "grasp_contact": {
+            "face_yaw_error_deg": 5.73,
+            "contact_count": 3,
+            "contacting_fingers": [
+              7,
+              8
+            ],
+            "mean_corner_proximity": 0.433,
+            "contacts": [
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02054,
+                  0.00528,
+                  0.01982
+                ],
+                "corner_proximity": 0.252,
+                "normal_force_n": 254.524
+              },
+              {
+                "finger_link": 8,
+                "cube_local_contact_m": [
+                  -0.02038,
+                  0.00726,
+                  0.01991
+                ],
+                "corner_proximity": 0.346,
+                "normal_force_n": 3.774
+              },
+              {
+                "finger_link": 7,
+                "cube_local_contact_m": [
+                  0.02101,
+                  -0.01472,
+                  0.019
+                ],
+                "corner_proximity": 0.701,
+                "normal_force_n": 547.814
+              }
+            ]
+          }
+        }
+      ],
+      "grasped": 3,
+      "placed": 3
+    }
+  ],
+  "simulator_only": true
+}

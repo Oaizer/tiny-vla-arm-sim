@@ -99,7 +99,8 @@ def write_video(frames, seed, result, version, fps=20):
     return destination.relative_to(ROOT / "portfolio").as_posix()
 
 
-def run_trial(sim, seed, slots, approach_height, carry_height, return_to_home=False, check_grasp_before_transfer=False, capture=False):
+def run_trial(sim, seed, slots, approach_height, carry_height, return_to_home=False,
+              check_grasp_before_transfer=False, capture=False, grasp_height=.08):
     sim.reset(seed)
     starts, rng = randomize_scene(sim, seed, slots, min_target_distance=.075 if seed >= 607000 else 0.0)
     frames = [sim.image(sim.size)] if capture else None
@@ -114,7 +115,11 @@ def run_trial(sim, seed, slots, approach_height, carry_height, return_to_home=Fa
         final = sim.object_position(name)
         distance = float(np.linalg.norm(final[:2] - target[:2]))
         while attempts < 3 and (distance >= SUCCESS_TOLERANCE_M or not .10 < final[2] < .18):
-            outcome = sim.teacher_trial(name, OBJECT_TO_PAD[name], frames, approach_height=approach_height, carry_height=carry_height, return_to_home=return_to_home, check_grasp_before_transfer=check_grasp_before_transfer)
+            outcome = sim.teacher_trial(
+                name, OBJECT_TO_PAD[name], frames, approach_height=approach_height,
+                carry_height=carry_height, return_to_home=return_to_home,
+                check_grasp_before_transfer=check_grasp_before_transfer,
+                grasp_height=grasp_height)
             pickup_failures += not outcome.get("grasped", True)
             attempts += 1
             final = sim.object_position(name)
@@ -143,6 +148,8 @@ def main():
     parser.add_argument("--face-aligned", action="store_true",
                         help="align the simulated gripper with each cube's faces for a demonstration clip")
     parser.add_argument("--camera-view", choices=("oblique", "overhead"), default="oblique")
+    parser.add_argument("--grasp-height", type=float, default=.08,
+                        help="TCP height for pick descend and close waypoints, in metres")
     args = parser.parse_args()
     version = f"b601-rs-sort-{args.version}"
     out = ROOT / "artifacts" / version
@@ -166,7 +173,10 @@ def main():
     started = time.time()
     try:
         for seed in seeds:
-            record, frames = run_trial(sim, seed, slots, approach_height, carry_height, return_to_home, args.version == "v9", seed in video_seeds and not args.no_video)
+            record, frames = run_trial(
+                sim, seed, slots, approach_height, carry_height, return_to_home,
+                args.version == "v9", seed in video_seeds and not args.no_video,
+                grasp_height=args.grasp_height)
             if frames is not None:
                 label = f"{args.version}-face-aligned" if args.face_aligned else args.version
                 record["video"] = write_video(frames, seed, "SUCCESS" if record["success"] else "FAILED", label, fps=10 if args.version in {"v6", "v7", "v8", "v9"} else 20)

@@ -18,7 +18,45 @@ from tinyvla.b601_bc import (TinyB601Policy, denormalize_actions, encode_instruc
 from tinyvla.sim_b601 import B601Sim, LIMITS, pb  # noqa: E402
 
 
-def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True):
+def _grasp_contact_audit(sim, object_name):
+    """Measure the wrist angle and finger contact locations at the close waypoint."""
+    cube = sim.objects[object_name]
+    cube_position, cube_orientation = pb.getBasePositionAndOrientation(cube)
+    cube_yaw = float(pb.getEulerFromQuaternion(cube_orientation)[2])
+    tcp_state = pb.getLinkState(sim.arm, sim.tcp_link, computeForwardKinematics=True)
+    inverse_top_down = pb.invertTransform([0, 0, 0], sim.top_down)[1]
+    relative_orientation = pb.multiplyTransforms(
+        [0, 0, 0], tcp_state[5], [0, 0, 0], inverse_top_down)[1]
+    wrist_yaw = float(pb.getEulerFromQuaternion(relative_orientation)[2])
+    angle_error = (wrist_yaw - cube_yaw + np.pi / 4) % (np.pi / 2) - np.pi / 4
+    inverse_cube = pb.invertTransform(cube_position, cube_orientation)
+    contacts = []
+    for contact in pb.getContactPoints(bodyA=sim.arm, bodyB=cube):
+        link = int(contact[3])
+        if link not in sim.gripper_joints:
+            continue
+        local_position = pb.multiplyTransforms(
+            inverse_cube[0], inverse_cube[1], contact[6], [0, 0, 0, 1])[0]
+        local_x, local_y, local_z = map(float, local_position)
+        corner_proximity = min(abs(local_x), abs(local_y)) / .021
+        contacts.append({
+            "finger_link": link,
+            "cube_local_contact_m": [round(local_x, 5), round(local_y, 5), round(local_z, 5)],
+            "corner_proximity": round(float(np.clip(corner_proximity, 0, 1)), 3),
+            "normal_force_n": round(float(contact[9]), 3),
+        })
+    return {
+        "face_yaw_error_deg": round(abs(float(np.degrees(angle_error))), 2),
+        "contact_count": len(contacts),
+        "contacting_fingers": sorted({row["finger_link"] for row in contacts}),
+        "mean_corner_proximity": (round(float(np.mean([row["corner_proximity"] for row in contacts])), 3)
+                                   if contacts else None),
+        "contacts": contacts,
+    }
+
+
+def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True,
+                 audit_grasps=False):
     sim.reset(seed)
     _, rng = randomize_scene(sim, seed, SLOT_SETS["v7"], min_target_distance=.075)
     order = [OBJECTS[index] for index in rng.permutation(len(OBJECTS))]
@@ -27,6 +65,7 @@ def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True):
     for name in order:
         pad = OBJECT_TO_PAD[name]
         sim.current_instruction = f"sort the {name} onto the {pad} pad"
+        grasp_audit = None
         for phase in range(8):
             joint_states = [pb.getJointState(sim.arm, joint) for joint in sim.arm_joints]
             gripper = [pb.getJointState(sim.arm, joint)[0] for joint in sim.gripper_joints]
@@ -59,14 +98,19 @@ def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True):
                     if not lower <= value <= upper:
                         raise RuntimeError("policy action exceeded a B601 arm joint limit")
                 sim.move_joints(arm_target, finger_targets=action[6:])
+            if audit_grasps and phase == 2:
+                grasp_audit = _grasp_contact_audit(sim, name)
         for _ in range(240):
             pb.stepSimulation()
         sim.move_joints(sim.home_q)
         final = sim.object_position(name)
         distance = float(np.linalg.norm(final[:2] - PAD_XY[name]))
         success = bool(distance < SUCCESS_TOLERANCE_M and .10 < final[2] < .18)
-        objects.append({"object": name, "pad": pad, "success": success,
-                        "distance_m": round(distance, 5), "final_position_m": final.round(5).tolist()})
+        row = {"object": name, "pad": pad, "success": success,
+               "distance_m": round(distance, 5), "final_position_m": final.round(5).tolist()}
+        if grasp_audit is not None:
+            row["grasp_audit"] = grasp_audit
+        objects.append(row)
     return {"seed": seed, "success": all(row["success"] for row in objects),
             "objects_placed": sum(row["success"] for row in objects), "objects": objects,
             "joint_limits_respected": bool(all(lower - 1e-5 <= value <= upper + 1e-5
@@ -82,6 +126,8 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-bc-v1" / "heldout-evaluation.json")
     parser.add_argument("--teacher-results", type=Path,
                         help="reuse a matched teacher record file instead of rerunning the teacher")
+    parser.add_argument("--audit-grasps", action="store_true",
+                        help="record close-phase wrist alignment and finger-to-cube contact locations")
     args = parser.parse_args()
     if args.trials < 1:
         parser.error("trials must be positive")
@@ -113,7 +159,8 @@ def main():
             seed = args.seed_start + index
             learned_result = policy_trial(
                 model, sim, seed, action_mode,
-                legacy_image_yaw=checkpoint.get("visual_yaw_convention", "legacy") == "legacy")
+                legacy_image_yaw=checkpoint.get("visual_yaw_convention", "legacy") == "legacy",
+                audit_grasps=args.audit_grasps)
             learned.append(learned_result)
             if seed in teacher_by_seed:
                 teacher_result = teacher_by_seed[seed]

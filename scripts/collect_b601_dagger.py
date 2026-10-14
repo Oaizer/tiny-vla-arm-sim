@@ -20,7 +20,7 @@ from tinyvla.sim_b601 import B601Sim, LIMITS, pb  # noqa: E402
 
 def collect_episode(model, sim, seed, action_mode="joint", visual_yaw_convention="legacy",
                     intervention_position_m=.025, intervention_yaw_rad=.25,
-                    intervention_gripper_m=.015):
+                    intervention_gripper_m=.015, grasp_height=.08):
     sim.reset(seed)
     _, rng = randomize_scene(sim, seed, SLOT_SETS["v7"], min_target_distance=.075)
     order = [OBJECTS[index] for index in rng.permutation(len(OBJECTS))]
@@ -39,8 +39,8 @@ def collect_episode(model, sim, seed, action_mode="joint", visual_yaw_convention
         orientation = pb.multiplyTransforms([0, 0, 0], yaw_rotation,
                                             [0, 0, 0], sim.top_down)[1]
         waypoints = (
-            ((source[0], source[1], .14), 121.5), ((source[0], source[1], .08), 121.5),
-            ((source[0], source[1], .08), 45), ((source[0], source[1], .20), 45),
+            ((source[0], source[1], .14), 121.5), ((source[0], source[1], grasp_height), 121.5),
+            ((source[0], source[1], grasp_height), 45), ((source[0], source[1], .20), 45),
             ((destination[0], destination[1], .20), 45),
             ((destination[0], destination[1], .08), 45),
             ((destination[0], destination[1], .08), 121.5),
@@ -146,9 +146,12 @@ def main():
                         help="take the scripted waypoint if the cube-equivalent wrist yaw error exceeds this value")
     parser.add_argument("--intervention-gripper-m", type=float, default=.015,
                         help="take the scripted waypoint if gripper opening error exceeds this value")
+    parser.add_argument("--grasp-height", type=float, default=.08,
+                        help="TCP height for pick descend and close teacher waypoints, in metres")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    if args.episodes < 1 or (args.output.exists() and any(args.output.iterdir())):
+    if (args.episodes < 1 or args.grasp_height <= 0 or
+            (args.output.exists() and any(args.output.iterdir()))):
         parser.error("episodes must be positive and output must be empty")
     args.output.mkdir(parents=True, exist_ok=True)
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=True)
@@ -170,7 +173,8 @@ def main():
                 visual_yaw_convention=checkpoint.get("visual_yaw_convention", "legacy"),
                 intervention_position_m=args.intervention_position_m,
                 intervention_yaw_rad=args.intervention_yaw_rad,
-                intervention_gripper_m=args.intervention_gripper_m)
+                intervention_gripper_m=args.intervention_gripper_m,
+                grasp_height=args.grasp_height)
             np.savez_compressed(args.output / episode["file"], **arrays)
             episodes.append(episode)
             print(json.dumps({"seed": seed, "success": episode["success"],
@@ -187,6 +191,7 @@ def main():
                 "intervention_thresholds": {"position_m": args.intervention_position_m,
                                             "yaw_rad": args.intervention_yaw_rad,
                                             "gripper_m": args.intervention_gripper_m},
+                "grasp_height_m": args.grasp_height,
                 "phase_labels": ["approach", "descend", "close", "lift", "carry", "place", "release", "retreat"],
                 "privileged_inputs_used_for_labels_only": ["exact simulator object poses", "simulator pad poses"],
                 "episode_split": "seed-based metadata split; training uses only DAgger training episodes and validation stays in the original dataset",

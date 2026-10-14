@@ -220,7 +220,8 @@ class B601Sim:
         return target
 
     def teacher_trial(self, object_name="red cube", pad="yellow", frames=None,
-                      approach_height=.22, carry_height=.20, return_to_home=False, check_grasp_before_transfer=False):
+                      approach_height=.22, carry_height=.20, return_to_home=False,
+                      check_grasp_before_transfer=False, grasp_height=.08):
         self.current_instruction = f"sort the {object_name} onto the {pad} pad"
         source, source_orientation = pb.getBasePositionAndOrientation(self.objects[object_name])
         source = np.asarray(source, dtype=float)
@@ -236,9 +237,9 @@ class B601Sim:
         self.current_phase = 0  # approach
         self.move([source[0], source[1], approach_height], 121.5, frames, orientation)
         self.current_phase = 1  # descend
-        self.move([source[0], source[1], .08], 121.5, frames, orientation)
+        self.move([source[0], source[1], grasp_height], 121.5, frames, orientation)
         self.current_phase = 2  # close
-        self.move([source[0], source[1], .08], 45, frames, orientation)
+        self.move([source[0], source[1], grasp_height], 45, frames, orientation)
         self.current_phase = 3  # lift
         self.move([source[0], source[1], carry_height], 45, frames, orientation)
 
@@ -287,7 +288,8 @@ class B601Sim:
                 "joint_limits_respected": bool(all(lo - 1e-5 <= v <= hi + 1e-5
                     for v, (lo, hi) in zip(self.q, LIMITS[:6])))}
 
-    def teacher_waypoint(self, object_name, pad, phase, approach_height=.14, carry_height=.20):
+    def teacher_waypoint(self, object_name, pad, phase, approach_height=.14,
+                         carry_height=.20, grasp_height=.08):
         """Return the scripted teacher's joint target for one pick-and-place phase."""
         if phase not in range(8):
             raise ValueError("B601 pick-and-place phase must be in 0..7")
@@ -300,8 +302,8 @@ class B601Sim:
         orientation = pb.multiplyTransforms([0, 0, 0], pb.getQuaternionFromEuler([0, 0, yaw]),
                                             [0, 0, 0], self.top_down)[1]
         positions = (
-            (source[0], source[1], approach_height), (source[0], source[1], .08),
-            (source[0], source[1], .08), (source[0], source[1], carry_height),
+            (source[0], source[1], approach_height), (source[0], source[1], grasp_height),
+            (source[0], source[1], grasp_height), (source[0], source[1], carry_height),
             (destination[0], destination[1], carry_height), (destination[0], destination[1], .08),
             (destination[0], destination[1], .08), (destination[0], destination[1], approach_height),
         )
