@@ -81,6 +81,12 @@ def main():
     assert [row["seed"] for row in records18] == [row["seed"] for row in records19]
     comparison18 = compare(records19, records18)
     comparison17 = compare(records19, records17)
+    for comparison, candidate, reference in (
+            (comparison18, records19, records18), (comparison17, records19, records17)):
+        comparison["candidate_joint_limit_violations"] = sum(
+            not row.get("joint_limits_respected", True) for row in candidate)
+        comparison["reference_joint_limit_violations"] = sum(
+            not row.get("joint_limits_respected", True) for row in reference)
 
     master_path = ROOT / "portfolio" / "b601-bc-results.json"
     master = load(master_path)
@@ -135,6 +141,10 @@ def main():
         "comparison_to_v17": comparison17,
         "simulator_only": True,
     }
+    previous_v19 = versions.get(version19["id"], {})
+    for key in ("confirmation_comparison_to_v18", "confirmation_runs"):
+        if key in previous_v19:
+            version19[key] = previous_v19[key]
     master["versions"] = [version for version in master["versions"]
                            if version["id"] != version19["id"]] + [version19]
     master_path.write_text(json.dumps(master, indent=2) + "\n", encoding="utf-8")
@@ -161,6 +171,8 @@ def main():
         f"| V19 | {comparison18['candidate_cubes']}/360 | {comparison18['candidate_full_sorts']}/120 |",
         f"| V18 | {comparison18['reference_cubes']}/360 | {comparison18['reference_full_sorts']}/120 |",
         f"| V17 | {comparison17['reference_cubes']}/360 | {comparison17['reference_full_sorts']}/120 |",
+        "",
+        f"Joint-limit violations: V19 {comparison18['candidate_joint_limit_violations']}/120; V18 {comparison18['reference_joint_limit_violations']}/120; V17 {comparison17['reference_joint_limit_violations']}/120.",
         "",
         "| Pair | V19 wins / losses / ties | Exact two-sided p |",
         "|---|---:|---:|",

@@ -138,6 +138,15 @@ def main():
                        f"blue {colors['blue cube']['candidate']} vs {colors['blue cube']['reference']}, and "
                        f"green {colors['green cube']['candidate']} vs {colors['green cube']['reference']}. "
                        "The V19 lead over V17 is promising, but more fresh tests are needed to confirm it.")
+            confirmation = version.get("confirmation_comparison_to_v18")
+            if confirmation:
+                detail += (f" On a separate confirmation set, V19 placed {confirmation['candidate_cubes']}/360 "
+                           f"cubes and completed {confirmation['candidate_full_sorts']}/120 sorts; V18 placed "
+                           f"{confirmation['reference_cubes']}/360 and completed "
+                           f"{confirmation['reference_full_sorts']}/120. The paired comparison was "
+                           f"{confirmation['wins']} wins, {confirmation['losses']} losses, and "
+                           f"{confirmation['ties']} ties (p = "
+                           f"{confirmation['exact_sign_test_two_sided_p']:.3f}). Neither policy had a joint-limit violation.")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -150,7 +159,7 @@ def main():
             "status": "warn" if policy_sorts == 0 else "good",
             "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
             "data": "b601-bc-results.json",
-            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v9/b601-policy-models-v9.zip",
+            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v10/b601-policy-models-v10.zip",
         }
         if iteration_id in existing:
             page["iterations"][existing[iteration_id]] = item
@@ -196,10 +205,12 @@ def main():
                         "file": "media/b601-rs-bc-v18-seed-626006-dual.mp4"}],
         },
         {
-            "title": "Learned V19 blue-weighted policy · seed 632001",
-            "scene": "Held-out B601-RS simulation trial from the fresh seed set. V19 completes all three placements. Across 120 matched seeds, V19 placed 150/360 cubes and completed 14/120 full sorts; V18 placed 130/360 and completed 8/120. The placement gain over V18 is uncertain (41 wins, 30 losses, 49 ties; p = 0.235). V19 improved over V17 on this test (52 wins, 31 losses, 37 ties; p = 0.028). The overhead view includes a synchronized oblique camera inset. 1280 × 768, 10 fps.",
-            "videos": [{"name": "V19 blue-weighted policy", "outcome": "SUCCESS",
-                        "file": "media/b601-rs-bc-v19-seed-632001-dual.mp4"}],
+            "title": "Matched learned policies · confirmation seed 644004",
+            "scene": "Paired held-out B601-RS simulation scene from the second fresh evaluation. V19 completes all three placements; V18 places none. Across 120 confirmation seeds, V19 placed 145/360 cubes and completed 9/120 sorts; V18 placed 124/360 and also completed 9/120. The paired placement comparison is uncertain (49 wins, 34 losses, 37 ties; p = 0.124). Both clips use the same scene, overhead view, and synchronized oblique camera inset. 1280 × 768, 10 fps.",
+            "videos": [{"name": "V19 confirmation policy", "outcome": "SUCCESS",
+                        "file": "media/b601-rs-bc-v19-confirmation-seed-644004-dual.mp4"},
+                       {"name": "V18 matched policy", "outcome": "FAILED",
+                        "file": "media/b601-rs-bc-v18-confirmation-seed-644004-dual.mp4"}],
         },
     ]
     trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}

@@ -15,3 +15,5 @@ V19 used the same data and model as V18, with 1.5× loss weight on blue-cube ins
 On the reserved 120 seeds, V19 placed 150/360 cubes and completed 14/120 sorts. V18 placed 130/360 and completed 8/120. The paired cube result was 41 wins, 30 losses, and 49 ties (p = 0.235), so the difference is uncertain. V19 placed 50 red, 55 blue, and 45 green cubes; V18 placed 47 red, 50 blue, and 33 green.
 
 V17 placed 119/360 cubes and completed 7/120 sorts on these same scenes. V19's paired result against V17 was 52 wins, 31 losses, and 37 ties (p = 0.028). This is encouraging evidence, but the comparison with V18 is not conclusive and another fresh evaluation is needed. See [the full comparison](../artifacts/b601-bc-v19-blue-weight/COMPARISON.md).
+
+All three policies had zero joint-limit violations on this test. The independent follow-up is documented in the [V19 confirmation protocol](B601_V19_CONFIRMATION_PROTOCOL.md).
