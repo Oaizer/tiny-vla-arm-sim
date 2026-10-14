@@ -38,9 +38,12 @@ def main():
                         help="relative loss weight for descend, close, and lift phases")
     parser.add_argument("--delivery-phase-weight", type=float, default=1.0,
                         help="relative loss weight for carry, place, and release phases")
+    parser.add_argument("--blue-cube-weight", type=float, default=1.0,
+                        help="relative training loss weight for samples that sort the blue cube")
     args = parser.parse_args()
-    if args.epochs < 1 or args.batch_size < 1 or args.grasp_phase_weight <= 0 or args.delivery_phase_weight <= 0:
-        parser.error("epochs, batch size, and phase weights must be positive")
+    if (args.epochs < 1 or args.batch_size < 1 or args.grasp_phase_weight <= 0 or
+            args.delivery_phase_weight <= 0 or args.blue_cube_weight <= 0):
+        parser.error("epochs, batch size, and all loss weights must be positive")
     if args.output.exists():
         parser.error(f"output already exists: {args.output}")
     args.output.mkdir(parents=True)
@@ -82,6 +85,8 @@ def main():
     phase_weights[1:4] = args.grasp_phase_weight
     phase_weights[4:7] = args.delivery_phase_weight
     phase_weights /= phase_weights.mean()
+    color_weights = torch.ones(train[0].shape[0], dtype=torch.float32, device=device)
+    color_weights[train[2][:, 2] == VOCAB["blue"]] = args.blue_cube_weight
     best_validation = float("inf")
     history = []
     started = time.perf_counter()
@@ -95,7 +100,7 @@ def main():
                                train[1][indices], train[2][indices], train[3][indices],
                                train_visual[indices] if train_visual is not None else None)
             per_sample = loss_function(prediction, train[4][indices]).mean(dim=1)
-            loss = (per_sample * phase_weights[train[3][indices]]).mean()
+            loss = (per_sample * phase_weights[train[3][indices]] * color_weights[indices]).mean()
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             optimizer.step()
@@ -144,6 +149,7 @@ def main():
                         "visual_yaw_convention": "world" if visual_feature_dim else None,
                         "grasp_phase_weight": args.grasp_phase_weight,
                         "delivery_phase_weight": args.delivery_phase_weight,
+                        "blue_cube_weight": args.blue_cube_weight,
                         "camera_view": dataset_manifest.get("camera_view", "oblique"),
                         "image_size": image_size,
                         "vocabulary": {"<pad>": 0, **VOCAB}},
@@ -187,6 +193,7 @@ def main():
         "visual_yaw_convention": "world" if args.visual_target_features else None,
         "grasp_phase_weight": args.grasp_phase_weight,
         "delivery_phase_weight": args.delivery_phase_weight,
+        "blue_cube_weight": args.blue_cube_weight,
         "checkpoint_selection_metric": "phase-weighted validation Smooth L1; phases 1-3 are grasp, 4-6 are carry, place, and release",
         "task": "three-cube open-table color sorting waypoint imitation",
         "dataset": str(args.dataset),

@@ -18,13 +18,14 @@ VERSION_DIRS = [
     "b601-bc-v16-overhead-visual-more-demos",
     "b601-bc-v17-overhead-visual-more-demos-dagger",
     "b601-bc-v18-intervention-dagger",
+    "b601-bc-v19-blue-weight",
 ]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", type=Path, default=ROOT / "artifacts")
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v8.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "artifacts" / "b601-policy-models-v9.zip")
     args = parser.parse_args()
     included = []
     with zipfile.ZipFile(args.output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
@@ -32,6 +33,7 @@ def main():
             directory = args.artifacts / name
             file_names = ["policy.pt", "RESULTS.json", "COMPARISON.md", "heldout-evaluation.json"]
             file_names.extend(sorted(path.name for path in directory.glob("heldout-replication-*.json")))
+            file_names.extend(sorted(path.name for path in directory.glob("fresh-*.json")))
             for file_name in file_names:
                 source = directory / file_name
                 if source.is_file():
@@ -88,7 +90,11 @@ def main():
             "V18 uses 50 intervention-guided DAgger episodes; 9 completed all three placements.\n"
             "Across the same 120 held-out seeds, V18 placed 131/360 cubes and completed 6/120 sorts.\n"
             "V17 placed 125/360 cubes and completed 5/120 sorts. The V18 gain is uncertain\n"
-            "(41 wins, 35 losses, 44 ties; p=0.567). V18 is the best observed count to date.\n"
+            "(41 wins, 35 losses, 44 ties; p=0.567).\n"
+            "V19 weights blue-cube instructions 1.5x. On the same fresh 120 seeds, it placed 150/360 cubes and completed 14/120 sorts.\n"
+            "V18 placed 130/360 and completed 8/120; their paired placement comparison is uncertain (41 wins, 30 losses, 49 ties; p=0.235).\n"
+            "V17 placed 119/360 and completed 7/120; V19's gain over V17 is significant in this test (52 wins, 31 losses, 37 ties; p=0.028).\n"
+            "V19 has the best observed count, pending further replication.\n"
             "All results are from simulation; full sorting remains rare. The correction manifests are included.\n"
             "The JSON reports contain seed-level outcomes, model size, and validation measures.\n"
             "The manifests describe generated training data; image arrays are not included. Recreate data\n"

@@ -50,6 +50,8 @@ def main():
             question = "Do teacher corrections from V16 policy states improve the expanded-data model?"
         elif version_number == "18":
             question = "Can error-triggered teacher takeovers make DAgger data more useful?"
+        elif version_number == "19":
+            question = "Does weighting blue-cube instructions improve the balance across colors?"
         paired_text = ("matched held-out seeds" if len(runs) == 1 else
                        f"{len(runs)} paired held-out seed groups")
         evidence = (f"{trials} trials, {paired_text}; training used {version['training_samples']:,} samples "
@@ -121,6 +123,21 @@ def main():
                        f"{colors['green cube']['candidate']}, while blue placements fell from "
                        f"{colors['blue cube']['reference']} to {colors['blue cube']['candidate']}. "
                        "This is the highest observed count, but the gain over V17 is not conclusive.")
+        elif version_number == "19":
+            v18 = version["comparison_to_v18"]
+            v17 = version["comparison_to_v17"]
+            colors = v18["by_color"]
+            detail += (f" On 120 fresh matched seeds, V19 placed {v18['candidate_cubes']}/360 cubes and completed "
+                       f"{v18['candidate_full_sorts']}/120 full sorts. V18 placed {v18['reference_cubes']}/360 "
+                       f"and completed {v18['reference_full_sorts']}/120. V19 had {v18['wins']} wins, "
+                       f"{v18['losses']} losses, and {v18['ties']} ties (exact sign test p = "
+                       f"{v18['exact_sign_test_two_sided_p']:.3f}); this gain is uncertain. Against V17, "
+                       f"V19 placed {v17['candidate_cubes']}/360 versus {v17['reference_cubes']}/360 "
+                       f"(p = {v17['exact_sign_test_two_sided_p']:.3f}). By color against V18, placements "
+                       f"were red {colors['red cube']['candidate']} vs {colors['red cube']['reference']}, "
+                       f"blue {colors['blue cube']['candidate']} vs {colors['blue cube']['reference']}, and "
+                       f"green {colors['green cube']['candidate']} vs {colors['green cube']['reference']}. "
+                       "The V19 lead over V17 is promising, but more fresh tests are needed to confirm it.")
         item = {
             "id": iteration_id,
             "title": f"{version['label']} · {version['change']}",
@@ -133,7 +150,7 @@ def main():
             "status": "warn" if policy_sorts == 0 else "good",
             "source": "../docs/B601_SIMULATION.md#learned-policy-iterations",
             "data": "b601-bc-results.json",
-            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v7/b601-policy-models-v7.zip",
+            "archive": "https://github.com/Oaizer/tiny-vla-arm-sim/releases/download/b601-policy-models-v9/b601-policy-models-v9.zip",
         }
         if iteration_id in existing:
             page["iterations"][existing[iteration_id]] = item
@@ -177,6 +194,12 @@ def main():
             "scene": "Held-out B601-RS simulation trial from seed group 626. V18 completes all three placements. Across 120 matched seeds, it placed 131/360 cubes and completed 6/120 full sorts. V17 placed 125/360 cubes and completed 5/120. The paired comparison is uncertain (41 wins, 35 losses, 44 ties; p = 0.567). The overhead view includes a synchronized oblique camera inset. 1280 × 768, 10 fps.",
             "videos": [{"name": "V18 full-sort policy", "outcome": "SUCCESS",
                         "file": "media/b601-rs-bc-v18-seed-626006-dual.mp4"}],
+        },
+        {
+            "title": "Learned V19 blue-weighted policy · seed 632001",
+            "scene": "Held-out B601-RS simulation trial from the fresh seed set. V19 completes all three placements. Across 120 matched seeds, V19 placed 150/360 cubes and completed 14/120 full sorts; V18 placed 130/360 and completed 8/120. The placement gain over V18 is uncertain (41 wins, 30 losses, 49 ties; p = 0.235). V19 improved over V17 on this test (52 wins, 31 losses, 37 ties; p = 0.028). The overhead view includes a synchronized oblique camera inset. 1280 × 768, 10 fps.",
+            "videos": [{"name": "V19 blue-weighted policy", "outcome": "SUCCESS",
+                        "file": "media/b601-rs-bc-v19-seed-632001-dual.mp4"}],
         },
     ]
     trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}
