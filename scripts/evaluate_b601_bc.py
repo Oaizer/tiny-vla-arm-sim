@@ -55,17 +55,42 @@ def _grasp_contact_audit(sim, object_name):
     }
 
 
+def _overhead_pixel_to_world_xy(sim, image_x, image_y, plane_z=.125):
+    """Project a color-mask center onto the table plane using camera calibration."""
+    width = height = sim.observation_size
+    projection = np.asarray(pb.computeProjectionMatrixFOV(
+        42, width / height, .03, 3), dtype=float).reshape(4, 4, order="F")
+    view = np.asarray(sim.view, dtype=float).reshape(4, 4, order="F")
+    inverse = np.linalg.inv(projection @ view)
+    ndc_x, ndc_y = float(image_x), -float(image_y)
+    near = inverse @ np.asarray([ndc_x, ndc_y, -1., 1.])
+    far = inverse @ np.asarray([ndc_x, ndc_y, 1., 1.])
+    near = near[:3] / near[3]
+    far = far[:3] / far[3]
+    direction = far - near
+    if abs(direction[2]) < 1e-8:
+        raise ValueError("overhead camera ray is parallel to the grasp plane")
+    distance = (plane_z - near[2]) / direction[2]
+    point = near + distance * direction
+    return point[:2]
+
+
 def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True,
-                 audit_grasps=False):
+                 audit_grasps=False, visual_yaw_correction=False,
+                 visual_grasp_correction=False, frames=None):
     sim.reset(seed)
     _, rng = randomize_scene(sim, seed, SLOT_SETS["v7"], min_target_distance=.075)
     order = [OBJECTS[index] for index in rng.permutation(len(OBJECTS))]
+    if frames is not None:
+        frames.append(sim.image(sim.size))
     objects = []
     model.eval()
     for name in order:
         pad = OBJECT_TO_PAD[name]
         sim.current_instruction = f"sort the {name} onto the {pad} pad"
         grasp_audit = None
+        visual_yaw = None
+        visual_grasp_xy = None
         for phase in range(8):
             joint_states = [pb.getJointState(sim.arm, joint) for joint in sim.arm_joints]
             gripper = [pb.getJointState(sim.arm, joint)[0] for joint in sim.gripper_joints]
@@ -80,29 +105,43 @@ def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True,
                 image[None], instruction_tokens[None],
                 legacy_image_yaw=legacy_image_yaw))
                 if model.visual_feature_dim else None)
+            if (visual_yaw_correction and phase == 0 and visual_features is not None
+                    and float(visual_features[0, 6]) > .5):
+                visual_yaw = float(np.arctan2(visual_features[0, 2].item(),
+                                              visual_features[0, 3].item()) / 4)
+            if (visual_grasp_correction and phase == 0 and visual_features is not None
+                    and float(visual_features[0, 6]) > .5):
+                visual_grasp_xy = _overhead_pixel_to_world_xy(
+                    sim, visual_features[0, 0].item(), visual_features[0, 1].item())
+                visual_yaw = float(np.arctan2(visual_features[0, 2].item(),
+                                              visual_features[0, 3].item()) / 4)
             with torch.no_grad():
                 phase_tensor = torch.tensor([phase], dtype=torch.long)
                 normalized_action = model(image_tensor, proprio_tensor, token_tensor,
                                           phase_tensor, visual_features).squeeze(0).numpy()
             if action_mode == "cartesian":
                 action = denormalize_cartesian_actions(normalized_action)
+                if visual_grasp_correction and phase <= 3 and visual_grasp_xy is not None:
+                    action[:2] = visual_grasp_xy
+                if visual_yaw is not None:
+                    action[3] = visual_yaw
                 yaw_rotation = pb.getQuaternionFromEuler([0, 0, float(action[3])])
                 orientation = pb.multiplyTransforms([0, 0, 0], yaw_rotation,
                                                     [0, 0, 0], sim.top_down)[1]
                 sim.move(action[:3], finger_travel_mm=float(action[4] * 1000),
-                         orientation=orientation)
+                         frames=frames, orientation=orientation)
             else:
                 action = denormalize_actions(normalized_action)
                 arm_target = action[:6]
                 for value, (lower, upper) in zip(arm_target, LIMITS[:6]):
                     if not lower <= value <= upper:
                         raise RuntimeError("policy action exceeded a B601 arm joint limit")
-                sim.move_joints(arm_target, finger_targets=action[6:])
+                sim.move_joints(arm_target, frames=frames, finger_targets=action[6:])
             if audit_grasps and phase == 2:
                 grasp_audit = _grasp_contact_audit(sim, name)
         for _ in range(240):
             pb.stepSimulation()
-        sim.move_joints(sim.home_q)
+        sim.move_joints(sim.home_q, frames=frames)
         final = sim.object_position(name)
         distance = float(np.linalg.norm(final[:2] - PAD_XY[name]))
         success = bool(distance < SUCCESS_TOLERANCE_M and .10 < final[2] < .18)
@@ -128,6 +167,10 @@ def main():
                         help="reuse a matched teacher record file instead of rerunning the teacher")
     parser.add_argument("--audit-grasps", action="store_true",
                         help="record close-phase wrist alignment and finger-to-cube contact locations")
+    parser.add_argument("--visual-yaw-correction", action="store_true",
+                        help="use the overhead color mask to set face-aligned yaw for each cube")
+    parser.add_argument("--visual-grasp-correction", action="store_true",
+                        help="use calibrated overhead pixels to set cube-center XY and face yaw on grasp waypoints")
     args = parser.parse_args()
     if args.trials < 1:
         parser.error("trials must be positive")
@@ -142,6 +185,12 @@ def main():
     else:
         phase_conditioned = bool(checkpoint.get("phase_conditioned", False))
     image_size = args.image_size or int(checkpoint.get("image_size", 96))
+    if args.visual_yaw_correction and not checkpoint.get("visual_feature_dim"):
+        parser.error("--visual-yaw-correction requires a checkpoint trained with visual target features")
+    if args.visual_grasp_correction and not checkpoint.get("visual_feature_dim"):
+        parser.error("--visual-grasp-correction requires a checkpoint trained with visual target features")
+    if args.visual_grasp_correction and checkpoint.get("camera_view") != "overhead":
+        parser.error("--visual-grasp-correction requires an overhead-camera checkpoint")
     model = TinyB601Policy(spatial_size=spatial_size, phase_conditioned=phase_conditioned,
                            action_dim=6 if action_mode == "cartesian" else 8,
                            visual_feature_dim=int(checkpoint.get("visual_feature_dim", 0)))
@@ -160,7 +209,9 @@ def main():
             learned_result = policy_trial(
                 model, sim, seed, action_mode,
                 legacy_image_yaw=checkpoint.get("visual_yaw_convention", "legacy") == "legacy",
-                audit_grasps=args.audit_grasps)
+                audit_grasps=args.audit_grasps,
+                visual_yaw_correction=args.visual_yaw_correction,
+                visual_grasp_correction=args.visual_grasp_correction)
             learned.append(learned_result)
             if seed in teacher_by_seed:
                 teacher_result = teacher_by_seed[seed]
@@ -179,6 +230,8 @@ def main():
         sim.close()
     result = {
         "protocol": f"Matched held-out B601-RS open-table sorting; policy predicts eight {action_mode} waypoints per object and uses a fixed return-home reset; teacher may retry up to three times.",
+        "visual_yaw_correction": args.visual_yaw_correction,
+        "visual_grasp_correction": args.visual_grasp_correction,
         "seed_range": [args.seed_start, args.seed_start + args.trials - 1],
         "trials": args.trials,
         "policy": {"successes": sum(row["success"] for row in learned),

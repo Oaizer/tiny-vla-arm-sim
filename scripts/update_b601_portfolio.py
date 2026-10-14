@@ -238,6 +238,43 @@ def main():
             existing[item["id"]] = len(page["iterations"])
             page["iterations"].append(item)
 
+    v22_path = ROOT / "portfolio" / "b601-v22-evaluation.json"
+    if v22_path.is_file():
+        result = json.loads(v22_path.read_text(encoding="utf-8"))
+        v19, v22 = result["v19"], result["v22"]
+        paired = result["paired_placements_v22_vs_v19"]
+        full_sorts = result["paired_full_sorts_v22_vs_v19"]
+        audit19, audit22 = v19["contact_audit"], v22["contact_audit"]
+        item = {
+            "id": "b601-bc-v22",
+            "title": "BC V22 · Camera-corrected grasp poses",
+            "kind": "B601-RS hybrid VLA policy",
+            "question": "Can calibrated overhead pixels improve the policy's grasp alignment?",
+            "evidence": "120 fresh matched held-out scenes; frozen V19 checkpoint; contact audit enabled.",
+            "measure": (f"V22: {v22['cubes_placed']}/360 cubes; {v22['full_sorts']}/120 sorts. "
+                        f"V19: {v19['cubes_placed']}/360 cubes; {v19['full_sorts']}/120 sorts."),
+            "detail": (f"V22 had {paired['wins']} wins, {paired['losses']} losses, and {paired['ties']} ties "
+                       f"by scene (exact paired sign test p = {paired['exact_sign_test_two_sided_p']:.6f}). "
+                       f"Mean wrist-to-face yaw error fell from {audit19['mean_face_yaw_error_deg']:.2f}° "
+                       f"to {audit22['mean_face_yaw_error_deg']:.2f}°. Objects with no finger contact fell "
+                       f"from {audit19['objects_with_no_finger_contact']} to "
+                       f"{audit22['objects_with_no_finger_contact']}; mean corner proximity fell from "
+                       f"{audit19['mean_corner_proximity']:.3f} to {audit22['mean_corner_proximity']:.3f}. "
+                       f"The paired full-sort result is uncertain ({full_sorts['wins']} wins, "
+                       f"{full_sorts['losses']} losses, {full_sorts['ties']} ties; "
+                       f"p = {full_sorts['exact_sign_test_two_sided_p']:.3f}). An independent confirmation "
+                       "test is in progress."),
+            "result": f"{v22['cubes_placed']}/360 cubes; {v22['full_sorts']}/120 full sorts",
+            "status": "good",
+            "source": "../docs/B601_V22_RESULTS.md",
+            "data": "b601-v22-evaluation.json",
+        }
+        if item["id"] in existing:
+            page["iterations"][existing[item["id"]]] = item
+        else:
+            existing[item["id"]] = len(page["iterations"])
+            page["iterations"].append(item)
+
     videos = [
         {
             "title": "Face-aligned teacher · overhead view · seed 607000",
@@ -290,6 +327,14 @@ def main():
                         "file": "media/b601-rs-v19-v20-matched-seed-661001-v19.mp4"},
                        {"name": "V20 · 1/3 placements", "outcome": "PARTIAL",
                         "file": "media/b601-rs-v19-v20-matched-seed-661001-v20.mp4"}],
+        },
+        {
+            "title": "Matched V19 and V22 grasp · seed 673003",
+            "scene": "Same held-out B601-RS simulation scene. V19 places none of the cubes; V22's calibrated camera grasp correction places all three. Across the full matched set, V19 placed 156/360 cubes and completed 18/120 sorts; V22 placed 222/360 and completed 27/120. V22 had 60 wins, 26 losses, and 34 ties (p = 0.000317). Full-sort improvement is uncertain, and an independent confirmation is in progress. Both clips use the overhead view with a synchronized oblique inset. 1280 × 768, 10 fps.",
+            "videos": [{"name": "V19 · 0/3 placements", "outcome": "FAILED",
+                        "file": "media/b601-rs-v19-v22-matched-seed-673003-v19.mp4"},
+                       {"name": "V22 · 3/3 placements", "outcome": "SUCCESS",
+                        "file": "media/b601-rs-v19-v22-matched-seed-673003-v22.mp4"}],
         },
     ]
     trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}

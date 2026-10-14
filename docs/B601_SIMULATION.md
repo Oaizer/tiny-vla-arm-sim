@@ -216,6 +216,8 @@ V20 raised the teacher pick height to 0.10 m. On 120 fresh matched seeds, V20 pl
 
 V21 will hold V19's training data and pick height fixed and add a 3× loss weight to wrist yaw on the grasp waypoints. See the [V21 protocol](B601_V21_PROTOCOL.md).
 
+V22 keeps V19's checkpoint and corrects grasp XY and yaw from the overhead color mask and calibrated camera. On 120 fresh matched seeds, V22 placed 222/360 cubes versus V19's 156/360. It had 60 wins, 26 losses, and 34 ties (p = 0.000317). Full sorts rose from 18/120 to 27/120, but the paired full-sort test is uncertain (p = 0.150). Mean yaw error fell from 14.86° to 7.04°; no-contact objects fell from 64 to 21. See the [V22 results](B601_V22_RESULTS.md) and [protocol](B601_V22_PROTOCOL.md). An independent confirmation test is in progress.
+
 The separate teacher run on seed 607000 shows face-aligned grasps on all three cubes. It is a scripted simulator-state teacher, not a learned-policy result. The V9 clip on seed 622009 and V11 clip on seed 623004 each place two cubes and miss the third. These clips use 1280 × 768 video. The page links to [all seed-level policy records](../portfolio/b601-bc-results.json).
 
 Reproduce V8 through V13 from the project root. DAgger validation remains separate from the original demonstration validation set. V11's yaw convention is checked by the camera test in `tests/test_b601_bc.py`:
