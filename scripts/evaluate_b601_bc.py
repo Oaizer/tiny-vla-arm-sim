@@ -91,6 +91,8 @@ def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True,
         pad = OBJECT_TO_PAD[name]
         sim.current_instruction = f"sort the {name} onto the {pad} pad"
         grasp_audit = None
+        lift_audit = None
+        transport_audits = {}
         visual_yaw = None
         visual_grasp_xy = None
         for phase in range(8):
@@ -143,6 +145,10 @@ def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True,
                 sim.move_joints(arm_target, frames=frames, finger_targets=action[6:])
             if audit_grasps and phase == 2:
                 grasp_audit = _grasp_contact_audit(sim, name)
+            if audit_grasps and phase == 3:
+                lift_audit = _grasp_contact_audit(sim, name)
+            if audit_grasps and phase in (4, 5):
+                transport_audits[str(phase)] = _grasp_contact_audit(sim, name)
         for _ in range(240):
             pb.stepSimulation()
         sim.move_joints(sim.home_q, frames=frames)
@@ -153,6 +159,8 @@ def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True,
                "distance_m": round(distance, 5), "final_position_m": final.round(5).tolist()}
         if grasp_audit is not None:
             row["grasp_audit"] = grasp_audit
+            row["lift_audit"] = lift_audit
+            row["transport_audits"] = transport_audits
         objects.append(row)
     return {"seed": seed, "success": all(row["success"] for row in objects),
             "objects_placed": sum(row["success"] for row in objects), "objects": objects,

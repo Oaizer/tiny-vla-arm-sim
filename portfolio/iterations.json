@@ -663,6 +663,19 @@
       "data": "b601-v23-height-evaluation.json"
     },
     {
+      "id": "b601-bc-v24-face-contact",
+      "title": "BC V24 · In-plane grasp-contact geometry",
+      "kind": "B601-RS grasp geometry test",
+      "question": "Can a small grasp-height change move the fingers away from cube corners?",
+      "evidence": "60 fresh matched held-out simulation scenes; frozen V19 checkpoint; contact audit enabled.",
+      "measure": "V24: 134/180 cubes; 22/60 full sorts. V23: 129/180 cubes; 23/60 full sorts.",
+      "detail": "V24 raises the camera-corrected descend and close waypoints by 30 mm; V23 uses 20 mm. Placement outcomes tied at 15 V24 wins, 15 losses, and 30 ties (p = 1.00). Full sorts: 12 wins, 13 losses, and 35 ties (p = 1.00). Among 169 matched objects with contacts in both runs, mean contact corner proximity fell from 0.419 to 0.295. V24 had lower proximity on 141 objects and higher proximity on 28 (paired bootstrap 95% interval for mean change: −0.157 to −0.090; sign-flip p < 0.0001). Contacts remained near the top or bottom rim: mean absolute local height changed from 18.71 mm to 19.14 mm. This improves in-plane side-face centering in the simulator, but does not improve task success or vertical contact centering. V23 remains the task-success lead.",
+      "result": "Better side-face centering; no task-success gain",
+      "status": "warn",
+      "source": "../docs/B601_V24_CONTACT_GEOMETRY.md",
+      "data": "b601-v24-contact-geometry.json"
+    },
+    {
       "id": "b601-bc-v21",
       "title": "BC V21 · Grasp-yaw loss weight",
       "kind": "B601-RS trained VLA policy",
@@ -1090,6 +1103,22 @@
           "name": "V23 · 3/3 placements",
           "outcome": "SUCCESS",
           "file": "media/b601-rs-v22-v23-height-seed-676015-v23.mp4"
+        }
+      ]
+    },
+    {
+      "title": "V23 and V24 · face-centred grasp test · seed 678001",
+      "scene": "Matched B601-RS simulation scene. Both policies place all three cubes. V24 raises its descend and close targets by 30 mm; V23 uses 20 mm. Across 60 matched scenes, V24 placed 134/180 cubes and completed 22/60 sorts; V23 placed 129/180 and completed 23/60. Task outcomes were not different in this sample. V24 moved contact points away from cube corners on 141 of 169 matched objects with contact in both runs, but contact height stayed near the cube rim. Both clips show the overhead and synchronized oblique views at 1280 × 768, 10 fps.",
+      "videos": [
+        {
+          "name": "V23 · +20 mm · 3/3 placements",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-v23-v24-face-contact-seed-678001-v23.mp4"
+        },
+        {
+          "name": "V24 · +30 mm · 3/3 placements",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-v23-v24-face-contact-seed-678001-v24.mp4"
         }
       ]
     }
