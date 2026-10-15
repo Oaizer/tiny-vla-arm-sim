@@ -16,6 +16,6 @@ Pilot totals were 18/36 placements for V22, 12/36 at −10 mm, 24/36 at +10 mm, 
 
 Use fresh matched seeds 676000–676119. Run V22 first and save its teacher records. Then run V23 on the same seeds with a +20 mm offset on only the descend and close waypoints. Do not tune the offset against these scenes.
 
-The primary measure is cubes placed per scene, compared with an exact paired sign test. Also report full sorts, wrist-to-face yaw error, corner proximity, contact height relative to the cube center, finger contact, and joint-limit checks. A lower contact-height magnitude supports more central vertical contact. Report a change as useful only if the task measures improve without a material loss in safe contact or joint-limit behavior.
+The primary measure is cubes placed per scene, compared with an exact paired sign test. Also report full sorts, wrist-to-face yaw error, corner proximity, contact height relative to the cube center, finger contact, and joint-limit checks. A lower contact-height magnitude supports more central vertical contact. The [completed result](B601_V23_HEIGHT_RESULTS.md) records task and contact measures separately.
 
 All runs use the simulated Seeed reBot B601-RS in PyBullet. No physical arm is used. The learned checkpoint stays frozen; V23 tests one control adjustment on top of V22.

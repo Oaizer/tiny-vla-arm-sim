@@ -1,0 +1,651 @@
+{
+  "title": "B601 V21 grasp-yaw loss-weight test",
+  "protocol": "120 matched B601-RS simulation scenes; seeds 671000\u2013671119; V19 data and schedule fixed; 3\u00d7 yaw loss on descend, close, and lift waypoints.",
+  "simulator_only": true,
+  "candidate": {
+    "version": "V21",
+    "training": true,
+    "base_checkpoint": "V19",
+    "change": "Multiply wrist-yaw loss by 3 on descend, close, and lift waypoints.",
+    "parameters": 427798
+  },
+  "v19": {
+    "trials": 120,
+    "full_sorts": 7,
+    "cubes_placed": 149,
+    "contact_audit": {
+      "objects_attempted": 360,
+      "objects_with_no_finger_contact": 55,
+      "objects_with_both_fingers_contacting": 279,
+      "mean_face_yaw_error_deg": 15.035111111111119,
+      "mean_corner_proximity": 0.581055737704918,
+      "objects_with_corner_proximity_above_0_65": 111,
+      "finger_contacts": 774,
+      "contacts_within_5mm_of_top_or_bottom_rim": 723
+    }
+  },
+  "v21": {
+    "trials": 120,
+    "full_sorts": 3,
+    "cubes_placed": 112,
+    "contact_audit": {
+      "objects_attempted": 360,
+      "objects_with_no_finger_contact": 97,
+      "objects_with_both_fingers_contacting": 240,
+      "mean_face_yaw_error_deg": 16.012305555555553,
+      "mean_corner_proximity": 0.562501901140684,
+      "objects_with_corner_proximity_above_0_65": 92,
+      "finger_contacts": 640,
+      "contacts_within_5mm_of_top_or_bottom_rim": 610
+    }
+  },
+  "paired_placements_v21_vs_v19": {
+    "wins": 31,
+    "losses": 54,
+    "ties": 35,
+    "exact_sign_test_two_sided_p": 0.016508822028535212,
+    "difference_cubes": -37
+  },
+  "paired_seed_results": [
+    {
+      "seed": 671000,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671001,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671002,
+      "v19_cubes": 3,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671003,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671004,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671005,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671006,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671007,
+      "v19_cubes": 3,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671008,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671009,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671010,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671011,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671012,
+      "v19_cubes": 0,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671013,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671014,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671015,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671016,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671017,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671018,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671019,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671020,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671021,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671022,
+      "v19_cubes": 1,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671023,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671024,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671025,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671026,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671027,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671028,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671029,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671030,
+      "v19_cubes": 1,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671031,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671032,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671033,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671034,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671035,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671036,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671037,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671038,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671039,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671040,
+      "v19_cubes": 0,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671041,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671042,
+      "v19_cubes": 0,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671043,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671044,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671045,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671046,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671047,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671048,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671049,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671050,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671051,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671052,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671053,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671054,
+      "v19_cubes": 1,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671055,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671056,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671057,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671058,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671059,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671060,
+      "v19_cubes": 1,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671061,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671062,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671063,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671064,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671065,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671066,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671067,
+      "v19_cubes": 3,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671068,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671069,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671070,
+      "v19_cubes": 1,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671071,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671072,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671073,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671074,
+      "v19_cubes": 1,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671075,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671076,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671077,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671078,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671079,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671080,
+      "v19_cubes": 3,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671081,
+      "v19_cubes": 2,
+      "v21_cubes": 3
+    },
+    {
+      "seed": 671082,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671083,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671084,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671085,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671086,
+      "v19_cubes": 0,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671087,
+      "v19_cubes": 0,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671088,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671089,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671090,
+      "v19_cubes": 1,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671091,
+      "v19_cubes": 0,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671092,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671093,
+      "v19_cubes": 0,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671094,
+      "v19_cubes": 1,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671095,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671096,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671097,
+      "v19_cubes": 2,
+      "v21_cubes": 3
+    },
+    {
+      "seed": 671098,
+      "v19_cubes": 2,
+      "v21_cubes": 3
+    },
+    {
+      "seed": 671099,
+      "v19_cubes": 3,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671100,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671101,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671102,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671103,
+      "v19_cubes": 2,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671104,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671105,
+      "v19_cubes": 2,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671106,
+      "v19_cubes": 1,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671107,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671108,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671109,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671110,
+      "v19_cubes": 0,
+      "v21_cubes": 0
+    },
+    {
+      "seed": 671111,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671112,
+      "v19_cubes": 0,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671113,
+      "v19_cubes": 0,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671114,
+      "v19_cubes": 1,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671115,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671116,
+      "v19_cubes": 1,
+      "v21_cubes": 2
+    },
+    {
+      "seed": 671117,
+      "v19_cubes": 2,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671118,
+      "v19_cubes": 3,
+      "v21_cubes": 1
+    },
+    {
+      "seed": 671119,
+      "v19_cubes": 3,
+      "v21_cubes": 0
+    }
+  ]
+}

@@ -48,11 +48,15 @@ def main():
                         help="add a synchronized oblique camera inset to the overhead view")
     parser.add_argument("--visual-grasp-correction", action="store_true",
                         help="use calibrated overhead pixels for grasp XY and face yaw")
+    parser.add_argument("--grasp-height-offset", type=float, default=0.0,
+                        help="add a vertical offset in metres to camera-corrected descend and close waypoints")
     args = parser.parse_args()
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=True)
     if args.visual_grasp_correction and (not checkpoint.get("visual_feature_dim")
                                          or checkpoint.get("camera_view") != "overhead"):
         parser.error("--visual-grasp-correction requires overhead visual-target features")
+    if args.grasp_height_offset and not args.visual_grasp_correction:
+        parser.error("--grasp-height-offset requires --visual-grasp-correction")
     action_mode = checkpoint.get("action_mode", "joint")
     image_size = int(checkpoint.get("image_size", 96))
     model = TinyB601Policy(
@@ -75,6 +79,7 @@ def main():
             model, sim, args.seed, action_mode,
             legacy_image_yaw=checkpoint.get("visual_yaw_convention", "legacy") == "legacy",
             visual_grasp_correction=args.visual_grasp_correction,
+            grasp_height_offset=args.grasp_height_offset,
             frames=frames)
         records = record["objects"]
         success_count = record["objects_placed"]

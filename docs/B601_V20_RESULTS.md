@@ -18,7 +18,7 @@ This points to a mixed result. The V20 policy had a lower measured corner distan
 
 ## Next experiment
 
-Keep V19's data and pick height fixed. Add a separate loss weight for wrist yaw on the three grasp waypoints, then compare that model on matched fresh seeds. This tests yaw weighting without changing the data volume or grasp height. Keep the contact audit enabled so the next result can show whether the fingers land nearer the middle of a cube face and whether the policy still closes on both fingers.
+V21 tested a 3× loss weight for wrist yaw on the three grasp waypoints while holding V19's data and pick height fixed. It placed 112/360 cubes versus V19's 149/360 on 120 matched scenes. The added yaw loss did not improve sorting. The [V21 protocol](B601_V21_PROTOCOL.md) records its setup and the simulation log records its result.
 
 All results use PyBullet and the simulated Seeed reBot B601-RS model. No physical arm was used. The 120-scene data summary is in [`portfolio/b601-v20-evaluation.json`](../portfolio/b601-v20-evaluation.json).
 

@@ -22,6 +22,6 @@ The B601-RS pilot uses the articulated Seeed URDF with PyBullet physics. Its sel
 
 ## B601-RS challenge record
 
-The latest challenge sorts three randomized cubes onto matching pads with the articulated Seeed arm in PyBullet. V7 completed 9 of 12 full sorts and placed 33 of 36 cubes. These are scripted-teacher results, not a trained VLA evaluation. The page keeps the earlier failures and selected clips beside the scores.
+The current lead policy is V23, a 427,798-parameter V19 model with calibrated camera grasp poses and a higher descend/close waypoint. In 120 matched PyBullet scenes, it placed 260/360 cubes and completed 47/120 full sorts. V22 placed 226 cubes and completed 31 full sorts on the same scenes. The page records trained policies, scripted teachers, and earlier failures as separate results.
 
 Run `PYTHONPATH=src python scripts/demo_b601_sort.py --version v7 --trials 12 --no-video` to repeat the batch. See the [B601-RS challenge log](../docs/B601_SIMULATION.md#randomized-sorting-challenge-series) for the protocol and limits.

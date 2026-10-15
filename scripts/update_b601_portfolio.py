@@ -238,6 +238,36 @@ def main():
             existing[item["id"]] = len(page["iterations"])
             page["iterations"].append(item)
 
+    v21_path = ROOT / "portfolio" / "b601-v21-evaluation.json"
+    if v21_path.is_file():
+        result = json.loads(v21_path.read_text(encoding="utf-8"))
+        v19, v21 = result["v19"], result["v21"]
+        paired = result["paired_placements_v21_vs_v19"]
+        audit19, audit21 = v19["contact_audit"], v21["contact_audit"]
+        item = {
+            "id": "b601-bc-v21",
+            "title": "BC V21 · Grasp-yaw loss weight",
+            "kind": "B601-RS trained VLA policy",
+            "question": "Does extra yaw loss on grasp waypoints improve face alignment and sorting?",
+            "evidence": "120 fresh matched held-out simulation scenes; frozen V19 reference; contact audit enabled.",
+            "measure": (f"V21: {v21['cubes_placed']}/360 cubes; {v21['full_sorts']}/120 sorts. "
+                        f"V19: {v19['cubes_placed']}/360 cubes; {v19['full_sorts']}/120 sorts."),
+            "detail": (f"V21 had {paired['wins']} placement wins, {paired['losses']} losses, and {paired['ties']} ties "
+                       f"(p = {paired['exact_sign_test_two_sided_p']:.3f}). Mean yaw error rose from "
+                       f"{audit19['mean_face_yaw_error_deg']:.2f}° to {audit21['mean_face_yaw_error_deg']:.2f}°; "
+                       f"objects with no finger contact rose from {audit19['objects_with_no_finger_contact']} to "
+                       f"{audit21['objects_with_no_finger_contact']}. The added yaw loss did not improve the task."),
+            "result": f"{v21['cubes_placed']}/360 cubes; no gain",
+            "status": "warn",
+            "source": "../docs/B601_V21_PROTOCOL.md",
+            "data": "b601-v21-evaluation.json",
+        }
+        if item["id"] in existing:
+            page["iterations"][existing[item["id"]]] = item
+        else:
+            existing[item["id"]] = len(page["iterations"])
+            page["iterations"].append(item)
+
     v22_path = ROOT / "portfolio" / "b601-v22-evaluation.json"
     if v22_path.is_file():
         result = json.loads(v22_path.read_text(encoding="utf-8"))
@@ -322,8 +352,8 @@ def main():
                        f"{paired['ties']} ties (p = {paired['exact_sign_test_two_sided_p']:.3g}); "
                        f"full sorts: {sorts['wins']} wins, {sorts['losses']} losses, {sorts['ties']} ties "
                        f"(p = {sorts['exact_sign_test_two_sided_p']:.3f}). Mean absolute contact height "
-                       f"changed from {a_old['mean_absolute_contact_height_m']:.3f} m to "
-                       f"{a_new['mean_absolute_contact_height_m']:.3f} m.")
+                       f"changed from {a_old['mean_absolute_contact_height_m'] * 1000:.2f} mm to "
+                       f"{a_new['mean_absolute_contact_height_m'] * 1000:.2f} mm.")
             if paired["difference_cubes"] > 0 and paired["exact_sign_test_two_sided_p"] < .05:
                 status = "good"
         else:
@@ -340,7 +370,7 @@ def main():
                        f"{independent['v23']['full_sorts']}/120 full sorts" if independent
                        else f"Pilot: {plus20['cubes_placed']}/36 cubes; test running"),
             "status": status,
-            "source": "../docs/B601_V23_HEIGHT_PROTOCOL.md",
+            "source": "../docs/B601_V23_HEIGHT_RESULTS.md",
             "data": "b601-v23-height-evaluation.json",
         }
         if item["id"] in existing:
@@ -417,6 +447,14 @@ def main():
                         "file": "media/b601-rs-v19-v22-confirmation-seed-674007-v19.mp4"},
                        {"name": "V22 · 3/3 placements", "outcome": "SUCCESS",
                         "file": "media/b601-rs-v19-v22-confirmation-seed-674007-v22.mp4"}],
+        },
+        {
+            "title": "V22 and V23 · grasp-height test · seed 676015",
+            "scene": "Independent matched B601-RS simulation scene from the V23 test. V22 places one cube; V23 places all three after a +20 mm shift to its descend and close waypoints. Across 120 matched scenes, V22 placed 226/360 cubes and completed 31/120 sorts; V23 placed 260/360 and completed 47/120. Placement outcomes were 49 wins, 22 losses, and 49 ties (p = 0.00182); full-sort outcomes were 31 wins, 15 losses, and 74 ties (p = 0.0259). The contact-height change was small; most contacts stayed near the cube rim. Both clips show the same overhead and synchronized oblique views at 1280 × 768, 10 fps.",
+            "videos": [{"name": "V22 · 1/3 placements", "outcome": "PARTIAL",
+                        "file": "media/b601-rs-v22-v23-height-seed-676015-v22.mp4"},
+                       {"name": "V23 · 3/3 placements", "outcome": "SUCCESS",
+                        "file": "media/b601-rs-v22-v23-height-seed-676015-v23.mp4"}],
         },
     ]
     trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}
