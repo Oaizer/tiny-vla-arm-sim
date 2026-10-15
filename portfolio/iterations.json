@@ -648,6 +648,19 @@
       "status": "good",
       "source": "../docs/B601_V22_RESULTS.md",
       "data": "b601-v22-evaluation.json"
+    },
+    {
+      "id": "b601-bc-v23-height",
+      "title": "BC V23 · Grasp-height adjustment",
+      "kind": "B601-RS hybrid VLA policy",
+      "question": "Does raising the close waypoint move finger contact toward the middle of a cube face?",
+      "evidence": "12 matched pilot scenes; fresh 120-scene test on new seeds.",
+      "measure": "Pilot, 12 matched scenes: V22 18/36 cubes and 0/12 sorts; +10 mm 24/36 and 4/12; +20 mm 27/36 and 5/12.",
+      "detail": "The +20 mm pilot comparison had 8 wins, 2 losses, and 2 ties (p = 0.109). The pilot is small and selected +20 mm only as a candidate for the fresh test. It did not show a clear contact-center gain. Fresh matched test on seeds 676000–676119 is running.",
+      "result": "Pilot: 27/36 cubes; test running",
+      "status": "warn",
+      "source": "../docs/B601_V23_HEIGHT_PROTOCOL.md",
+      "data": "b601-v23-height-evaluation.json"
     }
   ],
   "trials": [

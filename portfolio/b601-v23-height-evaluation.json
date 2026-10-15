@@ -1,0 +1,472 @@
+{
+  "title": "B601 V23 grasp-height correction",
+  "simulator_only": true,
+  "candidate": {
+    "version": "V23",
+    "base_checkpoint": "V19/V22",
+    "training": false,
+    "change": "Add 20 mm to the camera-corrected descend and close TCP targets; keep XY, yaw, and delivery actions fixed.",
+    "parameters": 427798
+  },
+  "pilot": {
+    "seed_range": [
+      675000,
+      675011
+    ],
+    "v22": {
+      "trials": 12,
+      "full_sorts": 0,
+      "cubes_placed": 18,
+      "cubes_attempted": 36,
+      "contact_audit": {
+        "objects_attempted": 36,
+        "objects_with_no_finger_contact": 2,
+        "objects_with_both_fingers_contacting": 34,
+        "mean_face_yaw_error_deg": 8.911388888888888,
+        "mean_corner_proximity": 0.45344117647058824,
+        "mean_absolute_contact_height_m": 0.01912607142857143,
+        "median_absolute_contact_height_m": 0.01961,
+        "contacts_within_10mm_of_vertical_face_center": 2,
+        "contacts_within_5mm_of_top_or_bottom_rim": 80,
+        "finger_contacts": 84,
+        "trials_with_joint_limit_violation": 0
+      }
+    },
+    "offset_tests": {
+      "minus_10mm": {
+        "height_offset_m": -0.01,
+        "seed_range": [
+          675000,
+          675011
+        ],
+        "v22": {
+          "trials": 12,
+          "full_sorts": 0,
+          "cubes_placed": 18,
+          "cubes_attempted": 36,
+          "contact_audit": {
+            "objects_attempted": 36,
+            "objects_with_no_finger_contact": 2,
+            "objects_with_both_fingers_contacting": 34,
+            "mean_face_yaw_error_deg": 8.911388888888888,
+            "mean_corner_proximity": 0.45344117647058824,
+            "mean_absolute_contact_height_m": 0.01912607142857143,
+            "median_absolute_contact_height_m": 0.01961,
+            "contacts_within_10mm_of_vertical_face_center": 2,
+            "contacts_within_5mm_of_top_or_bottom_rim": 80,
+            "finger_contacts": 84,
+            "trials_with_joint_limit_violation": 0
+          }
+        },
+        "v23": {
+          "trials": 12,
+          "full_sorts": 0,
+          "cubes_placed": 12,
+          "cubes_attempted": 36,
+          "contact_audit": {
+            "objects_attempted": 36,
+            "objects_with_no_finger_contact": 1,
+            "objects_with_both_fingers_contacting": 35,
+            "mean_face_yaw_error_deg": 14.324166666666668,
+            "mean_corner_proximity": 0.4168571428571427,
+            "mean_absolute_contact_height_m": 0.01954284210526315,
+            "median_absolute_contact_height_m": 0.01952,
+            "contacts_within_10mm_of_vertical_face_center": 0,
+            "contacts_within_5mm_of_top_or_bottom_rim": 93,
+            "finger_contacts": 95,
+            "trials_with_joint_limit_violation": 0
+          }
+        },
+        "paired_placements_v23_vs_v22": {
+          "wins": 1,
+          "losses": 5,
+          "ties": 6,
+          "exact_sign_test_two_sided_p": 0.21875,
+          "difference_cubes": -6
+        },
+        "paired_full_sorts_v23_vs_v22": {
+          "wins": 0,
+          "losses": 0,
+          "ties": 12,
+          "exact_sign_test_two_sided_p": 1.0
+        },
+        "paired_seed_results": [
+          {
+            "seed": 675000,
+            "v22_cubes": 2,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675001,
+            "v22_cubes": 0,
+            "v23_cubes": 0,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675002,
+            "v22_cubes": 2,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675003,
+            "v22_cubes": 1,
+            "v23_cubes": 0,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675004,
+            "v22_cubes": 2,
+            "v23_cubes": 0,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675005,
+            "v22_cubes": 2,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675006,
+            "v22_cubes": 0,
+            "v23_cubes": 1,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675007,
+            "v22_cubes": 2,
+            "v23_cubes": 1,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675008,
+            "v22_cubes": 2,
+            "v23_cubes": 0,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675009,
+            "v22_cubes": 2,
+            "v23_cubes": 1,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675010,
+            "v22_cubes": 2,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675011,
+            "v22_cubes": 1,
+            "v23_cubes": 1,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          }
+        ]
+      },
+      "plus_10mm": {
+        "height_offset_m": 0.01,
+        "seed_range": [
+          675000,
+          675011
+        ],
+        "v22": {
+          "trials": 12,
+          "full_sorts": 0,
+          "cubes_placed": 18,
+          "cubes_attempted": 36,
+          "contact_audit": {
+            "objects_attempted": 36,
+            "objects_with_no_finger_contact": 2,
+            "objects_with_both_fingers_contacting": 34,
+            "mean_face_yaw_error_deg": 8.911388888888888,
+            "mean_corner_proximity": 0.45344117647058824,
+            "mean_absolute_contact_height_m": 0.01912607142857143,
+            "median_absolute_contact_height_m": 0.01961,
+            "contacts_within_10mm_of_vertical_face_center": 2,
+            "contacts_within_5mm_of_top_or_bottom_rim": 80,
+            "finger_contacts": 84,
+            "trials_with_joint_limit_violation": 0
+          }
+        },
+        "v23": {
+          "trials": 12,
+          "full_sorts": 4,
+          "cubes_placed": 24,
+          "cubes_attempted": 36,
+          "contact_audit": {
+            "objects_attempted": 36,
+            "objects_with_no_finger_contact": 3,
+            "objects_with_both_fingers_contacting": 32,
+            "mean_face_yaw_error_deg": 4.66,
+            "mean_corner_proximity": 0.46351515151515144,
+            "mean_absolute_contact_height_m": 0.019070140845070412,
+            "median_absolute_contact_height_m": 0.01959,
+            "contacts_within_10mm_of_vertical_face_center": 2,
+            "contacts_within_5mm_of_top_or_bottom_rim": 69,
+            "finger_contacts": 71,
+            "trials_with_joint_limit_violation": 0
+          }
+        },
+        "paired_placements_v23_vs_v22": {
+          "wins": 7,
+          "losses": 2,
+          "ties": 3,
+          "exact_sign_test_two_sided_p": 0.1796875,
+          "difference_cubes": 6
+        },
+        "paired_full_sorts_v23_vs_v22": {
+          "wins": 4,
+          "losses": 0,
+          "ties": 8,
+          "exact_sign_test_two_sided_p": 0.125
+        },
+        "paired_seed_results": [
+          {
+            "seed": 675000,
+            "v22_cubes": 2,
+            "v23_cubes": 3,
+            "v22_full_sort": false,
+            "v23_full_sort": true
+          },
+          {
+            "seed": 675001,
+            "v22_cubes": 0,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675002,
+            "v22_cubes": 2,
+            "v23_cubes": 3,
+            "v22_full_sort": false,
+            "v23_full_sort": true
+          },
+          {
+            "seed": 675003,
+            "v22_cubes": 1,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675004,
+            "v22_cubes": 2,
+            "v23_cubes": 1,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675005,
+            "v22_cubes": 2,
+            "v23_cubes": 3,
+            "v22_full_sort": false,
+            "v23_full_sort": true
+          },
+          {
+            "seed": 675006,
+            "v22_cubes": 0,
+            "v23_cubes": 0,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675007,
+            "v22_cubes": 2,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675008,
+            "v22_cubes": 2,
+            "v23_cubes": 1,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675009,
+            "v22_cubes": 2,
+            "v23_cubes": 3,
+            "v22_full_sort": false,
+            "v23_full_sort": true
+          },
+          {
+            "seed": 675010,
+            "v22_cubes": 2,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675011,
+            "v22_cubes": 1,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          }
+        ]
+      },
+      "plus_20mm": {
+        "height_offset_m": 0.02,
+        "seed_range": [
+          675000,
+          675011
+        ],
+        "v22": {
+          "trials": 12,
+          "full_sorts": 0,
+          "cubes_placed": 18,
+          "cubes_attempted": 36,
+          "contact_audit": {
+            "objects_attempted": 36,
+            "objects_with_no_finger_contact": 2,
+            "objects_with_both_fingers_contacting": 34,
+            "mean_face_yaw_error_deg": 8.911388888888888,
+            "mean_corner_proximity": 0.45344117647058824,
+            "mean_absolute_contact_height_m": 0.01912607142857143,
+            "median_absolute_contact_height_m": 0.01961,
+            "contacts_within_10mm_of_vertical_face_center": 2,
+            "contacts_within_5mm_of_top_or_bottom_rim": 80,
+            "finger_contacts": 84,
+            "trials_with_joint_limit_violation": 0
+          }
+        },
+        "v23": {
+          "trials": 12,
+          "full_sorts": 5,
+          "cubes_placed": 27,
+          "cubes_attempted": 36,
+          "contact_audit": {
+            "objects_attempted": 36,
+            "objects_with_no_finger_contact": 1,
+            "objects_with_both_fingers_contacting": 34,
+            "mean_face_yaw_error_deg": 5.614166666666667,
+            "mean_corner_proximity": 0.4312857142857143,
+            "mean_absolute_contact_height_m": 0.01864539325842697,
+            "median_absolute_contact_height_m": 0.01955,
+            "contacts_within_10mm_of_vertical_face_center": 6,
+            "contacts_within_5mm_of_top_or_bottom_rim": 83,
+            "finger_contacts": 89,
+            "trials_with_joint_limit_violation": 0
+          }
+        },
+        "paired_placements_v23_vs_v22": {
+          "wins": 8,
+          "losses": 2,
+          "ties": 2,
+          "exact_sign_test_two_sided_p": 0.109375,
+          "difference_cubes": 9
+        },
+        "paired_full_sorts_v23_vs_v22": {
+          "wins": 5,
+          "losses": 0,
+          "ties": 7,
+          "exact_sign_test_two_sided_p": 0.0625
+        },
+        "paired_seed_results": [
+          {
+            "seed": 675000,
+            "v22_cubes": 2,
+            "v23_cubes": 3,
+            "v22_full_sort": false,
+            "v23_full_sort": true
+          },
+          {
+            "seed": 675001,
+            "v22_cubes": 0,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675002,
+            "v22_cubes": 2,
+            "v23_cubes": 1,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675003,
+            "v22_cubes": 1,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675004,
+            "v22_cubes": 2,
+            "v23_cubes": 1,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675005,
+            "v22_cubes": 2,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675006,
+            "v22_cubes": 0,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675007,
+            "v22_cubes": 2,
+            "v23_cubes": 3,
+            "v22_full_sort": false,
+            "v23_full_sort": true
+          },
+          {
+            "seed": 675008,
+            "v22_cubes": 2,
+            "v23_cubes": 3,
+            "v22_full_sort": false,
+            "v23_full_sort": true
+          },
+          {
+            "seed": 675009,
+            "v22_cubes": 2,
+            "v23_cubes": 2,
+            "v22_full_sort": false,
+            "v23_full_sort": false
+          },
+          {
+            "seed": 675010,
+            "v22_cubes": 2,
+            "v23_cubes": 3,
+            "v22_full_sort": false,
+            "v23_full_sort": true
+          },
+          {
+            "seed": 675011,
+            "v22_cubes": 1,
+            "v23_cubes": 3,
+            "v22_full_sort": false,
+            "v23_full_sort": true
+          }
+        ]
+      }
+    },
+    "selected_offset_m": 0.02,
+    "selection_note": "The +20 mm candidate was selected from this pilot only. The fresh test uses new seeds."
+  }
+}

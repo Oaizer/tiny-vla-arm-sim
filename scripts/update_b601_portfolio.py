@@ -292,6 +292,63 @@ def main():
             existing[item["id"]] = len(page["iterations"])
             page["iterations"].append(item)
 
+    v23_path = ROOT / "portfolio" / "b601-v23-height-evaluation.json"
+    if v23_path.is_file():
+        result = json.loads(v23_path.read_text(encoding="utf-8"))
+        pilot = result["pilot"]
+        base = pilot["v22"]
+        plus10 = pilot["offset_tests"]["plus_10mm"]["v23"]
+        plus20 = pilot["offset_tests"]["plus_20mm"]["v23"]
+        selected = pilot["offset_tests"]["plus_20mm"]["paired_placements_v23_vs_v22"]
+        measure = (f"Pilot, 12 matched scenes: V22 {base['cubes_placed']}/36 cubes and "
+                   f"{base['full_sorts']}/12 sorts; +10 mm {plus10['cubes_placed']}/36 and "
+                   f"{plus10['full_sorts']}/12; +20 mm {plus20['cubes_placed']}/36 and "
+                   f"{plus20['full_sorts']}/12.")
+        detail = (f"The +20 mm pilot comparison had {selected['wins']} wins, {selected['losses']} losses, "
+                  f"and {selected['ties']} ties (p = {selected['exact_sign_test_two_sided_p']:.3f}). "
+                  "The pilot is small and selected +20 mm only as a candidate for the fresh test. "
+                  "It did not show a clear contact-center gain.")
+        independent = result.get("independent_test")
+        status = "warn"
+        if independent:
+            old, new = independent["v22"], independent["v23"]
+            paired = independent["paired_placements_v23_vs_v22"]
+            sorts = independent["paired_full_sorts_v23_vs_v22"]
+            a_old, a_new = old["contact_audit"], new["contact_audit"]
+            detail += (f" Fresh test, seeds {independent['seed_range'][0]}–{independent['seed_range'][1]}: "
+                       f"V23 placed {new['cubes_placed']}/360 cubes and completed {new['full_sorts']}/120 sorts; "
+                       f"V22 placed {old['cubes_placed']}/360 and completed {old['full_sorts']}/120. "
+                       f"Placement outcomes: {paired['wins']} wins, {paired['losses']} losses, "
+                       f"{paired['ties']} ties (p = {paired['exact_sign_test_two_sided_p']:.3g}); "
+                       f"full sorts: {sorts['wins']} wins, {sorts['losses']} losses, {sorts['ties']} ties "
+                       f"(p = {sorts['exact_sign_test_two_sided_p']:.3f}). Mean absolute contact height "
+                       f"changed from {a_old['mean_absolute_contact_height_m']:.3f} m to "
+                       f"{a_new['mean_absolute_contact_height_m']:.3f} m.")
+            if paired["difference_cubes"] > 0 and paired["exact_sign_test_two_sided_p"] < .05:
+                status = "good"
+        else:
+            detail += " Fresh matched test on seeds 676000–676119 is running."
+        item = {
+            "id": "b601-bc-v23-height",
+            "title": "BC V23 · Grasp-height adjustment",
+            "kind": "B601-RS hybrid VLA policy",
+            "question": "Does raising the close waypoint move finger contact toward the middle of a cube face?",
+            "evidence": "12 matched pilot scenes; fresh 120-scene test on new seeds.",
+            "measure": measure,
+            "detail": detail,
+            "result": (f"Fresh test: {independent['v23']['cubes_placed']}/360 cubes; "
+                       f"{independent['v23']['full_sorts']}/120 full sorts" if independent
+                       else f"Pilot: {plus20['cubes_placed']}/36 cubes; test running"),
+            "status": status,
+            "source": "../docs/B601_V23_HEIGHT_PROTOCOL.md",
+            "data": "b601-v23-height-evaluation.json",
+        }
+        if item["id"] in existing:
+            page["iterations"][existing[item["id"]]] = item
+        else:
+            existing[item["id"]] = len(page["iterations"])
+            page["iterations"].append(item)
+
     videos = [
         {
             "title": "Face-aligned teacher · overhead view · seed 607000",

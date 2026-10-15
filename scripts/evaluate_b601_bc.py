@@ -46,6 +46,8 @@ def _grasp_contact_audit(sim, object_name):
             "normal_force_n": round(float(contact[9]), 3),
         })
     return {
+        "tcp_position_m": [round(float(value), 5) for value in tcp_state[4]],
+        "cube_center_m": np.round(cube_position, 5).tolist(),
         "face_yaw_error_deg": round(abs(float(np.degrees(angle_error))), 2),
         "contact_count": len(contacts),
         "contacting_fingers": sorted({row["finger_link"] for row in contacts}),
@@ -77,7 +79,7 @@ def _overhead_pixel_to_world_xy(sim, image_x, image_y, plane_z=.125):
 
 def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True,
                  audit_grasps=False, visual_yaw_correction=False,
-                 visual_grasp_correction=False, frames=None):
+                 visual_grasp_correction=False, grasp_height_offset=0.0, frames=None):
     sim.reset(seed)
     _, rng = randomize_scene(sim, seed, SLOT_SETS["v7"], min_target_distance=.075)
     order = [OBJECTS[index] for index in rng.permutation(len(OBJECTS))]
@@ -123,6 +125,8 @@ def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True,
                 action = denormalize_cartesian_actions(normalized_action)
                 if visual_grasp_correction and phase <= 3 and visual_grasp_xy is not None:
                     action[:2] = visual_grasp_xy
+                if visual_grasp_correction and phase in (1, 2) and visual_grasp_xy is not None:
+                    action[2] += grasp_height_offset
                 if visual_yaw is not None:
                     action[3] = visual_yaw
                 yaw_rotation = pb.getQuaternionFromEuler([0, 0, float(action[3])])
@@ -156,6 +160,30 @@ def policy_trial(model, sim, seed, action_mode="joint", legacy_image_yaw=True,
                 for value, (lower, upper) in zip(sim.q, LIMITS[:6])))}
 
 
+def pack_evaluation(learned, teacher, args, action_mode):
+    return {
+        "protocol": f"Matched held-out B601-RS open-table sorting; policy predicts eight {action_mode} waypoints per object and uses a fixed return-home reset; teacher may retry up to three times.",
+        "checkpoint": str(args.checkpoint),
+        "audit_grasps": args.audit_grasps,
+        "visual_yaw_correction": args.visual_yaw_correction,
+        "visual_grasp_correction": args.visual_grasp_correction,
+        "grasp_height_offset_m": args.grasp_height_offset,
+        "seed_range": [args.seed_start, args.seed_start + args.trials - 1],
+        "trials": args.trials,
+        "completed_trials": len(learned),
+        "complete": len(learned) == args.trials,
+        "policy": {"successes": sum(row["success"] for row in learned),
+                   "objects_placed": sum(row["objects_placed"] for row in learned),
+                   "objects_attempted": 3 * len(learned), "records": learned},
+        "teacher": {"successes": sum(row["success"] for row in teacher),
+                    "objects_placed": sum(sum(obj["success"] for obj in row["objects"]) for row in teacher),
+                    "objects_attempted": 3 * len(teacher), "records": teacher},
+        "learned_policy_uses_teacher_retries": False,
+        "teacher_results_reused": bool(args.teacher_results),
+        "simulator_only": True,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", type=Path, default=ROOT / "artifacts" / "b601-bc-v1" / "policy.pt")
@@ -171,6 +199,10 @@ def main():
                         help="use the overhead color mask to set face-aligned yaw for each cube")
     parser.add_argument("--visual-grasp-correction", action="store_true",
                         help="use calibrated overhead pixels to set cube-center XY and face yaw on grasp waypoints")
+    parser.add_argument("--grasp-height-offset", type=float, default=0.0,
+                        help="add a vertical offset in metres to the camera-corrected descend and close waypoints")
+    parser.add_argument("--resume", action="store_true",
+                        help="continue a partial output file with matching settings")
     args = parser.parse_args()
     if args.trials < 1:
         parser.error("trials must be positive")
@@ -191,27 +223,49 @@ def main():
         parser.error("--visual-grasp-correction requires a checkpoint trained with visual target features")
     if args.visual_grasp_correction and checkpoint.get("camera_view") != "overhead":
         parser.error("--visual-grasp-correction requires an overhead-camera checkpoint")
+    if args.grasp_height_offset and not args.visual_grasp_correction:
+        parser.error("--grasp-height-offset requires --visual-grasp-correction")
+    if args.grasp_height_offset and action_mode != "cartesian":
+        parser.error("--grasp-height-offset requires a Cartesian-action checkpoint")
     model = TinyB601Policy(spatial_size=spatial_size, phase_conditioned=phase_conditioned,
                            action_dim=6 if action_mode == "cartesian" else 8,
                            visual_feature_dim=int(checkpoint.get("visual_feature_dim", 0)))
     model.load_state_dict(checkpoint["state_dict"])
     learned, teacher = [], []
+    if args.resume:
+        if not args.output.is_file():
+            parser.error("--resume requires an existing partial output file")
+        saved = json.loads(args.output.read_text(encoding="utf-8"))
+        expected = {"checkpoint": str(args.checkpoint), "seed_range": [args.seed_start, args.seed_start + args.trials - 1],
+                    "trials": args.trials, "audit_grasps": args.audit_grasps,
+                    "visual_yaw_correction": args.visual_yaw_correction,
+                    "visual_grasp_correction": args.visual_grasp_correction,
+                    "grasp_height_offset_m": args.grasp_height_offset}
+        if any(saved.get(key) != value for key, value in expected.items()):
+            parser.error("partial output settings do not match this run")
+        learned = saved["policy"]["records"]
+        teacher = saved["teacher"]["records"]
+        if len(learned) != len(teacher) or len(learned) > args.trials:
+            parser.error("partial output has mismatched or excessive records")
     teacher_by_seed = {}
     if args.teacher_results:
         saved_teacher = json.loads(args.teacher_results.read_text(encoding="utf-8"))
         teacher_by_seed = {row["seed"]: row for row in saved_teacher["teacher"]["records"]}
+    teacher_by_seed.update({row["seed"]: row for row in teacher})
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     sim = B601Sim(size=image_size, observation_size=image_size,
                   camera_view=checkpoint.get("camera_view", "oblique"))
     sim.align_gripper_to_object = True
     try:
-        for index in range(args.trials):
+        for index in range(len(learned), args.trials):
             seed = args.seed_start + index
             learned_result = policy_trial(
                 model, sim, seed, action_mode,
                 legacy_image_yaw=checkpoint.get("visual_yaw_convention", "legacy") == "legacy",
                 audit_grasps=args.audit_grasps,
                 visual_yaw_correction=args.visual_yaw_correction,
-                visual_grasp_correction=args.visual_grasp_correction)
+                visual_grasp_correction=args.visual_grasp_correction,
+                grasp_height_offset=args.grasp_height_offset)
             learned.append(learned_result)
             if seed in teacher_by_seed:
                 teacher_result = teacher_by_seed[seed]
@@ -226,25 +280,11 @@ def main():
                               "policy_placed": learned_result["objects_placed"],
                               "teacher_success": teacher_result["success"],
                               "teacher_placed": sum(row["success"] for row in teacher_result["objects"])}), flush=True)
+            args.output.write_text(json.dumps(pack_evaluation(learned, teacher, args, action_mode), indent=2) + "\n",
+                                   encoding="utf-8")
     finally:
         sim.close()
-    result = {
-        "protocol": f"Matched held-out B601-RS open-table sorting; policy predicts eight {action_mode} waypoints per object and uses a fixed return-home reset; teacher may retry up to three times.",
-        "visual_yaw_correction": args.visual_yaw_correction,
-        "visual_grasp_correction": args.visual_grasp_correction,
-        "seed_range": [args.seed_start, args.seed_start + args.trials - 1],
-        "trials": args.trials,
-        "policy": {"successes": sum(row["success"] for row in learned),
-                   "objects_placed": sum(row["objects_placed"] for row in learned),
-                   "objects_attempted": 3 * args.trials, "records": learned},
-        "teacher": {"successes": sum(row["success"] for row in teacher),
-                    "objects_placed": sum(sum(obj["success"] for obj in row["objects"]) for row in teacher),
-                    "objects_attempted": 3 * args.trials, "records": teacher},
-        "learned_policy_uses_teacher_retries": False,
-        "teacher_results_reused": bool(args.teacher_results),
-        "simulator_only": True,
-    }
-    args.output.parent.mkdir(parents=True, exist_ok=True)
+    result = pack_evaluation(learned, teacher, args, action_mode)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"policy_successes": result["policy"]["successes"],
                       "teacher_successes": result["teacher"]["successes"],
