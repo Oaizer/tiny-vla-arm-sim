@@ -1122,5 +1122,11 @@
         }
       ]
     }
-  ]
+  ],
+  "latestTrial": {
+    "title": "V24 · final held-out seed 678059",
+    "scene": "Replay of the final scene in the 60-seed V24 matched test.",
+    "video": "media/b601-rs-v24-latest-seed-678059.mp4",
+    "outcome": "2/3 cubes placed"
+  }
 }
