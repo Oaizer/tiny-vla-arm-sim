@@ -48,7 +48,7 @@
     .lead-film{position:relative;min-height:310px;background:#222;overflow:hidden}
     .lead-film video{width:100%;height:100%;min-height:310px;display:block;object-fit:cover;object-position:center 42%;background:#222;color:var(--paper)}
     .watch-link{position:absolute;right:14px;bottom:14px;background:var(--paper);padding:9px 12px;font:11px var(--mono);text-transform:uppercase;letter-spacing:.04em;text-decoration:none}
-    .film-label{position:relative;display:block;background:var(--ink);color:var(--paper);padding:7px 10px;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+    .film-label{position:relative;display:block;background:var(--ink);color:var(--paper);padding:7px 10px;font:11px var(--mono)}
     .lead-copy{padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid var(--ink)}
     .lead-copy h2{font:12px/1.7 var(--mono);text-transform:uppercase;letter-spacing:.08em;margin:0 0 15px}
     .lead-copy p{margin:0 0 15px;color:var(--muted);font-size:14px}
@@ -114,20 +114,20 @@
       </div>
       <p class="hero-intro">Small simulated policies, tested on harder arm tasks. See the strongest results first, then open the trial record for seed-level evidence.</p>
       <div id="results" class="glance" aria-label="Best results at a glance">
-        <p><strong>V13 · Panda VLA</strong>57/80 task successes vs 51/80 feedback. Matched trials; exact p = 0.210.</p>
-        <p><strong>B601-RS · teacher height pilot</strong>0.10 m: 33/36 cubes and 9/12 sorts, versus 23/36 and 2/12 at 0.08 m. Pilot test; p = 0.016.</p>
+        <p><strong>B601-RS · V22 confirmation</strong>219/360 cubes and 27/120 full sorts; V19 scored 141/360 and 8/120. Paired tests favor V22.</p>
+        <p><strong>B601-RS · repeated result</strong>Across two fresh tests, V22 placed 441/720 cubes. V19 placed 297/720.</p>
+        <p><strong>B601-RS · grasp contact</strong>On confirmation, no-contact objects fell from 80 to 14; face yaw error fell from 16.20° to 7.58°.</p>
         <p><strong>B601-RS · barrier task</strong>8/12 sorts and 30/36 cubes across a 45 mm wall.</p>
-        <p><strong>B601-RS · learned V19</strong>V19 placed more cubes than V18 in two fresh 120-scene tests: 150 vs 130 (p = 0.235), then 145 vs 124 (p = 0.124). Both tests remain inconclusive.</p>
       </div>
       <div class="lead-evidence">
         <div class="lead-film">
-          <span class="film-label">Learned B601-RS V19 · confirmation · dual camera · seed 644004 · 1280 × 768 · 10 fps</span>
-          <video controls preload="metadata" playsinline aria-label="Dual-camera simulation of learned B601-RS V19 completing a three-cube sort on confirmation seed 644004"><source src="media/b601-rs-bc-v19-confirmation-seed-644004-dual.mp4" type="video/mp4">Your browser does not support video playback.</video>
+          <span class="film-label">B601-RS V22 · independent confirmation · dual camera · seed 674007 · 1280 × 768 · 10 fps</span>
+          <video controls preload="metadata" playsinline aria-label="Dual-camera simulation of B601-RS V22 placing all three cubes on independent confirmation seed 674007"><source src="media/b601-rs-v19-v22-confirmation-seed-674007-v22.mp4" type="video/mp4">Your browser does not support video playback.</video>
           <a class="watch-link" href="#trials">Browse all trial films ↓</a>
         </div>
         <div class="lead-copy">
-          <div><h2>Best observed learned run</h2><p>V19 gives blue-cube instructions 1.5× loss weight. On this confirmation scene, V19 sorts all three cubes; V18 places none. The overhead view includes a synchronized side inset to show the B601 gripper as it moves. V19 receives camera, joint, phase, and instruction inputs.</p></div>
-          <div class="result-stamp"><b>3 OF 3 IN THIS CLIP</b>First fresh test: 150/360 placements and 14/120 full sorts; V18 scored 130/360 and 8/120 (p = 0.235). Confirmation: 145/360 and 9/120; V18 scored 124/360 and 9/120 (p = 0.124). Both comparisons favor V19 on placements, but neither is conclusive.</div>
+          <div><h2>Camera-corrected grasp policy</h2><p>V22 keeps the small V19 network and uses calibrated overhead pixels to set cube-center position and face yaw during grasping. The side inset shows the same scene from another camera. Every result on this page uses simulation only.</p></div>
+          <div class="result-stamp"><b>3 OF 3 IN THIS CLIP</b>Independent confirmation: V22 placed 219/360 cubes and completed 27/120 full sorts. V19 placed 141/360 and completed 8/120. V22 won 67 paired placement trials, lost 16, and tied 37 (p = 1.39 × 10⁻⁸).</div>
         </div>
       </div>
     </section>

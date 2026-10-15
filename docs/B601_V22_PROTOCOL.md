@@ -10,4 +10,4 @@ All trials use PyBullet and the simulated Seeed reBot B601-RS. No physical arm i
 
 ## Independent confirmation
 
-After the first comparison, run a second fresh matched set on seeds 674000–674119. Keep both checkpoints and the V22 correction fixed. Run V19 first and reuse its teacher records for V22. Use the same contact audit and exact paired sign test. This set tests whether the placement gain repeats; do not tune the correction against these scenes.
+After the first comparison, a second fresh matched set used seeds 674000–674119. Both checkpoints and the V22 correction stayed fixed. V19 ran first; V22 reused its teacher records. The same contact audit and exact paired sign test were used. No correction tuning used these scenes. See the [confirmation result](B601_V22_RESULTS.md#independent-confirmation).

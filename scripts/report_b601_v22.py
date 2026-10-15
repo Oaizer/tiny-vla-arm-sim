@@ -36,6 +36,46 @@ def summarize_contacts(records):
     }
 
 
+def compare_runs(baseline, candidate):
+    old, new = baseline["policy"]["records"], candidate["policy"]["records"]
+    assert len(old) == len(new)
+    wins = losses = ties = sort_wins = sort_losses = sort_ties = 0
+    seeds = []
+    for left, right in zip(old, new):
+        assert left["seed"] == right["seed"]
+        delta = right["objects_placed"] - left["objects_placed"]
+        wins += delta > 0
+        losses += delta < 0
+        ties += delta == 0
+        delta = int(right["success"]) - int(left["success"])
+        sort_wins += delta > 0
+        sort_losses += delta < 0
+        sort_ties += delta == 0
+        seeds.append({"seed": left["seed"], "v19_cubes": left["objects_placed"],
+                      "v22_cubes": right["objects_placed"],
+                      "v19_full_sort": left["success"], "v22_full_sort": right["success"]})
+    return {
+        "seed_range": [old[0]["seed"], old[-1]["seed"]],
+        "trials": len(old),
+        "v19": {"full_sorts": baseline["policy"]["successes"],
+                "cubes_placed": baseline["policy"]["objects_placed"],
+                "cubes_attempted": baseline["policy"]["objects_attempted"],
+                "contact_audit": summarize_contacts(old)},
+        "v22": {"full_sorts": candidate["policy"]["successes"],
+                "cubes_placed": candidate["policy"]["objects_placed"],
+                "cubes_attempted": candidate["policy"]["objects_attempted"],
+                "contact_audit": summarize_contacts(new)},
+        "paired_placements_v22_vs_v19": {
+            "wins": wins, "losses": losses, "ties": ties,
+            "exact_sign_test_two_sided_p": exact_sign_p(wins, losses),
+            "difference_cubes": candidate["policy"]["objects_placed"] - baseline["policy"]["objects_placed"]},
+        "paired_full_sorts_v22_vs_v19": {
+            "wins": sort_wins, "losses": sort_losses, "ties": sort_ties,
+            "exact_sign_test_two_sided_p": exact_sign_p(sort_wins, sort_losses)},
+        "paired_seed_results": seeds,
+    }
+
+
 def main():
     baseline = json.loads((EVAL / "v19-673000-120.json").read_text(encoding="utf-8"))
     candidate = json.loads((EVAL / "v22-673000-120.json").read_text(encoding="utf-8"))
@@ -101,6 +141,15 @@ def main():
         },
         "paired_seed_results": seeds,
     }
+    confirmation_baseline = ROOT / "artifacts" / "b601-v22-confirmation" / "v19-674000-120.json"
+    confirmation_candidate = ROOT / "artifacts" / "b601-v22-confirmation" / "v22-674000-120.json"
+    if confirmation_baseline.is_file() and confirmation_candidate.is_file():
+        confirmation = compare_runs(
+            json.loads(confirmation_baseline.read_text(encoding="utf-8")),
+            json.loads(confirmation_candidate.read_text(encoding="utf-8")))
+        confirmation["protocol"] = ("120 fresh matched scenes; seeds 674000–674119; frozen V19 checkpoint and "
+                                    "camera correction; teacher records reused from V19 baseline; contact audit enabled.")
+        summary["independent_confirmation"] = confirmation
     destination = ROOT / "portfolio" / "b601-v22-evaluation.json"
     destination.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"output": str(destination),

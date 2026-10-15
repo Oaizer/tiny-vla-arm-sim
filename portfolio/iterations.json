@@ -643,7 +643,7 @@
       "question": "Can calibrated overhead pixels improve the policy's grasp alignment?",
       "evidence": "120 fresh matched held-out scenes; frozen V19 checkpoint; contact audit enabled.",
       "measure": "V22: 222/360 cubes; 27/120 sorts. V19: 156/360 cubes; 18/120 sorts.",
-      "detail": "V22 had 60 wins, 26 losses, and 34 ties by scene (exact paired sign test p = 0.000317). Mean wrist-to-face yaw error fell from 14.86° to 7.04°. Objects with no finger contact fell from 64 to 21; mean corner proximity fell from 0.559 to 0.466. The paired full-sort result is uncertain (20 wins, 11 losses, 89 ties; p = 0.150). An independent confirmation test is in progress.",
+      "detail": "V22 had 60 wins, 26 losses, and 34 ties by scene (exact paired sign test p = 0.000317). Mean wrist-to-face yaw error fell from 14.86° to 7.04°. Objects with no finger contact fell from 64 to 21; mean corner proximity fell from 0.559 to 0.466. The first test's paired full-sort result was uncertain (20 wins, 11 losses, 89 ties; p = 0.150). Independent confirmation (seeds 674000–674119): V22 placed 219/360 cubes and completed 27/120 sorts; V19 placed 141/360 and completed 8/120. V22 had 67 placement wins, 16 losses, and 37 ties (p = 1.4e-08); full-sort outcomes were 26 wins, 7 losses, and 87 ties (p = 0.001). Yaw error fell from 16.20° to 7.58°; no-contact objects fell from 80 to 14.",
       "result": "222/360 cubes; 27/120 full sorts",
       "status": "good",
       "source": "../docs/B601_V22_RESULTS.md",
@@ -1021,7 +1021,7 @@
     },
     {
       "title": "Matched V19 and V22 grasp · seed 673003",
-      "scene": "Same held-out B601-RS simulation scene. V19 places none of the cubes; V22's calibrated camera grasp correction places all three. Across the full matched set, V19 placed 156/360 cubes and completed 18/120 sorts; V22 placed 222/360 and completed 27/120. V22 had 60 wins, 26 losses, and 34 ties (p = 0.000317). Full-sort improvement is uncertain, and an independent confirmation is in progress. Both clips use the overhead view with a synchronized oblique inset. 1280 × 768, 10 fps.",
+      "scene": "Same first-test B601-RS simulation scene. V19 places none of the cubes; V22's calibrated camera grasp correction places all three. Across the 120 first-test scenes, V19 placed 156/360 cubes and completed 18/120 sorts; V22 placed 222/360 and completed 27/120. V22 had 60 wins, 26 losses, and 34 ties (p = 0.000317). An independent test on seeds 674000–674119 confirmed the placement gain: V19 placed 141/360, V22 placed 219/360; the paired result was 67 wins, 16 losses, and 37 ties (p = 1.39e-8). Both clips use the overhead view with a synchronized oblique inset. 1280 × 768, 10 fps.",
       "videos": [
         {
           "name": "V19 · 0/3 placements",
@@ -1032,6 +1032,22 @@
           "name": "V22 · 3/3 placements",
           "outcome": "SUCCESS",
           "file": "media/b601-rs-v19-v22-matched-seed-673003-v22.mp4"
+        }
+      ]
+    },
+    {
+      "title": "V22 confirmation · matched seed 674007",
+      "scene": "Independent matched B601-RS simulation scene from the confirmation set. V19 places none of the cubes; V22 places all three. Across the 120 confirmation scenes, V19 placed 141/360 cubes and completed 8/120 sorts; V22 placed 219/360 cubes and completed 27/120. V22 had 67 placement wins, 16 losses, and 37 ties (p = 1.39e-8). Full-sort outcomes were 26 wins, 7 losses, and 87 ties (p = 0.0013). Both clips use the overhead view with synchronized oblique inset. 1280 × 768, 10 fps.",
+      "videos": [
+        {
+          "name": "V19 · 0/3 placements",
+          "outcome": "FAILED",
+          "file": "media/b601-rs-v19-v22-confirmation-seed-674007-v19.mp4"
+        },
+        {
+          "name": "V22 · 3/3 placements",
+          "outcome": "SUCCESS",
+          "file": "media/b601-rs-v19-v22-confirmation-seed-674007-v22.mp4"
         }
       ]
     }

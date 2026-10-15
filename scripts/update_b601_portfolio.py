@@ -245,6 +245,24 @@ def main():
         paired = result["paired_placements_v22_vs_v19"]
         full_sorts = result["paired_full_sorts_v22_vs_v19"]
         audit19, audit22 = v19["contact_audit"], v22["contact_audit"]
+        confirmation = result.get("independent_confirmation")
+        confirm_text = ""
+        if confirmation:
+            c19, c22 = confirmation["v19"], confirmation["v22"]
+            cp = confirmation["paired_placements_v22_vs_v19"]
+            cs = confirmation["paired_full_sorts_v22_vs_v19"]
+            ca19, ca22 = c19["contact_audit"], c22["contact_audit"]
+            confirm_text = (f" Independent confirmation (seeds {confirmation['seed_range'][0]}–"
+                            f"{confirmation['seed_range'][1]}): V22 placed {c22['cubes_placed']}/360 cubes "
+                            f"and completed {c22['full_sorts']}/120 sorts; V19 placed "
+                            f"{c19['cubes_placed']}/360 and completed {c19['full_sorts']}/120. "
+                            f"V22 had {cp['wins']} placement wins, {cp['losses']} losses, and {cp['ties']} ties "
+                            f"(p = {cp['exact_sign_test_two_sided_p']:.2g}); full-sort outcomes were "
+                            f"{cs['wins']} wins, {cs['losses']} losses, and {cs['ties']} ties "
+                            f"(p = {cs['exact_sign_test_two_sided_p']:.3f}). Yaw error fell from "
+                            f"{ca19['mean_face_yaw_error_deg']:.2f}° to {ca22['mean_face_yaw_error_deg']:.2f}°; "
+                            f"no-contact objects fell from {ca19['objects_with_no_finger_contact']} to "
+                            f"{ca22['objects_with_no_finger_contact']}.")
         item = {
             "id": "b601-bc-v22",
             "title": "BC V22 · Camera-corrected grasp poses",
@@ -260,10 +278,9 @@ def main():
                        f"from {audit19['objects_with_no_finger_contact']} to "
                        f"{audit22['objects_with_no_finger_contact']}; mean corner proximity fell from "
                        f"{audit19['mean_corner_proximity']:.3f} to {audit22['mean_corner_proximity']:.3f}. "
-                       f"The paired full-sort result is uncertain ({full_sorts['wins']} wins, "
+                       f"The first test's paired full-sort result was uncertain ({full_sorts['wins']} wins, "
                        f"{full_sorts['losses']} losses, {full_sorts['ties']} ties; "
-                       f"p = {full_sorts['exact_sign_test_two_sided_p']:.3f}). An independent confirmation "
-                       "test is in progress."),
+                       f"p = {full_sorts['exact_sign_test_two_sided_p']:.3f}).{confirm_text}"),
             "result": f"{v22['cubes_placed']}/360 cubes; {v22['full_sorts']}/120 full sorts",
             "status": "good",
             "source": "../docs/B601_V22_RESULTS.md",
@@ -330,11 +347,19 @@ def main():
         },
         {
             "title": "Matched V19 and V22 grasp · seed 673003",
-            "scene": "Same held-out B601-RS simulation scene. V19 places none of the cubes; V22's calibrated camera grasp correction places all three. Across the full matched set, V19 placed 156/360 cubes and completed 18/120 sorts; V22 placed 222/360 and completed 27/120. V22 had 60 wins, 26 losses, and 34 ties (p = 0.000317). Full-sort improvement is uncertain, and an independent confirmation is in progress. Both clips use the overhead view with a synchronized oblique inset. 1280 × 768, 10 fps.",
+            "scene": "Same first-test B601-RS simulation scene. V19 places none of the cubes; V22's calibrated camera grasp correction places all three. Across the 120 first-test scenes, V19 placed 156/360 cubes and completed 18/120 sorts; V22 placed 222/360 and completed 27/120. V22 had 60 wins, 26 losses, and 34 ties (p = 0.000317). An independent test on seeds 674000–674119 confirmed the placement gain: V19 placed 141/360, V22 placed 219/360; the paired result was 67 wins, 16 losses, and 37 ties (p = 1.39e-8). Both clips use the overhead view with a synchronized oblique inset. 1280 × 768, 10 fps.",
             "videos": [{"name": "V19 · 0/3 placements", "outcome": "FAILED",
                         "file": "media/b601-rs-v19-v22-matched-seed-673003-v19.mp4"},
                        {"name": "V22 · 3/3 placements", "outcome": "SUCCESS",
                         "file": "media/b601-rs-v19-v22-matched-seed-673003-v22.mp4"}],
+        },
+        {
+            "title": "V22 confirmation · matched seed 674007",
+            "scene": "Independent matched B601-RS simulation scene from the confirmation set. V19 places none of the cubes; V22 places all three. Across the 120 confirmation scenes, V19 placed 141/360 cubes and completed 8/120 sorts; V22 placed 219/360 cubes and completed 27/120. V22 had 67 placement wins, 16 losses, and 37 ties (p = 1.39e-8). Full-sort outcomes were 26 wins, 7 losses, and 87 ties (p = 0.0013). Both clips use the overhead view with synchronized oblique inset. 1280 × 768, 10 fps.",
+            "videos": [{"name": "V19 · 0/3 placements", "outcome": "FAILED",
+                        "file": "media/b601-rs-v19-v22-confirmation-seed-674007-v19.mp4"},
+                       {"name": "V22 · 3/3 placements", "outcome": "SUCCESS",
+                        "file": "media/b601-rs-v19-v22-confirmation-seed-674007-v22.mp4"}],
         },
     ]
     trial_titles = {trial["title"]: index for index, trial in enumerate(page["trials"])}
